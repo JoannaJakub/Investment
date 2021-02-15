@@ -20,6 +20,8 @@ public class Ownedstocks {
     private Storage storage;
     @ManyToOne
     private Users users;
+    @ManyToOne
+    private Stocks stocks;
 }
 
 

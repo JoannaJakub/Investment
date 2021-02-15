@@ -24,5 +24,7 @@ public class Ownedcryptocurrencies {
     private Storage storage;
     @ManyToOne
     private Users users;
+    @ManyToOne
+    private Cryptocurrencies cryptocurrencies;
 }
 
