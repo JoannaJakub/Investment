@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
     <meta charset="utf-8">
@@ -21,7 +22,7 @@
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="resources/distribution/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="resources/distribution/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="resources/distribution/img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -48,16 +49,17 @@
                 <div class="col-lg-6">
                     <div class="form d-flex align-items-center">
                         <div class="content">
-                            <form method="get" class="form-validate mb-4">
+                            <form method="post" class="form-validate mb-4" >
                                 <div class="form-group">
-                                    <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">
-                                    <label for="login-username" class="label-material">User Name</label>
+                                    <input id="login-username" type="text" name="username" placeholder="Username" required data-msg="Please enter your username" class="input-material">
+                                    <label for="login-username" class="label-material"></label>
                                 </div>
                                 <div class="form-group">
-                                    <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
-                                    <label for="login-password" class="label-material">Password</label>
+                                    <input id="login-password" type="password" name="password" placeholder="Password" required data-msg="Please enter your password" class="input-material">
+                                    <label for="login-password" class="label-material"></label>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Login</button>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </form><a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register" class="signup">Signup</a>
                         </div>
                     </div>
@@ -71,12 +73,11 @@
     </div>
 </div>
 <!-- JavaScript files-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/popper.js/umd/popper.min.js"> </script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
-<script src="vendor/chart.js/Chart.min.js"></script>
-<script src="vendor/jquery-validation/jquery.validate.min.js"></script>
-<script src="js/front.js"></script>
+<script src="resources/distribution/vendor/jquery/jquery.min.js"></script>
+<script src="resources/distribution/vendor/popper.js/umd/popper.min.js"> </script>
+<script src="resources/distribution/vendor/bootstrap/js/bootstrap.js"></script>
+<script src="resources/distribution/vendor/jquery.cookie/jquery.cookie.js"> </script>
+<script src="resources/distribution/vendor/chart.js/Chart.min.js"></script>
+
 </body>
 </html>

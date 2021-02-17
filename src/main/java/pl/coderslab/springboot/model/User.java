@@ -10,20 +10,23 @@ import javax.persistence.*;
 @Entity
 @Component
 @RequiredArgsConstructor
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
-    private String firstName;
-    @Column(nullable = false)
-    private String lastName;
-    @Column(nullable = false, length = 64)
-    private String password;
-    @Column(nullable = false, unique = true)
+
+    @Column(nullable = false, unique = true, length = 45)
     private String email;
 
+    @Column(nullable = false, length = 64)
+    private String password;
+
+    @Column(name = "firstname", nullable = false, length = 20)
+    private String firstName;
+
+    @Column(name = "lastname", nullable = false, length = 20)
+    private String lastName;
 
 
 }

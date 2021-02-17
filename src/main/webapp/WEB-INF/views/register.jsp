@@ -1,8 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,22 +50,23 @@
                 <div class="col-lg-6 bg-white">
                     <div class="form d-flex align-items-center">
                         <div class="content">
-                            <form class="text-left form-validate" method="post" action="<c:url value="/register"/>">
+                            <form:form action="register_success" modelAttribute="user" class="text-left form-validate" method="post" >
                                 <div class="form-group-material">
-                                    <input id="register-name" type="text" name="registerName" required data-msg="Please enter your name" class="input-material">
-                                    <label for="register-name" class="label-material">Name</label>
+                                    <form:input id="firstName" type="text" name="firstName" path="firstName" placeholder="Name"   data-msg="Please enter your name" class="input-material"/>
+                                    <form:hidden path="id" value="${user.id}"/><br>
+                                    <label for="firstName" class="label-material"></label>
                                 </div>
                                 <div class="form-group-material">
-                                    <input id="register-surname" type="text" name="registerSurname" required data-msg="Please enter your surname" class="input-material">
-                                    <label for="register-surname" class="label-material">Surname</label>
+                                    <form:input id="register-surname" type="text" name="registerSurname" path="lastName" placeholder="Surname" data-msg="Please enter your surname" class="input-material"/>
+                                    <label for="register-surname" class="label-material"></label>
                                 </div>
                                 <div class="form-group-material">
-                                    <input id="register-email" type="email" name="registerEmail" required data-msg="Please enter a valid email address" class="input-material">
-                                    <label for="register-email" class="label-material">Email Address      </label>
+                                    <form:input id="register-email" type="email" name="registerEmail" path="email"  placeholder="Email Address"  data-msg="Please enter a valid email address" class="input-material"/>
+                                    <label for="register-email" class="label-material">      </label>
                                 </div>
                                 <div class="form-group-material">
-                                    <input id="register-password" type="password" name="registerPassword" required data-msg="Please enter your password" class="input-material">
-                                    <label for="register-password" class="label-material">Password        </label>
+                                    <form:input id="register-password" type="password" name="registerPassword" path="password"  placeholder="Password"  data-msg="Please enter your password" class="input-material"/>
+                                    <label for="register-password" class="label-material">        </label>
                                 </div>
                                 <div class="form-group terms-conditions text-center">
                                     <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
@@ -72,7 +75,7 @@
                                 <div class="form-group text-center">
                                     <input id="register" type="submit" value="Register" class="btn btn-primary">
                                 </div>
-                            </form><small>Already have an account? </small><a href="login" class="signup">Login</a>
+                            </form:form><small>Already have an account? </small><a href="admin/login" class="signup">Login</a>
                         </div>
                     </div>
                 </div>

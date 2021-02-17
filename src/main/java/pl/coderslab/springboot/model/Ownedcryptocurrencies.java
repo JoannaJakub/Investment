@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
 @Entity
 @Data
 @Component
@@ -23,7 +23,7 @@ public class Ownedcryptocurrencies {
     @ManyToOne
     private Storage storage;
     @ManyToOne
-    private Users users;
+    private User user;
     @ManyToOne
     private Cryptocurrencies cryptocurrencies;
 }
