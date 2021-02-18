@@ -9,16 +9,26 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.coderslab.springboot.model.Cryptocurrencies;
+import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.repository.CryptocurrencyRepository;
+import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 import pl.coderslab.springboot.repository.UserRepository;
 import pl.coderslab.springboot.model.User;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class AppController {
 
     @Autowired
     private UserRepository userRepo;
+    @Autowired
+    private CryptocurrencyRepository cryptocurrencyRepo;
+    @Autowired
+    private OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo;
+
 
     @GetMapping("")
     public String viewHomePage() {
@@ -31,6 +41,7 @@ public class AppController {
 
         return "register";
     }
+
     @RequestMapping(value = "/register_success", method = RequestMethod.POST)
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
@@ -50,15 +61,47 @@ public class AppController {
         return "login";
     }
 
-  /*  @GetMapping("/users")
-    public String listUsers(Model model) {
-        List<User> listUsers = userRepo.findAll();
-        model.addAttribute("listUsers", listUsers);
-
-        return "users";
-    }*/
     @GetMapping("/dashboard")
-    public String dashboard() {
+    public String listUsers(Model model) {
+        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.find10All();
+        model.addAttribute("cryptocurrencies", cryptocurrencies);
+
         return "dashboard";
+    }
+
+    /* @GetMapping("/dashboard")
+     public String dashboard() {
+         return "dashboard";
+     }*/
+    @GetMapping("/allCrypto")
+    public String allCrypto(Model model) {
+        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
+        model.addAttribute("cryptocurrencies", cryptocurrencies);
+        return "allCrypto";
+    }
+
+    @RequestMapping("/yourCrypto")
+    public String yourCrypto(Model model, User user) {
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findAllByUser(user);
+        model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+
+        return "yourCrypto";
+    }
+
+    @GetMapping("/addCrypto")
+    public String addCrypto(Model model) {
+        model.addAttribute("ownedcryptocurrencies", new Ownedcryptocurrencies());
+        return "addCrypto";
+    }
+
+    @RequestMapping(value = "/cryptoSuccess", method = RequestMethod.POST)
+    public String processAddingCrypto(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addCrypto";
+        } else {
+            ownedcryptocurrenciesRepo.save(ownedcryptocurrencies);
+            return "cryptoSuccess";
+        }
+
     }
 }

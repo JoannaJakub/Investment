@@ -92,16 +92,35 @@
             </div>
         </section>
         <section class="section-more padding-small">
-            <div class="container d-flex justify-content-between">
-                <div class="mr-4">
-                    <h1 class="pb-3">Lorem ipsum dolor sit amet</h1>
-                    <h4 class="pt-1">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.</h4>
-                </div>
-                <div class="ml-4 align-self-center">
-                    <button class="btn btn-color rounded-0 mt-4 pl-4 pr-4">
-                        <a href="landingPage.html">Lorem ipsum</a>
-                    </button>
+            <div class="col-lg-20">
+                <div class="block">
+                    <div class="title"><strong>Crypto</strong></div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Num_market_pairs</th>
+                                <th>CMC Rank</th>
+                                <th>Circulating Supply</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
+                                <tr>
+                                    <td><c:out value="${cryptocurrencies.id}"/></td>
+                                    <td><c:out value="${cryptocurrencies.name}"/></td>
+                                    <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
+                                    <td><c:out value="${cryptocurrencies.cmc_rank}"/></td>
+                                    <td><c:out value="${cryptocurrencies.circulating_supply}"/></td>
+                                </tr>
+                            </c:forEach>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

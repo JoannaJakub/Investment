@@ -1,13 +1,15 @@
 package pl.coderslab.springboot.service;
 
-
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
-
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,13 +35,13 @@ public class CryptocurrencyService extends CoinMarketCapService {
     private String CRYPTOCURRENCY_MAP_ENDPOINT;
 
 
-    @Value("${pl.coderslab.cmc.api.v1.cryptocurrency.info-endpoint:/v1/cryptocurrency/info}")
+    @Value("${com.rantcrypto.cmc.api.v1.cryptocurrency.info-endpoint:/v1/cryptocurrency/info}")
     private String CRYPTOCURRENCY_INFO_ENDPOINT;
 
-    @Value("${pl.coderslab.cmc.api.v1.cryptocurrency.info-endpoint.cache-time:-1}")
+    @Value("${com.rantcrypto.cmc.api.v1.cryptocurrency.info-endpoint.cache-time:-1}")
     private Long CRYPTOCURRENCY_INFO_ENDPOINT_CACHE_TIME;
 
-    @Value("${pl.coderslab.cmc.api.v1.cryptocurrency.listings-latest-endpoint:/v1/cryptocurrency/listings/latest}")
+    @Value("${com.rantcrypto.cmc.api.v1.cryptocurrency.listings-latest-endpoint:/v1/cryptocurrency/listings/latest}")
     private String CRYPTOCURRENCY_LISTINGS_LATEST_ENDPOINT;
 
     public ResponseEntity<Object> getMap(String listingStatus, Long start, Long limit, String sort, String symbol, String aux) {
@@ -63,7 +65,6 @@ public class CryptocurrencyService extends CoinMarketCapService {
 
         return super.getResponseFromEndpoint(CRYPTOCURRENCY_INFO_ENDPOINT, paramMap);
     }
-
     public ResponseEntity<Object> getListingsLatest(Long start, Long limit, Double priceMin, Double priceMax, Double marketCapMin, Double marketCapMax, Double volume24hMin, Double volume24hMax, Double circulatingSupplyMin, Double circulatingSupplyMax, Double percentChange24hMin, Double percentChange24hMax, String convert, String convertId, String sort, String sortDir, String cryptocurrencyType, String tag, String aux) {
         HashMap<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("start", (start != null ? Long.toString(start) : null));

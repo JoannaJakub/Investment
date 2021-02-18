@@ -26,20 +26,23 @@
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
             <tr>
-                <th>User ID</th>
-                <th>E-mail</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Num_market_pairs</th>
+                <th>CMC Rank</th>
+                <th>Circulating Supply</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${listUsers}" var="listUsers">
+            <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
             <tr>
 
-                <td> <c:out value="${user.id}"/></td>
-                <td> <c:out value="${user.email}"/></td>
-                <td> <c:out value="${user.firstname}"/></td>
-                <td> <c:out value="${user.lastname}"/></td>
+                <td> <c:out value="${cryptocurrencies.id}"/></td>
+                <td> <c:out value="${cryptocurrencies.name}"/></td>
+                <td> <c:out value="${cryptocurrencies.num_market_pairs}"/></td>
+                <td> <c:out value="${cryptocurrencies.cmc_rank}"/></td>
+                <td> <c:out value="${cryptocurrencies.circulating_supply}"/></td>
+
             </tr>
             </tbody>
             </c:forEach>

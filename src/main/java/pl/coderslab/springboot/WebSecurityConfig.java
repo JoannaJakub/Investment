@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/users").authenticated()
+              .antMatchers("/dashboard").authenticated()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin().loginPage("/login")
@@ -74,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private CryptocurrencyService cryptocurrencyService;
 
 
-    @Bean
+   /* @Bean
     CommandLineRunner runner(CryptocurrencyService cryptocurrencyService) {
         return args -> {
             ObjectMapper mapper = new ObjectMapper();
@@ -89,5 +89,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 System.out.println("Unable to save crypto: " + e.getMessage());
             }
         };
-    }
+    }*/
 }

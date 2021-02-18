@@ -51,8 +51,8 @@
                         <div class="content">
                             <form method="post" class="form-validate mb-4" >
                                 <div class="form-group">
-                                    <input id="login-username" type="text" name="username" placeholder="Username" required data-msg="Please enter your username" class="input-material">
-                                    <label for="login-username" class="label-material"></label>
+                                    <input id="login-email" type="text" name="email" placeholder="email" required data-msg="Please enter your email" class="input-material">
+                                    <label for="login-email" class="label-material"></label>
                                 </div>
                                 <div class="form-group">
                                     <input id="login-password" type="password" name="password" placeholder="Password" required data-msg="Please enter your password" class="input-material">
