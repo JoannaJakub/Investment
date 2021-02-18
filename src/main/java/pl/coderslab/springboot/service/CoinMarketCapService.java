@@ -24,17 +24,6 @@ public abstract class CoinMarketCapService {
 
     private HttpEntity<String> httpEntity;
 
-
-    /**
-     * Sends a request to the CoinMarketCap REST API at the given endpoint. Endpoint string should
-     * begin with /v[version]/ (e.g. /v1/) and should not include query parameters. To include query
-     * parameters, supply a HashMap&lt;String, String&gt; HashMap of key-value pairs.
-     *
-     * @param endpoint Endpoint URI beginning with /v[version]/
-     * @param paramMap Request query parameters
-     *
-     * @return JSON response
-     */
     public ResponseEntity<Object> getResponseFromEndpoint(String endpoint, HashMap<String, String> paramMap) {
 
 
@@ -65,33 +54,16 @@ public abstract class CoinMarketCapService {
         return new ResponseEntity<Object>(response.getBody(), HttpStatus.OK);
     }
 
-    /**
-     * Sends a request to the CoinMarketCap REST API at the given endpoint. Endpoint string should
-     * begin with /v[version]/ (e.g. /v1/) and should not include query parameters. To include query
-     * parameters, supply a HashMap&lt;String, String&gt; HashMap of key-value pairs.
-     *
-     * @param endpoint Endpoint URI beginning with /v[version]/
-     *
-     * @return JSON response
-     */
     public ResponseEntity<Object> getResponseFromEndpoint(String endpoint) {
         return getResponseFromEndpoint(endpoint, null);
     }
 
-    /**
-     * Transforms a HashMap of REST endpoint query parameters into a properly formatted
-     * string of query parameters. The key of the HashMap is the key of the query parameter.
-     * The value of the HashMap is the value of the query parameter.
-     *
-     * @param paramMap HashMap of key-value pairs
-     * @return Formatted query parameters that can be appended to an endpoint
-     */
     public String getFormattedParams(HashMap<String, String> paramMap) {
         StringBuilder paramStringBuilder = new StringBuilder("");
         if (paramMap != null) {
             boolean isFirstParam = true;
 
-            for (Map.Entry<String,String> entry : paramMap.entrySet()) {
+            for (Map.Entry<String, String> entry : paramMap.entrySet()) {
                 String key = entry.getKey();
                 String value = entry.getValue();
 
