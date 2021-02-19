@@ -2,12 +2,14 @@ package pl.coderslab.springboot.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -44,6 +46,7 @@ public class CryptocurrencyService extends CoinMarketCapService {
     @Value("${com.rantcrypto.cmc.api.v1.cryptocurrency.listings-latest-endpoint:/v1/cryptocurrency/listings/latest}")
     private String CRYPTOCURRENCY_LISTINGS_LATEST_ENDPOINT;
 
+
     public ResponseEntity<Object> getMap(String listingStatus, Long start, Long limit, String sort, String symbol, String aux) {
         HashMap<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("listing_status", listingStatus);
@@ -55,7 +58,6 @@ public class CryptocurrencyService extends CoinMarketCapService {
 
         return super.getResponseFromEndpoint(CRYPTOCURRENCY_MAP_ENDPOINT, paramMap);
     }
-
     public ResponseEntity<Object> getInfo(String id, String slug, String symbol, String aux) {
         HashMap<String, String> paramMap = new HashMap<String, String>();
         paramMap.put("id", id);
@@ -86,7 +88,6 @@ public class CryptocurrencyService extends CoinMarketCapService {
         paramMap.put("cryptocurrency_type", cryptocurrencyType);
         paramMap.put("tag", tag);
         paramMap.put("aux", aux);
-
         return super.getResponseFromEndpoint(CRYPTOCURRENCY_LISTINGS_LATEST_ENDPOINT, paramMap);
     }
 

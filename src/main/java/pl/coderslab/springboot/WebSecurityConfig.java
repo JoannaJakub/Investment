@@ -30,6 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+
     @Bean
     public UserDetailsService userDetailsService() {return new CustomUserDetailsService();  }
 
@@ -74,13 +75,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private CryptocurrencyService cryptocurrencyService;
 
 
-   /* @Bean
+ /*   @Bean
     CommandLineRunner runner(CryptocurrencyService cryptocurrencyService) {
         return args -> {
             ObjectMapper mapper = new ObjectMapper();
             TypeReference<List<Cryptocurrencies>> typeReference = new TypeReference<List<Cryptocurrencies>>() {
             };
+
             InputStream inputStream = TypeReference.class.getResourceAsStream("/crypto");
+
             try {
                 List<Cryptocurrencies> cryptocurrencies = mapper.readValue(inputStream, typeReference);
                 cryptocurrencyService.save(cryptocurrencies);
