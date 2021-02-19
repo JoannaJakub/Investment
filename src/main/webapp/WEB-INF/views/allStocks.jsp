@@ -12,20 +12,13 @@
 
     <div class="page-content">
         <div class="page-header">
-            <div class="list-inline-item">
-                <h1 class="h4 d-none d-sm-inline">Dashboard</h1>
+            <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom">Dashboard</h2>
             </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom" ><a href="addCrypto">Add cryptocurrencies</a></h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
-            </div>
-
         </div>
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item">Your investment</li>
+                <li class="breadcrumb-item"><a href="index.html">Kryptowaluty</a></li>
             </ul>
         </div>
         <section class="no-padding-top">
@@ -35,37 +28,8 @@
 
                     </div>
                 </div>
-                <div class="col-lg-20">
-                    <div class="block">
-                        <div class="title"><strong>Stocks</strong></div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-sm">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Num_market_pairs</th>
-                                    <th>CMC Rank</th>
-                                    <th>Circulating Supply</th>
-                                </tr>
-                                </thead>
-                                <tbody>
 
-                                <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
-                                    <tr>
-                                        <td><c:out value="${cryptocurrencies.id}"/></td>
-                                        <td><c:out value="${cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
-                                        <td><c:out value="${cryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${cryptocurrencies.circulating_supply}"/></td>
-                                    </tr>
-                                </c:forEach>
 
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="col-lg-20">
                     <div class="block">
@@ -76,9 +40,13 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Num_market_pairs</th>
+                                    <th>Symbol</th>
+                                    <th>Num market pairs</th>
                                     <th>CMC Rank</th>
                                     <th>Circulating Supply</th>
+                                    <th>Total Supply</th>
+                                    <th>Volume 24h Max</th>
+                                    <th>Volume 24h Min</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -87,9 +55,13 @@
                                     <tr>
                                         <td><c:out value="${cryptocurrencies.id}"/></td>
                                         <td><c:out value="${cryptocurrencies.name}"/></td>
+                                        <td><c:out value="${cryptocurrencies.symbol}"/></td>
                                         <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
                                         <td><c:out value="${cryptocurrencies.cmc_rank}"/></td>
                                         <td><c:out value="${cryptocurrencies.circulating_supply}"/></td>
+                                        <td><c:out value="${cryptocurrencies.total_supply}"/></td>
+                                        <td><c:out value="${cryptocurrencies.volume24hMax}"/></td>
+                                        <td><c:out value="${cryptocurrencies.volume24hMin}"/></td>
                                     </tr>
                                 </c:forEach>
 

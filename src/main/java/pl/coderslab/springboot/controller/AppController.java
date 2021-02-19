@@ -88,6 +88,22 @@ public class AppController {
         return "yourCrypto";
     }
 
+    @RequestMapping("/yourStocks")
+    public String yourStocks(Model model, User user) {
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findAllByUser(user);
+        model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+
+        return "yourStocks";
+    }
+
+    @GetMapping("/allStocks")
+    public String allStocks(Model model) {
+        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
+        model.addAttribute("cryptocurrencies", cryptocurrencies);
+        return "allStocks";
+    }
+
+
     @GetMapping("/addCrypto")
     public String addCrypto(Model model) {
         model.addAttribute("ownedcryptocurrencies", new Ownedcryptocurrencies());
@@ -102,6 +118,46 @@ public class AppController {
             ownedcryptocurrenciesRepo.save(ownedcryptocurrencies);
             return "cryptoSuccess";
         }
-
     }
+
+    @GetMapping("/addStocks")
+    public String addStocks(Model model) {
+        model.addAttribute("ownedcryptocurrencies", new Ownedcryptocurrencies());
+        return "addStocks";
+    }
+
+
+    @RequestMapping(value = "/stocksSuccess", method = RequestMethod.POST)
+    public String processAddingStocks(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addStocks";
+        } else {
+            ownedcryptocurrenciesRepo.save(ownedcryptocurrencies);
+            return "stocksSuccess";
+        }
+    }
+
+    @GetMapping("/storage")
+    public String allStorage(Model model, User user) {
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findAllByUser(user);
+        model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+        return "storage";
+    }
+
+
+    //LANDING PAGE
+    @GetMapping("allCryptoLandingPage")
+    public String allCryptoLandingPage(Model model) {
+        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
+        model.addAttribute("cryptocurrencies", cryptocurrencies);
+        return "allCryptoLandingPage";
+    }
+
+    @GetMapping("allStocksLandingPage")
+    public String allStocksLandingPage(Model model) {
+        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
+        model.addAttribute("cryptocurrencies", cryptocurrencies);
+        return "allStocksLandingPage";
+    }
+
 }

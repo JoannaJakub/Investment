@@ -1,35 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dark Bootstrap Admin by Bootstrapious.com</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="resources/distribution/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="resources/distribution/vendor/font-awesome/css/font-awesome.min.css">
-    <!-- Custom Font Icons CSS-->
-    <link rel="stylesheet" href="resources/distribution/css/font.css">
-    <!-- Google fonts - Muli-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="resources/distribution/css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="resources/distribution/css/custom.css">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="resources/distribution/img/favicon.ico">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-</head>
+<%@ include file="head.jsp" %>
 <body>
 <header class="header">
+
     <nav class="navbar navbar-expand-lg justify-content-around">
-        <a href="/" class="navbar-brand main-logo">
-            <!-- Navbar Header--><a href="landingPage.jsp" class="navbar-brand">
+        <a href="" class="navbar-brand main-logo">
+            <!-- Navbar Header-->
+            <a href="" class="navbar-brand">
             <div class="brand-text brand-big visible text-uppercase"><strong class="text-primary">Inwestycje</strong><strong>w kupie</strong></div>
             <div class="brand-text brand-sm"><strong class="text-primary">D</strong><strong>A</strong></div></a>
         </a>
@@ -41,13 +19,13 @@
                 <a class="nav-link color-header" href="register">rejestracja</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link" href="#about">o aplikacji</a>
+                <a class="nav-link color-header" href="#about">o aplikacji</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link disabled" href="akcje.html">Akcje</a>
+                <a class="nav-link color-header" href="allStocksLandingPage">Akcje</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link disabled" href="krypto.html">Krypto</a>
+                <a class="nav-link" href="allCryptoLandingPage">Krypto</a>
             </li>
             <li class="nav-item ml-4">
                 <a class="nav-link disabled" href="#contact">Kontakt</a>
@@ -56,7 +34,9 @@
     </nav>
 </header>
 <div>
-    <nav class="page-content">
+    <nav class="navbar navbar-expand-lg justify-content-around">
+
+    <nav class="page-content ">
 
         <section class="section-more padding-small ">
             <div class="container d-flex justify-content-between">
