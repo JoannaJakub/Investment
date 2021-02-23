@@ -1,9 +1,18 @@
 package pl.coderslab.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
 
-public interface StorageRepository extends JpaRepository<User, Long> {
+import java.util.List;
+
+public interface StorageRepository extends JpaRepository<Storage, Long> {
     //@Query("SELECT u FROM User u WHERE u.email = ?1")
-    User findByEmail(String email);
+  //  User findByEmail(String email);
+ //   User findByUsername(String username);
+    @Query(nativeQuery=true, value="SELECT *FROM storage LEFT JOIN user on storage.user_id=user.id where username=?;")
+    List<Storage> findById(String entityUser);
+
 }

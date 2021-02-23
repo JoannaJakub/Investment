@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public interface OwnedcryptocurrenciesRepository extends JpaRepository<Ownedcryptocurrencies, Long> {
-    User findByUserId(String id);
-    @Query(nativeQuery=true, value="SELECT *  FROM ownedcryptocurrencies WHERE user_id=19;")
-    List<Ownedcryptocurrencies> findAllByUser(User id);
+//@Query(nativeQuery=true, value="SELECT user_id  FROM ownedcryptocurrencies JOIN user where username=?;")
+@Query(nativeQuery=true, value="SELECT *FROM ownedcryptocurrencies LEFT JOIN user on ownedcryptocurrencies.user_id=user.id where username=?;")
+List<Ownedcryptocurrencies> findById(String entityUser);
 }

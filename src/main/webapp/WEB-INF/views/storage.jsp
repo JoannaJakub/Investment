@@ -18,7 +18,7 @@
         </div>
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Storage</a></li>
+                <li class="breadcrumb-item"><a href="addStorage">Add storage</a></li>
             </ul>
         </div>
         <section class="no-padding-top">
@@ -30,6 +30,34 @@
                 </div>
 
 
+                <div class="col-lg-20">
+                    <div class="block">
+                        <div class="title"><strong>Your Storage</strong></div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Link</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <c:forEach items="${yourStorage}" var="yourStorage">
+                                    <tr>
+                                        <td><c:out value="${yourStorage.id}"/></td>
+                                        <td><c:out value="${yourStorage.name}"/></td>
+                                        <td><c:out value="${yourStorage.link}"/></td>
+                                    </tr>
+                                </c:forEach>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
 
                 <div class="col-lg-20">
                     <div class="block">
@@ -40,18 +68,16 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Symbol</th>
-                                    <th>Num market pairs</th>
+                                    <th>Link</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
+                                <c:forEach items="${storage}" var="storage">
                                     <tr>
-                                        <td><c:out value="${cryptocurrencies.id}"/></td>
-                                        <td><c:out value="${cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${cryptocurrencies.symbol}"/></td>
-                                        <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
+                                        <td><c:out value="${storage.id}"/></td>
+                                        <td><c:out value="${storage.name}"/></td>
+                                        <td><c:out value="${storage.link}"/></td>
                                     </tr>
                                 </c:forEach>
 
@@ -60,8 +86,8 @@
                         </div>
                     </div>
                 </div>
+
             </div>
-    </div>
     </section>
 
 

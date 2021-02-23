@@ -16,11 +16,7 @@
                 <h2 class="h5 no-margin-bottom">Dashboard</h2>
             </div>
         </div>
-        <div class="container-fluid">
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Kryptowaluty</a></li>
-            </ul>
-        </div>
+
         <section class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">

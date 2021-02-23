@@ -55,7 +55,11 @@
                                     <strong class="text-primary">Inwestycje</strong><strong>w kupie</strong>
                                 </div>
                                 </br></br>
+
                             </a>
+                            <div class="form-group-material">
+                            This email already exist!
+                            </div>
                             <form:form action="register_success" modelAttribute="user" method="post" >
                                 <div class="form-group-material">
                                     <form:input id="firstName" type="text" name="firstName" path="firstName" placeholder="Name"   data-msg="Please enter your name" class="input-material"/>

@@ -1,21 +1,27 @@
 package pl.coderslab.springboot.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-@Data
 @Entity
+@Data
 @Component
-@RequiredArgsConstructor
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String name;
+    @NotBlank
     private String link;
 
+    @ManyToOne (cascade = CascadeType.ALL)
+    private User user;
 
 }

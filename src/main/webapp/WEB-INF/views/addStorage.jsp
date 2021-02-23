@@ -10,10 +10,15 @@
 <div class="d-flex align-items-stretch">
     <%@ include file="sideMenu.jsp" %>
     <div class="page-content">
-        <!-- Page Header-->
-        <div class="page-header no-margin-bottom">
-            <div class="container-fluid">
-                <h2 class="h5 no-margin-bottom">Add your stocks</h2>
+        <div class="page-header">
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom" ><a href="addCrypto">Add cryptocurrencies</a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="addStorage"></a></h2>
             </div>
         </div>
         <!-- Breadcrumb-->
@@ -22,53 +27,33 @@
                 <li class="breadcrumb-item"><a href=>Fill in form</a></li>
             </ul>
         </div>
+
+
         <section class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">
                     <!-- Form Elements -->
                     <div class="col-lg-12">
                         <div class="block">
-                            <div class="title"><strong>All form elements</strong></div>
+                            <div class="title"><strong>Add platform</strong></div>
                             <div class="block-body">
-                                <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedstocks">
-                                  <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose cryptocrurency</label>
-                                        <div class="col-sm-9 ml-auto">
-                                            <select multiple="" class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                <form:form action="storageSuccess" class="form-horizontal" method="post" modelAttribute="storage">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label" for="howMuch">Your price per capita</label>
-                                        <div class="col-sm-9">
-                                            <form:input id="howMuch"  type="text" class="form-control" path="howMuch"/>
-                                            <form:errors path="howMuch"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label" for="numOfCoins">Number of stocks</label>
-                                        <div class="col-sm-9">
-                                            <form:input id="numOfCoins"  type="text" class="form-control" path="numOfCoins"/>
-                                            <form:errors path="numOfCoins"/>
-                                        </div>
-                                    </div>
 
+                                    </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label" for="whenBought">Date of transactions</label>
+                                        <label class="col-sm-3 form-control-label">Platform name</label>
                                         <div class="col-sm-9">
-                                            <form:input id="whenBought"  type="text" class="form-control" path="whenBought"/>
-                                            <form:errors path="whenBought"/>
+                                            <form:hidden path="id"/>
+                                            <form:input path="name" type="text" class="form-control"/>
+                                            <form:errors path="name"/>
                                         </div>
                                     </div>
-                                    <div class="line"></div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Notes</label>
+                                        <label class="col-sm-3 form-control-label">Link</label>
                                         <div class="col-sm-9">
-                                            <form:input id="notes"  type="text" class="form-control" path="notes"/><small class="help-block-none">You can add your comments here.</small>
+                                            <form:input path="link" type="text" class="form-control"/>
+                                            <form:errors path="link"/>
                                         </div>
                                     </div>
 
@@ -87,6 +72,9 @@
                 </div>
             </div>
         </section>
+
+
+
         <footer class="footer">
             <div class="footer__block block no-margin-bottom">
                 <div class="container-fluid text-center">

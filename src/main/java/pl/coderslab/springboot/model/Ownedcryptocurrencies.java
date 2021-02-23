@@ -6,13 +6,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
 @Data
 @Component
 @RequiredArgsConstructor
-public class Ownedcryptocurrencies {
+public class Ownedcryptocurrencies implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -52,11 +53,11 @@ public class Ownedcryptocurrencies {
     private String notes;
 
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private Storage storage;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private User user;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private Cryptocurrencies cryptocurrencies;
 }
 

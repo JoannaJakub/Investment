@@ -13,8 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
+import pl.coderslab.springboot.repository.StocksRepository;
 import pl.coderslab.springboot.service.CryptocurrencyService;
 import pl.coderslab.springboot.service.CustomUserDetailsService;
 
@@ -29,10 +31,14 @@ import java.util.List;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
+    @Resource
+    private CryptocurrencyRepository cryptocurrencyRepository;
+    private CryptocurrencyService cryptocurrencyService;
 
 
     @Bean
     public UserDetailsService userDetailsService() {return new CustomUserDetailsService();  }
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -53,29 +59,35 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
-    @Override
+
+/*   @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-              .antMatchers("/dashboard").authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().loginPage("/login")
-                .usernameParameter("email")
-                .defaultSuccessUrl("/dashboard")
+                .antMatchers("/").permitAll()
+                .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage", "/allStocks", "/allCrypto", "/addCrypto","/addStocks", "/cryptoSuccess", "/stocksSuccess").authenticated()
+                .and().formLogin()
+                .loginPage("/login");
 
-                .permitAll()
-                .and()
-                .logout().logoutSuccessUrl("/").permitAll();
-    }
+    }*/
 // .failureUrl("/login-error")
 
+       @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+              .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage", "/allStocks", "/allCrypto", "/addCrypto","/addStocks", "/cryptoSuccess", "/stocksSuccess")
+                .authenticated()
+                .and()
+                .formLogin().loginPage("/login")
+                .usernameParameter("username")
+                .defaultSuccessUrl("/dashboard")
+                .failureUrl("/login?error=true")
+                .permitAll()
+                .and()
+                .logout().logoutSuccessUrl("/").permitAll()
+                .deleteCookies("JSESSIONID");
+    }
 
-    @Resource
-    private CryptocurrencyRepository cryptocurrencyRepository;
-    private CryptocurrencyService cryptocurrencyService;
-
-
- /*   @Bean
+ /*@Bean
     CommandLineRunner runner(CryptocurrencyService cryptocurrencyService) {
         return args -> {
             ObjectMapper mapper = new ObjectMapper();

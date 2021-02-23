@@ -6,6 +6,10 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
@@ -90,5 +94,4 @@ public class CryptocurrencyService extends CoinMarketCapService {
         paramMap.put("aux", aux);
         return super.getResponseFromEndpoint(CRYPTOCURRENCY_LISTINGS_LATEST_ENDPOINT, paramMap);
     }
-
 }

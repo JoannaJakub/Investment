@@ -11,6 +11,7 @@ import pl.coderslab.springboot.repository.UserRepository;
 import pl.coderslab.springboot.model.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.useDefaultDateFormatsOnly;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -26,7 +27,7 @@ public class UserRepositoryTests {
     @Test
     public void testCreateUser() {
         User user = new User();
-        user.setEmail("ravikumar@gmail.com");
+        user.setUsername("ravikumar@gmail.com");
         user.setPassword("ravi2020");
         user.setFirstName("Ravi");
         user.setLastName("Kumar");
@@ -35,15 +36,7 @@ public class UserRepositoryTests {
 
         User existUser = entityManager.find(User.class, savedUser.getId());
 
-        assertThat(user.getEmail()).isEqualTo(existUser.getEmail());
+        assertThat(user.getUsername()).isEqualTo(existUser.getUsername());
 
-    }
-
-    @Test
-    public void testFindByEmail() {
-        String email = "nam@codejava.net";
-        User user = repo.findByEmail(email);
-
-        assertThat(user.getEmail()).isEqualTo(email);
     }
 }
