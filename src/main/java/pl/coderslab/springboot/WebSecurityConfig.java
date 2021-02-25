@@ -19,6 +19,7 @@ import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 import pl.coderslab.springboot.repository.StocksRepository;
 import pl.coderslab.springboot.service.CryptocurrencyService;
 import pl.coderslab.springboot.service.CustomUserDetailsService;
+import pl.coderslab.springboot.service.SpringDataUserDetailsService;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -39,6 +40,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService() {return new CustomUserDetailsService();  }
 
+    @Bean
+    public SpringDataUserDetailsService customUserDetailsService() {
+        return new SpringDataUserDetailsService();
+    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -58,18 +63,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
-
-
-/*   @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage", "/allStocks", "/allCrypto", "/addCrypto","/addStocks", "/cryptoSuccess", "/stocksSuccess").authenticated()
-                .and().formLogin()
-                .loginPage("/login");
-
-    }*/
-// .failureUrl("/login-error")
 
        @Override
     protected void configure(HttpSecurity http) throws Exception {

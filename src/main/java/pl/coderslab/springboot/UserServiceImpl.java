@@ -1,4 +1,4 @@
-package pl.coderslab.springboot.service;
+package pl.coderslab.springboot;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -6,6 +6,7 @@ import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.RoleRepository;
 import pl.coderslab.springboot.repository.UserRepository;
+import pl.coderslab.springboot.service.UserService;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
+
 
     @Override
     public User findByEmail(String email) {

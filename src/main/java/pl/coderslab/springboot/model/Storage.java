@@ -16,9 +16,9 @@ public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
+    @NotBlank(message = "Please enter name.")
     private String name;
-    @NotBlank
+    @NotBlank(message = "Please enter link.")
     private String link;
 
     @ManyToOne (cascade = CascadeType.ALL)

@@ -3,11 +3,14 @@ package pl.coderslab.springboot.model;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -17,39 +20,15 @@ public class Ownedcryptocurrencies implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String symbol;
-    private String slug;
-    private String num_market_pairs;
-    private String date_added;
-    private Float circulating_supply;
-    private Float total_supply;
-    private Integer cmc_rank;
-    private String last_updated;
 
-    private Long start;
-    private Long limit;
-    private Double priceMin;
-    private Double priceMax;
-    private Double marketCapMin;
-    private Double marketCapMax;
-    private Double volume24hMin;
-    private Double volume24hMax;
-    private Double circulatingSupplyMin;
-    private Double circulatingSupplyMax;
-    private Double percentChange24hMin;
-    private Double percentChange24hMax;
-    private String convert;
-    private String convertId;
-    private String sort;
-    private String sortDir;
-    private String cryptocurrencyType;
-    private String tag;
-    private String aux;
-
+    @NotNull(message = "Please enter how much did you paid.")
     private Double howMuch;
+    @NotNull(message = "Please enter how many crypto did you bought.")
     private Double numOfCoins;
-    private Date whenBought;
+    @NotNull(message = "Please enter when did you bought crypto in format YEAR-MONTH-DATE.")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate whenBought;
+
     private String notes;
 
 

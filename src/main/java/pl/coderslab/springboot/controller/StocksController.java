@@ -1,23 +1,16 @@
 package pl.coderslab.springboot.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.springboot.StockApi;
 import pl.coderslab.springboot.model.*;
-import pl.coderslab.springboot.repository.CryptocurrencyRepository;
-import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
-import pl.coderslab.springboot.repository.OwnedstocksRepository;
-import pl.coderslab.springboot.repository.StocksRepository;
+import pl.coderslab.springboot.repository.*;
+import pl.coderslab.springboot.service.UserService;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 
@@ -25,6 +18,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -37,30 +31,44 @@ public class StocksController {
     CryptocurrencyRepository cryptocurrencyRepository;
     @Autowired
     OwnedstocksRepository ownedstocksRepository;
-
-
+    @Autowired
+    StorageRepository storageRepository;
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/yourStocks")
     public String yourStocks(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
-        List<Ownedstocks> ownedstocks = ownedstocksRepository.findById(entityUser);
+        List<Ownedstocks> ownedstocks = ownedstocksRepository.findSomeById(entityUser);
         model.addAttribute("ownedstocks", ownedstocks);
 
         return "yourStocks";
     }
 
     @GetMapping("/addStocks")
-    public String addStocks(Model model) {
-        model.addAttribute("ownedstocks", new Ownedstocks());
+    public String addStocks(Model model, @AuthenticationPrincipal UserDetails customUser) {
+        String entityUser = customUser.getUsername();
+        System.out.println(entityUser);
+     //   User user = userRepository.findUserById(entityUser);
+      //  System.out.println(user);
+       // System.out.println(userRepository.findIdByUsername(String.valueOf(entityUser)));
+       // model.addAttribute("user",entityUser);*/
+        model.addAttribute("user", userRepository.findUserById(entityUser));
+    //    model.addAttribute("user", ownedstocksRepository.findSomeById(entityUser));
+        model.addAttribute("ownedstocks",new Ownedstocks());
+        model.addAttribute("stocks", stocksRepository.findAll());
+        model.addAttribute("storage", storageRepository.findAll());
         return "addStocks";
     }
 
     @RequestMapping(value = "/stocksSuccess", method = RequestMethod.POST)
-    public String processAddingStocks(@Valid Ownedstocks ownedstocks, Model model,BindingResult result) {
-        model.addAttribute("ownedstocks", new Ownedstocks());
+    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result) {
         if (result.hasErrors()) {
             return "addStocks";
         } else {
+
             ownedstocksRepository.save(ownedstocks);
             return "stocksSuccess";
         }

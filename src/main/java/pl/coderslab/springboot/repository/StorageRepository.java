@@ -9,9 +9,7 @@ import pl.coderslab.springboot.model.User;
 import java.util.List;
 
 public interface StorageRepository extends JpaRepository<Storage, Long> {
-    //@Query("SELECT u FROM User u WHERE u.email = ?1")
-  //  User findByEmail(String email);
- //   User findByUsername(String username);
+
     @Query(nativeQuery=true, value="SELECT *FROM storage LEFT JOIN user on storage.user_id=user.id where username=?;")
     List<Storage> findById(String entityUser);
 

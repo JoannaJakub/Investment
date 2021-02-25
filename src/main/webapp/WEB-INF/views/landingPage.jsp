@@ -13,22 +13,22 @@
         </a>
         <ul class="nav nounderline text-uppercase">
             <li class="nav-item ml-4">
-                <a class="nav-link color-header" href="login">logowanie</a>
+                <a class="nav-link color-header" href="login">Login</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link color-header" href="register">rejestracja</a>
+                <a class="nav-link color-header" href="register">Register</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link color-header" href="#about">o aplikacji</a>
+                <a class="nav-link color-header" href="#about">About</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link color-header" href="allStocksLandingPage">Akcje</a>
+                <a class="nav-link color-header" href="allStocksLandingPage">Stocks</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link" href="allCryptoLandingPage">Krypto</a>
+                <a class="nav-link" href="allCryptoLandingPage">Crypto</a>
             </li>
             <li class="nav-item ml-4">
-                <a class="nav-link disabled" href="#contact">Kontakt</a>
+                <a class="nav-link color-header" href="#contact">Contact</a>
             </li>
         </ul>
     </nav>
@@ -61,8 +61,8 @@
                     </div>
 
                     <div class="col-7 ml-4">
-                        <h1 class="pb-1">Lorem ipsum dolor sit amet</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat
+                        <h1 class="pb-1">It is about us.</h1>
+                        <p>It is about us. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat
                             volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed. Lorem ipsum dolor sit
                             amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec
                             placerat nisl magna, et faucibus arcu condimentum sed.
@@ -71,10 +71,10 @@
                 </div>
             </div>
         </section>
-        <section class="section-more padding-small">
+        <section class="padding-medium story">
             <div class="col-lg-20">
                 <div class="block">
-                    <div class="title"><strong>Crypto</strong></div>
+                    <div class="title"><strong>Stocks</strong></div>
                     <div class="table-responsive">
                         <table class="table table-striped table-sm">
                             <thead>
@@ -108,47 +108,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h3 class="mb-4">Lorem ipsum dolor</h3>
+                        <h3 class="mb-4">THIS IS CONTACT</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem.  Aliquam erat volutpat. Donec placerat nisl magna.</p>
                     </div>
-                    <div class="col pl-4 ml-4">
-                        <h3 class="mb-4">Lorem ipsum dolor</h3>
-                        <ul class="container">
-                            <li>consectetur adipiscing elit</li>
-                            <li>sed do eiusmod tempor</li>
-                            <li>incididunt ut labore</li>
-                            <li>et dolore magna aliqua</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3 class="mb-4">Lorem ipsum dolor</h3>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control border-0 rounded-0" placeholder=""
-                                   aria-label="Recipient's username" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="input-group-text btn-color border-0 rounded-0" type="submit" id="basic-addon2"><a
-                                        href="index.html">Lorem</a></button>
-                            </div>
-                        </div>
-                        <div class="container d-flex-row">
-                            <a href="#">
-                                <i class="fab fa-facebook-square mr-4 icon-social"></i>
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-twitter-square mr-4 icon-social"></i>
 
-                            </a>
-                            <a href="#">
-                                <i class="fab fa-instagram icon-social"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
-            </div>
+
         </section>
-
     </nav>
-
+    </nav>
 </div>
 
 <footer class="footer">

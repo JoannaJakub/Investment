@@ -2,21 +2,19 @@ package pl.coderslab.springboot.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.*;
-import pl.coderslab.springboot.repository.CryptocurrencyRepository;
-import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
-import pl.coderslab.springboot.repository.StorageRepository;
-import pl.coderslab.springboot.repository.UserRepository;
+import pl.coderslab.springboot.repository.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class AppController {
@@ -26,9 +24,7 @@ public class AppController {
     @Autowired
     private CryptocurrencyRepository cryptocurrencyRepo;
     @Autowired
-    private OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo;
-    @Autowired
-    private StorageRepository storageRepository;
+    private StocksRepository stocksRepository;
 
 
     @GetMapping("")
@@ -44,9 +40,10 @@ public class AppController {
 
     @RequestMapping(value = "/register_success", method = RequestMethod.POST)
     public String processRegister(@Valid User user, BindingResult result) {
-        User existingUser = userRepo.findByUsername(user.getUsername());
-        if (result.hasErrors()|| existingUser!=null) {
-            return "registerExists";
+        if (result.hasErrors()) {
+            return "register";
+        } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
+            result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -54,6 +51,7 @@ public class AppController {
             userRepo.save(user);
             return "register_success";
         }
+        return "register";
     }
 
 
@@ -67,53 +65,15 @@ public class AppController {
     }
 
 
-
-
     @GetMapping("/dashboard")
     public String listUsers(Model model){;
         List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.find10All();
         model.addAttribute("cryptocurrencies", cryptocurrencies);
+        List<Stocks> stocks = stocksRepository.findAll();
+        model.addAttribute("stocks", stocks);
         return "dashboard";
     }
 
-
-    /* @GetMapping("/dashboard")
-     public String dashboard() {
-         return "dashboard";
-     }*/
-    @GetMapping("/allCrypto")
-    public String allCrypto(Model model) {
-        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
-        model.addAttribute("cryptocurrencies", cryptocurrencies);
-        return "allCrypto";
-    }
-
-
-    @RequestMapping("/yourCrypto")
-    public String yourCrypto(Model model, @AuthenticationPrincipal UserDetails customUser) {
-        String entityUser = customUser.getUsername();
-        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findById(entityUser);
-        model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
-
-        return "yourCrypto";
-    }
-
-
-  @GetMapping("/addCrypto")
-    public String addCrypto(Model model) {
-        model.addAttribute("ownedcryptocurrencies", new Ownedcryptocurrencies());
-        return "addCrypto";
-    }
-
-    @RequestMapping(value = "/cryptoSuccess", method = RequestMethod.POST)
-    public String processAddingCrypto(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result) {
-        if (result.hasErrors()) {
-            return "addCrypto";
-        } else {
-            ownedcryptocurrenciesRepo.save(ownedcryptocurrencies);
-            return "cryptoSuccess";
-        }
-    }
 
     //LANDING PAGE
     @GetMapping("allCryptoLandingPage")
@@ -125,8 +85,8 @@ public class AppController {
 
     @GetMapping("allStocksLandingPage")
     public String allStocksLandingPage(Model model) {
-        List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
-        model.addAttribute("cryptocurrencies", cryptocurrencies);
+        List<Stocks> stocks = stocksRepository.findAll();
+        model.addAttribute("stocks", stocks);
         return "allStocksLandingPage";
     }
 

@@ -27,7 +27,7 @@
         </div>
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item">Your investment</li>
+                <li class="breadcrumb-item">Random stocks and crypto</li>
             </ul>
         </div>
         <section class="no-padding-top">
@@ -46,20 +46,23 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Num_market_pairs</th>
-                                    <th>CMC Rank</th>
-                                    <th>Circulating Supply</th>
+                                    <th>Price</th>
+                                    <th>Change</th>
+                                    <th>Currency</th>
+                                    <th>Bid</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
+                                <c:forEach items="${stocks}" var="stocks">
                                     <tr>
-                                        <td><c:out value="${cryptocurrencies.id}"/></td>
-                                        <td><c:out value="${cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
-                                        <td><c:out value="${cryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${cryptocurrencies.circulating_supply}"/></td>
+                                        <td><c:out value="${stocks.id}"/></td>
+                                        <td><c:out value="${stocks.name}"/></td>
+                                        <td><c:out value="${stocks.price}"/></td>
+                                        <td><c:out value="${stocks.change}"/></td>
+                                        <td><c:out value="${stocks.currency}"/></td>
+                                        <td><c:out value="${stocks.bid}"/></td>
+
                                     </tr>
                                 </c:forEach>
 

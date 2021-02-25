@@ -22,25 +22,21 @@ public class Ownedstocks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    @NotNull
+    @NotNull(message = "Please enter how much did you paid.")
     private Double howMuch;
-    @NotNull
+    @NotNull(message = "Please enter how many stocks did you bought.")
     private Double numOfCoins;
+    @NotNull(message = "Please enter when did you bought stocks in format YEAR-MONTH-DATE.")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate whenBought;
 
     private String notes;
 
-    @ManyToOne
-           // (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Storage storage;
-    @ManyToOne
-         //   (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private User user;
-    @ManyToOne
-        //    (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne  (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Stocks stocks;
 }
 

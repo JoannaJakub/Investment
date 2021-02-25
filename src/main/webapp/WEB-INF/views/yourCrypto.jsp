@@ -15,13 +15,8 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="addCrypto">Add cryptocurrencies</a></h2>
             </div>
-        </div>
-        <div class="container-fluid">
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="addCrypto">Add your cryptocurrencies</a></li>
-            </ul>
         </div>
         <section class="no-padding-top">
             <div class="container-fluid">
@@ -32,33 +27,36 @@
                 </div>
 
 
+
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Crypto</strong></div>
+                        <div class="title"><strong>Stocks</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Num_market_pairs</th>
-                                    <th>CMC Rank</th>
-                                    <th>Circulating Supply</th>
+                                    <th>PriceMin</th>
+                                    <th>PriceMax</th>
                                     <th>How much</th>
                                     <th>When bought</th>
+                                    <th>Amount of crypto</th>
+                                    <th>Notes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 <c:forEach items="${ownedcryptocurrencies}" var="ownedcryptocurrencies">
                                     <tr>
-                                        <td><c:out value="${ownedcryptocurrencies.id}"/></td>
-                                        <td><c:out value="${ownedcryptocurrencies.name}"/></td>
-                                        <td><c:out value="${ownedcryptocurrencies.num_market_pairs}"/></td>
-                                        <td><c:out value="${ownedcryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${ownedcryptocurrencies.circulating_supply}"/></td>
-                                        <td><c:out value="${ownedcryptocurrencies.howMuch}"/></td>
-                                        <td><c:out value="${ownedcryptocurrencies.whenBought}"/></td>
+                                        <td>${ownedcryptocurrencies.id}</td>
+                                        <td>${ownedcryptocurrencies.cryptocurrencies.name}</td>
+                                        <td>${ownedcryptocurrencies.cryptocurrencies.priceMin}</td>
+                                        <td>${ownedcryptocurrencies.cryptocurrencies.priceMax}</td>
+                                        <td>${ownedcryptocurrencies.howMuch}</td>
+                                        <td>${ownedcryptocurrencies.numOfCoins}</td>
+                                        <td>${ownedcryptocurrencies.whenBought}</td>
+                                        <td>${ownedcryptocurrencies.notes}</td>
                                     </tr>
                                 </c:forEach>
 
@@ -68,7 +66,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+
     </section>
 
 

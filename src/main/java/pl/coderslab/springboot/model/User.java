@@ -1,37 +1,37 @@
 package pl.coderslab.springboot.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
 import java.util.Set;
 
-@Data
 @Entity
+@Data
 @Component
-@RequiredArgsConstructor
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Email
-    @Column(nullable = false, unique = true, length = 45)
+    @NotEmpty(message = "Please enter your email.")
+    @Column(nullable = false,  length = 45)
     private String username;
-    @NotBlank
+    @NotBlank(message = "Please enter your password.")
     @Column(nullable = false, length = 64)
     private String password;
-    @NotEmpty
+    @NotEmpty(message = "Please enter your name.")
     @Column(name = "firstname", nullable = false, length = 20)
     private String firstName;
-    @NotBlank
+    @NotBlank(message = "Please enter your surname.")
     @Column(name = "lastname", nullable = false, length = 20)
     private String lastName;
 
@@ -40,5 +40,8 @@ public class User implements Serializable {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
     }
+}
 

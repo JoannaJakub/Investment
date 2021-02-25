@@ -59,7 +59,6 @@
                             <form:form action="register_success" modelAttribute="user" method="post" >
                                 <div class="form-group-material">
                                     <form:input id="firstName" type="text" name="firstName" path="firstName" placeholder="Name"   data-msg="Please enter your name" class="input-material"/>
-                                    <form:hidden path="id" value="${user.id}"/><br>
                                     <form:errors path="firstName"/>
                                     <label for="firstName" class="label-material"></label>
                                 </div>
@@ -69,19 +68,19 @@
                                     <label for="register-surname" class="label-material"></label>
                                 </div>
                                 <div class="form-group-material">
-                                    <form:input id="register-email" type="email" name="registerEmail" path="username"  placeholder="Email Address"  data-msg="Please enter a valid email address" class="input-material"/>
+                                    <form:input id="register-username" type="text" name="registerUsername" path="username"  placeholder="Email"  data-msg="Please enter a valid email address" class="input-material"/>
                                     <form:errors path="username"/>
-                                    <label for="register-email" class="label-material">      </label>
+                                    <label for="register-username" class="label-material">      </label>
                                 </div>
                                 <div class="form-group-material">
                                     <form:input id="register-password" type="password" name="registerPassword" path="password"  placeholder="Password"  data-msg="Please enter your password" class="input-material"/>
                                     <form:errors path="password"/>
                                     <label for="register-password" class="label-material">        </label>
                                 </div>
-                                <div class="form-group terms-conditions text-center">
+                           <%--     <div class="form-group terms-conditions text-center">
                                     <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
                                     <label for="register-agree">I agree with the terms and policy</label>
-                                </div>
+                                </div>--%>
                                 <div class="form-group text-center">
                                     <input id="register" type="submit" value="Register" class="btn btn-primary">
                                 </div>

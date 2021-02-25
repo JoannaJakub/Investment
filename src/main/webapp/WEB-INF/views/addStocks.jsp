@@ -11,9 +11,15 @@
     <%@ include file="sideMenu.jsp" %>
     <div class="page-content">
         <!-- Page Header-->
-        <div class="page-header no-margin-bottom">
-            <div class="container-fluid">
-                <h2 class="h5 no-margin-bottom">Add your stocks</h2>
+        <div class="page-header">
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom" ><a href="addCrypto">Add cryptocurrencies</a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="addStocks"></a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
             </div>
         </div>
         <!-- Breadcrumb-->
@@ -31,28 +37,37 @@
                             <div class="title"><strong>All form elements</strong></div>
                             <div class="block-body">
                                 <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedstocks">
-                                  <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose cryptocrurency</label>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">Chooose stock</label>
                                         <div class="col-sm-9 ml-auto">
-                                            <select multiple="" class="form-control">
-                                                <option>option 1</option>
-                                                <option>option 2</option>
-                                                <option>option 3</option>
-                                                <option>option 4</option>
-                                            </select>
+
+                                            <form:select path="user" items="${user}" class="form-control" itemLabel="user" itemValue="id" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">Chooose stock</label>
+                                        <div class="col-sm-9 ml-auto">
+
+                                            <form:select path="stocks" items="${stocks}" class="form-control" itemLabel="name" itemValue="id" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">Chooose storage</label>
+                                        <div class="col-sm-9 ml-auto">
+                                            <form:select path="storage" items="${storage}" class="form-control" itemLabel="name" itemValue="id" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label" for="howMuch">Your price per capita</label>
                                         <div class="col-sm-9">
-                                            <form:input id="howMuch"  type="text" class="form-control" path="howMuch"/>
+                                            <form:input id="howMuch"  type="text" class="form-control" path="howMuch"  name="howMuch"/>
                                             <form:errors path="howMuch"/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label" for="numOfCoins">Number of stocks</label>
                                         <div class="col-sm-9">
-                                            <form:input id="numOfCoins"  type="text" class="form-control" path="numOfCoins"/>
+                                            <form:input id="numOfCoins"  type="text" class="form-control" path="numOfCoins" name="numOfCoins"/>
                                             <form:errors path="numOfCoins"/>
                                         </div>
                                     </div>
@@ -60,7 +75,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label" for="whenBought">Date of transactions</label>
                                         <div class="col-sm-9">
-                                            <form:input id="whenBought"  type="text" class="form-control" path="whenBought"/>
+                                            <form:input id="whenBought"  type="text" class="form-control" path="whenBought" name="whenBought"/>
                                             <form:errors path="whenBought"/>
                                         </div>
                                     </div>
@@ -79,6 +94,7 @@
                                             <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
+                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 </form:form>
 
                             </div>

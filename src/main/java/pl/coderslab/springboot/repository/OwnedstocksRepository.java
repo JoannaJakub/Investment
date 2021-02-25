@@ -9,7 +9,16 @@ import java.util.List;
 
 
 public interface OwnedstocksRepository extends JpaRepository<Ownedstocks, Long> {
-//@Query(nativeQuery=true, value="SELECT user_id  FROM ownedcryptocurrencies JOIN user where username=?;")
 @Query(nativeQuery=true, value="SELECT *FROM ownedstocks LEFT JOIN user on ownedstocks.user_id=user.id where username=?;")
 List<Ownedstocks> findById(String entityUser);
+
+@Query(nativeQuery=true, value="SELECT * FROM ownedstocks\n" +
+        "                  left JOIN user on ownedstocks.user_id=user.id\n" +
+        "                  left JOIN stocks on  ownedstocks.stocks_id=stocks_id\n" +
+        "                   where user.username=?")
+List<Ownedstocks> findSomeById(String entityUser);
+
+    @Query(nativeQuery=true, value="SELECT id FROM user where username=?;")
+    Ownedstocks findUserById(String entityUser);
+
 }

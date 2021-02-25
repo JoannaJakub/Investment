@@ -36,28 +36,23 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Symbol</th>
-                                    <th>Num market pairs</th>
-                                    <th>CMC Rank</th>
-                                    <th>Circulating Supply</th>
-                                    <th>Total Supply</th>
-                                    <th>Volume 24h Max</th>
-                                    <th>Volume 24h Min</th>
+                                    <th>Price</th>
+                                    <th>Change</th>
+                                    <th>Currency</th>
+                                    <th>Bid</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
+                                <c:forEach items="${stocks}" var="stocks">
                                     <tr>
-                                        <td><c:out value="${cryptocurrencies.id}"/></td>
-                                        <td><c:out value="${cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${cryptocurrencies.symbol}"/></td>
-                                        <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
-                                        <td><c:out value="${cryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${cryptocurrencies.circulating_supply}"/></td>
-                                        <td><c:out value="${cryptocurrencies.total_supply}"/></td>
-                                        <td><c:out value="${cryptocurrencies.volume24hMax}"/></td>
-                                        <td><c:out value="${cryptocurrencies.volume24hMin}"/></td>
+                                        <td><c:out value="${stocks.id}"/></td>
+                                        <td><c:out value="${stocks.name}"/></td>
+                                        <td><c:out value="${stocks.price}"/></td>
+                                        <td><c:out value="${stocks.change}"/></td>
+                                        <td><c:out value="${stocks.currency}"/></td>
+                                        <td><c:out value="${stocks.bid}"/></td>
+
                                     </tr>
                                 </c:forEach>
 
