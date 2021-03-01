@@ -7,13 +7,10 @@ import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query(nativeQuery=true, value="SELECT id FROM user  WHERE username = ?;")
+    @Query(nativeQuery=true, value="SELECT id FROM user  WHERE username =?;")
     User findIdByUsername(String username);
     User findByUsername(String username);
 
 
-
-    @Query(nativeQuery=true, value="SELECT id FROM user where username=?;")
-    User findUserById(String entityUser);
 
 }

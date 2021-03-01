@@ -91,10 +91,20 @@ public class StockApi {
         }
 
     }
+    private final String INSERT_SQL = "INSERT INTO stocks(name, price, change) values(?,?,?)";
+    @Autowired
+    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    public Stocks create (Stocks stocks) {
+        SqlParameterSource parameters = new MapSqlParameterSource()
+                .addValue("name", stocks.getName())
+                .addValue("price", stocks.getPrice())
+                .addValue("change", stocks.getChange());
+        namedParameterJdbcTemplate.update(INSERT_SQL, parameters);
+        System.out.println("=======" + stocks);
+        return stocks;
+    }
     public static void main(String[] args) throws IOException {
-
-
 
         StockApi yahooStockAPI = new StockApi();
         Stock stock = YahooFinance.get("INTC");
@@ -114,24 +124,7 @@ public class StockApi {
 
        // System.out.println(stock.;
      //  yahooStockAPI.getHistory("INTC", 3, "Daily");
-
-
-
         }
-    private final String INSERT_SQL = "INSERT INTO stocks(name, price, change) values(?,?,?)";
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
-    public Stocks create(final Stocks stocks) {
-        SqlParameterSource parameters = new MapSqlParameterSource()
-                .addValue("name", stocks.getName())
-                .addValue("price", stocks.getPrice())
-                .addValue("change", stocks.getChange());
-        namedParameterJdbcTemplate.update(INSERT_SQL, parameters);
-        System.out.println("=======" + stocks);
-        return stocks;
-    }
-
 
 }
 

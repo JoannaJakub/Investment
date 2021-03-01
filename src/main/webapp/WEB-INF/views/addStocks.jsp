@@ -38,10 +38,10 @@
                             <div class="block-body">
                                 <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedstocks">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose stock</label>
+                                        <label class="col-sm-3 form-control-label"></label>
                                         <div class="col-sm-9 ml-auto">
 
-                                            <form:select path="user" items="${user}" class="form-control" itemLabel="user" itemValue="id" />
+                                            <form:hidden path="user" items="${user}" class="form-control" itemLabel="user" itemValue="id" />
                                         </div>
                                     </div>
                                     <div class="form-group row">

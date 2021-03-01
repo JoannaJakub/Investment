@@ -40,8 +40,10 @@ public class StocksController {
 
     @RequestMapping("/yourStocks")
     public String yourStocks(Model model, @AuthenticationPrincipal UserDetails customUser) {
+
         String entityUser = customUser.getUsername();
-        List<Ownedstocks> ownedstocks = ownedstocksRepository.findSomeById(entityUser);
+        User user= userRepository.findByUsername(entityUser);
+        List<Ownedstocks> ownedstocks = ownedstocksRepository.findByUser(user);
         model.addAttribute("ownedstocks", ownedstocks);
 
         return "yourStocks";
@@ -51,12 +53,10 @@ public class StocksController {
     public String addStocks(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
         System.out.println(entityUser);
-     //   User user = userRepository.findUserById(entityUser);
-      //  System.out.println(user);
-       // System.out.println(userRepository.findIdByUsername(String.valueOf(entityUser)));
-       // model.addAttribute("user",entityUser);*/
-        model.addAttribute("user", userRepository.findUserById(entityUser));
-    //    model.addAttribute("user", ownedstocksRepository.findSomeById(entityUser));
+        Long user= userRepository.findByUsername(entityUser).getId();
+       System.out.println(user);
+
+        //model.addAttribute("user", user);
         model.addAttribute("ownedstocks",new Ownedstocks());
         model.addAttribute("stocks", stocksRepository.findAll());
         model.addAttribute("storage", storageRepository.findAll());
