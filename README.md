@@ -1,4 +1,10 @@
-# Inwestycje
-Aplikacja ma na celu ułatwienie zarządznia inwestycjami znajdującymi się na różnych platformach np. akcje giełdowe będzie można przeglądać razem z kryptowalutami.
+# Investment
 
+The goal of the application is to provide platform where users can track their investments.
 
+There are two investements options: stocks and cryptocurrencies.
+
+To build this app was used:
+-Java
+-MySQL
+-Spring, Sprng Hibernate
