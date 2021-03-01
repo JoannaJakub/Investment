@@ -54,9 +54,6 @@ public abstract class CoinMarketCapService {
         return new ResponseEntity<Object>(response.getBody(), HttpStatus.OK);
     }
 
-    public ResponseEntity<Object> getResponseFromEndpoint(String endpoint) {
-        return getResponseFromEndpoint(endpoint, null);
-    }
 
     public String getFormattedParams(HashMap<String, String> paramMap) {
         StringBuilder paramStringBuilder = new StringBuilder("");

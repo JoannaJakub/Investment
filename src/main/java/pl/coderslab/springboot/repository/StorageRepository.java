@@ -2,9 +2,7 @@ package pl.coderslab.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Storage;
-import pl.coderslab.springboot.model.User;
 
 import java.util.List;
 

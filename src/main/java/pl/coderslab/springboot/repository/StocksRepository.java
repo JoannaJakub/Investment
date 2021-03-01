@@ -8,7 +8,6 @@ import pl.coderslab.springboot.model.Stocks;
 import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 public interface StocksRepository extends JpaRepository<Stocks, Long>  {
     @Modifying

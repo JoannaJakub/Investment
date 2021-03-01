@@ -2,7 +2,6 @@ package pl.coderslab.springboot.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +13,6 @@ import pl.coderslab.springboot.repository.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Locale;
 
 @Controller
 public class AppController {
@@ -66,7 +64,7 @@ public class AppController {
 
 
     @GetMapping("/dashboard")
-    public String listUsers(Model model){;
+    public String listUsers(Model model){
         List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.find10All();
         model.addAttribute("cryptocurrencies", cryptocurrencies);
         List<Stocks> stocks = stocksRepository.findAll();
