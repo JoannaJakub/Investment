@@ -48,12 +48,14 @@ public class StocksController {
     }
 
     @RequestMapping(value = "/stocksSuccess", method = RequestMethod.POST)
-    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result,@AuthenticationPrincipal UserDetails customUser) {
+    public String processAddingStocks(@Valid Ownedstocks ownedstocks, Model model, BindingResult result,@AuthenticationPrincipal UserDetails customUser) {
         if (result.hasErrors()) {
             return "addStocks";
         } else {
             String entityUser = customUser.getUsername();
             Long user = userRepository.findByUsername(entityUser).getId();
+            model.addAttribute("user", user);
+            System.out.println(user);
             ownedstocksRepository.save(ownedstocks);
 
             return "stocksSuccess";

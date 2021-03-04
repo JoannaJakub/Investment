@@ -20,6 +20,4 @@
         <li><a href="allStocks"> <i class="icon-padnote"></i>All stocks </a></li>
         <li><a href="allCrypto"> <i class="icon-padnote"></i>All crypto </a></li>
 
-        <li><a href="login"> <i class="icon-logout"></i>Login page </a></li>
-
 </nav>

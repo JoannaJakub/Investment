@@ -143,8 +143,9 @@
                     </div>
                 </div>
                 <!-- Log out               -->
-                <div class="list-inline-item logout"><a id="logout" href="/" class="nav-link"> <span
-                        class="d-none d-sm-inline">Logout </span><i class="icon-logout"></i></a></div>
+                <div class="list-inline-item logout">
+                    <a id="logout" href="<c:url value="/logout" />" class="nav-link" delete-cookies="JSESSIONID"
+                     >Logout <i class="icon-logout"></i></a></div>
             </div>
         </div>
     </nav>
