@@ -41,7 +41,7 @@ public class AppController {
         return "register";
     }
 
-    @RequestMapping(value = "/register_success", method = RequestMethod.POST)
+    @PostMapping(value = "/register_success")
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "register";
@@ -58,7 +58,7 @@ public class AppController {
     }
 
 
-    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+    @GetMapping(value = {"/login"})
     public String login(@RequestParam(value = "error", defaultValue = "false") boolean loginError) {
         if (loginError) {
             return "loginError";
@@ -77,7 +77,7 @@ public class AppController {
         return "dashboard";
     }
 
-    @RequestMapping(value="/logout", method = RequestMethod.GET)
+    @GetMapping(value="/logout")
     public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null){

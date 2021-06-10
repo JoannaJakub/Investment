@@ -18,7 +18,6 @@ public class StockApi {
                 .addValue("price", stocks.getPrice())
                 .addValue("change", stocks.getChange());
         namedParameterJdbcTemplate.update(INSERT_SQL, parameters);
-        System.out.println("=======" + stocks);
         return stocks;
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
+
 import javax.validation.Valid;
 import java.util.List;
 
@@ -47,19 +48,16 @@ public class StocksController {
         return "addStocks";
     }
 
-    @RequestMapping(value = "/stocksSuccess", method = RequestMethod.POST)
-    public String processAddingStocks(@Valid Ownedstocks ownedstocks, Model model, BindingResult result,@AuthenticationPrincipal UserDetails customUser) {
+    @PostMapping(value = "/stocksSuccess")
+    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result
+            , @AuthenticationPrincipal UserDetails customUser) {
         if (result.hasErrors()) {
             return "addStocks";
-        } else {
-            String entityUser = customUser.getUsername();
+        }   String entityUser = customUser.getUsername();
             Long user = userRepository.findByUsername(entityUser).getId();
-            model.addAttribute("user", user);
-            System.out.println(user);
             ownedstocksRepository.save(ownedstocks);
-
             return "stocksSuccess";
-        }
+
     }
 
 

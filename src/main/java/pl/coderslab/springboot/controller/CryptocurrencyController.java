@@ -61,7 +61,7 @@ public class CryptocurrencyController {
         return "addCrypto";
     }
 
-    @RequestMapping(value = "/cryptoSuccess", method = RequestMethod.POST)
+    @PostMapping(value = "/cryptoSuccess")
     public String processAddingCrypto(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result) {
         if (result.hasErrors()) {
             return "addCrypto";
