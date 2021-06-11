@@ -1,7 +1,6 @@
 package pl.coderslab.springboot.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,13 +20,15 @@ import java.util.List;
 
 @Controller
 public class AppController {
+    private final StocksRepository stocksRepository;
+    private final UserRepository userRepo;
+    private final CryptocurrencyRepository cryptocurrencyRepo;
 
-    @Autowired
-    private UserRepository userRepo;
-    @Autowired
-    private CryptocurrencyRepository cryptocurrencyRepo;
-    @Autowired
-    private StocksRepository stocksRepository;
+    public AppController(StocksRepository stocksRepository, UserRepository userRepo, CryptocurrencyRepository cryptocurrencyRepo) {
+        this.stocksRepository = stocksRepository;
+        this.userRepo = userRepo;
+        this.cryptocurrencyRepo = cryptocurrencyRepo;
+    }
 
 
     @GetMapping("")

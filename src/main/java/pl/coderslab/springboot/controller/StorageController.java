@@ -1,6 +1,5 @@
 package pl.coderslab.springboot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,8 +15,11 @@ import java.util.List;
 
 @Controller
 public class StorageController {
-    @Autowired
-    private StorageRepository storageRepository;
+    private final StorageRepository storageRepository;
+
+    public StorageController(StorageRepository storageRepository) {
+        this.storageRepository = storageRepository;
+    }
 
 
     @GetMapping("/storage")
