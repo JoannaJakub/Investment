@@ -1,6 +1,5 @@
 package pl.coderslab.springboot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -18,20 +17,17 @@ import java.util.List;
 
 @Controller
 public class CryptocurrencyController {
+    private final OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo;
+    private final CryptocurrencyRepository cryptocurrencyRepository;
+    private final StorageRepository storageRepository;
+    private final UserRepository userRepository;
 
-
-    @Autowired
-    StocksRepository stocksRepository;
-    @Autowired
-    OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo;
-    @Autowired
-    CryptocurrencyRepository cryptocurrencyRepository;
-    @Autowired
-    OwnedstocksRepository ownedstocksRepository;
-    @Autowired
-    StorageRepository storageRepository;
-    @Autowired
-    UserRepository userRepository;
+    public CryptocurrencyController(OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo, CryptocurrencyRepository cryptocurrencyRepository, StorageRepository storageRepository, UserRepository userRepository) {
+        this.ownedcryptocurrenciesRepo = ownedcryptocurrenciesRepo;
+        this.cryptocurrencyRepository = cryptocurrencyRepository;
+        this.storageRepository = storageRepository;
+        this.userRepository = userRepository;
+    }
 
 
     @GetMapping("/allCrypto")
