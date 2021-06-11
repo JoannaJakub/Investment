@@ -1,6 +1,5 @@
 package pl.coderslab.springboot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,20 +15,19 @@ import java.util.List;
 
 @Controller
 public class StocksController {
-    @Autowired
-    StocksRepository stocksRepository;
-    @Autowired
-    OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo;
-    @Autowired
-    CryptocurrencyRepository cryptocurrencyRepository;
-    @Autowired
-    OwnedstocksRepository ownedstocksRepository;
-    @Autowired
-    StorageRepository storageRepository;
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    UserService userService;
+    private final StocksRepository stocksRepository;
+    private final OwnedstocksRepository ownedstocksRepository;
+    private final StorageRepository storageRepository;
+    private final UserRepository userRepository;
+    private final UserService userService;
+
+    public StocksController(StocksRepository stocksRepository, OwnedstocksRepository ownedstocksRepository, StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
+        this.stocksRepository = stocksRepository;
+        this.ownedstocksRepository = ownedstocksRepository;
+        this.storageRepository = storageRepository;
+        this.userRepository = userRepository;
+        this.userService = userService;
+    }
 
     @RequestMapping("/yourStocks")
     public String yourStocks(Model model, @AuthenticationPrincipal UserDetails customUser) {
@@ -53,10 +51,11 @@ public class StocksController {
             , @AuthenticationPrincipal UserDetails customUser) {
         if (result.hasErrors()) {
             return "addStocks";
-        }   String entityUser = customUser.getUsername();
-            Long user = userRepository.findByUsername(entityUser).getId();
-            ownedstocksRepository.save(ownedstocks);
-            return "stocksSuccess";
+        }
+        String entityUser = customUser.getUsername();
+        Long user = userRepository.findByUsername(entityUser).getId();
+        ownedstocksRepository.save(ownedstocks);
+        return "stocksSuccess";
 
     }
 
