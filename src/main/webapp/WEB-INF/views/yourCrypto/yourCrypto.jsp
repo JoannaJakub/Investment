@@ -3,20 +3,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="head.jsp" %>
-
+<%@ include file="../head.jsp" %>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="sideMenu.jsp" %>
+    <%@ include file="../sideMenu.jsp" %>
 
     <div class="page-content">
         <div class="page-header">
-            <div class="container-fluid">
-                <h2 class="h5 no-margin-bottom">Dashboard</h2>
+            <div class="list-inline-item">
+                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="addCrypto">Add cryptocurrencies</a></h2>
             </div>
         </div>
-
         <section class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">
@@ -29,35 +30,33 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Crypto</strong></div>
+                        <div class="title"><strong>Stocks</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Symbol</th>
-                                    <th>Num market pairs</th>
-                                    <th>CMC Rank</th>
-                                    <th>Circulating Supply</th>
-                                    <th>Total Supply</th>
-                                    <th>Volume 24h Max</th>
-                                    <th>Volume 24h Min</th>
+                                    <th>PriceMin</th>
+                                    <th>PriceMax</th>
+                                    <th>How much</th>
+                                    <th>When bought</th>
+                                    <th>Amount of crypto</th>
+                                    <th>Notes</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${cryptocurrencies}" var="cryptocurrencies">
+                                <c:forEach items="${ownedcryptocurrencies}" var="ownedcryptocurrencies">
                                     <tr>
-                                        <td><c:out value="${cryptocurrencies.id}"/></td>
-                                        <td><c:out value="${cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${cryptocurrencies.symbol}"/></td>
-                                        <td><c:out value="${cryptocurrencies.num_market_pairs}"/></td>
-                                        <td><c:out value="${cryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${cryptocurrencies.circulating_supply}"/></td>
-                                        <td><c:out value="${cryptocurrencies.total_supply}"/></td>
-                                        <td><c:out value="${cryptocurrencies.volume24hMax}"/></td>
-                                        <td><c:out value="${cryptocurrencies.volume24hMin}"/></td>
+                                        <td>${ownedcryptocurrencies.id}</td>
+                                        <td>${ownedcryptocurrencies.cryptocurrencies.name}</td>
+                                        <td>${ownedcryptocurrencies.cryptocurrencies.priceMin}</td>
+                                        <td>${ownedcryptocurrencies.cryptocurrencies.priceMax}</td>
+                                        <td>${ownedcryptocurrencies.howMuch}</td>
+                                        <td>${ownedcryptocurrencies.numOfCoins}</td>
+                                        <td>${ownedcryptocurrencies.whenBought}</td>
+                                        <td>${ownedcryptocurrencies.notes}</td>
                                     </tr>
                                 </c:forEach>
 
@@ -67,7 +66,7 @@
                     </div>
                 </div>
             </div>
-    </div>
+
     </section>
 
 
