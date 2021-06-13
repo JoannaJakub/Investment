@@ -4,11 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="head.jsp" %>
+<%@ include file="../head.jsp" %>
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="sideMenu.jsp" %>
+    <%@ include file="../sideMenu.jsp" %>
     <div class="page-content">
         <!-- Page Header-->
         <div class="page-header no-margin-bottom">
@@ -29,7 +29,7 @@
                                 <div class="text-left">
                                     <h1>You have add your storage successfully!</h1>
                                     </br>
-                                    <h4><a href="storage">Click here to see all your storage!</a></h4>
+                                    <h4><a href="">Click here to see all your storage!</a></h4>
                                 </br>
                                 </div>
                             </div>
