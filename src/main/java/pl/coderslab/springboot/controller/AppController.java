@@ -33,19 +33,19 @@ public class AppController {
 
     @GetMapping("")
     public String viewHomePage() {
-        return "landingPage";
+        return "dashboard/landingPage";
     }
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return "dashboard/register";
     }
 
     @PostMapping(value = "/register_success")
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "register";
+            return "dashboard/register";
         } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
         } else {
@@ -53,18 +53,18 @@ public class AppController {
             String encodedPassword = passwordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
             userRepo.save(user);
-            return "register_success";
+            return "dashboard/register_success";
         }
-        return "register";
+        return "dashboard/register";
     }
 
 
     @GetMapping(value = {"/login"})
     public String login(@RequestParam(value = "error", defaultValue = "false") boolean loginError) {
         if (loginError) {
-            return "loginError";
+            return "dashboard/loginError";
         } else {
-            return "login";
+            return "dashboard/login";
         }
     }
 
@@ -75,7 +75,7 @@ public class AppController {
         model.addAttribute("cryptocurrencies", cryptocurrencies);
         List<Stocks> stocks = stocksRepository.findAll();
         model.addAttribute("stocks", stocks);
-        return "dashboard";
+        return "dashboard/dashboard";
     }
 
     @GetMapping(value="/logout")
@@ -94,14 +94,14 @@ public class AppController {
     public String allCryptoLandingPage(Model model) {
         List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepo.findAll();
         model.addAttribute("cryptocurrencies", cryptocurrencies);
-        return "allCryptoLandingPage";
+        return "dashboard/allCryptoLandingPage";
     }
 
     @GetMapping("allStocksLandingPage")
     public String allStocksLandingPage(Model model) {
         List<Stocks> stocks = stocksRepository.findAll();
         model.addAttribute("stocks", stocks);
-        return "allStocksLandingPage";
+        return "dashboard/allStocksLandingPage";
     }
 
 }
