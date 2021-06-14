@@ -34,7 +34,7 @@ public class CryptocurrencyController {
     public String allCrypto(Model model) {
         List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepository.findAll();
         model.addAttribute("cryptocurrencies", cryptocurrencies);
-        return "yourCrypto/allCrypto";
+        return "user/yourCrypto/allCrypto";
     }
 
 
@@ -45,7 +45,7 @@ public class CryptocurrencyController {
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findByUser(user);
         model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
 
-        return "yourCrypto/yourCrypto";
+        return "user/yourCrypto/yourCrypto";
     }
 
 
@@ -54,16 +54,16 @@ public class CryptocurrencyController {
         model.addAttribute("ownedcryptocurrencies", new Ownedcryptocurrencies());
         model.addAttribute("cryptocurrencies", cryptocurrencyRepository.findAll());
         model.addAttribute("storage", storageRepository.findAll());
-        return "yourCrypto/addCrypto";
+        return "user/yourCrypto/addCrypto";
     }
 
     @PostMapping(value = "/cryptoSuccess")
     public String processAddingCrypto(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result) {
         if (result.hasErrors()) {
-            return "yourCrypto/addCrypto";
+            return "user/yourCrypto/addCrypto";
         } else {
             ownedcryptocurrenciesRepo.save(ownedcryptocurrencies);
-            return "yourCrypto/cryptoSuccess";
+            return "user/yourCrypto/cryptoSuccess";
         }
     }
 

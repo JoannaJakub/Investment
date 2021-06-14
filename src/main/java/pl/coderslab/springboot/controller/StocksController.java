@@ -35,7 +35,7 @@ public class StocksController {
         User user = userRepository.findByUsername(entityUser);
         List<Ownedstocks> ownedstocks = ownedstocksRepository.findByUser(user);
         model.addAttribute("ownedstocks", ownedstocks);
-        return "yourStock/yourStocks";
+        return "user/yourStock/yourStocks";
     }
 
     @GetMapping("/addStocks")
@@ -43,19 +43,19 @@ public class StocksController {
         model.addAttribute("ownedstocks", new Ownedstocks());
         model.addAttribute("stocks", stocksRepository.findAll());
         model.addAttribute("storage", storageRepository.findAll());
-        return "yourStock/addStocks";
+        return "user/yourStock/addStocks";
     }
 
     @PostMapping(value = "/stocksSuccess")
     public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result
             , @AuthenticationPrincipal UserDetails customUser) {
         if (result.hasErrors()) {
-            return "yourStock/addStocks";
+            return "user/yourStock/addStocks";
         }
         String entityUser = customUser.getUsername();
         Long user = userRepository.findByUsername(entityUser).getId();
         ownedstocksRepository.save(ownedstocks);
-        return "yourStock/stocksSuccess";
+        return "user/yourStock/stocksSuccess";
 
     }
 
@@ -64,7 +64,7 @@ public class StocksController {
     public String allStocks(Model model) {
         List<Stocks> stocks = stocksRepository.findAll();
         model.addAttribute("stocks", stocks);
-        return "yourStock/allStocks";
+        return "user/yourStock/allStocks";
     }
 
 

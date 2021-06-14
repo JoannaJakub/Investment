@@ -32,22 +32,22 @@ public class StorageController {
         model.addAttribute("storage", storage);
 
 
-        return "storage/storage";
+        return "user/storage/storage";
     }
     @GetMapping("/addStorage")
     public String addStorage(Model model) {
         model.addAttribute("storage", new Storage());
-        return "storage/addStorage";
+        return "user/storage/addStorage";
     }
 
 
     @PostMapping(value = "/storageSuccess")
     public String processAddingStorage(@Valid Storage storage, BindingResult result) {
         if (result.hasErrors()) {
-            return "storage/addStorage";
+            return "user/storage/addStorage";
         } else {
             storageRepository.save(storage);
-            return "storage/storageSuccess";
+            return "user/storage/storageSuccess";
         }
     }
 }
