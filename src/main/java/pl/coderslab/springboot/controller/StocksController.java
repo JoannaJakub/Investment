@@ -19,14 +19,12 @@ public class StocksController {
     private final OwnedstocksRepository ownedstocksRepository;
     private final StorageRepository storageRepository;
     private final UserRepository userRepository;
-    private final UserService userService;
 
-    public StocksController(StocksRepository stocksRepository, OwnedstocksRepository ownedstocksRepository, StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
+    public StocksController(StocksRepository stocksRepository, OwnedstocksRepository ownedstocksRepository, StorageRepository storageRepository, UserRepository userRepository) {
         this.stocksRepository = stocksRepository;
         this.ownedstocksRepository = ownedstocksRepository;
         this.storageRepository = storageRepository;
         this.userRepository = userRepository;
-        this.userService = userService;
     }
 
     @RequestMapping("/yourStocks")
@@ -53,7 +51,7 @@ public class StocksController {
             return "user/yourStock/addStocks";
         }
         String entityUser = customUser.getUsername();
-        Long user = userRepository.findByUsername(entityUser).getId();
+        //Long user = userRepository.findByUsername(entityUser).getId();
         ownedstocksRepository.save(ownedstocks);
         return "user/yourStock/stocksSuccess";
 

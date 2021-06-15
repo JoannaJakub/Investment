@@ -7,7 +7,7 @@
 <body>
 <%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="../../sideMenu.jsp" %>
+    <%@ include file="../sideMenu.jsp" %>
 
     <div class="page-content">
         <div class="page-header">
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-    </section>
+        </section>
 
         <%@ include file="../footer.jsp" %>
 </body>

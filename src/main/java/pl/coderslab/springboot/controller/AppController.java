@@ -75,7 +75,7 @@ public class AppController {
         model.addAttribute("cryptocurrencies", cryptocurrencies);
         List<Stocks> stocks = stocksRepository.findAll();
         model.addAttribute("stocks", stocks);
-        return "main/dashboard";
+        return "user/dashboard";
     }
 
     @GetMapping(value="/logout")

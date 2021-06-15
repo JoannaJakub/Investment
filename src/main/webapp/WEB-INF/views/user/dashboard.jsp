@@ -8,7 +8,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="../sideMenu.jsp" %>
+    <%@ include file="sideMenu.jsp" %>
 
     <div class="page-content">
         <div class="page-header">
@@ -108,6 +108,6 @@
         </section>
 
 
-        <%@ include file="footer.jsp" %>
+        <%@ include file="../main/footer.jsp" %>
 </body>
 </html>
