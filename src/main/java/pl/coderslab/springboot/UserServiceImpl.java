@@ -12,7 +12,7 @@ import pl.coderslab.springboot.service.UserService;
 import java.util.Arrays;
 import java.util.HashSet;
 
-
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;

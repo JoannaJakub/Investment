@@ -19,5 +19,6 @@
         <li><a href="storage"> <i class="icon-padnote"></i>Storage </a></li>
         <li><a href="allStocks"> <i class="icon-padnote"></i>All stocks </a></li>
         <li><a href="allCrypto"> <i class="icon-padnote"></i>All crypto </a></li>
+        <li><a href="users"> <i class="icon-padnote"></i>Users </a></li>
 
 </nav>

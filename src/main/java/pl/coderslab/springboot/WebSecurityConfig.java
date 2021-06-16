@@ -51,7 +51,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
               .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage", "/allStocks", "/allCrypto", "/addCrypto","/addStocks", "/cryptoSuccess", "/stocksSuccess").hasAnyAuthority("USER", "ADMIN")
               .antMatchers("/users").hasAnyAuthority( "ADMIN")
-                .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login")
                 .usernameParameter("username")
