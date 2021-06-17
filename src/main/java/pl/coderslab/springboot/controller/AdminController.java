@@ -43,4 +43,9 @@ public class AdminController {
         model.addAttribute("user", user);
         return "admin/users";
     }
+    @GetMapping("adminDashboard")
+    public String adminDashboard(Model model) {
+
+        return "admin/adminDashboard";
+    }
 }

@@ -14,13 +14,14 @@ import pl.coderslab.springboot.service.CustomUserDetailsService;
 import pl.coderslab.springboot.service.SpringDataUserDetailsService;
 
 
-
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserDetailsService userDetailsService() {return new CustomUserDetailsService();  }
+    public UserDetailsService userDetailsService() {
+        return new CustomUserDetailsService();
+    }
 
     @Bean
     public SpringDataUserDetailsService customUserDetailsService() {
@@ -46,11 +47,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(authenticationProvider());
     }
 
-       @Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-              .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage", "/allStocks", "/allCrypto", "/addCrypto","/addStocks", "/cryptoSuccess", "/stocksSuccess").hasAnyAuthority("USER", "ADMIN")
-              .antMatchers("/users").hasAnyAuthority( "ADMIN")
+                .antMatchers("/users").hasAnyAuthority("ADMIN")
+                .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage",
+                        "/allStocks", "/allCrypto", "/addCrypto", "/addStocks", "/cryptoSuccess", "/stocksSuccess").hasAnyAuthority("USER", "ADMIN")
                 .and()
                 .formLogin().loginPage("/login")
                 .usernameParameter("username")
@@ -59,9 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/")
-
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
-                .and().exceptionHandling().accessDeniedPage("/Access_Denied");
+                .and().exceptionHandling().accessDeniedPage("/accessDenied");
     }
 }
