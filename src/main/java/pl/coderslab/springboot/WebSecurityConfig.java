@@ -50,13 +50,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/users").hasAnyAuthority("ADMIN")
-                .antMatchers("/dashboard", "/yourStocks", "/yourCrypto", "/storage",
-                        "/allStocks", "/allCrypto", "/addCrypto", "/addStocks", "/cryptoSuccess", "/stocksSuccess").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
+                .antMatchers("/user/**").hasAnyAuthority("USER")
                 .and()
                 .formLogin().loginPage("/login")
                 .usernameParameter("username")
-                .defaultSuccessUrl("/dashboard")
+                .defaultSuccessUrl("/default")
                 .failureUrl("/login?error=true")
                 .permitAll()
                 .and()

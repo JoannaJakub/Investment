@@ -2,6 +2,7 @@ package pl.coderslab.springboot.controller;
 
 
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -16,6 +17,7 @@ import pl.coderslab.springboot.repository.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -103,5 +105,16 @@ public class AppController {
         model.addAttribute("stocks", stocks);
         return "main/allStocksLandingPage";
     }
-
+    @RequestMapping(value= {"/default"}, method = RequestMethod.GET)
+    public String defaultAfterLogin() {
+        Collection<? extends GrantedAuthority> authorities;
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        authorities = auth.getAuthorities();
+        String myRole = authorities.toArray()[0].toString();
+        String admin = "admin";
+        if (myRole.equals(admin)) {
+            return "redirect:/adminDashboard";
+        }
+        return "redirect:/dashboard";
+    }
 }

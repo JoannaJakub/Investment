@@ -38,13 +38,13 @@ public class User implements Serializable {
     @Column(name = "lastname", nullable = false, length = 20)
     private String lastName;
 
-    private int enabled;
    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles  = new HashSet<>();
-
     public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
     }
+
+    private boolean enabled;
 }
 

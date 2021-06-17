@@ -11,6 +11,7 @@ import pl.coderslab.springboot.service.UserService;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import org.springframework.security.core.userdetails.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -36,20 +37,19 @@ public class UserServiceImpl implements UserService {
     public User findByUserName(String username) {
         return userRepository.findByUsername(username);
     }
-    @Override
+   @Override
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setEnabled(1);
+        user.setEnabled(false);
         Role userRole = roleRepository.findByName("ROLE_USER");
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
     @Override
-    public CustomUserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
 
-        if (user == null) {
+        if (username.equals("admin")) {
             throw new UsernameNotFoundException("Could not find user");
         }
 
