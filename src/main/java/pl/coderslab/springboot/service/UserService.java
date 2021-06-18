@@ -8,7 +8,7 @@ public interface UserService {
     User findByEmail(String email);
     User findByUserName(String name);
     void saveUser(User user);
-
+    void delete(Long id);
     UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException;
 }

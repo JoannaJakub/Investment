@@ -55,6 +55,7 @@
                                         <td><c:out value="${user.username}"/></td>
                                         <td><c:out value="${user.enabled}"/></td>
                                         <td><c:out value="${user.roles}"/></td>
+                                        <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Usuń</a></td>
                                     </tr>
                                 </c:forEach>
 

@@ -7,13 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 import pl.coderslab.springboot.repository.RoleRepository;
 import pl.coderslab.springboot.repository.StocksRepository;
 import pl.coderslab.springboot.repository.UserRepository;
+import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,12 +27,14 @@ public class AdminController {
     private final UserRepository userRepo;
     private final RoleRepository roleRepository;
     private final CryptocurrencyRepository cryptocurrencyRepo;
+    private final UserService userService;
 
-    public AdminController(StocksRepository stocksRepository, UserRepository userRepo, RoleRepository roleRepository, CryptocurrencyRepository cryptocurrencyRepo) {
+    public AdminController(StocksRepository stocksRepository, UserRepository userRepo, RoleRepository roleRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService) {
         this.stocksRepository = stocksRepository;
         this.userRepo = userRepo;
         this.roleRepository = roleRepository;
         this.cryptocurrencyRepo = cryptocurrencyRepo;
+        this.userService = userService;
     }
 
 
@@ -70,6 +75,16 @@ public class AdminController {
             return "admin/adminRegisterSuccess";
         }
         return "admin/adminRegister";
+    }
+    @RequestMapping("/userConfirmDelete")
+    public String userConfirmDelete() {
+        return "userConfirmDelete2";
+    }
+
+    @GetMapping(value = {"/userDelete/{id}"})
+    public String userDelete(@PathVariable long id) {
+        userService.delete(id);
+        return "redirect:/users";
     }
 
 }
