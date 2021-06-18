@@ -1,9 +1,13 @@
 package pl.coderslab.springboot.controller;
 
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
@@ -11,6 +15,7 @@ import pl.coderslab.springboot.repository.RoleRepository;
 import pl.coderslab.springboot.repository.StocksRepository;
 import pl.coderslab.springboot.repository.UserRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -45,4 +50,26 @@ public class AdminController {
         model.addAttribute("role", role);
         return "admin/roles";
     }
+    @GetMapping("/adminRegister")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new User());
+        return "admin/adminRegister";
+    }
+
+    @PostMapping(value = "/adminRegisterSuccess")
+    public String processRegister(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/adminRegister";
+        } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
+            result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
+        } else {
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode(user.getPassword());
+            user.setPassword(encodedPassword);
+            userRepo.save(user);
+            return "admin/adminRegisterSuccess";
+        }
+        return "admin/adminRegister";
+    }
+
 }

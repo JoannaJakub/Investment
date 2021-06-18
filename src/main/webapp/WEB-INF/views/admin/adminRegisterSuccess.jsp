@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <%@ include file="../head.jsp" %>
@@ -8,6 +9,7 @@
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
     <%@ include file="adminSideMenu.jsp" %>
+
 
     <div class="page-content">
         <div class="page-header">
@@ -29,23 +31,13 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                </tr>
-                                </thead>
+
                                 <tbody>
 
-                                <c:forEach items="${role}" var="role">
-                                    <tr>
-                                        <td><c:out value="${role.id}"/></td>
-                                        <td><c:out value="${role.name}"/></td>
-                                    </tr>
-                                </c:forEach>
+                                <h1>User was added successfully!</h1>
+                                <h4><a href="<c:url value="/users"/>">List of users</a></h4>
 
                                 </tbody>
                             </table>
@@ -55,9 +47,6 @@
 
             </div>
         </section>
-
-
-        <%@ include file="../user/footer.jsp" %>
-
+        <%@ include file="../main/footer.jsp" %>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="../user/sideMenu.jsp" %>
+    <%@ include file="adminSideMenu.jsp" %>
 
     <div class="page-content">
         <div class="page-header">
@@ -16,7 +16,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminRegister"/>">Add user</a></h2>
             </div>
         </div>
 
@@ -37,7 +37,12 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>Link</th>
+                                    <th>Surname</th>
+                                    <th>Username</th>
+                                    <th>Enabled</th>
+                                    <th>Role</th>
+                                    <th>Usuń</th>
+                                    <th>Edytuj</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -47,6 +52,9 @@
                                         <td><c:out value="${user.id}"/></td>
                                         <td><c:out value="${user.firstName}"/></td>
                                         <td><c:out value="${user.lastName}"/></td>
+                                        <td><c:out value="${user.username}"/></td>
+                                        <td><c:out value="${user.enabled}"/></td>
+                                        <td><c:out value="${user.roles}"/></td>
                                     </tr>
                                 </c:forEach>
 
