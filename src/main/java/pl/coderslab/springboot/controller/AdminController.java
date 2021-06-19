@@ -127,4 +127,14 @@ public class AdminController {
         }else{ return "admin/adminError";}
         return "admin/userConfirmEdit";
     }
+    @GetMapping(value = {"/userDetails/{id}"})
+    public String userDetails(@PathVariable long id, Model model) {
+        Optional<User> findUser = userRepo.findById(id);
+        if (findUser.isPresent()) {
+            model.addAttribute("userDetails", findUser.get());
+        }
+        else{ return "admin/adminError";}
+
+        return "admin/userDetails";
+    }
 }
