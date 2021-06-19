@@ -21,6 +21,7 @@ import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AdminController {
@@ -103,5 +104,27 @@ public class AdminController {
             return "admin/roleSuccess";
         }
     }
+    @GetMapping(value = {"/userEdit/{id}"})
+    public String userEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("userEdit", userRepo.findById(id));
+        return "admin/userEdit";
+    }
 
+    @PostMapping(value = {"userEdit/{id}"})
+    public String userEditSave(@Valid User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
+        userService.saveUser(user);
+        return "redirect:/userConfirmEditing/{id}";
+    }
+
+    @RequestMapping("/userConfirmEditing/{id}")
+    public String userConfirmEditing(@PathVariable long id, Model model) {
+        Optional<User> user = userRepo.findById(id);
+        if (user.isPresent()) {
+            model.addAttribute("userConfirmEdit", user.get());
+        }else{ return "admin/adminError";}
+        return "admin/userConfirmEdit";
+    }
 }
