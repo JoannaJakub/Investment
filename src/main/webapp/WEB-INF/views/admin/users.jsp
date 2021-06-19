@@ -41,8 +41,9 @@
                                     <th>Username</th>
                                     <th>Enabled</th>
                                     <th>Role</th>
-                                    <th>Usuń</th>
-                                    <th>Edytuj</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -55,8 +56,9 @@
                                         <td><c:out value="${user.username}"/></td>
                                         <td><c:out value="${user.enabled}"/></td>
                                         <td><c:out value="${user.roles}"/></td>
-                                        <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Usuń</a></td>
-                                        <td><a href="<c:url value="/userEdit/${user.id}"/>">Edytuj</a></td>
+                                        <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

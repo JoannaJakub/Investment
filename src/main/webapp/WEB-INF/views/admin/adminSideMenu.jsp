@@ -21,4 +21,3 @@
         <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All crypto </a></li>
     </ul>
 </nav>
-</nav>
