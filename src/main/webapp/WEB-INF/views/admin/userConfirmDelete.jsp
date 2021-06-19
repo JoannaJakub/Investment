@@ -5,7 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <%@ include file="../head.jsp" %>
 <body>
 <%@ include file="../header.jsp" %>
@@ -38,6 +38,8 @@
             </table>
         </section>
 
+    </div>
+</div>
 
         <%@ include file="../user/footer.jsp" %>
 

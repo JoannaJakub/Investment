@@ -13,11 +13,12 @@
 </div>
 </div>
 <!-- JavaScript files-->
-<script src="resources/distribution/vendor/jquery/jquery.min.js"></script>
-<script src="resources/distribution/vendor/popper.js/umd/popper.min.js"></script>
-<script src="resources/distribution/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="resources/distribution/vendor/jquery.cookie/jquery.cookie.js"></script>
-<script src="resources/distribution/vendor/chart.js/Chart.min.js"></script>
-<script src="resources/distribution/vendor/jquery-validation/jquery.validate.min.js"></script>
-<script src="resources/distribution/js/charts-home.js"></script>
-<script src="resources/distribution/js/front.js"></script>
+
+<script src="<c:url value="../resources/distribution/vendor/jquery/jquery.min.js"/>"></script>
+<script src="<c:url value="../resources/distribution/vendor/popper.js/umd/popper.min.js"/>"></script>
+<script src="<c:url value="../resources/distribution/vendor/bootstrap/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="../resources/distribution/vendor/jquery.cookie/jquery.cookie.js"/>"></script>
+<script src="<c:url value="../resources/distribution/vendor/chart.js/Chart.min.js"/>"></script>
+<script src="<c:url value="../resources/distribution/vendor/jquery-validation/jquery.validate.min.js"/>"></script>
+<script src="<c:url value="../resources/distribution/js/charts-home.js"/>"></script>
+<script src="<c:url value="../resources/distribution/js/front.js"/>"></script>

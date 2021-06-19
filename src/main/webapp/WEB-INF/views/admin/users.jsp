@@ -69,7 +69,7 @@
         </section>
 
 
-        <%@ include file="../user/footer.jsp" %>
+        <%@ include file="../main/footer.jsp" %>
 
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
+import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 import pl.coderslab.springboot.repository.RoleRepository;
@@ -78,13 +79,29 @@ public class AdminController {
     }
     @RequestMapping("/userConfirmDelete")
     public String userConfirmDelete() {
-        return "userConfirmDelete2";
+        return "admin/userConfirmDelete";
     }
 
     @GetMapping(value = {"/userDelete/{id}"})
     public String userDelete(@PathVariable long id) {
         userService.delete(id);
         return "redirect:/users";
+    }
+    @GetMapping("/addRole")
+    public String addRole(Model model) {
+        model.addAttribute("role", new Role());
+        return "admin/addRole";
+    }
+
+
+    @PostMapping(value = "/roleSuccess")
+    public String processRoleSuccess(@Valid Role role, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/addRole";
+        } else {
+            roleRepository.save(role);
+            return "admin/roleSuccess";
+        }
     }
 
 }
