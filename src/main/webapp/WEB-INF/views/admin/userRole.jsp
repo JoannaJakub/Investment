@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="../head.jsp" %>
+
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -15,7 +16,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addRole"/>">Add role</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminRegister"/>">Add user</a></h2>
             </div>
         </div>
 
@@ -36,15 +37,28 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Surname</th>
+                                    <th>Username</th>
+                                    <th>Enabled</th>
+                                    <th>Role</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${role}" var="role">
+                                <c:forEach items="${userRole}" var="userRole">
                                     <tr>
-                                        <td><c:out value="${role.id}"/></td>
-                                        <td><a href="<c:url value="/userRole/${role.id}"/>"><c:out
-                                                value="${role.name}"/></a></td>
+                                        <td><c:out value="${userRole.id}"/></td>
+                                        <td><c:out value="${userRole.firstname}"/></td>
+                                        <td><c:out value="${userRole.lastName}"/></td>
+                                        <td><c:out value="${userRole.username}"/></td>
+                                        <td><c:out value="${userRole.enabled}"/></td>
+                                        <td><c:out value="${userRole.roles}"/></td>
+                                        <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
@@ -58,7 +72,7 @@
         </section>
 
 
-        <%@ include file="../user/footer.jsp" %>
+        <%@ include file="../main/footer.jsp" %>
 
 </body>
 </html>

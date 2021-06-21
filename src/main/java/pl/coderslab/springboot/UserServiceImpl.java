@@ -11,6 +11,8 @@ import pl.coderslab.springboot.service.UserService;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
+
 import org.springframework.security.core.userdetails.*;
 
 @Service
@@ -61,5 +63,11 @@ public class UserServiceImpl implements UserService {
 
         return new CustomUserDetails(user);
     }
+
+    @Override
+    public List<User> findByRoleId(long Roles) {
+        return null;
+    }
+
 
 }

@@ -57,6 +57,15 @@ public class AdminController {
         model.addAttribute("role", role);
         return "admin/roles";
     }
+
+
+    @GetMapping(value = {"/userRole/{id}"})
+    public String oneUserContacts(@PathVariable long id, Model model) {
+        List<User> role = userService.findByRoleId(id);
+        model.addAttribute("userRole", role);
+        return "admin/userRole";
+    }
+
     @GetMapping("/adminRegister")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
