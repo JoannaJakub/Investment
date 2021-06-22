@@ -21,7 +21,4 @@ public class Storage {
     @NotBlank(message = "Please enter link.")
     private String link;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    private User user;
-
 }

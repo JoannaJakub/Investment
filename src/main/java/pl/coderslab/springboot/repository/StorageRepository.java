@@ -11,4 +11,5 @@ public interface StorageRepository extends JpaRepository<Storage, Long> {
     @Query(nativeQuery=true, value="SELECT *FROM storage LEFT JOIN user on storage.user_id=user.id where username=?;")
     List<Storage> findById(String entityUser);
 
+
 }

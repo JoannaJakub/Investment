@@ -153,4 +153,14 @@ public class AdminController {
 
         return "admin/storage";
     }
+    @RequestMapping("/storageConfirmDelete")
+    public String storageConfirmDelete() {
+        return "admin/storageConfirmDelete";
+    }
+
+    @GetMapping(value = {"/storageDelete/{id}"})
+    public String storageDelete(@PathVariable long id) {
+        storageRepository.deleteById(id);
+        return "redirect:/adminStorage";
+    }
 }
