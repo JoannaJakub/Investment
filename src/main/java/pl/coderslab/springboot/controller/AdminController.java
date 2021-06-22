@@ -163,4 +163,15 @@ public class AdminController {
         storageRepository.deleteById(id);
         return "redirect:/adminStorage";
     }
+
+    @GetMapping(value = {"/storageDetails/{id}"})
+    public String storageDetails(@PathVariable long id, Model model) {
+        Optional<Storage> storageDetails = storageRepository.findById(id);
+        if (storageDetails.isPresent()) {
+            model.addAttribute("storageDetails", storageDetails.get());
+        }
+        else{ return "admin/adminError";}
+
+        return "admin/storageDetails";
+    }
 }
