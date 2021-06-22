@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
-import pl.coderslab.springboot.repository.CryptocurrencyRepository;
-import pl.coderslab.springboot.repository.RoleRepository;
-import pl.coderslab.springboot.repository.StocksRepository;
-import pl.coderslab.springboot.repository.UserRepository;
+import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
@@ -30,13 +27,15 @@ public class AdminController {
     private final RoleRepository roleRepository;
     private final CryptocurrencyRepository cryptocurrencyRepo;
     private final UserService userService;
+    private final StorageRepository storageRepository;
 
-    public AdminController(StocksRepository stocksRepository, UserRepository userRepo, RoleRepository roleRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService) {
+    public AdminController(StocksRepository stocksRepository, UserRepository userRepo, RoleRepository roleRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService, StorageRepository storageRepository) {
         this.stocksRepository = stocksRepository;
         this.userRepo = userRepo;
         this.roleRepository = roleRepository;
         this.cryptocurrencyRepo = cryptocurrencyRepo;
         this.userService = userService;
+        this.storageRepository = storageRepository;
     }
 
 
@@ -145,5 +144,13 @@ public class AdminController {
         else{ return "admin/adminError";}
 
         return "admin/userDetails";
+    }
+    @GetMapping("adminStorage")
+    public String storage(Model model) {
+        List<Storage> storage = storageRepository.findAll();
+        model.addAttribute("adminStorage", storage);
+
+
+        return "admin/storage";
     }
 }
