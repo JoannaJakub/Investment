@@ -39,7 +39,7 @@
                             <div class="block">
                                 <div class="title"><strong>Add storage</strong></div>
                                 <div class="block-body">
-                                    <form:form action="adminStorageSuccess" class="form-horizontal" method="post" modelAttribute="adminAddStorage">
+                                    <form:form action="storageSuccess" class="form-horizontal" method="post" modelAttribute="adminAddStorage">
                                         <div class="form-group row">
 
                                         </div>
