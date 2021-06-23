@@ -1,4 +1,4 @@
-package pl.coderslab.springboot.controller;
+package pl.coderslab.springboot.controller.admin;
 
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -45,6 +45,7 @@ public class AdminController {
         model.addAttribute("user", user);
         return "admin/users";
     }
+
     @GetMapping("adminDashboard")
     public String adminDashboard(Model model) {
 
@@ -80,6 +81,7 @@ public class AdminController {
         }
         return "admin/adminRegister";
     }
+
     @RequestMapping("/userConfirmDelete")
     public String userConfirmDelete() {
         return "admin/userConfirmDelete";
@@ -90,6 +92,7 @@ public class AdminController {
         userService.delete(id);
         return "redirect:/users";
     }
+
     @GetMapping("role")
     public String roles(Model model) {
         List<Role> role = roleRepository.findAll();
@@ -131,6 +134,7 @@ public class AdminController {
         model.addAttribute("userEdit", userRepo.findById(id));
         return "admin/userEdit";
     }
+
     @PostMapping(value = {"userEdit/{id}"})
     public String userEditSave(@Valid User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -139,52 +143,28 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/userConfirmEditing/{id}";
     }
+
     @RequestMapping("/userConfirmEditing/{id}")
     public String userConfirmEditing(@PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         if (user.isPresent()) {
             model.addAttribute("userConfirmEdit", user.get());
-        }else{ return "admin/adminError";}
+        } else {
+            return "admin/adminError";
+        }
         return "admin/userConfirmEdit";
     }
+
     @GetMapping(value = {"/userDetails/{id}"})
     public String userDetails(@PathVariable long id, Model model) {
         Optional<User> findUser = userRepo.findById(id);
         if (findUser.isPresent()) {
             model.addAttribute("userDetails", findUser.get());
+        } else {
+            return "admin/adminError";
         }
-        else{ return "admin/adminError";}
 
         return "admin/userDetails";
     }
-    @GetMapping("adminStorage")
-    public String storage(Model model) {
-        List<Storage> storage = storageRepository.findAll();
-        model.addAttribute("adminStorage", storage);
-
-
-        return "admin/storage";
-    }
-
-    @RequestMapping("/storageConfirmDelete")
-    public String storageConfirmDelete() {
-        return "admin/storageConfirmDelete";
-    }
-
-    @GetMapping(value = {"/storageDelete/{id}"})
-    public String storageDelete(@PathVariable long id) {
-        storageRepository.deleteById(id);
-        return "redirect:/adminStorage";
-    }
-
-    @GetMapping(value = {"/storageDetails/{id}"})
-    public String storageDetails(@PathVariable long id, Model model) {
-        Optional<Storage> storageDetails = storageRepository.findById(id);
-        if (storageDetails.isPresent()) {
-            model.addAttribute("storageDetails", storageDetails.get());
-        }
-        else{ return "admin/adminError";}
-
-        return "admin/storageDetails";
-    }
 }
+
