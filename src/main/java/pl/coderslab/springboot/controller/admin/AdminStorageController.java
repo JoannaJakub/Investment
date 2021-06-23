@@ -3,13 +3,17 @@ package pl.coderslab.springboot.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +41,20 @@ public class AdminStorageController {
         List<Storage> storage = storageRepository.findAll();
         model.addAttribute("adminStorage", storage);
         return "admin/storage/storage";
+    }
+    @GetMapping("/adminAddStorage")
+    public String addAdminStorage(Model model) {
+        model.addAttribute("adminAddStorage", new Storage());
+        return "admin/storage/addStorage";
+    }
+    @PostMapping(value = "/adminStorageSuccess")
+    public String processAdminStorageSuccess(@Valid Storage storage, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/storage/addStorage";
+        } else {
+            storageRepository.save(storage);
+            return "admin/storage/storageSuccess";
+        }
     }
 
     @RequestMapping("/storageConfirmDelete")
