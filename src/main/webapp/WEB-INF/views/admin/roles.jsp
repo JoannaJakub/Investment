@@ -36,6 +36,9 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +48,10 @@
                                         <td><c:out value="${role.id}"/></td>
                                         <td><a href="<c:url value="/userRole/${role.id}"/>"><c:out
                                                 value="${role.name}"/></a></td>
+                                        <td><a href="<c:url value="/roleConfirmDelete/?id=${role.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/roleEdit/${role.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/roleDetails/${role.id}"/>">Details</a></td>
+
                                     </tr>
                                 </c:forEach>
 

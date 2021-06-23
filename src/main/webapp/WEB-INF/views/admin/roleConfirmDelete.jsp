@@ -18,20 +18,20 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addStorage"/>">Add storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addRole"/>">Add role</a></h2>
             </div>
         </div>
 
         <section class="login-page">
-            <h2>Czy jesteś pewien usunięcia bazy?</h2>
+            <h2>Czy jesteś pewien usunięcia użytkownika?</h2>
             <tbody>
             <table class="btn btn--without-border active">
                 <tr>
                     <td>
-                        <a href="<c:url value="/adminStorage"/>" class="btn btn--without-active">NIE</a>
+                        <a href="<c:url value="/role"/>" class="btn btn--without-active">NIE</a>
                     </td>
                     <td>
-                        <a href="<c:url value="/storageDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
+                        <a href="<c:url value="/roleDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
                     </td>
                 </tr>
                 </tbody>

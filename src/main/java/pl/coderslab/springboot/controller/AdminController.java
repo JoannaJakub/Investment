@@ -50,12 +50,6 @@ public class AdminController {
 
         return "admin/adminDashboard";
     }
-    @GetMapping("role")
-    public String roles(Model model) {
-        List<Role> role = roleRepository.findAll();
-        model.addAttribute("role", role);
-        return "admin/roles";
-    }
 
 
     @GetMapping(value = {"/userRole/{id}"})
@@ -96,6 +90,13 @@ public class AdminController {
         userService.delete(id);
         return "redirect:/users";
     }
+    @GetMapping("role")
+    public String roles(Model model) {
+        List<Role> role = roleRepository.findAll();
+        model.addAttribute("role", role);
+        return "admin/roles";
+    }
+
     @GetMapping("/addRole")
     public String addRole(Model model) {
         model.addAttribute("role", new Role());
@@ -112,12 +113,24 @@ public class AdminController {
             return "admin/roleSuccess";
         }
     }
+
+
+    @RequestMapping("/roleConfirmDelete")
+    public String roleConfirmDelete() {
+        return "admin/roleConfirmDelete";
+    }
+
+    @GetMapping(value = {"/roleDelete/{id}"})
+    public String roleDelete(@PathVariable long id) {
+        roleRepository.deleteById(id);
+        return "redirect:/role";
+    }
+
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model) {
         model.addAttribute("userEdit", userRepo.findById(id));
         return "admin/userEdit";
     }
-
     @PostMapping(value = {"userEdit/{id}"})
     public String userEditSave(@Valid User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -126,7 +139,6 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/userConfirmEditing/{id}";
     }
-
     @RequestMapping("/userConfirmEditing/{id}")
     public String userConfirmEditing(@PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
@@ -153,6 +165,7 @@ public class AdminController {
 
         return "admin/storage";
     }
+
     @RequestMapping("/storageConfirmDelete")
     public String storageConfirmDelete() {
         return "admin/storageConfirmDelete";
