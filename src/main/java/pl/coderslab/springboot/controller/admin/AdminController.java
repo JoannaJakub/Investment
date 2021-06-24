@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
-import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -123,12 +122,12 @@ public class AdminController {
         return "admin/roleConfirmDelete";
     }
 
+
     @GetMapping(value = {"/roleDelete/{id}"})
     public String roleDelete(@PathVariable long id) {
         roleRepository.deleteById(id);
         return "redirect:/role";
     }
-
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model) {
         model.addAttribute("userEdit", userRepo.findById(id));
