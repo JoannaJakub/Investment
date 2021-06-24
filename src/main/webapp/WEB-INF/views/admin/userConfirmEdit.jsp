@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%@ include file="adminHead.jsp" %>
+
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">

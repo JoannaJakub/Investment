@@ -55,7 +55,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-9 ml-auto">
                                                 <button type="submit" class="btn btn-secondary">Cancel</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary">Add role</button>
                                             </div>
                                         </div>
                                     </form:form>
