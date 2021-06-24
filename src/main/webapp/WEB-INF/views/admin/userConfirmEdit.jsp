@@ -3,8 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html>
-<%@ include file="../head.jsp" %>
+<html lang="en">
+<%@ include file="adminHead.jsp" %>
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">

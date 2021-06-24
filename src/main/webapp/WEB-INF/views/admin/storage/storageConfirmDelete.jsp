@@ -6,7 +6,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="../../head.jsp" %>
+<%@ include file="../adminHead.jsp" %>
 <body>
 <%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -15,33 +15,51 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addStorage"/>">Add storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="addStorage"></a></h2>
             </div>
         </div>
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
 
-        <section class="login-page">
-            <h2>Czy jesteś pewien usunięcia bazy?</h2>
-            <tbody>
-            <table class="btn btn--without-border active">
-                <tr>
-                    <td>
-                        <a href="<c:url value="/adminStorage"/>" class="btn btn--without-active">NIE</a>
-                    </td>
-                    <td>
-                        <a href="<c:url value="/storageDelete/${param.id}"/>" class="btn btn--without-active">TAK</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+        </div>
+
+        <section class="no-padding-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-20">
+                        <div class="content">
+                            <div class="text">
+                                <h1>Are you sure of removing storage?</h1>
+                                </br>
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="form-group row">
+                <div class="col-sm-9 ml-auto">
+                    <a href="<c:url value="/adminStorage"/>"
+                       class="btn btn-secondary">NO</a>
+                    <a href="<c:url value="/storageDelete/${param.id}"/>"
+                       class="btn btn-primary">YES, delete storage</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="no-margin-bottom">
+                <small>List of storage? </small><a href="<c:url value="/adminStorage"/>">Here</a>
+            </div>
+
         </section>
-
     </div>
 </div>
-
-        <%@ include file="../../user/footer.jsp" %>
+<%@ include file="../../main/footer.jsp" %>
 
 </body>
 </html>

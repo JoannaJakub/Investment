@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="../../head.jsp" %>
+<%@ include file="../adminHead.jsp" %>
 <body>
 <%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">

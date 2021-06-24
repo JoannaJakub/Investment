@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <footer class="footer">
@@ -14,7 +14,7 @@
 </div>
 <!-- JavaScript files-->
 
-<script src="<c:url value="../resources/distribution/vendor/jquery/jquery.min.js"/>"></script>
+<script src="<c:url value="../../resources/distribution/vendor/jquery/jquery.min.js"/>"></script>
 <script src="<c:url value="../resources/distribution/vendor/popper.js/umd/popper.min.js"/>"></script>
 <script src="<c:url value="../resources/distribution/vendor/bootstrap/js/bootstrap.min.js"/>"></script>
 <script src="<c:url value="../resources/distribution/vendor/jquery.cookie/jquery.cookie.js"/>"></script>
