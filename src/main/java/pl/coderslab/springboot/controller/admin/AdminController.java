@@ -96,7 +96,7 @@ public class AdminController {
     public String roles(Model model) {
         List<Role> role = roleRepository.findAll();
         model.addAttribute("role", role);
-        return "admin/roles";
+        return "admin/role/roles";
     }
 
     @GetMapping("/addRole")

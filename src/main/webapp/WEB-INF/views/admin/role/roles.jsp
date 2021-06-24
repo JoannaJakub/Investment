@@ -3,11 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="../head.jsp" %>
+<%@ include file="../../head.jsp" %>
 <body>
-<%@ include file="../header.jsp" %>
+<%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="adminSideMenu.jsp" %>
+    <%@ include file="../adminSideMenu.jsp" %>
 
     <div class="page-content">
         <div class="page-header">
@@ -65,7 +65,7 @@
         </section>
 
 
-        <%@ include file="../user/footer.jsp" %>
+        <%@ include file="../../user/footer.jsp" %>
 
 </body>
 </html>
