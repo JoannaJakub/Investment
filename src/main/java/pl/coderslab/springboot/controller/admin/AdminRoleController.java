@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
+import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -59,6 +60,16 @@ public class AdminRoleController {
             return "admin/adminError";
         }
         return "admin/role/roleConfirmEdit";
+    }
+    @GetMapping(value = {"/roleDetails/{id}"})
+    public String roleDetails(@PathVariable long id, Model model) {
+        Optional<Role> roleDetails = roleRepository.findById(id);
+        if (roleDetails.isPresent()) {
+            model.addAttribute("roleDetails", roleDetails.get());
+        }
+        else{ return "admin/adminError";}
+
+        return "admin/role/roleDetails";
     }
 }
 
