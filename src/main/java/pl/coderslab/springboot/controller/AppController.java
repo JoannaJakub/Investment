@@ -13,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
+import pl.coderslab.springboot.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,12 +26,15 @@ public class AppController {
     private final StocksRepository stocksRepository;
     private final UserRepository userRepo;
     private final CryptocurrencyRepository cryptocurrencyRepo;
+    private final UserService userService;
 
-    public AppController(StocksRepository stocksRepository, UserRepository userRepo, CryptocurrencyRepository cryptocurrencyRepo) {
+    public AppController(StocksRepository stocksRepository, UserRepository userRepo, CryptocurrencyRepository cryptocurrencyRepo, UserService userService) {
         this.stocksRepository = stocksRepository;
         this.userRepo = userRepo;
         this.cryptocurrencyRepo = cryptocurrencyRepo;
+        this.userService = userService;
     }
+
 
 
     @GetMapping("")
@@ -111,7 +115,7 @@ public class AppController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         authorities = auth.getAuthorities();
         String myRole = authorities.toArray()[0].toString();
-        String admin = "admin";
+        String admin = "ADMIN";
         if (myRole.equals(admin)) {
             return "redirect:/adminDashboard";
         }

@@ -56,17 +56,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-
         if (username.equals("admin")) {
             throw new UsernameNotFoundException("Could not find user");
         }
-
         return new CustomUserDetails(user);
     }
 
     @Override
     public List<User> findByRoleId(long Roles) {
         return null;
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
 

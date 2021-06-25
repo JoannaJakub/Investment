@@ -1,6 +1,7 @@
 package pl.coderslab.springboot.controller.admin;
 
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@Secured("ROLE_ADMIN")
 @Controller
 public class AdminRoleController {
     private final StocksRepository stocksRepository;

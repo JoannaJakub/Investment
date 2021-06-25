@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.*;
 
@@ -65,5 +66,28 @@ public class AdminStorageController {
         else{ return "admin/adminError";}
 
         return "admin/storage/storageDetails";
+    }
+
+    @GetMapping(value = {"/storageEdit/{id}"})
+    public String storageEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("storageEdit", storageRepository.findById(id));
+        return "admin/storage/storageEdit";
+    }
+
+    @PostMapping(value = {"storageEdit/{id}"})
+    public String storageEditSave(@Valid Storage storage) {
+        storageRepository.save(storage);
+        return "redirect:/storageConfirmEditing/{id}";
+    }
+
+    @RequestMapping("/storageConfirmEditing/{id}")
+    public String storageConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Storage> storage = storageRepository.findById(id);
+        if (storage.isPresent()) {
+            model.addAttribute("storageConfirmEdit", storage.get());
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/storage/storageConfirmEdit";
     }
 }

@@ -40,8 +40,9 @@ public class AdminController {
 
     @GetMapping("users")
     public String users(Model model) {
-        List<User> user = userRepo.findAll();
+        List<User> user = userService.findAll();
         model.addAttribute("user", user);
+        System.out.println(user);
         return "admin/users";
     }
 
