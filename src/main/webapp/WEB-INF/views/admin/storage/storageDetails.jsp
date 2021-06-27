@@ -50,6 +50,11 @@
                                         <c:out value="${storageDetails.link}"/>
                                         <label class="label-material"> </label>
                                     </div>
+                                    <div class="form-group-material">
+                                        <div class="col-sm ml-auto">
+                                            <a href="<c:url value="/storageEdit/${storageDetails.id}"/>"  class="btn btn-primary">Edit storage</a>
+                                        </div>
+                                    </div>
                                 </form:form><small>List of storage? </small><a
                                         href="<c:url value="/adminStorage"/>">Here</a>
 

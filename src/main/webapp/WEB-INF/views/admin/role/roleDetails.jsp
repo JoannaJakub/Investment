@@ -19,6 +19,7 @@
             </div>
         </div>
 
+
         <section class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">
@@ -29,21 +30,28 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Role</strong></div>
+                        <div class="title"><strong>Storage details</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
 
                                 <form:form items="${roleDetails}" var="roleDetails">
                                     <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Storage id</label>
                                         <c:out value="${roleDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Storage name</label>
                                         <c:out value="${roleDetails.name}"/>
                                         <label class="label-material"></label>
                                     </div>
-                                </form:form><small>List of roles? </small><a
+                                    <div class="form-group-material">
+                                        <div class="col-sm ml-auto">
+                                            <a href="<c:url value="/roleEdit/${roleDetails.id}"/>"  class="btn btn-primary">Edit role</a>
+                                        </div>
+                                    </div>
+                                </form:form><small>List of storage? </small><a
                                         href="<c:url value="/role"/>">Here</a>
 
 
@@ -54,7 +62,6 @@
                 </div>
             </div>
         </section>
-
 
         <%@ include file="../../main/footer.jsp" %>
 
