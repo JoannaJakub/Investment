@@ -39,6 +39,42 @@ public class AdminRoleController {
         this.userService = userService;
         this.storageRepository = storageRepository;
     }
+    @GetMapping("role")
+    public String roles(Model model) {
+        List<Role> role = roleRepository.findAll();
+        model.addAttribute("role", role);
+        return "admin/role/roles";
+    }
+
+    @GetMapping("/addRole")
+    public String addRole(Model model) {
+        model.addAttribute("role", new Role());
+        return "admin/addRole";
+    }
+
+
+    @PostMapping(value = "/roleSuccess")
+    public String processRoleSuccess(@Valid Role role, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/addRole";
+        } else {
+            roleRepository.save(role);
+            return "admin/roleSuccess";
+        }
+    }
+
+
+    @RequestMapping("/roleConfirmDelete")
+    public String roleConfirmDelete() {
+        return "admin/roleConfirmDelete";
+    }
+
+
+    @GetMapping(value = {"/roleDelete/{id}"})
+    public String roleDelete(@PathVariable long id) {
+        roleRepository.deleteById(id);
+        return "redirect:/role";
+    }
     @GetMapping(value = {"/roleEdit/{id}"})
     public String roleEditForm(@PathVariable long id, Model model) {
         model.addAttribute("roleEdit", roleRepository.findById(id));
