@@ -8,10 +8,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.springboot.model.Storage;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.StorageRepository;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class StorageController {
@@ -26,14 +28,19 @@ public class StorageController {
     public String yourStorage(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
         List<Storage> yourStorage = storageRepository.findById(entityUser);
-        model.addAttribute("yourStorage", yourStorage);
+     /*   List<Storage> storage = storageRepository.findAll();
+        model.addAttribute("storage", storage.isEmpty());*/
 
-        List<Storage> storage = storageRepository.findAll();
-        model.addAttribute("storage", storage);
+        if (yourStorage.isEmpty()) {
+            model.addAttribute("yourStorage", yourStorage.isEmpty());
 
-
+        } else {
+            return "admin/adminError";
+        }
         return "user/storage/storage";
     }
+
+
     @GetMapping("/addStorage")
     public String addStorage(Model model) {
         model.addAttribute("storage", new Storage());
