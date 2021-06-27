@@ -57,20 +57,26 @@
                                     <div class="form-group text-center">
                                         <input id="register" type="submit" value="Add" class="btn btn-primary">
                                     </div>
-                                </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
+                                </form:form>
 
 
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="no-margin-bottom">
+                <small>List of all storages? </small><a href="<c:url value="/users"/>">Here</a>
             </div>
         </section>
     </div>
 </div>
-        <%@ include file="../main/footer.jsp" %>
+<%@ include file="../main/footer.jsp" %>
 
 </body>
 </html>

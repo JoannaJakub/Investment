@@ -30,69 +30,70 @@
                     </div>
                 </div>
 
-                <div class="col-lg-20">
+                <div class="col-lg-12">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-sm">
-                                <tbody>
-                                <div></div>
-                                <form:form method="post" modelAttribute="userEdit">
-                                    <div class="form-group-material">ID
-                                        <c:out value="${id}"/>
-                                        <label for="firstName" class="label-material"></label>
-                                    </div>
-                                    <div class="form-group-material">
+                        <div class="title"><strong>Edit storage</strong></div>
+                        <div class="block-body">
+                            <form:form method="post" modelAttribute="userEdit">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Role id</label>
+                                    <div class="col-sm-9">
+                                        <c:out value="${id}"/></div>
+                                    <label for="name" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Name</label>
+                                    <div class="col-sm-9">
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
                                                     class="input-material"/>
-                                        <form:errors path="firstName"/>
-                                        <label for="firstName" class="label-material"></label>
-                                    </div>
-                                    <div class="form-group-material">
+                                        <form:errors path="firstName"/></div>
+                                    <label for="firstName" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Surname</label>
+                                    <div class="col-sm-9">
                                         <form:input id="register-surname" type="text" name="registerSurname"
                                                     path="lastName" placeholder="Surname"
                                                     data-msg="Please enter your surname" class="input-material"/>
-                                        <form:errors path="lastName"/>
-                                        <label for="register-surname" class="label-material"></label>
-                                    </div>
-                                    <div class="form-group-material">
+                                        <form:errors path="lastName"/></div>
+                                    <label for="firstName" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Username</label>
+                                    <div class="col-sm-9">
                                         <form:input id="register-username" type="text" name="registerUsername"
                                                     path="username" placeholder="Email"
                                                     data-msg="Please enter a valid email address"
                                                     class="input-material"/>
-                                        <form:errors path="username"/>
-                                        <label for="register-username" class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
+                                        <form:errors path="username"/></div>
+                                    <label for="firstName" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Password</label>
+                                    <div class="col-sm-9">
                                         <form:input id="register-password" type="password" name="registerPassword"
                                                     path="password" placeholder="Password"
                                                     data-msg="Please enter your password" class="input-material"/>
-                                        <form:errors path="password"/>
-                                        <label for="register-password" class="label-material"> </label>
-                                    </div>
-                                    <%--     <div class="form-group terms-conditions text-center">
-                                             <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
-                                             <label for="register-agree">I agree with the terms and policy</label>
-                                         </div>--%>
-                                    <div class="form-group text-center">
-                                        <input id="register" type="submit" value="Update" class="btn btn-primary">
-                                    </div>
-                                </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
+                                        <form:errors path="password"/></div>
+                                    <label for="firstName" class="label-material"></label>
+                                </div>
+                                <div class="form-group text-center">
+                                    <input id="register" type="submit" value="Update" class="btn btn-primary">
+                                </div>
+                            </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
 
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
-
             </div>
+
+        </section>
         </section>
 
     </div>
 </div>
-        <%@ include file="../main/footer.jsp" %>
+<%@ include file="../main/footer.jsp" %>
 
 </body>
 </html>

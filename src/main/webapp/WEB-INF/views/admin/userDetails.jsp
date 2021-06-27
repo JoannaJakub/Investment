@@ -36,27 +36,32 @@
 
                                 <form:form items="${userDetails}" var="userDetails">
                                     <div class="form-group-material">
-                                        <c:out  value="${userDetails.id}"/>
+                                        <label class="col-sm-3 form-control-label">User id</label>
+                                        <c:out value="${userDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <c:out  value="${userDetails.firstName}"/>
+                                        <label class="col-sm-3 form-control-label">Name</label>
+
+                                        <c:out value="${userDetails.firstName}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <c:out  value="${userDetails.lastName}"/>
+                                        <label class="col-sm-3 form-control-label">Surname</label>
+
+                                        <c:out value="${userDetails.lastName}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
-                                        <c:out  value="${userDetails.lastName}"/>
+                                        <label class="col-sm-3 form-control-label">Password</label>
+                                        <c:out value="${userDetails.password}"/>
                                         <label f class="label-material"> </label>
                                     </div>
-                                    <%--     <div class="form-group terms-conditions text-center">
-                                             <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
-                                             <label for="register-agree">I agree with the terms and policy</label>
-                                         </div>--%>
-                                    <div class="form-group text-center">
-                                        <input id="register" type="submit" value="Add" class="btn btn-primary">
+                                    <div class="form-group-material">
+                                        <div class="col-sm ml-auto">
+                                            <a href="<c:url value="/userEdit/${userDetails.id}"/>"
+                                               class="btn btn-primary">Edit user</a>
+                                        </div>
                                     </div>
                                 </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
 
@@ -71,9 +76,7 @@
         </section>
 
 
-
-
-<%@ include file="../main/footer.jsp" %>
+        <%@ include file="../main/footer.jsp" %>
 
 </body>
 </html>
