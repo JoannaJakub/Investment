@@ -50,6 +50,8 @@
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
+                                    <a href="<c:url value="/role"/>"
+                                       class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
                             </form:form><small>List of all storage? </small><a href="<c:url value="/role"/>">Here</a>

@@ -30,7 +30,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage details</strong></div>
+                        <div class="title"><strong>Role details</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -51,7 +51,7 @@
                                             <a href="<c:url value="/roleEdit/${roleDetails.id}"/>"  class="btn btn-primary">Edit role</a>
                                         </div>
                                     </div>
-                                </form:form><small>List of storage? </small><a
+                                </form:form><small>List of roles? </small><a
                                         href="<c:url value="/role"/>">Here</a>
 
 

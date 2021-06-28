@@ -6,12 +6,12 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="adminHead.jsp" %>
+<%@ include file="../adminHead.jsp" %>
 
 <body>
-<%@ include file="../header.jsp" %>
+<%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="adminSideMenu.jsp" %>
+    <%@ include file="../adminSideMenu.jsp" %>
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
@@ -79,6 +79,8 @@
                                     <label for="firstName" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
+                                    <a href="<c:url value="/users"/>"
+                                       class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
                             </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
@@ -93,7 +95,7 @@
 
     </div>
 </div>
-<%@ include file="../main/footer.jsp" %>
+<%@ include file="../../main/footer.jsp" %>
 
 </body>
 </html>

@@ -60,6 +60,8 @@
                                     <label for="link" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
+                                    <a href="<c:url value="/adminStorage"/>"
+                                       class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
                             </form:form><small>List of all storage? </small><a href="<c:url value="/adminStorage"/>">Here</a>

@@ -4,11 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="adminHead.jsp" %>
+<%@ include file="../adminHead.jsp" %>
 <body>
-<%@ include file="../header.jsp" %>
+<%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="adminSideMenu.jsp" %>
+    <%@ include file="../adminSideMenu.jsp" %>
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
@@ -29,7 +29,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>User details</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -76,7 +76,7 @@
         </section>
 
 
-        <%@ include file="../main/footer.jsp" %>
+        <%@ include file="../../main/footer.jsp" %>
 
 </body>
 </html>
