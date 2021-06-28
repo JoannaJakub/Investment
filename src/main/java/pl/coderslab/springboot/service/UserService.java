@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import pl.coderslab.springboot.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
     User findByEmail(String email);
@@ -18,4 +19,5 @@ public interface UserService {
 
 
     List<User> findAll();
+
 }

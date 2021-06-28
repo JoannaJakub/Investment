@@ -44,6 +44,7 @@
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
+                                    <th>Change role</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +60,7 @@
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/changeRole/${user.id}"/>">Change role</a></td>
                                     </tr>
                                 </c:forEach>
 

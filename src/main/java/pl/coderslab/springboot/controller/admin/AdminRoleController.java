@@ -14,6 +14,7 @@ import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,7 +49,6 @@ public class AdminRoleController {
         return "admin/role/addRole";
     }
 
-
     @PostMapping(value = "/roleSuccess")
     public String processRoleSuccess(@Valid Role role, BindingResult result) {
         if (result.hasErrors()) {
@@ -59,18 +59,17 @@ public class AdminRoleController {
         }
     }
 
-
     @RequestMapping("/roleConfirmDelete")
     public String roleConfirmDelete() {
         return "admin/role/roleConfirmDelete";
     }
-
 
     @GetMapping(value = {"/roleDelete/{id}"})
     public String roleDelete(@PathVariable long id) {
         roleRepository.deleteById(id);
         return "redirect:/role";
     }
+
     @GetMapping(value = {"/roleEdit/{id}"})
     public String roleEditForm(@PathVariable long id, Model model) {
         model.addAttribute("roleEdit", roleRepository.findById(id));
@@ -93,6 +92,7 @@ public class AdminRoleController {
         }
         return "admin/role/roleConfirmEdit";
     }
+
     @GetMapping(value = {"/roleDetails/{id}"})
     public String roleDetails(@PathVariable long id, Model model) {
         Optional<Role> roleDetails = roleRepository.findById(id);
@@ -100,8 +100,16 @@ public class AdminRoleController {
             model.addAttribute("roleDetails", roleDetails.get());
         }
         else{ return "admin/adminError";}
-
         return "admin/role/roleDetails";
+    }
+
+    @GetMapping(value = {"/userRole/{id}"})
+    public String oneUserContacts(@PathVariable long id, Model model) {
+   //   List<User> role = userService.findByRoleId(id);
+        List<Role> role = roleRepository.findAllById(Collections.singleton(id));
+        model.addAttribute("userRole", role);
+        System.out.println(role);
+        return "admin/role/userRole";
     }
 }
 

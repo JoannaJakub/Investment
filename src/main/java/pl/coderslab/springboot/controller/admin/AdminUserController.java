@@ -46,12 +46,7 @@ public class AdminUserController {
     }
 
 
-    @GetMapping(value = {"/userRole/{id}"})
-    public String oneUserContacts(@PathVariable long id, Model model) {
-        List<User> role = userService.findByRoleId(id);
-        model.addAttribute("userRole", role);
-        return "admin/user/userRole";
-    }
+
 
     @GetMapping("/adminRegister")
     public String showRegistrationForm(Model model) {
@@ -121,8 +116,30 @@ public class AdminUserController {
         } else {
             return "admin/adminError";
         }
-
         return "admin/user/userDetails";
     }
+    @GetMapping(value = {"/changeRole/{id}"})
+    public String changeRoleForm(@PathVariable long id, Model model) {
+        model.addAttribute("changeRole", userRepo.findById(id));
+        return "admin/user/changeRole";
+    }
+
+    @PostMapping(value = {"changeRole/{id}"})
+    public String changeRoleSave(@Valid User user) {
+
+        userService.saveUser(user);
+        return "redirect:/changeRoleConfirm/{id}";
+    }
+    @RequestMapping("/changeRoleConfirm/{id}")
+    public String changeRoleConfirm(@PathVariable long id, Model model) {
+        List<User> user = userService.findByRoleId(id);
+        if (user.isEmpty()) {
+            model.addAttribute("changeRoleConfirm", user.get((int) id));
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/user/changeRoleConfirm";
+    }
+
 }
 

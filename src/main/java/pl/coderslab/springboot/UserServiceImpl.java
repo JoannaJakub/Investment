@@ -12,6 +12,7 @@ import pl.coderslab.springboot.service.UserService;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.security.core.userdetails.*;
 
@@ -71,6 +72,8 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+
 
 
 }

@@ -61,7 +61,6 @@
                                         <td><c:out value="${stocks.change}"/></td>
                                         <td><c:out value="${stocks.currency}"/></td>
                                         <td><c:out value="${stocks.bid}"/></td>
-
                                     </tr>
                                 </c:forEach>
 
@@ -99,13 +98,13 @@
 
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+    </div>
+</div>
 
         <%@ include file="../main/footer.jsp" %>
 </body>
