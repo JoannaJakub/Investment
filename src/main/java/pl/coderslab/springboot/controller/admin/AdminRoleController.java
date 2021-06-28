@@ -2,18 +2,14 @@ package pl.coderslab.springboot.controller.admin;
 
 
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
-import pl.coderslab.springboot.model.Storage;
-import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
@@ -49,24 +45,24 @@ public class AdminRoleController {
     @GetMapping("/addRole")
     public String addRole(Model model) {
         model.addAttribute("role", new Role());
-        return "admin/addRole";
+        return "admin/role/addRole";
     }
 
 
     @PostMapping(value = "/roleSuccess")
     public String processRoleSuccess(@Valid Role role, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/addRole";
+            return "admin/role/addRole";
         } else {
             roleRepository.save(role);
-            return "admin/roleSuccess";
+            return "admin/role/roleSuccess";
         }
     }
 
 
     @RequestMapping("/roleConfirmDelete")
     public String roleConfirmDelete() {
-        return "admin/roleConfirmDelete";
+        return "admin/role/roleConfirmDelete";
     }
 
 

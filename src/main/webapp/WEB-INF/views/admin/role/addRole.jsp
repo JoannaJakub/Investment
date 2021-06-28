@@ -4,11 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
-<%@ include file="../head.jsp" %>
+<%@ include file="../../head.jsp" %>
 <body>
-<%@ include file="../header.jsp" %>
+<%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="adminSideMenu.jsp" %>
+    <%@ include file="../adminSideMenu.jsp" %>
 
         <div class="page-content">
             <div class="page-header">
@@ -54,7 +54,8 @@
                                         <div class="line"></div>
                                         <div class="form-group row">
                                             <div class="col-sm-9 ml-auto">
-                                                <a href="<c:url value="/role"/>"><button class="btn btn-secondary">Cancel</button></a>
+                                                <a href="<c:url value="/role"/>"
+                                                   class="btn btn-secondary">Cancel</a>
                                                 <button type="submit" class="btn btn-primary">Add role</button>
                                             </div>
                                         </div>
@@ -69,7 +70,7 @@
 
 
 
-        <%@ include file="../user/footer.jsp" %>
+        <%@ include file="../../user/footer.jsp" %>
 
 </body>
 </html>

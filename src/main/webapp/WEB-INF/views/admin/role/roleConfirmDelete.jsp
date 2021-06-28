@@ -6,12 +6,12 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="adminHead.jsp" %>
+<%@ include file="../adminHead.jsp" %>
 
 <body>
-<%@ include file="../header.jsp" %>
+<%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="adminSideMenu.jsp" %>
+    <%@ include file="../adminSideMenu.jsp" %>
 
     <div class="page-content">
         <div class="page-header">
@@ -62,7 +62,7 @@
 </div>
 
 
-<%@ include file="../user/footer.jsp" %>
+<%@ include file="../../user/footer.jsp" %>
 
 </body>
 </html>
