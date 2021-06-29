@@ -90,4 +90,12 @@ public class AdminStorageController {
         }
         return "admin/storage/storageConfirmEdit";
     }
+    @GetMapping("usersStorage")
+    public String usersStorage(Model model) {
+        List<Storage> usersStorage = storageRepository.findStorageByUser();
+        System.out.println(usersStorage);
+        model.addAttribute("usersStorage", usersStorage);
+        return "admin/storage/usersStorage";
+    }
+
 }

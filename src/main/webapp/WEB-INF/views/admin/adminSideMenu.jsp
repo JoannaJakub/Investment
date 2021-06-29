@@ -17,7 +17,9 @@
         <li class="active"><a href="<c:url value="/users"/>"> <i class="icon-home"></i>Users </a></li>
         <li><a href="<c:url value="/role"/>"><i class="icon-grid"></i>Role</a></li>
         <li><a href="<c:url value="/adminStorage"/>"> <i class="fa fa-bar-chart"></i>Storage</a></li>
+        <li><a href="<c:url value="/usersStorage"/>"> <i class="fa fa-bar-chart"></i>User's storage</a></li>
         <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All stocks </a></li>
+        <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All crypto </a></li>
         <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All crypto </a></li>
     </ul>
 </nav>
