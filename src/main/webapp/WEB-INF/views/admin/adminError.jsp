@@ -31,7 +31,6 @@
 
 
 
-                    < class="no-padding-top">
                         <div class="container-fluid">
                             <div class="row">
                                 <!-- Form Elements -->
