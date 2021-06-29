@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="../../head.jsp" %>
-
 <body>
 <%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -58,10 +57,10 @@
 
             </div>
     </section>
-    </div>
-</div>
+
 
         <%@ include file="../footer.jsp" %>
-
+    </div>
+</div>
 </body>
 </html>

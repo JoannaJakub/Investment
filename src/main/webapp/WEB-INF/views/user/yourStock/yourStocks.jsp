@@ -27,7 +27,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Stocks</strong></div>
@@ -70,5 +69,7 @@
         </section>
 
         <%@ include file="../footer.jsp" %>
+    </div>
+</div>
 </body>
 </html>

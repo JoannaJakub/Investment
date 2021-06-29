@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="../../head.jsp" %>
-
 <body>
 <%@ include file="../../header.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -16,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
             </div>
         </div>
 
@@ -30,7 +29,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>Your storage</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -57,11 +56,11 @@
                 </div>
 
             </div>
-    </section>
-    </div>
-</div>
+        </section>
+
 
         <%@ include file="../footer.jsp" %>
-
+    </div>
+</div>
 </body>
 </html>
