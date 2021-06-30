@@ -24,7 +24,6 @@
         <!-- Breadcrumb-->
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href=>Fill in form</a></li>
             </ul>
         </div>
 
@@ -35,7 +34,7 @@
                     <!-- Form Elements -->
                     <div class="col-lg-12">
                         <div class="block">
-                            <div class="title"><strong>Add platform</strong></div>
+                            <div class="title"><strong>Send a message</strong></div>
                             <div class="block-body">
                                 <form:form action="contactSuccess" class="form-horizontal" method="post"
                                            modelAttribute="contact">
@@ -43,7 +42,7 @@
 
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Platform name</label>
+                                        <label class="col-sm-3 form-control-label">Message</label>
                                         <div class="col-sm-9">
                                             <form:hidden path="id"/>
                                             <form:input path="message" type="text" class="form-control"/>

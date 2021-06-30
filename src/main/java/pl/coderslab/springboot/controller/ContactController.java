@@ -53,10 +53,10 @@ public class ContactController {
     @PostMapping(value = "/contactSuccess")
     public String processAddingContact(@Valid Contact contact, BindingResult result) {
         if (result.hasErrors()) {
-            return "user/storage/addContact";
+            return "user/contact/addContact";
         } else {
             contactRepository.save(contact);
-            return "user/storage/storageSuccess";
+            return "user/contact/contactSuccess";
         }
     }
 }
