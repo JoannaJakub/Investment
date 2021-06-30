@@ -20,6 +20,7 @@
         <li><a href="<c:url value="/storage"/>"><i class="icon-padnote"></i>All storage </a></li>
         <li><a href="<c:url value="/allStocks"/>"><i class="icon-padnote"></i>All stocks </a></li>
         <li><a href="<c:url value="/allCrypto"/>"><i class="icon-padnote"></i>All crypto </a></li>
+        <li><a href="<c:url value="/yourContact"/>"><i class="icon-padnote"></i>Your messages</a></li>
     </ul>
 </nav>
 </nav>

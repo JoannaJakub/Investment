@@ -1,17 +1,21 @@
 package pl.coderslab.springboot.controller;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.springboot.model.Contact;
+import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.ContactRepository;
 import pl.coderslab.springboot.repository.StorageRepository;
 import pl.coderslab.springboot.repository.UserRepository;
 import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class ContactController {
@@ -26,6 +30,18 @@ public class ContactController {
         this.userService = userService;
         this.contactRepository = contactRepository;
     }
+
+    @GetMapping("/yourContact")
+    public String yourContact(Model model, @AuthenticationPrincipal UserDetails customUser) {
+        List<Contact> contact = contactRepository.findAll();
+        if (!contact.isEmpty()) {
+            model.addAttribute("contact", contact);
+        } else {
+            return "user/userError";
+        }
+        return "user/contact/contact";
+    }
+
 
     @GetMapping("/addContact")
     public String addContact(Model model) {
