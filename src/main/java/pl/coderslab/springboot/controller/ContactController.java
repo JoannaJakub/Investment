@@ -1,5 +1,6 @@
 package pl.coderslab.springboot.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.springboot.model.Contact;
 import pl.coderslab.springboot.model.Storage;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.ContactRepository;
 import pl.coderslab.springboot.repository.StorageRepository;
 import pl.coderslab.springboot.repository.UserRepository;
@@ -32,8 +34,9 @@ public class ContactController {
     }
 
     @GetMapping("/yourContact")
-    public String yourContact(Model model, @AuthenticationPrincipal UserDetails customUser) {
-        List<Contact> contact = contactRepository.findAll();
+    public String yourContact(Model model, Authentication authentication) {
+        User user = userService.findByUserName(authentication.getName());
+        List<Contact> contact = contactRepository.findContactByUserId(user.getId());
         if (!contact.isEmpty()) {
             model.addAttribute("contact", contact);
         } else {
@@ -44,8 +47,9 @@ public class ContactController {
 
 
     @GetMapping("/addContact")
-    public String addContact(Model model) {
+    public String addContact(Model model,Authentication authentication) {
         model.addAttribute("contact", new Contact());
+        model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/contact/addContact";
     }
 

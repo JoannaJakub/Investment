@@ -36,7 +36,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Message</th>
-                                    <th>Link</th>
+                                    <th>Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -45,6 +45,7 @@
                                     <tr>
                                         <td><c:out value="${contact.id}"/></td>
                                         <td><c:out value="${contact.message}"/></td>
+                                        <td><c:out value="${contact.updateDate.toString()}"/></td>
                                     </tr>
                                 </c:forEach>
 

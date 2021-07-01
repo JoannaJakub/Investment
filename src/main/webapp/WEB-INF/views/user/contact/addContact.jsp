@@ -39,8 +39,7 @@
                                 <form:form action="contactSuccess" class="form-horizontal" method="post"
                                            modelAttribute="contact">
                                     <div class="form-group row">
-
-                                    </div>
+                                        <input type="hidden" name="user" value="${user.id}">                                    </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label">Message</label>
                                         <div class="col-sm-9">
