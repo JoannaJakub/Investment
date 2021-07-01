@@ -20,6 +20,7 @@ import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ContactController {
@@ -74,5 +75,15 @@ public class ContactController {
     public String contactDelete(@PathVariable long id) {
         contactRepository.deleteById(id);
         return "redirect:/yourContact";
+    }
+    @GetMapping(value = {"/contactDetails/{id}"})
+    public String contactDetails(@PathVariable long id, Model model) {
+        Optional<Contact> contactDetails = contactRepository.findById(id);
+        if (contactDetails.isPresent()) {
+            model.addAttribute("contactDetails", contactDetails.get());
+        }
+        else{ return "user/userError";}
+
+        return "user/contact/contactDetails";
     }
 }

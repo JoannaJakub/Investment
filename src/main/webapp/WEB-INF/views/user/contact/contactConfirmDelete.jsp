@@ -8,7 +8,6 @@
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
     <%@ include file="../sideMenu.jsp" %>
-
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
