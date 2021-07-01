@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Contact;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
@@ -62,5 +64,15 @@ public class ContactController {
             contactRepository.save(contact);
             return "user/contact/contactSuccess";
         }
+    }
+    @RequestMapping("/contactConfirmDelete")
+    public String contactConfirmDelete() {
+        return "user/contact/contactConfirmDelete";
+    }
+
+    @GetMapping(value = {"/contactDelete/{id}"})
+    public String contactDelete(@PathVariable long id) {
+        contactRepository.deleteById(id);
+        return "redirect:/yourContact";
     }
 }

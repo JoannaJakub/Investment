@@ -37,6 +37,9 @@
                                     <th>ID</th>
                                     <th>Message</th>
                                     <th>Date</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -46,6 +49,9 @@
                                         <td><c:out value="${contact.id}"/></td>
                                         <td><c:out value="${contact.message}"/></td>
                                         <td><c:out value="${contact.updateDate.toString()}"/></td>
+                                        <td><a href="<c:url value="/contactConfirmDelete/?id=${contact.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/contactEdit/${contact.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/contactDetails/${contact.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
