@@ -15,5 +15,4 @@ public interface StocksRepository extends JpaRepository<Stocks, Long>  {
     @Query(nativeQuery=true, value="INSERT INTO stocks(price, change, currency, bid, name) values(?,?,?,?,?);")
     List<Stocks> saveStocks(BigDecimal currency, BigDecimal price, String change, BigDecimal bid, String name);
 
-
 }
