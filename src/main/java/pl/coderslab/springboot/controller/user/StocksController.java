@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
-import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -50,13 +49,9 @@ public class StocksController {
         if (result.hasErrors()) {
             return "user/yourStock/addStocks";
         }
-        String entityUser = customUser.getUsername();
-        //Long user = userRepository.findByUsername(entityUser).getId();
         ownedstocksRepository.save(ownedstocks);
         return "user/yourStock/stocksSuccess";
-
     }
-
 
     @GetMapping("/allStocks")
     public String allStocks(Model model) {
@@ -64,7 +59,6 @@ public class StocksController {
         model.addAttribute("stocks", stocks);
         return "user/yourStock/allStocks";
     }
-
 
 }
 

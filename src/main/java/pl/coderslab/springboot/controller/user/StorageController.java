@@ -30,7 +30,6 @@ public class StorageController {
         this.userService = userService;
     }
 
-
     @GetMapping("/storage")
     public String storage(Model model, @AuthenticationPrincipal UserDetails customUser) {
         List<Storage> storage = storageRepository.findAll();
@@ -45,12 +44,7 @@ public class StorageController {
     @GetMapping("/yourStorage")
     public String yourStorage(Model model, @AuthenticationPrincipal UserDetails customUser, Authentication authentication) {
         User user = userService.findByUserName(authentication.getName());
-
-      //  Long entityUser = customUser.getUsername().;
-      //  User user = userRepository.findByUsername(entityUser);
         Optional<Storage> yourStorage = storageRepository.findById(user.getId());
-
-        System.out.println(yourStorage);
         if (!yourStorage.isEmpty()) {
             model.addAttribute("yourStorage", yourStorage);
         } else {
@@ -65,7 +59,6 @@ public class StorageController {
         return "user/storage/addStorage";
     }
 
-
     @PostMapping(value = "/storageSuccess")
     public String processAddingStorage(@Valid Storage storage, BindingResult result) {
         if (result.hasErrors()) {
@@ -75,4 +68,5 @@ public class StorageController {
             return "user/storage/storageSuccess";
         }
     }
+
 }

@@ -29,7 +29,6 @@ public class CryptocurrencyController {
         this.userRepository = userRepository;
     }
 
-
     @GetMapping("/allCrypto")
     public String allCrypto(Model model) {
         List<Cryptocurrencies> cryptocurrencies = cryptocurrencyRepository.findAll();
@@ -37,17 +36,14 @@ public class CryptocurrencyController {
         return "user/yourCrypto/allCrypto";
     }
 
-
     @RequestMapping("/yourCrypto")
     public String yourCrypto(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findByUser(user);
         model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
-
         return "user/yourCrypto/yourCrypto";
     }
-
 
     @GetMapping("/addCrypto")
     public String addCrypto(Model model) {
@@ -66,7 +62,6 @@ public class CryptocurrencyController {
             return "user/yourCrypto/cryptoSuccess";
         }
     }
-
 
 }
 

@@ -24,14 +24,10 @@ import java.util.Optional;
 
 @Controller
 public class ContactController {
-    private final StorageRepository storageRepository;
-    private final UserRepository userRepository;
     private final UserService userService;
     private final ContactRepository contactRepository;
 
-    public ContactController(StorageRepository storageRepository, UserRepository userRepository, UserService userService, ContactRepository contactRepository) {
-        this.storageRepository = storageRepository;
-        this.userRepository = userRepository;
+    public ContactController(UserService userService, ContactRepository contactRepository) {
         this.userService = userService;
         this.contactRepository = contactRepository;
     }
@@ -48,14 +44,12 @@ public class ContactController {
         return "user/contact/contact";
     }
 
-
     @GetMapping("/addContact")
     public String addContact(Model model,Authentication authentication) {
         model.addAttribute("contact", new Contact());
         model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/contact/addContact";
     }
-
 
     @PostMapping(value = "/contactSuccess")
     public String processAddingContact(@Valid Contact contact, BindingResult result) {
@@ -66,6 +60,7 @@ public class ContactController {
             return "user/contact/contactSuccess";
         }
     }
+
     @RequestMapping("/contactConfirmDelete")
     public String contactConfirmDelete() {
         return "user/contact/contactConfirmDelete";
@@ -76,6 +71,7 @@ public class ContactController {
         contactRepository.deleteById(id);
         return "redirect:/yourContact";
     }
+
     @GetMapping(value = {"/contactDetails/{id}"})
     public String contactDetails(@PathVariable long id, Model model) {
         Optional<Contact> contactDetails = contactRepository.findById(id);
@@ -86,7 +82,6 @@ public class ContactController {
 
         return "user/contact/contactDetails";
     }
-
 
     @GetMapping(value = {"/contactEdit/{id}"})
     public String contactEditForm(@PathVariable long id, Model model, Authentication authentication) {
@@ -111,4 +106,5 @@ public class ContactController {
         }
         return "user/contact/contactConfirmEdit";
     }
+
 }
