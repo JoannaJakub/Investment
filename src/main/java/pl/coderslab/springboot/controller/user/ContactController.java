@@ -1,4 +1,4 @@
-package pl.coderslab.springboot.controller;
+package pl.coderslab.springboot.controller.user;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
