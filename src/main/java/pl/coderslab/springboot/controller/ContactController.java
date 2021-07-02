@@ -86,4 +86,28 @@ public class ContactController {
 
         return "user/contact/contactDetails";
     }
+
+
+    @GetMapping(value = {"/contactEdit/{id}"})
+    public String contactEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("contactEdit", contactRepository.findById(id));
+        return "user/contact/contactEdit";
+    }
+
+    @PostMapping(value = {"contactEdit/{id}"})
+    public String contactEditSave(@Valid Contact contact) {
+        contactRepository.save(contact);
+        return "redirect:/contactConfirmEditing/{id}";
+    }
+
+    @RequestMapping("/contactConfirmEditing/{id}")
+    public String contactConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Contact> contact = contactRepository.findById(id);
+        if (contact.isPresent()) {
+            model.addAttribute("contactConfirmEdit", contact.get());
+        } else {
+            return "user/userError";
+        }
+        return "user/contact/contactConfirmEdit";
+    }
 }

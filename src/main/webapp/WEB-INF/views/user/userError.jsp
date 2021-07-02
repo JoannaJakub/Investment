@@ -37,7 +37,7 @@
                     <!-- Form Elements -->
                     <div class="col-lg-12">
                         <div class="block">
-                            <div class="title"><strong>Error!</strong></div>
+                            <div class="title"><strong>There is nothing to display!</strong></div>
                             </div>
                         </div>
                     </div>
