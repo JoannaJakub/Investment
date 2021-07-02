@@ -33,13 +33,12 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
-
                                 <form:form items="${contactConfirmEdit}" var="contactConfirmEdit">
                                     <div>
                                         <tr>
                                             <td>ID</td>
                                             <td><c:out value="${id}"/></td>
-                                        </tr>
+                                </tr>
                                         <tr>
                                             <td>Nazwa</td>
                                             <td><c:out value="${contactConfirmEdit.message}"/></td>

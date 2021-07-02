@@ -89,8 +89,9 @@ public class ContactController {
 
 
     @GetMapping(value = {"/contactEdit/{id}"})
-    public String contactEditForm(@PathVariable long id, Model model) {
+    public String contactEditForm(@PathVariable long id, Model model, Authentication authentication) {
         model.addAttribute("contactEdit", contactRepository.findById(id));
+        model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/contact/contactEdit";
     }
 

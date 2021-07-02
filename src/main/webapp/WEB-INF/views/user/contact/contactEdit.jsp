@@ -32,35 +32,37 @@
                         <div class="title"><strong>Edit message</strong></div>
                         <div class="block-body">
                             <form:form method="post" modelAttribute="contactEdit">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Message id</label>
-                                    <div class="col-sm-9">
-                                        <c:out value="${id}"/></div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Message</label>
-                                    <div class="col-sm-9">
-                                        <form:input id="message" type="text" name="message" path="message"
-                                                    placeholder="Name" data-msg="Please enter name"
-                                                    class="form-control"/>
-                                        <form:errors path="message"/></div>
-                                    <label for="message" class="label-material"></label>
-                                </div>
-                                <div class="form-group text-center">
-                                    <a href="<c:url value="/yourContact"/>"
-                                       class="btn btn-secondary">Cancel</a>
-                                    <input id="register" type="submit" value="Update" class="btn btn-primary">
-                                </div>
-                            </form:form>
-                            <small>List of all messages? </small><a href="<c:url value="/yourContact"/>">Here</a>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">Message id</label>
+                                <div class="col-sm-9">
+                                    <c:out value="${id}"/></div>
+                                <input type="hidden" name="user" value="${user.id}"></div>
 
                         </div>
+                        <div class="form-group row">
+                            <label class="col-sm-3 form-control-label">Message</label>
+                            <div class="col-sm-9">
+                                <form:input id="message" type="text" name="message" path="message"
+                                            placeholder="Name" data-msg="Please enter name"
+                                            class="form-control"/>
+                                <form:errors path="message"/></div>
+                            <label for="message" class="label-material"></label>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="<c:url value="/yourContact"/>"
+                               class="btn btn-secondary">Cancel</a>
+                            <input id="register" type="submit" value="Update" class="btn btn-primary">
+                        </div>
+                        </form:form>
+                        <small>List of all messages? </small><a href="<c:url value="/yourContact"/>">Here</a>
+
                     </div>
                 </div>
             </div>
-        </section>
+    </div>
+    </section>
 
 
-<%@ include file="../footer.jsp" %>
+    <%@ include file="../footer.jsp" %>
 </body>
 </html>
