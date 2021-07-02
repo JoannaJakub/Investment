@@ -20,22 +20,13 @@ import java.util.Optional;
 
 @Controller
 public class AdminUserController {
-    private final StocksRepository stocksRepository;
     private final UserRepository userRepo;
-    private final RoleRepository roleRepository;
-    private final CryptocurrencyRepository cryptocurrencyRepo;
     private final UserService userService;
-    private final StorageRepository storageRepository;
 
-    public AdminUserController(StocksRepository stocksRepository, UserRepository userRepo, RoleRepository roleRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService, StorageRepository storageRepository) {
-        this.stocksRepository = stocksRepository;
+    public AdminUserController(UserRepository userRepo, UserService userService) {
         this.userRepo = userRepo;
-        this.roleRepository = roleRepository;
-        this.cryptocurrencyRepo = cryptocurrencyRepo;
         this.userService = userService;
-        this.storageRepository = storageRepository;
     }
-
 
     @GetMapping("users")
     public String users(Model model) {
@@ -44,9 +35,6 @@ public class AdminUserController {
         System.out.println(user);
         return "admin/user/users";
     }
-
-
-
 
     @GetMapping("/adminRegister")
     public String showRegistrationForm(Model model) {
@@ -80,7 +68,6 @@ public class AdminUserController {
         userService.delete(id);
         return "redirect:/users";
     }
-
 
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model) {
@@ -118,6 +105,7 @@ public class AdminUserController {
         }
         return "admin/user/userDetails";
     }
+
     @GetMapping(value = {"/changeRole/{id}"})
     public String changeRoleForm(@PathVariable long id, Model model) {
         model.addAttribute("changeRole", userRepo.findById(id));
@@ -126,10 +114,10 @@ public class AdminUserController {
 
     @PostMapping(value = {"changeRole/{id}"})
     public String changeRoleSave(@Valid User user) {
-
         userService.saveUser(user);
         return "redirect:/changeRoleConfirm/{id}";
     }
+
     @RequestMapping("/changeRoleConfirm/{id}")
     public String changeRoleConfirm(@PathVariable long id, Model model) {
         List<User> user = userService.findByRoleId(id);

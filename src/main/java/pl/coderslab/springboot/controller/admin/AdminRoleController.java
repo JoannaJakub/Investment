@@ -21,21 +21,12 @@ import java.util.Optional;
 @Secured("ROLE_ADMIN")
 @Controller
 public class AdminRoleController {
-    private final StocksRepository stocksRepository;
-    private final UserRepository userRepo;
     private final RoleRepository roleRepository;
-    private final CryptocurrencyRepository cryptocurrencyRepo;
-    private final UserService userService;
-    private final StorageRepository storageRepository;
 
-    public AdminRoleController(StocksRepository stocksRepository, UserRepository userRepo, RoleRepository roleRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService, StorageRepository storageRepository) {
-        this.stocksRepository = stocksRepository;
-        this.userRepo = userRepo;
+    public AdminRoleController(RoleRepository roleRepository) {
         this.roleRepository = roleRepository;
-        this.cryptocurrencyRepo = cryptocurrencyRepo;
-        this.userService = userService;
-        this.storageRepository = storageRepository;
     }
+
     @GetMapping("role")
     public String roles(Model model) {
         List<Role> role = roleRepository.findAll();
@@ -105,11 +96,10 @@ public class AdminRoleController {
 
     @GetMapping(value = {"/userRole/{id}"})
     public String oneUserContacts(@PathVariable long id, Model model) {
-   //   List<User> role = userService.findByRoleId(id);
         List<Role> role = roleRepository.findAllById(Collections.singleton(id));
         model.addAttribute("userRole", role);
-        System.out.println(role);
         return "admin/role/userRole";
     }
+
 }
 

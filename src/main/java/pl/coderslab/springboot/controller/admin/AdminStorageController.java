@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.*;
 
@@ -24,18 +23,19 @@ public class AdminStorageController {
         this.storageRepository = storageRepository;
     }
 
-
     @GetMapping("adminStorage")
     public String storage(Model model) {
         List<Storage> storage = storageRepository.findAll();
         model.addAttribute("adminStorage", storage);
         return "admin/storage/storage";
     }
+
     @GetMapping("/adminAddStorage")
     public String addAdminStorage(Model model) {
         model.addAttribute("adminAddStorage", new Storage());
         return "admin/storage/addStorage";
     }
+
     @PostMapping(value = "/adminStorageSuccess")
     public String processAdminStorageSuccess(@Valid Storage storage, BindingResult result) {
         if (result.hasErrors()) {
@@ -64,7 +64,6 @@ public class AdminStorageController {
             model.addAttribute("storageDetails", storageDetails.get());
         }
         else{ return "admin/adminError";}
-
         return "admin/storage/storageDetails";
     }
 
@@ -90,6 +89,7 @@ public class AdminStorageController {
         }
         return "admin/storage/storageConfirmEdit";
     }
+
     @GetMapping("usersStorage")
     public String usersStorage(Model model) {
         List<Storage> usersStorage = storageRepository.findStorageByUser();
