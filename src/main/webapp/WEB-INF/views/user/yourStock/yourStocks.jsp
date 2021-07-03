@@ -57,6 +57,7 @@
                                         <td>${ownedstocks.whenBought}</td>
                                         <td>${ownedstocks.notes}</td>
                                     </tr>
+                                    <td><a href="<c:url value="/stocksDetails/${ownedstocks.id}"/>">Details</a></td>
                                 </c:forEach>
 
                                 </tbody>

@@ -11,6 +11,7 @@ import pl.coderslab.springboot.repository.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class StocksController {
@@ -59,7 +60,15 @@ public class StocksController {
         model.addAttribute("stocks", stocks);
         return "user/yourStock/allStocks";
     }
-
+    @GetMapping(value = {"/stocksDetails/{id}"})
+    public String storageDetails(@PathVariable long id, Model model) {
+        Optional<Ownedstocks> stocksDetails = ownedstocksRepository.findById(id);
+        if (stocksDetails.isPresent()) {
+            model.addAttribute("stocksDetails", stocksDetails.get());
+        }
+        else{ return "user/userError";}
+        return "user/yourStock/stocksDetails";
+    }
 }
 
 
