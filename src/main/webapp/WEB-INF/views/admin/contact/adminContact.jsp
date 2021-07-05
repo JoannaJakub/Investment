@@ -52,9 +52,9 @@
                                         <td><c:out value="${adminContact.message}"/></td>
                                         <td><c:out value="${adminContact.updateDate}"/></td>
                                         <td><c:out value="${adminContact.user.id}"/></td>
-                                        <td><a href="<c:url value="/contactConfirmDelete/?id=${adminContact.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/contactEdit/${adminContact.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/contactDetails/${adminContact.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/adminContactConfirmDelete/?id=${adminContact.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/adminContactEdit/${adminContact.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/adminContactDetails/${adminContact.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
