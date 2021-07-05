@@ -20,6 +20,6 @@
         <li><a href="<c:url value="/usersStorage"/>"> <i class="fa fa-bar-chart"></i>User's storage</a></li>
         <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All stocks </a></li>
         <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All crypto </a></li>
-        <li><a href="<c:url value="/users"/>"> <i class="icon-padnote"></i>All crypto </a></li>
+        <li><a href="<c:url value="/adminContact"/>"> <i class="icon-padnote"></i>Messages </a></li>
     </ul>
 </nav>
