@@ -40,7 +40,7 @@ public class AdminContactController {
     @GetMapping(value = {"/adminContactEdit/{id}"})
     public String adminContactEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminContactEdit", contactRepository.findById(id));
-        return "admin/storage/adminContactEdit";
+        return "admin/contact/adminContactEdit";
     }
 
     @PostMapping(value = {"adminContactEdit/{id}"})
