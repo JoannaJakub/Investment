@@ -50,9 +50,9 @@
                                         <td><c:out value="${usersStorage.id}"/></td>
                                         <td><c:out value="${usersStorage.name}"/></td>
                                         <td><c:out value="${usersStorage.link}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${adminStorage.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${adminStorage.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${adminStorage.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorage.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/storageEdit/${usersStorage.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/storageDetails/${usersStorage.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
