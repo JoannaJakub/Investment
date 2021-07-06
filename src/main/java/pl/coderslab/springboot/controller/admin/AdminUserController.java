@@ -32,7 +32,6 @@ public class AdminUserController {
     public String users(Model model) {
         List<User> user = userService.findAll();
         model.addAttribute("user", user);
-        System.out.println(user);
         return "admin/user/users";
     }
 

@@ -21,12 +21,10 @@ import java.util.Optional;
 @Controller
 public class StorageController {
     private final StorageRepository storageRepository;
-    private final UserRepository userRepository;
     private final UserService userService;
 
-    public StorageController(StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
+    public StorageController(StorageRepository storageRepository, UserService userService) {
         this.storageRepository = storageRepository;
-        this.userRepository = userRepository;
         this.userService = userService;
     }
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.repository.*;
-import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.Collections;

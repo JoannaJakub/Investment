@@ -24,17 +24,14 @@ import java.util.List;
 @Controller
 public class AppController {
     private final StocksRepository stocksRepository;
-    private final UserRepository userRepo;
     private final CryptocurrencyRepository cryptocurrencyRepo;
     private final UserService userService;
 
-    public AppController(StocksRepository stocksRepository, UserRepository userRepo, CryptocurrencyRepository cryptocurrencyRepo, UserService userService) {
+    public AppController(StocksRepository stocksRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService) {
         this.stocksRepository = stocksRepository;
-        this.userRepo = userRepo;
         this.cryptocurrencyRepo = cryptocurrencyRepo;
         this.userService = userService;
     }
-
 
 
     @GetMapping("")
@@ -52,18 +49,17 @@ public class AppController {
     public String processRegister(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
             return "main/register";
-        } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
+        } else if (userService.findByUserName(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
             user.setPassword(encodedPassword);
-            userRepo.save(user);
+            userService.saveUser(user);
             return "main/register_success";
         }
         return "main/register";
     }
-
 
     @GetMapping(value = {"/login"})
     public String login(@RequestParam(value = "error", defaultValue = "false") boolean loginError) {
@@ -73,7 +69,6 @@ public class AppController {
             return "main/login";
         }
     }
-
 
     @GetMapping("/dashboard")
     public String listUsers(Model model){
@@ -90,10 +85,8 @@ public class AppController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+        return "redirect:/login?logout";
     }
-
-
 
     //LANDING PAGE
     @GetMapping("allCryptoLandingPage")
@@ -109,7 +102,8 @@ public class AppController {
         model.addAttribute("stocks", stocks);
         return "main/allStocksLandingPage";
     }
-    @RequestMapping(value= {"/default"}, method = RequestMethod.GET)
+
+    @GetMapping(value= {"/default"})
     public String defaultAfterLogin() {
         Collection<? extends GrantedAuthority> authorities;
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
