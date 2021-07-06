@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Contact;
+import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.ContactRepository;
 
 import javax.validation.Valid;
@@ -27,6 +28,7 @@ public class AdminContactController {
         model.addAttribute("adminContact", contact);
         return "admin/contact/adminContact";
     }
+
     @RequestMapping("/adminContactConfirmDelete")
     public String adminContactConfirmDelete() {
         return "admin/contact/contactConfirmDelete";
@@ -37,6 +39,7 @@ public class AdminContactController {
         contactRepository.deleteById(id);
         return "redirect:/adminContact";
     }
+
     @GetMapping(value = {"/adminContactEdit/{id}"})
     public String adminContactEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminContactEdit", contactRepository.findById(id));
@@ -58,6 +61,18 @@ public class AdminContactController {
             return "admin/adminError";
         }
         return "admin/contact/adminContactConfirmEdit";
+    }
+
+    @GetMapping(value = {"/adminContactDetails/{id}"})
+    public String adminContactDetails(@PathVariable long id, Model model) {
+        Optional<Contact> contactDetails = contactRepository.findById(id);
+        if (contactDetails.isPresent()) {
+            model.addAttribute("adminContactDetails", contactDetails.get());
+            System.out.println(contactDetails);
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/contact/adminContactDetails";
     }
 }
 
