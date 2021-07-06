@@ -15,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddContact"/>">Send messages</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddContact"/>">Send message</a></h2>
             </div>
         </div>
 
