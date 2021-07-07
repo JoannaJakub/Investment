@@ -46,7 +46,7 @@ public class AdminStocksController {
         }
     }
 
-    @RequestMapping("/stocksConfirmDelete")
+    @RequestMapping("/adminStocksConfirmDelete")
     public String stocksConfirmDelete() {
         return "admin/stocks/stocksConfirmDelete";
     }
@@ -57,7 +57,7 @@ public class AdminStocksController {
         return "redirect:/adminStocks";
     }
 
-    @GetMapping(value = {"/stocksDetails/{id}"})
+    /*@GetMapping(value = {"/stocksDetails/{id}"})
     public String stocksDetails(@PathVariable long id, Model model) {
         Optional<Stocks> stocksDetails = stocksRepository.findById(id);
         if (stocksDetails.isPresent()) {
@@ -66,5 +66,5 @@ public class AdminStocksController {
         else{ return "admin/adminError";
         }
         return "admin/stocks/stocksDetails";
-    }
+    }*/
 }
