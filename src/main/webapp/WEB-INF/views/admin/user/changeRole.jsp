@@ -36,19 +36,25 @@
                         <div class="block-body">
                             <form:form method="post" modelAttribute="changeRole">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Role id</label>
+                                    <label class="col-sm-3 form-control-label">User id</label>
                                     <div class="col-sm-9">
                                         <c:out value="${id}"/></div>
-                                    <label for="name" class="label-material"></label>
+                                    <label for="id" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
-                                        <form:input id="roles" type="text" name="roles" path="roles"
-                                                    placeholder="Name" data-msg="Please enter your name"
-                                                    class="input-material"/>
-                                        <form:errors path="roles"/></div>
+                                        <c:out value="${roles}"/></div>
                                     <label for="roles" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Role</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="register-password" type="text" name="registerPassword"
+                                                    path="roles" placeholder="Password"
+                                                    data-msg="Please enter your password" class="input-material"/>
+                                    </div>
+                                    <label for="firstName" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/users"/>"

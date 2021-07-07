@@ -92,7 +92,7 @@ public class AdminStorageController {
 
     @GetMapping("usersStorage")
     public String usersStorage(Model model) {
-        List<Storage> usersStorage = storageRepository.findStorageByUser();
+        List<Storage> usersStorage = storageRepository.findUsersStorageByUser();
         model.addAttribute("usersStorage", usersStorage);
         return "admin/storage/usersStorage";
     }

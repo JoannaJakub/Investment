@@ -16,7 +16,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStocks"/>">Add stocks</a></h2>
             </div>
         </div>
 
@@ -30,15 +30,17 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>User's storage</strong></div>
+                        <div class="title"><strong>Storage</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Bid</th>
+                                    <th>Change</th>
+                                    <th>Currency</th>
                                     <th>Name</th>
-                                    <th>Link</th>
-                                    <th>User Id</th>
+                                    <th>Price</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
@@ -46,15 +48,17 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${usersStorage}" var="usersStorage">
+                                <c:forEach items="${adminStocks}" var="adminStocks">
                                     <tr>
-                                        <td><c:out value="${usersStorage.id}"/></td>
-                                        <td><c:out value="${usersStorage.name}"/></td>
-                                        <td><c:out value="${usersStorage.link}"/></td>
-                                        <td><c:out value="${usersStorage}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorage.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${usersStorage.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${usersStorage.id}"/>">Details</a></td>
+                                        <td><c:out value="${adminStocks.id}"/></td>
+                                        <td><c:out value="${adminStocks.bid}"/></td>
+                                        <td><c:out value="${adminStocks.change}"/></td>
+                                        <td><c:out value="${adminStocks.currency}"/></td>
+                                        <td><c:out value="${adminStocks.name}"/></td>
+                                        <td><c:out value="${adminStocks.price}"/></td>
+                                        <td><a href="<c:url value="/adminContactConfirmDelete/?id=${adminStocks.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/adminContactEdit/${adminStocks.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/adminContactDetails/${adminStocks.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

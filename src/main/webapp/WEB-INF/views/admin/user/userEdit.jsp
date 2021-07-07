@@ -78,6 +78,15 @@
                                         <form:errors path="password"/></div>
                                     <label for="firstName" class="label-material"></label>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Role</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="register-password" type="text" name="registerPassword"
+                                                    path="roles" placeholder="Password"
+                                                    data-msg="Please enter your password" class="input-material"/>
+                                        <form:errors path="roles"/></div>
+                                    <label for="firstName" class="label-material"></label>
+                                </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/users"/>"
                                        class="btn btn-secondary">Cancel</a>
