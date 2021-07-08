@@ -35,15 +35,15 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${adminStocksDetails}" var="adminStocksDetails">
+                                <form:form items="${roleDetails}" var="roleDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Id</label>
-                                        <c:out value="${adminStocksDetails.id}"/>
+                                        <label class="col-sm-3 form-control-label">Storage id</label>
+                                        <c:out value="${roleDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Bid</label>
-                                        <c:out value="${adminStocksDetails.bid}"/>
+                                        <label class="col-sm-3 form-control-label">Storage name</label>
+                                        <c:out value="${roleDetails.name}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
@@ -51,8 +51,8 @@
                                             <a href="<c:url value="/roleEdit/${roleDetails.id}"/>"  class="btn btn-primary">Edit role</a>
                                         </div>
                                     </div>
-                                </form:form><small>List of stocks? </small><a
-                                        href="<c:url value="/adminStocks"/>">Here</a>
+                                </form:form><small>List of roles? </small><a
+                                        href="<c:url value="/role"/>">Here</a>
 
 
                                 </tbody>
