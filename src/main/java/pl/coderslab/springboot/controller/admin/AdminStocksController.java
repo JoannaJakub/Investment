@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Stocks;
-import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.StocksRepository;
 
 import javax.validation.Valid;
@@ -78,14 +77,15 @@ public class AdminStocksController {
         }
         return "admin/stocks/adminStocksConfirmEdit";
     }
-    /*@GetMapping(value = {"/stocksDetails/{id}"})
-    public String stocksDetails(@PathVariable long id, Model model) {
+
+    @GetMapping(value = {"/adminStocksDetails/{id}"})
+    public String adminStocksDetails(@PathVariable long id, Model model) {
         Optional<Stocks> stocksDetails = stocksRepository.findById(id);
         if (stocksDetails.isPresent()) {
-            model.addAttribute("stocksDetails", stocksDetails.get());
+            model.addAttribute("adminStocksDetails", stocksDetails.get());
         }
         else{ return "admin/adminError";
         }
         return "admin/stocks/stocksDetails";
-    }*/
+    }
 }

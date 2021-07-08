@@ -90,11 +90,11 @@
                                     <label for="change" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
-                                    <a href="<c:url value="/adminStock"/>"
+                                    <a href="<c:url value="/adminStocks"/>"
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
-                            </form:form><small>List of all stocks? </small><a href="<c:url value="/adminStock"/>">Here</a>
+                            </form:form><small>List of all stocks? </small><a href="<c:url value="/adminStocks"/>">Here</a>
 
                         </div>
                     </div>

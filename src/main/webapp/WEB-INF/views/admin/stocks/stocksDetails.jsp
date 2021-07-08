@@ -27,54 +27,51 @@
                     </div>
                 </div>
 
-                <div class="col-lg-20">
+                <div class="col-lg-12">
                     <div class="block">
-                        <div class="title"><strong>Stocks details</strong></div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-sm">
-                                <tbody>
-
-                                <form:form items="${stocksDetails}" var="stocksDetails">
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Id</label>
-                                        <c:out value="${stocksDetails.id}"/>
-                                        <label class="label-material"></label>
+                        <div class="title"><strong>Edit storage</strong></div>
+                        <div class="block-body">
+                            <form:form items="${adminStocksDetails}" var="adminStocksDetails">
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Id</label>
+                                    <c:out value="${adminStocksDetails.id}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Bid</label>
+                                    <c:out value="${adminStocksDetails.bid}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Change</label>
+                                    <c:out value="${adminStocksDetails.change}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Currency</label>
+                                    <c:out value="${adminStocksDetails.currency}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Name</label>
+                                    <c:out value="${adminStocksDetails.name}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Price</label>
+                                    <c:out value="${adminStocksDetails.price}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <div class="col-sm ml-auto">
+                                        <a href="<c:url value="/adminStocksEdit/${adminStocksDetails.id}"/>"  class="btn btn-primary">Edit stock</a>
                                     </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Bid</label>
-                                        <c:out value="${stocksDetails.bid}"/>
-                                        <label class="label-material"></label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Change</label>
-                                        <c:out value="${stocksDetails.change}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Currency</label>
-                                        <c:out value="${stocksDetails.currency}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Name</label>
-                                        <c:out value="${stocksDetails.name}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Price</label>
-                                        <c:out value="${stocksDetails.price}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/adminStockEdit/${stocksDetails.id}"/>"  class="btn btn-primary">Edit stock</a>
-                                        </div>
-                                    </div>
-                                </form:form><small>List of storage? </small><a
-                                        href="<c:url value="/adminStock"/>">Here</a>
+                                </div>
+                            </form:form><small>List of stocks? </small><a
+                                href="<c:url value="/adminStocks"/>">Here</a>
 
 
-                                </tbody>
+                            </tbody>
                             </table>
                         </div>
                     </div>
@@ -83,7 +80,8 @@
         </section>
 
 
-        <%@ include file="../../main/footer.jsp" %>
+
+    <%@ include file="../../main/footer.jsp" %>
 
 </body>
 </html>
