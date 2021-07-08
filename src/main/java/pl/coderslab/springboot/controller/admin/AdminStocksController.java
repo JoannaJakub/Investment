@@ -56,7 +56,28 @@ public class AdminStocksController {
         stocksRepository.deleteById(id);
         return "redirect:/adminStocks";
     }
+    @GetMapping(value = {"/adminStocksEdit/{id}"})
+    public String adminStocksEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("adminStocksEdit", stocksRepository.findById(id));
+        return "admin/stocks/stocksEdit";
+    }
 
+    @PostMapping(value = {"adminStocksEdit/{id}"})
+    public String adminStocksEditSave(@Valid Stocks stocks) {
+        stocksRepository.save(stocks);
+        return "redirect:/adminStocksConfirmEditing/{id}";
+    }
+
+    @RequestMapping("/adminStocksConfirmEditing/{id}")
+    public String adminStocksConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Stocks> stocks = stocksRepository.findById(id);
+        if (stocks.isPresent()) {
+            model.addAttribute("adminStocksConfirmEdit", stocks.get());
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/stocks/adminStocksConfirmEdit";
+    }
     /*@GetMapping(value = {"/stocksDetails/{id}"})
     public String stocksDetails(@PathVariable long id, Model model) {
         Optional<Stocks> stocksDetails = stocksRepository.findById(id);
