@@ -18,12 +18,15 @@ public class AdminCryptoController {
         this.cryptocurrencyRepository = cryptocurrencyRepository;
     }
 
-
     @GetMapping("adminCrypto")
     public String crypto(Model model) {
         List<Cryptocurrencies> crypto = cryptocurrencyRepository.findAll();
         model.addAttribute("adminCrypto", crypto);
         return "admin/crypto/adminCrypto";
     }
-
+    @GetMapping("/adminAddCrypto")
+    public String adminAddCrypto(Model model) {
+        model.addAttribute("adminAddCrypto", new Cryptocurrencies());
+        return "admin/crypto/addCrypto";
+    }
 }
