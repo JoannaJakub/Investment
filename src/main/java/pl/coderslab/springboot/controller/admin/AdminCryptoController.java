@@ -3,11 +3,14 @@ package pl.coderslab.springboot.controller.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -29,4 +32,14 @@ public class AdminCryptoController {
         model.addAttribute("adminAddCrypto", new Cryptocurrencies());
         return "admin/crypto/addCrypto";
     }
+    @PostMapping(value = "/adminCryptoSuccess")
+    public String processAdminCryptoSuccess(@Valid Cryptocurrencies crypto, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/stocks/adminAddCrypto";
+        } else {
+            cryptocurrencyRepository.save(crypto);
+            return "admin/crypto/cryptoSuccess";
+        }
+    }
+
 }
