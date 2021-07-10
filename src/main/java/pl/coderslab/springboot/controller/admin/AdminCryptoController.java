@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
-import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
 import javax.validation.Valid;
@@ -37,7 +36,7 @@ public class AdminCryptoController {
     @PostMapping(value = "/adminCryptoSuccess")
     public String processAdminCryptoSuccess(@Valid Cryptocurrencies crypto, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/stocks/adminAddCrypto";
+            return "admin/stocks/addCrypto";
         } else {
             cryptocurrencyRepository.save(crypto);
             return "admin/crypto/cryptoSuccess";
