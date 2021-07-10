@@ -5,7 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
@@ -40,6 +42,16 @@ public class AdminCryptoController {
             cryptocurrencyRepository.save(crypto);
             return "admin/crypto/cryptoSuccess";
         }
+    }
+    @RequestMapping("/adminCryptoConfirmDelete")
+    public String adminCryptoConfirmDelete() {
+        return "admin/crypto/cryptoConfirmDelete";
+    }
+
+    @GetMapping(value = {"/cryptoDelete/{id}"})
+    public String adminCryptoDelete(@PathVariable long id) {
+        cryptocurrencyRepository.deleteById(id);
+        return "redirect:/adminCrypto";
     }
 
 }
