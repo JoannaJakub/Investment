@@ -77,7 +77,7 @@
                                                     class="form-control"/>
                                         <form:errors path="name"/>
                                     </div>
-                                    <label for="change" class="label-material"></label>
+                                    <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Storage link</label>

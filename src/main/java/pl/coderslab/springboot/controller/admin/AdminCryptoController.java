@@ -15,6 +15,7 @@ import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class AdminCryptoController {
@@ -65,5 +66,15 @@ public class AdminCryptoController {
     public String adminCryptoEditSave(@Valid Cryptocurrencies cryptocurrencies) {
         cryptocurrencyRepository.save(cryptocurrencies);
         return "redirect:/adminStocksConfirmEditing/{id}";
+    }
+    @RequestMapping("/adminCryptoConfirmEditing/{id}")
+    public String adminCryptoConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Cryptocurrencies> crypto = cryptocurrencyRepository.findById(id);
+        if (crypto.isPresent()) {
+            model.addAttribute("adminCryptoConfirmEdit", crypto.get());
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/crypto/adminCryptoConfirmEdit";
     }
 }
