@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.StorageRepository;
-import pl.coderslab.springboot.repository.UserRepository;
 import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
@@ -41,8 +40,8 @@ public class StorageController {
 
     @GetMapping("/yourStorage")
     public String yourStorage(Model model, @AuthenticationPrincipal UserDetails customUser, Authentication authentication) {
-        User user = userService.findByUserName(authentication.getName());
-        Optional<Storage> yourStorage = storageRepository.findById(user.getId());
+        User getNameUser = userService.findByUserName(authentication.getName());
+        Optional<Storage> yourStorage = storageRepository.findById(getNameUser.getId());
         if (!yourStorage.isEmpty()) {
             model.addAttribute("yourStorage", yourStorage);
         } else {
