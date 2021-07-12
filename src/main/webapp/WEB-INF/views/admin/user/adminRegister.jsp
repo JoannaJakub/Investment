@@ -6,7 +6,7 @@
 <html>
 <%@ include file="../../head.jsp" %>
 <body>
-<%@ include file="../../header.jsp" %>
+<%@ include file="../adminHeader.jsp" %>
 <div class="d-flex align-items-stretch">
     <%@ include file="../adminSideMenu.jsp" %>
     <div class="page-content">

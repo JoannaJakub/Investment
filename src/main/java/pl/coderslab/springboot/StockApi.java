@@ -1,25 +1,25 @@
 package pl.coderslab.springboot;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import pl.coderslab.springboot.model.Stocks;
+
+import yahoofinance.Stock;
+import yahoofinance.YahooFinance;
+
+import java.io.IOException;
+import java.math.BigDecimal;
 
 public class StockApi {
 
-    private final String INSERT_SQL = "INSERT INTO stocks(name, price, change) values(?,?,?)";
-    @Autowired
-    private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public Stocks create (Stocks stocks) {
-        SqlParameterSource parameters = new MapSqlParameterSource()
-                .addValue("name", stocks.getName())
-                .addValue("price", stocks.getPrice())
-                .addValue("change", stocks.getChange());
-        namedParameterJdbcTemplate.update(INSERT_SQL, parameters);
-        return stocks;
-    }
+
+ public static void main(String[] args) throws IOException {
+     Stock stock = YahooFinance.get("INTC");
+
+     BigDecimal price = stock.getQuote().getPrice();
+     BigDecimal change = stock.getQuote().getChangeInPercent();
+     BigDecimal peg = stock.getStats().getPeg();
+     BigDecimal dividend = stock.getDividend().getAnnualYieldPercent();
+     System.out.println(stock);
+ }
 }
 
 

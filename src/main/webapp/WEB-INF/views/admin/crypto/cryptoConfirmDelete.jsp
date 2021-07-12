@@ -8,7 +8,7 @@
 <html lang="en">
 <%@ include file="../adminHead.jsp" %>
 <body>
-<%@ include file="../../header.jsp" %>
+<%@ include file="../adminHeader.jsp" %>
 <div class="d-flex align-items-stretch">
     <%@ include file="../adminSideMenu.jsp" %>
 
