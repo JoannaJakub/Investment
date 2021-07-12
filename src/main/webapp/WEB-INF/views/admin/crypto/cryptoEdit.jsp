@@ -31,7 +31,7 @@
 
                 <div class="col-lg-12">
                     <div class="block">
-                        <div class="title"><strong>Edit stock</strong></div>
+                        <div class="title"><strong>Edit crypto</strong></div>
                         <div class="block-body">
                             <form:form method="post" modelAttribute="adminCryptoEdit">
                                 <div class="form-group row">
@@ -50,7 +50,7 @@
                                     <label for="aux" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
+                                    <label class="col-sm-3 form-control-label">Cmc rank</label>
                                     <div class="col-sm-9">
                                         <form:input id="cmc_rank" type="text" name="cmc_rank" path="cmc_rank"
                                                     placeholder="cmc_rank" data-msg="Please enter cmc_rank"
@@ -60,7 +60,7 @@
                                     <label for="cmc_rank" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
+                                    <label class="col-sm-3 form-control-label">Limit</label>
                                     <div class="col-sm-9">
                                         <form:input id="limit" type="text" name="limit" path="limit"
                                                     placeholder="limit" data-msg="Please enter limit"
@@ -83,7 +83,7 @@
                                     <label class="col-sm-3 form-control-label">Storage link</label>
                                     <div class="col-sm-9">
                                         <form:input id="priceMax" type="text" name="priceMax" path="priceMax"
-                                                    placeholder="priceMax" data-msg="Please enter price"
+                                                    placeholder="priceMax" data-msg="Please enter max price"
                                                     class="form-control"/>
                                         <form:errors path="priceMax"/>
                                     </div>
@@ -94,7 +94,7 @@
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
-                            </form:form><small>List of all stocks? </small><a href="<c:url value="/adminCrypto"/>">Here</a>
+                            </form:form><small>List of all crypto? </small><a href="<c:url value="/adminCrypto"/>">Here</a>
 
                         </div>
                     </div>

@@ -29,7 +29,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Stock has been changed!</strong></div>
+                        <div class="title"><strong>Crypto has been changed!</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -41,24 +41,24 @@
                                             <td><c:out value="${id}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Bid</td>
+                                            <td>Aux</td>
                                             <td><c:out value="${adminCryptoConfirmEdit.aux}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Change</td>
-                                            <td><c:out value="${adminCryptoConfirmEdit.limit}"/></td>
+                                            <td>Cmc rank</td>
+                                            <td><c:out value="${adminCryptoConfirmEdit.cmc_rank}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Currency</td>
-                                            <td><c:out value="${adminCryptoConfirmEdit.priceMax}"/></td>
+                                            <td>Limit</td>
+                                            <td><c:out value="${adminCryptoConfirmEdit.limit}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Name</td>
                                             <td><c:out value="${adminCryptoConfirmEdit.name}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Name</td>
-                                            <td><c:out value="${adminCryptoConfirmEdit.cmc_rank}"/></td>
+                                            <td>Max price</td>
+                                            <td><c:out value="${adminCryptoConfirmEdit.priceMax}"/></td>
                                         </tr>
 
                                     </div>
@@ -77,7 +77,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all stocks? </small><a href="<c:url value="/adminStocks"/>">Here</a>
+                <small>List of all crypto? </small><a href="<c:url value="/adminCrypto"/>">Here</a>
             </div>
         </section>
     </div>

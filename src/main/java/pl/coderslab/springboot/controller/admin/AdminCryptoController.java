@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
-import pl.coderslab.springboot.model.Stocks;
-import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
 import javax.validation.Valid;
@@ -39,7 +37,7 @@ public class AdminCryptoController {
     @PostMapping(value = "/adminCryptoSuccess")
     public String processAdminCryptoSuccess(@Valid Cryptocurrencies crypto, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/stocks/addCrypto";
+            return "admin/crypto/addCrypto";
         } else {
             cryptocurrencyRepository.save(crypto);
             return "admin/crypto/cryptoSuccess";
@@ -58,14 +56,14 @@ public class AdminCryptoController {
 
     @GetMapping(value = {"/adminCryptoEdit/{id}"})
     public String adminCryptoEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("adminCryptosEdit", cryptocurrencyRepository.findById(id));
+        model.addAttribute("adminCryptoEdit", cryptocurrencyRepository.findById(id));
         return "admin/crypto/cryptoEdit";
     }
 
     @PostMapping(value = {"adminCryptoEdit/{id}"})
     public String adminCryptoEditSave(@Valid Cryptocurrencies cryptocurrencies) {
         cryptocurrencyRepository.save(cryptocurrencies);
-        return "redirect:/adminStocksConfirmEditing/{id}";
+        return "redirect:/adminCryptoConfirmEditing/{id}";
     }
     @RequestMapping("/adminCryptoConfirmEditing/{id}")
     public String adminCryptoConfirmEditing(@PathVariable long id, Model model) {
