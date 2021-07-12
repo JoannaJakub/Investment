@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
+import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 
 import javax.validation.Valid;
@@ -74,5 +75,15 @@ public class AdminCryptoController {
             return "admin/adminError";
         }
         return "admin/crypto/adminCryptoConfirmEdit";
+    }
+    @GetMapping(value = {"/adminCryptoDetails/{id}"})
+    public String adminCryptoDetails(@PathVariable long id, Model model) {
+        Optional<Cryptocurrencies> cryptoDetails = cryptocurrencyRepository.findById(id);
+        if (cryptoDetails.isPresent()) {
+            model.addAttribute("adminCryptoDetails", cryptoDetails.get());
+        }
+        else{ return "admin/adminError";
+        }
+        return "admin/crypto/cryptoDetails";
     }
 }
