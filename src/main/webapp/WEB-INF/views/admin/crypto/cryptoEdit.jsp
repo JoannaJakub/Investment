@@ -41,7 +41,7 @@
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Bid</label>
+                                    <label class="col-sm-3 form-control-label">Aux</label>
                                     <div class="col-sm-9">
                                         <form:input id="aux" type="text" name="aux" path="aux"
                                                     placeholder="aux" data-msg="Please enter aux"
@@ -70,7 +70,7 @@
                                     <label for="limit" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
+                                    <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
                                         <form:input id="name" type="text" name="name" path="name"
                                                     placeholder="Name" data-msg="Please enter name"
@@ -80,7 +80,7 @@
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
+                                    <label class="col-sm-3 form-control-label">Max price</label>
                                     <div class="col-sm-9">
                                         <form:input id="priceMax" type="text" name="priceMax" path="priceMax"
                                                     placeholder="priceMax" data-msg="Please enter max price"
