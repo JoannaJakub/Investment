@@ -46,12 +46,12 @@ public class AdminStocksController {
     }
 
     @RequestMapping("/adminStocksConfirmDelete")
-    public String stocksConfirmDelete() {
+    public String adminStocksConfirmDelete() {
         return "admin/stocks/stocksConfirmDelete";
     }
 
-    @GetMapping(value = {"/stocksDelete/{id}"})
-    public String stocksDelete(@PathVariable long id) {
+    @GetMapping(value = {"/adminStocksDelete/{id}"})
+    public String adminStocksDelete(@PathVariable long id) {
         stocksRepository.deleteById(id);
         return "redirect:/adminStocks";
     }
