@@ -74,6 +74,29 @@ public class StocksController {
         else{ return "user/userError";}
         return "user/yourStock/stocksDetails";
     }
+
+    @GetMapping(value = {"/stocksEdit/{id}"})
+    public String stocksEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("stocksEdit", ownedstocksRepository.findById(id));
+        return "user/yourStock/stocksEdit";
+    }
+
+    @PostMapping(value = {"stocksEdit/{id}"})
+    public String stocksEditSave(@Valid Ownedstocks ownedstocks) {
+        ownedstocksRepository.save(ownedstocks);
+        return "redirect:/stocksConfirmEditing/{id}";
+    }
+
+    @RequestMapping("/stocksConfirmEditing/{id}")
+    public String stocksConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Ownedstocks> stocks = ownedstocksRepository.findById(id);
+        if (stocks.isPresent()) {
+            model.addAttribute("stocksConfirmEdit", stocks.get());
+        } else {
+            return "user/userError";
+        }
+        return "user/yourStock/stocksConfirmEdit";
+    }
 }
 
 

@@ -93,10 +93,10 @@
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
                                             <a href="<c:url value="/stocksEdit/${stocksDetails.id}"/>"
-                                               class="btn btn-primary">Edit stocks</a>
+                                               class="btn btn-primary">Edit stock</a>
                                         </div>
                                     </div>
-                                </form:form><small>List of your stocks? </small><a
+                                </form:form><small>List of all your stocks? </small><a
                                         href="<c:url value="/yourStocks"/>">Here</a>
                                 </tbody>
                             </table>
@@ -107,5 +107,7 @@
         </section>
 
 <%@ include file="../footer.jsp" %>
+    </div>
+</div>
 </body>
 </html>

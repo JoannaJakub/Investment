@@ -39,9 +39,10 @@
                                     <th>Change</th>
                                     <th>Price</th>
                                     <th>How much</th>
-                                    <th>When bought</th>
                                     <th>Num of stocks</th>
+                                    <th>When bought</th>
                                     <th>Notes</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -56,8 +57,8 @@
                                         <td>${ownedStocks.numOfCoins}</td>
                                         <td>${ownedStocks.whenBought}</td>
                                         <td>${ownedStocks.notes}</td>
+                                        <td><a href="<c:url value="/stocksDetails/${ownedStocks.id}"/>">Details</a></td>
                                     </tr>
-                                    <td><a href="<c:url value="/stocksDetails/${ownedStocks.id}"/>">Details</a></td>
                                 </c:forEach>
 
                                 </tbody>
