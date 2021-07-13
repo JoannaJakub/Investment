@@ -36,34 +36,68 @@
 
                                 <form:form items="${stocksDetails}" var="stocksDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message id</label>
+                                        <label class="col-sm-3 form-control-label">Id</label>
                                         <c:out value="${stocksDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message</label>
+                                        <label class="col-sm-3 form-control-label">Name</label>
+                                        <c:out value="${stocksDetails.stocks.name}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">How much</label>
                                         <c:out value="${stocksDetails.howMuch}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Date</label>
-                                        <c:out value="${contactDetails.numOfCoins}"/>
+                                        <label class="col-sm-3 form-control-label">Num of stocks</label>
+                                        <c:out value="${stocksDetails.howMuch}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Date</label>
-                                        <c:out value="${contactDetails.whenBought}"/>
-                                        whenBought
+                                        <c:out value="${stocksDetails.whenBought}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Notes</label>
+                                        <c:out value="${stocksDetails.notes}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Current price</label>
+                                        <c:out value="${stocksDetails.stocks.price}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Currency</label>
+                                        <c:out value="${stocksDetails.stocks.currency}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Change</label>
+                                        <c:out value="${stocksDetails.stocks.change}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Bid</label>
+                                        <c:out value="${stocksDetails.stocks.bid}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Storage</label>
+                                        <c:out value="${stocksDetails.storage.name}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/contactEdit/${contactDetails.id}"/>"
-                                               class="btn btn-primary">Edit message</a>
+                                            <a href="<c:url value="/stocksEdit/${stocksDetails.id}"/>"
+                                               class="btn btn-primary">Edit stocks</a>
                                         </div>
                                     </div>
-                                </form:form><small>List of your contacts? </small><a
-                                        href="<c:url value="/yourContact"/>">Here</a>
+                                </form:form><small>List of your stocks? </small><a
+                                        href="<c:url value="/yourStocks"/>">Here</a>
                                 </tbody>
                             </table>
                         </div>
