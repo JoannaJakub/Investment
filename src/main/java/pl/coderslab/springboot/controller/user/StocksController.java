@@ -97,6 +97,16 @@ public class StocksController {
         }
         return "user/yourStock/stocksConfirmEdit";
     }
+    @RequestMapping("/stocksConfirmDelete")
+    public String stocksConfirmDelete() {
+        return "user/yourStock/stocksConfirmDelete";
+    }
+
+    @GetMapping(value = {"/stocksDelete/{id}"})
+    public String stocksDelete(@PathVariable long id) {
+        ownedstocksRepository.deleteById(id);
+        return "redirect:/yourStocks";
+    }
 }
 
 

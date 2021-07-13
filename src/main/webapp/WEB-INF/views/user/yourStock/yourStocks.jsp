@@ -15,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h4 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="<c:url value="/addStocks"/>">Add stock</a></h2>
             </div>
         </div>
 
@@ -43,6 +43,8 @@
                                     <th>When bought</th>
                                     <th>Notes</th>
                                     <th>Details</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -58,6 +60,8 @@
                                         <td>${ownedStocks.whenBought}</td>
                                         <td>${ownedStocks.notes}</td>
                                         <td><a href="<c:url value="/stocksDetails/${ownedStocks.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/stocksEdit/${ownedStocks.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/stocksConfirmDelete/?id=${ownedStocks.id}"/>">Delete</a></td>
                                     </tr>
                                 </c:forEach>
 
