@@ -36,16 +36,16 @@
                         <div class="block">
                             <div class="title"><strong>All form elements</strong></div>
                             <div class="block-body">
-                                <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedstocks">
+                                <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedStocks">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose stock</label>
+                                        <label class="col-sm-3 form-control-label">Choose stock</label>
                                         <div class="col-sm-9 ml-auto">
-                                            <form:hidden path="user" items="${user}" class="form-control" itemLabel="user" itemValue="id" />
+                                            <form:hidden path="user" value="${user.id}" class="form-control" itemLabel="user" itemValue="id" />
                                             <form:select path="stocks" items="${stocks}" class="form-control" itemLabel="name" itemValue="id" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose storage</label>
+                                        <label class="col-sm-3 form-control-label">Choose storage</label>
                                         <div class="col-sm-9 ml-auto">
                                             <form:select path="storage" items="${storage}" class="form-control" itemLabel="name" itemValue="id" />
                                         </div>

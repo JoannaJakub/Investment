@@ -39,14 +39,14 @@
                                 <form:form action="cryptoSuccess" class="form-horizontal" method="post" modelAttribute="ownedcryptocurrencies">
 
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose crypto</label>
+                                        <label class="col-sm-3 form-control-label">Choose crypto</label>
                                         <div class="col-sm-9 ml-auto">
-
+                                            <form:hidden path="user" value="${user.id}" class="form-control" itemLabel="user" itemValue="id" />
                                             <form:select path="cryptocurrencies" items="${cryptocurrencies}" class="form-control" itemLabel="name" itemValue="id" />
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Chooose storage</label>
+                                        <label class="col-sm-3 form-control-label">Choose storage</label>
                                         <div class="col-sm-9 ml-auto">
                                             <form:select path="storage" items="${storage}" class="form-control" itemLabel="name" itemValue="id" />
                                         </div>

@@ -1,5 +1,6 @@
 package pl.coderslab.springboot.controller.user;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
+import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -21,12 +23,14 @@ public class CryptocurrencyController {
     private final CryptocurrencyRepository cryptocurrencyRepository;
     private final StorageRepository storageRepository;
     private final UserRepository userRepository;
+    private final UserService userService;
 
-    public CryptocurrencyController(OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo, CryptocurrencyRepository cryptocurrencyRepository, StorageRepository storageRepository, UserRepository userRepository) {
+    public CryptocurrencyController(OwnedcryptocurrenciesRepository ownedcryptocurrenciesRepo, CryptocurrencyRepository cryptocurrencyRepository, StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
         this.ownedcryptocurrenciesRepo = ownedcryptocurrenciesRepo;
         this.cryptocurrencyRepository = cryptocurrencyRepository;
         this.storageRepository = storageRepository;
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @GetMapping("/allCrypto")
@@ -46,10 +50,11 @@ public class CryptocurrencyController {
     }
 
     @GetMapping("/addCrypto")
-    public String addCrypto(Model model) {
+    public String addCrypto(Model model, Authentication authentication) {
         model.addAttribute("ownedcryptocurrencies", new Ownedcryptocurrencies());
         model.addAttribute("cryptocurrencies", cryptocurrencyRepository.findAll());
         model.addAttribute("storage", storageRepository.findAll());
+        model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/yourCrypto/addCrypto";
     }
 

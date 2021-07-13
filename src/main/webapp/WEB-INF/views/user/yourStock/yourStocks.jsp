@@ -46,18 +46,18 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${ownedstocks}" var="ownedstocks">
+                                <c:forEach items="${ownedStocks}" var="ownedStocks">
                                     <tr>
-                                        <td>${ownedstocks.id}</td>
-                                        <td>${ownedstocks.stocks.name}</td>
-                                        <td>${ownedstocks.stocks.change}</td>
-                                        <td>${ownedstocks.stocks.price}</td>
-                                        <td>${ownedstocks.howMuch}</td>
-                                        <td>${ownedstocks.numOfCoins}</td>
-                                        <td>${ownedstocks.whenBought}</td>
-                                        <td>${ownedstocks.notes}</td>
+                                        <td>${ownedStocks.id}</td>
+                                        <td>${ownedStocks.stocks.name}</td>
+                                        <td>${ownedStocks.stocks.change}</td>
+                                        <td>${ownedStocks.stocks.price}</td>
+                                        <td>${ownedStocks.howMuch}</td>
+                                        <td>${ownedStocks.numOfCoins}</td>
+                                        <td>${ownedStocks.whenBought}</td>
+                                        <td>${ownedStocks.notes}</td>
                                     </tr>
-                                    <td><a href="<c:url value="/stocksDetails/${ownedstocks.id}"/>">Details</a></td>
+                                    <td><a href="<c:url value="/stocksDetails/${ownedStocks.id}"/>">Details</a></td>
                                 </c:forEach>
 
                                 </tbody>

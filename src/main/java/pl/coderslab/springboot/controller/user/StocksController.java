@@ -1,5 +1,6 @@
 package pl.coderslab.springboot.controller.user;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
+import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,28 +21,31 @@ public class StocksController {
     private final OwnedstocksRepository ownedstocksRepository;
     private final StorageRepository storageRepository;
     private final UserRepository userRepository;
+    private final UserService userService;
 
-    public StocksController(StocksRepository stocksRepository, OwnedstocksRepository ownedstocksRepository, StorageRepository storageRepository, UserRepository userRepository) {
+    public StocksController(StocksRepository stocksRepository, OwnedstocksRepository ownedstocksRepository, StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
         this.stocksRepository = stocksRepository;
         this.ownedstocksRepository = ownedstocksRepository;
         this.storageRepository = storageRepository;
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @RequestMapping("/yourStocks")
     public String yourStocks(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
-        List<Ownedstocks> ownedstocks = ownedstocksRepository.findByUser(user);
-        model.addAttribute("ownedstocks", ownedstocks);
+        List<Ownedstocks> ownedStocks = ownedstocksRepository.findByUser(user);
+        model.addAttribute("ownedStocks", ownedStocks);
         return "user/yourStock/yourStocks";
     }
 
     @GetMapping("/addStocks")
-    public String addStocks(Model model) {
-        model.addAttribute("ownedstocks", new Ownedstocks());
+    public String addStocks(Model model, Authentication authentication) {
+        model.addAttribute("ownedStocks", new Ownedstocks());
         model.addAttribute("stocks", stocksRepository.findAll());
         model.addAttribute("storage", storageRepository.findAll());
+       model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/yourStock/addStocks";
     }
 
