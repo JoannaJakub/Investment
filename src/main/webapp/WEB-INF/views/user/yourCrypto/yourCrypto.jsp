@@ -15,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addCrypto">Add cryptocurrencies</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addCrypto"/>">Add crypto</a></h2>
             </div>
         </div>
         <section class="no-padding-top">
@@ -43,6 +43,9 @@
                                     <th>When bought</th>
                                     <th>Amount of crypto</th>
                                     <th>Notes</th>
+                                    <th>Details</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -57,6 +60,9 @@
                                         <td>${ownedcryptocurrencies.numOfCoins}</td>
                                         <td>${ownedcryptocurrencies.whenBought}</td>
                                         <td>${ownedcryptocurrencies.notes}</td>
+                                        <td><a href="<c:url value="/cryptoDetails/${ownedcryptocurrencies.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/cryptoEdit/${ownedcryptocurrencies.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/cryptoConfirmDelete/?id=${ownedcryptocurrencies.id}"/>">Delete</a></td>
                                     </tr>
                                 </c:forEach>
 
