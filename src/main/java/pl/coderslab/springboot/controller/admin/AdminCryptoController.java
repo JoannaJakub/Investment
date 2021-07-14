@@ -49,7 +49,7 @@ public class AdminCryptoController {
         return "admin/crypto/cryptoConfirmDelete";
     }
 
-    @GetMapping(value = {"/cryptoDelete/{id}"})
+    @GetMapping(value = {"/adminCryptoDelete/{id}"})
     public String adminCryptoDelete(@PathVariable long id) {
         cryptocurrencyRepository.deleteById(id);
         return "redirect:/adminCrypto";

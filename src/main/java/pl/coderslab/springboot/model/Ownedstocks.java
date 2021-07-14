@@ -25,7 +25,6 @@ public class Ownedstocks {
     @NotNull(message = "Please enter when did you bought stocks in format YEAR-MONTH-DATE.")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate whenBought;
-
     private String notes;
 
     @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)

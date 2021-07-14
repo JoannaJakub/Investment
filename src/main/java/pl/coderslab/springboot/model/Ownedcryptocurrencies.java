@@ -27,15 +27,14 @@ public class Ownedcryptocurrencies implements Serializable {
     @NotNull(message = "Please enter when did you bought crypto in format YEAR-MONTH-DATE.")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate whenBought;
-
     private String notes;
 
 
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Storage storage;
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private User user;
-    @ManyToOne (cascade = CascadeType.ALL)
+    @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Cryptocurrencies cryptocurrencies;
 }
 

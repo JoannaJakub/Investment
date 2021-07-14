@@ -78,6 +78,15 @@ public class CryptocurrencyController {
         else{ return "user/userError";}
         return "user/yourCrypto/cryptoDetails";
     }
+    @RequestMapping("/cryptoConfirmDelete")
+    public String cryptoConfirmDelete() {
+        return "user/yourCrypto/cryptoConfirmDelete";
+    }
 
+    @GetMapping(value = {"/cryptoDelete/{id}"})
+    public String cryptoDelete(@PathVariable long id) {
+        ownedcryptocurrenciesRepo.deleteById(id);
+        return "redirect:/yourCrypto";
+    }
 }
 
