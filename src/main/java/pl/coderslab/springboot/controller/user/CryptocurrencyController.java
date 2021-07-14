@@ -88,5 +88,16 @@ public class CryptocurrencyController {
         ownedcryptocurrenciesRepo.deleteById(id);
         return "redirect:/yourCrypto";
     }
+    @GetMapping(value = {"/cryptoEdit/{id}"})
+    public String cryptoEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("cryptoEdit", ownedcryptocurrenciesRepo.findById(id));
+        return "user/yourCrypto/cryptoEdit";
+    }
+
+    @PostMapping(value = {"cryptoEdit/{id}"})
+    public String cryptoEditSave(@Valid Ownedcryptocurrencies ownedcrypto) {
+        ownedcryptocurrenciesRepo.save(ownedcrypto);
+        return "redirect:/cryptoConfirmEditing/{id}";
+    }
 }
 
