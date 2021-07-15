@@ -107,6 +107,16 @@ public class StocksController {
         ownedstocksRepository.deleteById(id);
         return "redirect:/yourStocks";
     }
+
+    @GetMapping(value = {"/allStocksDetails/{id}"})
+    public String allStocksDetails(@PathVariable long id, Model model) {
+        Optional<Stocks> stocks = stocksRepository.findById(id);
+        if (stocks.isPresent()) {
+            model.addAttribute("allStocksDetails", stocks.get());
+        }
+        else{ return "user/userError";}
+        return "user/yourStock/allStocksDetails";
+    }
 }
 
 

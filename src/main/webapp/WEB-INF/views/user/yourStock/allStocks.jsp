@@ -39,6 +39,7 @@
                                     <th>Change</th>
                                     <th>Currency</th>
                                     <th>Bid</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +52,7 @@
                                         <td><c:out value="${stocks.change}"/></td>
                                         <td><c:out value="${stocks.currency}"/></td>
                                         <td><c:out value="${stocks.bid}"/></td>
-
+                                        <td><a href="<c:url value="/allStocksDetails/${stocks.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
