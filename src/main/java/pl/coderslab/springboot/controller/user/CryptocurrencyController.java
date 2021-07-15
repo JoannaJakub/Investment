@@ -99,5 +99,15 @@ public class CryptocurrencyController {
         ownedcryptocurrenciesRepo.save(ownedcrypto);
         return "redirect:/cryptoConfirmEditing/{id}";
     }
+    @RequestMapping("/cryptoConfirmEditing/{id}")
+    public String cryptoConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Ownedcryptocurrencies> crypto = ownedcryptocurrenciesRepo.findById(id);
+        if (crypto.isPresent()) {
+            model.addAttribute("cryptoConfirmEdit", crypto.get());
+        } else {
+            return "user/userError";
+        }
+        return "user/yourCrypto/cryptoConfirmEdit";
+    }
 }
 
