@@ -29,7 +29,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Your storage</strong></div>
+                        <div class="title"><strong>Storage</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -37,6 +37,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Link</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -46,6 +47,7 @@
                                         <td><c:out value="${storage.id}"/></td>
                                         <td><c:out value="${storage.name}"/></td>
                                         <td><c:out value="${storage.link}"/></td>
+                                        <td><a href="<c:url value="/storageDetails/${storage.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

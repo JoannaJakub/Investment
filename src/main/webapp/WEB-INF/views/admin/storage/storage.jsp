@@ -52,7 +52,7 @@
                                         <td><c:out value="${adminStorage.link}"/></td>
                                         <td><a href="<c:url value="/storageConfirmDelete/?id=${adminStorage.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/storageEdit/${adminStorage.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${adminStorage.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/adminStorageDetails/${adminStorage.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
