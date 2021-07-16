@@ -15,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addStorage"/>">Add storage</a></h2>
             </div>
         </div>
 
@@ -29,23 +29,21 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Your storage</strong></div>
+                        <div class="title"><strong>Your stocks storage</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Link</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${yourStorage}" var="yourStorage">
+                                <c:forEach items="${yourStocksStorage}" var="yourStocksStorage">
                                     <tr>
-                                        <td><c:out value="${yourStorage.id}"/></td>
-                                        <td><c:out value="${yourStorage.name}"/></td>
-                                        <td><c:out value="${yourStorage.link}"/></td>
+                                        <td><c:out value="${yourStocksStorage.storage.name}"/></td>
+                                        <td><c:out value="${yourStocksStorage.storage.link}"/></td>
                                     </tr>
                                 </c:forEach>
 
@@ -57,7 +55,42 @@
 
             </div>
     </section>
+        <section class="no-padding-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
 
+                    </div>
+                </div>
+
+                <div class="col-lg-20">
+                    <div class="block">
+                        <div class="title"><strong>Your crypto storage</strong></div>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Link</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <c:forEach items="${yourCryptoStorage}" var="yourCryptoStorage">
+                                    <tr>
+                                        <td><c:out value="${yourCryptoStorage.storage.name}"/></td>
+                                        <td><c:out value="${yourCryptoStorage.storage.link}"/></td>
+                                    </tr>
+                                </c:forEach>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
 
         <%@ include file="../footer.jsp" %>
     </div>
