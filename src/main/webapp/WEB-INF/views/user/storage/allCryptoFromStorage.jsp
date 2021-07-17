@@ -50,19 +50,19 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${ownedcryptocurrencies}" var="ownedcryptocurrencies">
+                                <c:forEach items="${allCryptoFromStorage}" var="allCryptoFromStorage">
                                     <tr>
-                                        <td>${ownedcryptocurrencies.id}</td>
-                                        <td>${ownedcryptocurrencies.cryptocurrencies.name}</td>
-                                        <td>${ownedcryptocurrencies.cryptocurrencies.priceMin}</td>
-                                        <td>${ownedcryptocurrencies.cryptocurrencies.priceMax}</td>
-                                        <td>${ownedcryptocurrencies.howMuch}</td>
-                                        <td>${ownedcryptocurrencies.numOfCoins}</td>
-                                        <td>${ownedcryptocurrencies.whenBought}</td>
-                                        <td>${ownedcryptocurrencies.notes}</td>
-                                        <td><a href="<c:url value="/cryptoDetails/${ownedcryptocurrencies.id}"/>">Details</a></td>
-                                        <td><a href="<c:url value="/cryptoEdit/${ownedcryptocurrencies.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/cryptoConfirmDelete/?id=${ownedcryptocurrencies.id}"/>">Delete</a></td>
+                                        <td>${allCryptoFromStorage.id}</td>
+                                        <td>${allCryptoFromStorage.cryptocurrencies.name}</td>
+                                        <td>${allCryptoFromStorage.cryptocurrencies.priceMin}</td>
+                                        <td>${allCryptoFromStorage.cryptocurrencies.priceMax}</td>
+                                        <td>${allCryptoFromStorage.howMuch}</td>
+                                        <td>${allCryptoFromStorage.numOfCoins}</td>
+                                        <td>${allCryptoFromStorage.whenBought}</td>
+                                        <td>${allCryptoFromStorage.notes}</td>
+                                        <td><a href="<c:url value="/cryptoDetails/${allCryptoFromStorage.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/cryptoEdit/${allCryptoFromStorage.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/cryptoConfirmDelete/?id=${allCryptoFromStorage.id}"/>">Delete</a></td>
                                     </tr>
                                 </c:forEach>
 

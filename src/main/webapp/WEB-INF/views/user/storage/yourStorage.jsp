@@ -76,7 +76,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Link</th>
-                                    <th>Stocks</th>
+                                    <th>Crypto</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -85,7 +85,7 @@
                                     <tr>
                                         <td><c:out value="${yourCryptoStorage.storage.name}"/></td>
                                         <td><c:out value="${yourCryptoStorage.storage.link}"/></td>
-                                        <td><a href="<c:url value="/stocks/${yourCryptoStorage.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/allCryptoFromStorage/${yourCryptoStorage.storage.id}"/>">All Crypto</a></td>
                                     </tr>
                                 </c:forEach>
 

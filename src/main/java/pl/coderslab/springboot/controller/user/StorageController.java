@@ -114,4 +114,17 @@ public class StorageController {
         else {return "user/userError";}
         return "user/storage/allStocksFromStorage";
     }
+
+    @GetMapping(value = {"/allCryptoFromStorage/{id}"})
+    public String allCryptoFromStorage(@PathVariable long id, Model model, Storage storage,@AuthenticationPrincipal UserDetails customUser) {
+        String entityUser = customUser.getUsername();
+        User user = userRepository.findByUsername(entityUser);
+        List<Ownedcryptocurrencies> ownedCrypto = ownedcryptocRepo.findByUser(user);
+
+        if (!ownedCrypto.isEmpty()) {
+            model.addAttribute("allCryptoFromStorage", ownedCrypto);
+        }
+        else {return "user/userError";}
+        return "user/storage/allCryptoFromStorage";
+    }
 }
