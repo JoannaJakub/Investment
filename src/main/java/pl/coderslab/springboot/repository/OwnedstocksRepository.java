@@ -6,6 +6,8 @@ import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 
 public interface OwnedstocksRepository extends JpaRepository<Ownedstocks, Long> {
@@ -19,8 +21,10 @@ public interface OwnedstocksRepository extends JpaRepository<Ownedstocks, Long> 
     List<Ownedstocks> findSomeById(String entityUser);
 
     List<Ownedstocks> findByUser(User user);
+    Set<Ownedstocks> findStorageByUser(User user);
 
     @Query(nativeQuery = true, value = "SELECT id FROM user where username=?;")
     Ownedstocks findUserById(String entityUser);
+
 
 }

@@ -22,6 +22,7 @@ import pl.coderslab.springboot.service.UserService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class StorageController {
@@ -67,7 +68,7 @@ public class StorageController {
     public String yourStorage(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
-        List<Ownedstocks> ownedStocks = ownedstocksRepo.findByUser(user);
+        Set<Ownedstocks> ownedStocks = ownedstocksRepo.findStorageByUser(user);
         List<Ownedcryptocurrencies> ownedCrypto = ownedcryptocRepo.findByUser(user);
         model.addAttribute("yourStocksStorage", ownedStocks);
         model.addAttribute("yourCryptoStorage", ownedCrypto);
@@ -98,5 +99,19 @@ public class StorageController {
         }
         else {return "user/userError";}
         return "user/storage/storageDetails";
+    }
+
+
+    @GetMapping(value = {"/allStocksFromStorage/{id}"})
+    public String allStocksFromStorage(@PathVariable long id, Model model, Storage storage,@AuthenticationPrincipal UserDetails customUser) {
+        String entityUser = customUser.getUsername();
+        User user = userRepository.findByUsername(entityUser);
+        List<Ownedstocks> ownedStocks = ownedstocksRepo.findByUser(user);
+
+        if (!ownedStocks.isEmpty()) {
+            model.addAttribute("allStocksFromStorage", ownedStocks);
+        }
+        else {return "user/userError";}
+        return "user/storage/allStocksFromStorage";
     }
 }

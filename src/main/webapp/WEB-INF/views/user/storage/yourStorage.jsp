@@ -36,6 +36,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Link</th>
+                                    <th>Stocks</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -44,6 +45,9 @@
                                     <tr>
                                         <td><c:out value="${yourStocksStorage.storage.name}"/></td>
                                         <td><c:out value="${yourStocksStorage.storage.link}"/></td>
+                                        <td><c:out value="${yourStocksStorage.storage.id}"/></td>
+                                        <td><a href="<c:url value="/allStocksFromStorage/${yourStocksStorage.storage.id}"/>">All stocks</a></td>
+
                                     </tr>
                                 </c:forEach>
 
@@ -72,6 +76,7 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Link</th>
+                                    <th>Stocks</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -80,6 +85,7 @@
                                     <tr>
                                         <td><c:out value="${yourCryptoStorage.storage.name}"/></td>
                                         <td><c:out value="${yourCryptoStorage.storage.link}"/></td>
+                                        <td><a href="<c:url value="/stocks/${yourCryptoStorage.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 
