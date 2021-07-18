@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -107,6 +108,15 @@ public class CryptocurrencyController {
             return "user/userError";
         }
         return "user/yourCrypto/cryptoConfirmEdit";
+    }
+    @GetMapping(value = {"/allCryptoDetails/{id}"})
+    public String allCryptoDetails(@PathVariable long id, Model model) {
+        Optional<Cryptocurrencies> crypto = cryptocurrencyRepository.findById(id);
+        if (crypto.isPresent()) {
+            model.addAttribute("allCryptoDetails", crypto.get());
+        }
+        else{ return "user/userError";}
+        return "user/yourCrypto/allCryptoDetails";
     }
 }
 

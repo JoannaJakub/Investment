@@ -40,23 +40,18 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${yourStocksStorage}" var="yourStocksStorage">
                                     <tr>
                                         <td><c:out value="${yourStocksStorage.storage.name}"/></td>
                                         <td><c:out value="${yourStocksStorage.storage.link}"/></td>
-                                        <td><c:out value="${yourStocksStorage.storage.id}"/></td>
                                         <td><a href="<c:url value="/allStocksFromStorage/${yourStocksStorage.storage.id}"/>">All stocks</a></td>
-
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
             </div>
     </section>
         <section class="no-padding-top">
@@ -80,7 +75,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${yourCryptoStorage}" var="yourCryptoStorage">
                                     <tr>
                                         <td><c:out value="${yourCryptoStorage.storage.name}"/></td>
@@ -88,13 +82,11 @@
                                         <td><a href="<c:url value="/allCryptoFromStorage/${yourCryptoStorage.storage.id}"/>">All Crypto</a></td>
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 

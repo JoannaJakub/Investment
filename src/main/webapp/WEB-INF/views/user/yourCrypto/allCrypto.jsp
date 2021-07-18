@@ -41,6 +41,7 @@
                                     <th>Total Supply</th>
                                     <th>Volume 24h Max</th>
                                     <th>Volume 24h Min</th>
+                                    <th>Details</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -56,6 +57,7 @@
                                         <td><c:out value="${cryptocurrencies.total_supply}"/></td>
                                         <td><c:out value="${cryptocurrencies.volume24hMax}"/></td>
                                         <td><c:out value="${cryptocurrencies.volume24hMin}"/></td>
+                                        <td><a href="<c:url value="/allCryptoDetails/${cryptocurrencies.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

@@ -100,7 +100,7 @@
                                     <label for="notes" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
-                                    <a href="<c:url value="/adminStocks"/>"
+                                    <a href="<c:url value="/yourStocks"/>"
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
