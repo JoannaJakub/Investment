@@ -82,7 +82,7 @@
                                     <label class="col-sm-3 form-control-label">Role</label>
                                     <div class="col-sm-9">
                                         <form:input id="register-password" type="text" name="registerPassword"
-                                                    path="roles" placeholder="Password"
+                                                    path="roles" placeholder="Role id"
                                                     data-msg="Please enter your password" class="input-material"/>
                                         <form:errors path="roles"/></div>
                                     <label for="firstName" class="label-material"></label>

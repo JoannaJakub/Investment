@@ -38,23 +38,24 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">User id</label>
                                     <div class="col-sm-9">
-                                        <c:out value="${id}"/></div>
+
                                     <label for="id" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Name</label>
+                                    <label class="col-sm-3 form-control-label">Role name</label>
                                     <div class="col-sm-9">
-                                        <c:out value="${roles}"/></div>
+                                        <c:out value="${changeRole.roles.name}"/></div>
                                     <label for="roles" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Role</label>
+                                    <label class="col-sm-3 form-control-label">Storage</label>
                                     <div class="col-sm-9">
-                                        <form:input id="register-password" type="text" name="registerPassword"
-                                                    path="roles" placeholder="Password"
-                                                    data-msg="Please enter your password" class="input-material"/>
+                                        <select id="role" type="text" name="name" path="role"
+                                                placeholder="role" data-msg="Please enter storage"
+                                                class="form-control"/>
+                                        <form:errors path="role"/>
                                     </div>
-                                    <label for="firstName" class="label-material"></label>
+                                    <label for="storage" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/users"/>"
