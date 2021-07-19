@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Stocks;
+import pl.coderslab.springboot.repository.OwnedstocksRepository;
 import pl.coderslab.springboot.repository.StocksRepository;
 
 import javax.validation.Valid;
@@ -18,9 +20,11 @@ import java.util.Optional;
 @Controller
 public class AdminStocksController {
     private final StocksRepository stocksRepository;
+    private final OwnedstocksRepository ownedstocksRepository;
 
-    public AdminStocksController(StocksRepository stocksRepository) {
+    public AdminStocksController(StocksRepository stocksRepository, OwnedstocksRepository ownedstocksRepository) {
         this.stocksRepository = stocksRepository;
+        this.ownedstocksRepository = ownedstocksRepository;
     }
 
 
@@ -87,5 +91,12 @@ public class AdminStocksController {
         else{ return "admin/adminError";
         }
         return "admin/stocks/stocksDetails";
+    }
+
+    @GetMapping("usersStocks")
+    public String usersStocks(Model model) {
+        List<Ownedstocks> ownedstocks = ownedstocksRepository.findAll();
+        model.addAttribute("usersStocks", ownedstocks);
+        return "admin/stocks/usersStocks";
     }
 }
