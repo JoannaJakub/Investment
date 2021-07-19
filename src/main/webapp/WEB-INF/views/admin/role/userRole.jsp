@@ -51,6 +51,7 @@
                                 <c:forEach items="${userRole}" var="userRole">
                                     <tr>
                                         <td><c:out value="${userRole.id}"/></td>
+                                        <td><c:out value="${userRole.name}"/></td>
                                         <td><c:out value="${userRole.firstname}"/></td>
                                         <td><c:out value="${userRole.lastName}"/></td>
                                         <td><c:out value="${userRole.username}"/></td>

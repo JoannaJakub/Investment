@@ -38,22 +38,27 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">User id</label>
                                     <div class="col-sm-9">
+                                        <c:out value="${id}"/></div>
+                                    <form:hidden path="firstName"/>
+                                    <form:hidden path="lastName"/>
+                                    <form:hidden path="password"/>
+                                    <form:hidden path="username"/>
 
                                     <label for="id" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Role name</label>
                                     <div class="col-sm-9">
-                                        <c:out value="${changeRole.roles.name}"/></div>
+                                        <c:out value="${role.name}"/></div>
                                     <label for="roles" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Storage</label>
                                     <div class="col-sm-9">
-                                        <select id="role" type="text" name="name" path="role"
-                                                placeholder="role" data-msg="Please enter storage"
+                                        <select id="roles" type="text" name="name" path="roles"
+                                                placeholder="roles" data-msg="Please enter storage"
                                                 class="form-control"/>
-                                        <form:errors path="role"/>
+                                        <form:errors path="roles"/>
                                     </div>
                                     <label for="storage" class="label-material"></label>
                                 </div>

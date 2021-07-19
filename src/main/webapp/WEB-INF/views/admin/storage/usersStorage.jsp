@@ -35,10 +35,10 @@
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>User Id</th>
+                                    <th>Storage Id</th>
                                     <th>Name</th>
                                     <th>Link</th>
-                                    <th>User Id</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
@@ -49,9 +49,9 @@
                                 <c:forEach items="${usersStorage}" var="usersStorage">
                                     <tr>
                                         <td><c:out value="${usersStorage.id}"/></td>
-                                        <td><c:out value="${usersStorage.name}"/></td>
-                                        <td><c:out value="${usersStorage.link}"/></td>
-                                        <td><c:out value="${usersStorage}"/></td>
+                                        <td><c:out value="${usersStorage.storage}"/></td>
+                                        <td><c:out value="${usersStorage.storage}"/></td>
+                                        <td><c:out value="${usersStorage.storage}"/></td>
                                         <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorage.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/storageEdit/${usersStorage.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/storageDetails/${usersStorage.id}"/>">Details</a></td>

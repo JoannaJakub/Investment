@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Storage;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
+import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,9 +20,13 @@ import java.util.Optional;
 @Controller
 public class AdminStorageController {
     private final StorageRepository storageRepository;
+    private final UserRepository userRepository;
+    private final UserService userService;
 
-    public AdminStorageController( StorageRepository storageRepository) {
+    public AdminStorageController(StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
         this.storageRepository = storageRepository;
+        this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     @GetMapping("adminStorage")
@@ -92,7 +98,7 @@ public class AdminStorageController {
 
     @GetMapping("usersStorage")
     public String usersStorage(Model model) {
-        List<Storage> usersStorage = storageRepository.findUsersStorageByUser();
+        List<User> usersStorage = userService.findAll();
         model.addAttribute("usersStorage", usersStorage);
         return "admin/storage/usersStorage";
     }

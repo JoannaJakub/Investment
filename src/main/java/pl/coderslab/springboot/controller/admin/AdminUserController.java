@@ -32,6 +32,7 @@ public class AdminUserController {
     public String users(Model model) {
         List<User> user = userService.findAll();
         model.addAttribute("user", user);
+        System.out.println(user);
         return "admin/user/users";
     }
 
@@ -71,6 +72,7 @@ public class AdminUserController {
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model) {
         model.addAttribute("userEdit", userRepo.findById(id));
+        System.out.println(userRepo.findById(id));
         return "admin/user/userEdit";
     }
 
@@ -108,6 +110,8 @@ public class AdminUserController {
     @GetMapping(value = {"/changeRole/{id}"})
     public String changeRoleForm(@PathVariable long id, Model model) {
         model.addAttribute("changeRole", userRepo.findById(id));
+        System.out.println(userRepo.findById(id));
+
         return "admin/user/changeRole";
     }
 
@@ -119,13 +123,13 @@ public class AdminUserController {
 
     @RequestMapping("/changeRoleConfirm/{id}")
     public String changeRoleConfirm(@PathVariable long id, Model model) {
-        List<User> user = userService.findByRoleId(id);
-        if (user.isEmpty()) {
-            model.addAttribute("changeRoleConfirm", user.get((int) id));
+        Optional<User> user = userRepo.findById(id);
+        if (user.isPresent()) {
+            model.addAttribute("userConfirmEdit", user.get());
         } else {
             return "admin/adminError";
         }
-        return "admin/user/changeRoleConfirm";
+        return "admin/user/changeRoleConfirmEdit";
     }
 
 }
