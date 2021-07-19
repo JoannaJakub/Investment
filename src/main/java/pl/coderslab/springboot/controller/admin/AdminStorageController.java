@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Storage;
-import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
@@ -22,11 +23,16 @@ public class AdminStorageController {
     private final StorageRepository storageRepository;
     private final UserRepository userRepository;
     private final UserService userService;
+    private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
+    private final OwnedstocksRepository ownedstocksRepo;
 
-    public AdminStorageController(StorageRepository storageRepository, UserRepository userRepository, UserService userService) {
+    public AdminStorageController(StorageRepository storageRepository, UserRepository userRepository, UserService userService,
+                                  OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo) {
         this.storageRepository = storageRepository;
         this.userRepository = userRepository;
         this.userService = userService;
+        this.ownedcryptoRepo = ownedcryptoRepo;
+        this.ownedstocksRepo = ownedstocksRepo;
     }
 
     @GetMapping("adminStorage")
@@ -98,8 +104,10 @@ public class AdminStorageController {
 
     @GetMapping("usersStorage")
     public String usersStorage(Model model) {
-        List<User> usersStorage = userService.findAll();
+        List<Ownedcryptocurrencies> usersStorage = ownedcryptoRepo.findAll();
         model.addAttribute("usersStorage", usersStorage);
+        List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
+        model.addAttribute("usersStorageStocks", usersStorageStocks);
         return "admin/storage/usersStorage";
     }
 
