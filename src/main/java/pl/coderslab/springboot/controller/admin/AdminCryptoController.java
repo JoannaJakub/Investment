@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
+import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
+import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -18,9 +20,11 @@ import java.util.Optional;
 @Controller
 public class AdminCryptoController {
     private final CryptocurrencyRepository cryptocurrencyRepository;
+    private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
 
-    public AdminCryptoController(CryptocurrencyRepository cryptocurrencyRepository) {
+    public AdminCryptoController(CryptocurrencyRepository cryptocurrencyRepository, OwnedcryptocurrenciesRepository ownedcryptoRepo) {
         this.cryptocurrencyRepository = cryptocurrencyRepository;
+        this.ownedcryptoRepo = ownedcryptoRepo;
     }
 
     @GetMapping("adminCrypto")
@@ -84,5 +88,12 @@ public class AdminCryptoController {
         else{ return "admin/adminError";
         }
         return "admin/crypto/cryptoDetails";
+    }
+
+    @GetMapping("usersCrypto")
+    public String usersCrypto(Model model) {
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findAll();
+        model.addAttribute("usersCrypto", ownedcryptocurrencies);
+        return "admin/crypto/usersCrypto";
     }
 }
