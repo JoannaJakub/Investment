@@ -33,11 +33,14 @@
                     <div class="block">
                         <div class="title"><strong>Edit stock</strong></div>
                         <div class="block-body">
-                            <form:form method="post" modelAttribute="stocksEdit">
+                            <form:form method="post" modelAttribute="adminUsersStocksEdit">
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Id</label>
                                     <div class="col-sm-9">
                                         <c:out value="${id}"/></div>
+                                    <form:hidden path="user" value="${user.id}"/>
+                                    <form:hidden path="storage" value="${storage.id}"/>
+                                    <form:hidden path="stocks" value="${stocks.id}"/>
                                     <label for="id" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">

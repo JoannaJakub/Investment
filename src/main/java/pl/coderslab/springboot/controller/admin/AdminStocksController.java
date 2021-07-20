@@ -109,9 +109,10 @@ public class AdminStocksController {
         ownedstocksRepository.deleteById(id);
         return "redirect:/usersStocks";
     }
+
     @GetMapping(value = {"/adminUsersStocksEdit/{id}"})
     public String adminUsersStocksEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("stocksEdit", ownedstocksRepository.findById(id));
+        model.addAttribute("adminUsersStocksEdit", ownedstocksRepository.findById(id));
         return "admin/stocks/adminUsersStocksEdit";
     }
 
@@ -129,6 +130,6 @@ public class AdminStocksController {
         } else {
             return "admin/adminError";
         }
-        return "admin/stocks/adminUsersStocksEdit";
+        return "admin/stocks/adminUsersStocksConfirmEdit";
     }
 }
