@@ -99,4 +99,14 @@ public class AdminStocksController {
         model.addAttribute("usersStocks", ownedstocks);
         return "admin/stocks/usersStocks";
     }
+    @RequestMapping("/adminUsersStocksConfirmDelete")
+    public String adminUsersStocksConfirmDelete() {
+        return "admin/stocks/usersStocksConfirmDelete";
+    }
+
+    @GetMapping(value = {"/adminUsersStocksDelete/{id}"})
+    public String adminUserStocksDelete(@PathVariable long id) {
+        ownedstocksRepository.deleteById(id);
+        return "redirect:/usersStocks";
+    }
 }
