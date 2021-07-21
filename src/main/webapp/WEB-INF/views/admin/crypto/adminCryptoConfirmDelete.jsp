@@ -42,7 +42,7 @@
                 <div class="col-sm-9 ml-auto">
                     <a href="<c:url value="/adminCrypto"/>"
                        class="btn btn-secondary">NO</a>
-                    <a href="<c:url value="/cryptoDelete/${param.id}"/>"
+                    <a href="<c:url value="/adminCryptoDelete/${param.id}"/>"
                        class="btn btn-primary">YES, delete stocks</a>
                 </div>
             </div>

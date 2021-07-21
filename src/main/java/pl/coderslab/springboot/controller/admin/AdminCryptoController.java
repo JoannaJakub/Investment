@@ -36,20 +36,20 @@ public class AdminCryptoController {
     @GetMapping("/adminAddCrypto")
     public String adminAddCrypto(Model model) {
         model.addAttribute("adminAddCrypto", new Cryptocurrencies());
-        return "admin/crypto/addCrypto";
+        return "admin/crypto/adminAddCrypto";
     }
     @PostMapping(value = "/adminCryptoSuccess")
     public String processAdminCryptoSuccess(@Valid Cryptocurrencies crypto, BindingResult result) {
         if (result.hasErrors()) {
-            return "admin/crypto/addCrypto";
+            return "admin/crypto/adminAddCrypto";
         } else {
             cryptocurrencyRepository.save(crypto);
-            return "admin/crypto/cryptoSuccess";
+            return "admin/crypto/adminCryptoSuccess";
         }
     }
     @RequestMapping("/adminCryptoConfirmDelete")
     public String adminCryptoConfirmDelete() {
-        return "admin/crypto/cryptoConfirmDelete";
+        return "admin/crypto/adminCryptoConfirmDelete";
     }
 
     @GetMapping(value = {"/adminCryptoDelete/{id}"})
@@ -61,7 +61,7 @@ public class AdminCryptoController {
     @GetMapping(value = {"/adminCryptoEdit/{id}"})
     public String adminCryptoEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminCryptoEdit", cryptocurrencyRepository.findById(id));
-        return "admin/crypto/cryptoEdit";
+        return "admin/crypto/adminCryptoEdit";
     }
 
     @PostMapping(value = {"adminCryptoEdit/{id}"})
@@ -87,7 +87,7 @@ public class AdminCryptoController {
         }
         else{ return "admin/adminError";
         }
-        return "admin/crypto/cryptoDetails";
+        return "admin/crypto/adminCryptoDetails";
     }
 
     @GetMapping("usersCrypto")
