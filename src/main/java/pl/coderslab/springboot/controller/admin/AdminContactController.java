@@ -30,7 +30,7 @@ public class AdminContactController {
 
     @RequestMapping("/adminContactConfirmDelete")
     public String adminContactConfirmDelete() {
-        return "admin/contact/contactConfirmDelete";
+        return "admin/contact/adminContactConfirmDelete";
     }
 
     @GetMapping(value = {"/adminContactDelete/{id}"})
