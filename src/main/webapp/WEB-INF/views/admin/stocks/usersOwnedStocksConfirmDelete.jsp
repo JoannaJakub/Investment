@@ -40,9 +40,9 @@
             <div class="line"></div>
             <div class="form-group row">
                 <div class="col-sm-9 ml-auto">
-                    <a href="<c:url value="/usersStocks"/>"
+                    <a href="<c:url value="/usersOwnedStocks"/>"
                        class="btn btn-secondary">NO</a>
-                    <a href="<c:url value="/adminUsersStocksDelete/${param.id}"/>"
+                    <a href="<c:url value="/usersOwnedStocksDelete/${param.id}"/>"
                        class="btn btn-primary">YES, delete user's stocks</a>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of storage? </small><a href="<c:url value="/usersStocks"/>">Here</a>
+                <small>List of storage? </small><a href="<c:url value="/usersOwnedStocks"/>">Here</a>
             </div>
 
         </section>

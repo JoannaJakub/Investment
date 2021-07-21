@@ -68,9 +68,9 @@
                                         <td><c:out value="${usersStocks.stocks.change}"/></td>
                                         <td><c:out value="${usersStocks.stocks.currency}"/></td>
                                         <td><c:out value="${usersStocks.stocks.bid}"/></td>
-                                        <td><a href="<c:url value="/adminUsersStocksConfirmDelete/?id=${usersStocks.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/adminUsersStocksEdit/${usersStocks.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/adminUsersStocksDetails/${usersStocks.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${usersStocks.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/usersOwnedStocksEdit/${usersStocks.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/usersOwnedStocksDetails/${usersStocks.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

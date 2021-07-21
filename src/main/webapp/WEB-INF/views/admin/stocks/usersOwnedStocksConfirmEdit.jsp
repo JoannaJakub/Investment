@@ -73,7 +73,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all stocks? </small><a href="<c:url value="/usersStocks"/>">Here</a>
+                <small>List of all stocks? </small><a href="<c:url value="/usersOwnedStocks"/>">Here</a>
             </div>
         </section>
     </div>

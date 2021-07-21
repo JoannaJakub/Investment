@@ -83,11 +83,11 @@
                                     <label for="notes" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
-                                    <a href="<c:url value="/usersStocks"/>"
+                                    <a href="<c:url value="/usersOwnedStocks"/>"
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
-                            </form:form><small>List of all stocks? </small><a href="<c:url value="/usersStocks"/>">Here</a>
+                            </form:form><small>List of all stocks? </small><a href="<c:url value="/usersOwnedStocks"/>">Here</a>
 
                         </div>
                     </div>

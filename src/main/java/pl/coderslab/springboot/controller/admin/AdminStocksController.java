@@ -37,7 +37,7 @@ public class AdminStocksController {
     @GetMapping("/adminAddStocks")
     public String adminAddStocks(Model model) {
         model.addAttribute("adminAddStocks", new Stocks());
-        return "admin/stocks/addStocks";
+        return "admin/stocks/adminAddStocks";
     }
     @PostMapping(value = "/adminStocksSuccess")
     public String processAdminStocksSuccess(@Valid Stocks stocks, BindingResult result) {
@@ -45,13 +45,13 @@ public class AdminStocksController {
             return "admin/stocks/adminAddStocks";
         } else {
             stocksRepository.save(stocks);
-            return "admin/stocks/stocksSuccess";
+            return "admin/stocks/adminStocksSuccess";
         }
     }
 
     @RequestMapping("/adminStocksConfirmDelete")
     public String adminStocksConfirmDelete() {
-        return "admin/stocks/stocksConfirmDelete";
+        return "admin/stocks/adminStocksConfirmDelete";
     }
 
     @GetMapping(value = {"/adminStocksDelete/{id}"})
@@ -62,7 +62,7 @@ public class AdminStocksController {
     @GetMapping(value = {"/adminStocksEdit/{id}"})
     public String adminStocksEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminStocksEdit", stocksRepository.findById(id));
-        return "admin/stocks/stocksEdit";
+        return "admin/stocks/adminStocksEdit";
     }
 
     @PostMapping(value = {"adminStocksEdit/{id}"})
@@ -90,56 +90,56 @@ public class AdminStocksController {
         }
         else{ return "admin/adminError";
         }
-        return "admin/stocks/stocksDetails";
+        return "admin/stocks/adminStocksDetails";
     }
 
-    @GetMapping("usersStocks")
-    public String usersStocks(Model model) {
+    @GetMapping("usersOwnedStocks")
+    public String usersOwnedStocks(Model model) {
         List<Ownedstocks> ownedstocks = ownedstocksRepository.findAll();
         model.addAttribute("usersStocks", ownedstocks);
-        return "admin/stocks/usersStocks";
+        return "admin/stocks/usersOwnedStocks";
     }
-    @RequestMapping("/adminUsersStocksConfirmDelete")
-    public String adminUsersStocksConfirmDelete() {
-        return "admin/stocks/usersStocksConfirmDelete";
+    @RequestMapping("/usersOwnedStocksConfirmDelete")
+    public String usersOwnedStocksConfirmDelete() {
+        return "admin/stocks/usersOwnedStocksConfirmDelete";
     }
 
-    @GetMapping(value = {"/adminUsersStocksDelete/{id}"})
-    public String adminUserStocksDelete(@PathVariable long id) {
+    @GetMapping(value = {"/usersOwnedStocksDelete/{id}"})
+    public String usersOwnedStocksDelete(@PathVariable long id) {
         ownedstocksRepository.deleteById(id);
-        return "redirect:/usersStocks";
+        return "redirect:/usersOwnedStocks";
     }
 
-    @GetMapping(value = {"/adminUsersStocksEdit/{id}"})
-    public String adminUsersStocksEditForm(@PathVariable long id, Model model) {
+    @GetMapping(value = {"/usersOwnedStocksEdit/{id}"})
+    public String usersOwnedStocksEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminUsersStocksEdit", ownedstocksRepository.findById(id));
-        return "admin/stocks/adminUsersStocksEdit";
+        return "admin/stocks/usersOwnedStocksEdit";
     }
 
-    @PostMapping(value = {"adminUsersStocksEdit/{id}"})
-    public String adminUsersStocksEditSave(@Valid Ownedstocks ownedstocks) {
+    @PostMapping(value = {"usersOwnedStocksEdit/{id}"})
+    public String usersOwnedStocksEditSave(@Valid Ownedstocks ownedstocks) {
         ownedstocksRepository.save(ownedstocks);
-        return "redirect:/adminUsersStocksConfirmEditing/{id}";
+        return "redirect:/usersOwnedStocksConfirmEditing/{id}";
     }
 
-    @RequestMapping("/adminUsersStocksConfirmEditing/{id}")
-    public String adminUsersStocksConfirmEditing(@PathVariable long id, Model model) {
+    @RequestMapping("/usersOwnedStocksConfirmEditing/{id}")
+    public String usersOwnedStocksConfirmEditing(@PathVariable long id, Model model) {
         Optional<Ownedstocks> stocks = ownedstocksRepository.findById(id);
         if (stocks.isPresent()) {
             model.addAttribute("adminUsersStocksEdit", stocks.get());
         } else {
             return "admin/adminError";
         }
-        return "admin/stocks/adminUsersStocksConfirmEdit";
+        return "admin/stocks/usersOwnedStocksConfirmEdit";
     }
-    @GetMapping(value = {"/adminUsersStocksDetails/{id}"})
-    public String adminUsersStocksDetails(@PathVariable long id, Model model) {
+    @GetMapping(value = {"/usersOwnedStocksDetails/{id}"})
+    public String usersOwnedStocksDetails(@PathVariable long id, Model model) {
         Optional<Ownedstocks> stocksDetails = ownedstocksRepository.findById(id);
         if (stocksDetails.isPresent()) {
             model.addAttribute("adminUsersStocksDetails", stocksDetails.get());
         }
         else{ return "admin/adminError";
         }
-        return "admin/stocks/usersStocksDetails";
+        return "admin/stocks/usersOwnedStocksDetails";
     }
 }
