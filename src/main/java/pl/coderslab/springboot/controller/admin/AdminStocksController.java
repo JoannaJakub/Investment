@@ -132,4 +132,14 @@ public class AdminStocksController {
         }
         return "admin/stocks/adminUsersStocksConfirmEdit";
     }
+    @GetMapping(value = {"/adminUsersStocksDetails/{id}"})
+    public String adminUsersStocksDetails(@PathVariable long id, Model model) {
+        Optional<Ownedstocks> stocksDetails = ownedstocksRepository.findById(id);
+        if (stocksDetails.isPresent()) {
+            model.addAttribute("adminUsersStocksDetails", stocksDetails.get());
+        }
+        else{ return "admin/adminError";
+        }
+        return "admin/stocks/usersStocksDetails";
+    }
 }

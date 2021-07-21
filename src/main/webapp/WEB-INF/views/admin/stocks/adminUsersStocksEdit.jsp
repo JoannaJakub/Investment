@@ -53,7 +53,7 @@
                                     <label for="howMuch" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Number of stocks</label>
+                                    <label class="col-sm-3 form-control-label">Amount of stocks</label>
                                     <div class="col-sm-9">
                                         <form:input id="numOfCoins" type="text" name="numOfCoins" path="numOfCoins"
                                                     placeholder="numOfCoins" data-msg="Please enter numOfCoins"
