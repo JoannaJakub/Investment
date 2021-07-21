@@ -66,9 +66,9 @@
                                         <td><c:out value="${usersCrypto.cryptocurrencies.cmc_rank}"/></td>
                                         <td><c:out value="${usersCrypto.cryptocurrencies.limit}"/></td>
                                         <td><c:out value="${usersCrypto.cryptocurrencies.priceMax}"/></td>
-                                        <td><a href="<c:url value="/usersCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/usersCryptoEdit/${usersCrypto.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/usersCryptoDetails/${usersCrypto.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${usersCrypto.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${usersCrypto.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

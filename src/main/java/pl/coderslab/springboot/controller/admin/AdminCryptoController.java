@@ -90,10 +90,20 @@ public class AdminCryptoController {
         return "admin/crypto/adminCryptoDetails";
     }
 
-    @GetMapping("usersCrypto")
+    @GetMapping("usersOwnedCrypto")
     public String usersCrypto(Model model) {
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findAll();
         model.addAttribute("usersCrypto", ownedcryptocurrencies);
-        return "admin/crypto/usersCrypto";
+        return "admin/crypto/usersOwnedCrypto";
+    }
+    @RequestMapping("/usersOwnedCryptoConfirmDelete")
+    public String usersOwnedCryptoConfirmDelete() {
+        return "admin/crypto/usersOwnedCryptoConfirmDelete";
+    }
+
+    @GetMapping(value = {"/usersOwnedCryptoDelete/{id}"})
+    public String usersOwnedCryptoDelete(@PathVariable long id) {
+        ownedcryptoRepo.deleteById(id);
+        return "redirect:/usersOwnedCrypto";
     }
 }
