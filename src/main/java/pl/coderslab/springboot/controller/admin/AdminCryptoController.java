@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 
@@ -105,5 +106,37 @@ public class AdminCryptoController {
     public String usersOwnedCryptoDelete(@PathVariable long id) {
         ownedcryptoRepo.deleteById(id);
         return "redirect:/usersOwnedCrypto";
+    }
+    @GetMapping(value = {"/usersOwnedCryptoEdit/{id}"})
+    public String usersOwnedCryptoEditForm(@PathVariable long id, Model model) {
+        model.addAttribute("adminUsersCryptoEdit", ownedcryptoRepo.findById(id));
+        return "admin/crypto/usersOwnedCryptoEdit";
+    }
+
+    @PostMapping(value = {"usersOwnedCryptoEdit/{id}"})
+    public String usersOwnedCryptoEditSave(@Valid Ownedcryptocurrencies ownedCrypto) {
+        ownedcryptoRepo.save(ownedCrypto);
+        return "redirect:/usersOwnedCryptoConfirmEditing/{id}";
+    }
+
+    @RequestMapping("/usersOwnedCryptoConfirmEditing/{id}")
+    public String usersOwnedCryptoConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Ownedcryptocurrencies> crypto = ownedcryptoRepo.findById(id);
+        if (crypto.isPresent()) {
+            model.addAttribute("adminUsersCryptoEdit", crypto.get());
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/crypto/usersOwnedCryptoConfirmEdit";
+    }
+    @GetMapping(value = {"/usersOwnedCryptoDetails/{id}"})
+    public String usersOwnedCryptoDetails(@PathVariable long id, Model model) {
+        Optional<Ownedcryptocurrencies> cryptoDetails = ownedcryptoRepo.findById(id);
+        if (cryptoDetails.isPresent()) {
+            model.addAttribute("adminUsersCryptoDetails", cryptoDetails.get());
+        }
+        else{ return "admin/adminError";
+        }
+        return "admin/crypto/usersOwnedCryptoDetails";
     }
 }
