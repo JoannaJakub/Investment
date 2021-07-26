@@ -1,8 +1,6 @@
 package pl.coderslab.springboot.controller.admin;
 
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +16,6 @@ import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -137,6 +134,7 @@ public class AdminUserController {
         }
         return "admin/user/changeRoleConfirmEdit";
     }
+
     @RequestMapping("/userInvest/{id}")
     public String userInvest( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);

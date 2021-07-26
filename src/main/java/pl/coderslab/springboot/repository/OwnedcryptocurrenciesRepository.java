@@ -16,7 +16,6 @@ List<Ownedcryptocurrencies> findById(String entityUser);
     @Query(nativeQuery=true, value="SELECT * FROM ownedcryptocurrencies\n" +
             "    LEFT JOIN cryptocurrencies on  ownedcryptocurrencies.cryptocurrencies_id=cryptocurrencies_id\n" +
             "    left JOIN user on ownedcryptocurrencies.user_id=user.id where user.username=?;")
-    List<Ownedcryptocurrencies> findUsersCryptoById(String entityUser);
     List<Ownedcryptocurrencies> findByUser(User user);
     List<Ownedcryptocurrencies> findInvestByUser(Optional<User> user);
 }

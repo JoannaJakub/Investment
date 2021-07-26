@@ -27,15 +27,13 @@ import java.util.Set;
 @Controller
 public class StorageController {
     private final StorageRepository storageRepository;
-    private final UserService userService;
     private final OwnedstocksRepository ownedstocksRepo;
     private final OwnedcryptocurrenciesRepository ownedcryptocRepo;
     private final UserRepository userRepository;
 
 
-    public StorageController(StorageRepository storageRepository, UserService userService, OwnedstocksRepository ownedstocksRepo, OwnedcryptocurrenciesRepository ownedcryptocRepo, UserRepository userRepository) {
+    public StorageController(StorageRepository storageRepository, OwnedstocksRepository ownedstocksRepo, OwnedcryptocurrenciesRepository ownedcryptocRepo, UserRepository userRepository) {
         this.storageRepository = storageRepository;
-        this.userService = userService;
         this.ownedstocksRepo = ownedstocksRepo;
         this.ownedcryptocRepo = ownedcryptocRepo;
         this.userRepository = userRepository;
@@ -51,18 +49,6 @@ public class StorageController {
         }
         return "user/storage/storage";
     }
-
-/*    @GetMapping("/yourStorage1")
-    public String yourStorage1(Model model, @AuthenticationPrincipal UserDetails customUser, Authentication authentication) {
-        User getNameUser = userService.findByUserName(authentication.getName());
-        Optional<Storage> yourStorage = storageRepository.findById(getNameUser.getId());
-        if (!yourStorage.isEmpty()) {
-            model.addAttribute("yourStorage1", yourStorage);
-        } else {
-            return "user/userError";
-        }
-        return "user/storage/yourStorage1";
-    }*/
 
     @RequestMapping("/yourStorage")
     public String yourStorage(Model model, @AuthenticationPrincipal UserDetails customUser) {
@@ -100,7 +86,6 @@ public class StorageController {
         else {return "user/userError";}
         return "user/storage/storageDetails";
     }
-
 
     @GetMapping(value = {"/allStocksFromStorage/{id}"})
     public String allStocksFromStorage(@PathVariable long id, Model model, Storage storage,@AuthenticationPrincipal UserDetails customUser) {

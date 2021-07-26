@@ -9,7 +9,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
-import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -69,6 +68,7 @@ public class CryptocurrencyController {
             return "user/yourCrypto/cryptoSuccess";
         }
     }
+
     @GetMapping(value = {"/cryptoDetails/{id}"})
     public String storageDetails(@PathVariable long id, Model model) {
         Optional<Ownedcryptocurrencies> cryptoDetails = ownedcryptocurrenciesRepo.findById(id);
@@ -78,6 +78,7 @@ public class CryptocurrencyController {
         else{ return "user/userError";}
         return "user/yourCrypto/cryptoDetails";
     }
+
     @RequestMapping("/cryptoConfirmDelete")
     public String cryptoConfirmDelete() {
         return "user/yourCrypto/cryptoConfirmDelete";
@@ -88,6 +89,7 @@ public class CryptocurrencyController {
         ownedcryptocurrenciesRepo.deleteById(id);
         return "redirect:/yourCrypto";
     }
+
     @GetMapping(value = {"/cryptoEdit/{id}"})
     public String cryptoEditForm(@PathVariable long id, Model model) {
         model.addAttribute("cryptoEdit", ownedcryptocurrenciesRepo.findById(id));
@@ -99,6 +101,7 @@ public class CryptocurrencyController {
         ownedcryptocurrenciesRepo.save(ownedcrypto);
         return "redirect:/cryptoConfirmEditing/{id}";
     }
+
     @RequestMapping("/cryptoConfirmEditing/{id}")
     public String cryptoConfirmEditing(@PathVariable long id, Model model) {
         Optional<Ownedcryptocurrencies> crypto = ownedcryptocurrenciesRepo.findById(id);
@@ -109,6 +112,7 @@ public class CryptocurrencyController {
         }
         return "user/yourCrypto/cryptoConfirmEdit";
     }
+
     @GetMapping(value = {"/allCryptoDetails/{id}"})
     public String allCryptoDetails(@PathVariable long id, Model model) {
         Optional<Cryptocurrencies> crypto = cryptocurrencyRepository.findById(id);

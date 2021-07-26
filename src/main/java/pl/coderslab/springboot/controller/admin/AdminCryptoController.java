@@ -1,8 +1,6 @@
 package pl.coderslab.springboot.controller.admin;
 
 
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
-import pl.coderslab.springboot.model.Ownedstocks;
-import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 
@@ -37,11 +33,13 @@ public class AdminCryptoController {
         model.addAttribute("adminCrypto", crypto);
         return "admin/crypto/adminCrypto";
     }
+
     @GetMapping("/adminAddCrypto")
     public String adminAddCrypto(Model model) {
         model.addAttribute("adminAddCrypto", new Cryptocurrencies());
         return "admin/crypto/adminAddCrypto";
     }
+
     @PostMapping(value = "/adminCryptoSuccess")
     public String processAdminCryptoSuccess(@Valid Cryptocurrencies crypto, BindingResult result) {
         if (result.hasErrors()) {
@@ -51,6 +49,7 @@ public class AdminCryptoController {
             return "admin/crypto/adminCryptoSuccess";
         }
     }
+
     @RequestMapping("/adminCryptoConfirmDelete")
     public String adminCryptoConfirmDelete() {
         return "admin/crypto/adminCryptoConfirmDelete";
@@ -73,6 +72,7 @@ public class AdminCryptoController {
         cryptocurrencyRepository.save(cryptocurrencies);
         return "redirect:/adminCryptoConfirmEditing/{id}";
     }
+
     @RequestMapping("/adminCryptoConfirmEditing/{id}")
     public String adminCryptoConfirmEditing(@PathVariable long id, Model model) {
         Optional<Cryptocurrencies> crypto = cryptocurrencyRepository.findById(id);
@@ -83,6 +83,7 @@ public class AdminCryptoController {
         }
         return "admin/crypto/adminCryptoConfirmEdit";
     }
+
     @GetMapping(value = {"/adminCryptoDetails/{id}"})
     public String adminCryptoDetails(@PathVariable long id, Model model) {
         Optional<Cryptocurrencies> cryptoDetails = cryptocurrencyRepository.findById(id);
@@ -133,6 +134,7 @@ public class AdminCryptoController {
         }
         return "admin/crypto/usersOwnedCryptoConfirmEdit";
     }
+
     @GetMapping(value = {"/usersOwnedCryptoDetails/{id}"})
     public String usersOwnedCryptoDetails(@PathVariable long id, Model model) {
         Optional<Ownedcryptocurrencies> cryptoDetails = ownedcryptoRepo.findById(id);
@@ -143,6 +145,4 @@ public class AdminCryptoController {
         }
         return "admin/crypto/usersOwnedCryptoDetails";
     }
-
-
 }
