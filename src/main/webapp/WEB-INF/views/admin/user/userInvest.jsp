@@ -62,9 +62,9 @@
                                         <td>${userInvest.numOfCoins}</td>
                                         <td>${userInvest.whenBought}</td>
                                         <td>${userInvest.notes}</td>
-                                        <td><a href="<c:url value="/cryptoDetails/${userInvest.id}"/>">Details</a></td>
-                                        <td><a href="<c:url value="/cryptoEdit/${userInvest.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/cryptoConfirmDelete/?id=${userInvest.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${userInvest.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${userInvest.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${userInvest.id}"/>">Delete</a></td>
                                     </tr>
                                 </c:forEach>
 

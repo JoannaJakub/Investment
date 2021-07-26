@@ -6,6 +6,7 @@ import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface OwnedcryptocurrenciesRepository extends JpaRepository<Ownedcryptocurrencies, Long> {
@@ -17,4 +18,5 @@ List<Ownedcryptocurrencies> findById(String entityUser);
             "    left JOIN user on ownedcryptocurrencies.user_id=user.id where user.username=?;")
     List<Ownedcryptocurrencies> findUsersCryptoById(String entityUser);
     List<Ownedcryptocurrencies> findByUser(User user);
+    List<Ownedcryptocurrencies> findInvestByUser(Optional<User> user);
 }

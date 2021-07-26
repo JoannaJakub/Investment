@@ -100,6 +100,7 @@ public class AdminCryptoController {
         model.addAttribute("usersCrypto", ownedcryptocurrencies);
         return "admin/crypto/usersOwnedCrypto";
     }
+
     @RequestMapping("/usersOwnedCryptoConfirmDelete")
     public String usersOwnedCryptoConfirmDelete() {
         return "admin/crypto/usersOwnedCryptoConfirmDelete";

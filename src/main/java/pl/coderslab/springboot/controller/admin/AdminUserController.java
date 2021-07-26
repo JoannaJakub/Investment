@@ -138,10 +138,9 @@ public class AdminUserController {
         return "admin/user/changeRoleConfirmEdit";
     }
     @RequestMapping("/userInvest/{id}")
-    public String userInvest( @PathVariable long id, Model model, @AuthenticationPrincipal UserDetails customUser) {
-        User user = (User) userRepo.findAllById(Collections.singleton(id));
-
-        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findByUser(user);
+    public String userInvest( @PathVariable long id, Model model) {
+        Optional<User> user = userRepo.findById(id);
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
         model.addAttribute("userInvest", ownedcryptocurrencies);
         return "admin/user/userInvest";
     }
