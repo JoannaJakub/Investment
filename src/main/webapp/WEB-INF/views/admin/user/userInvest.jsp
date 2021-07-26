@@ -39,8 +39,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
-                                    <th>PriceMin</th>
-                                    <th>PriceMax</th>
+                                    <th>Price</th>
                                     <th>How much</th>
                                     <th>When bought</th>
                                     <th>Amount of crypto</th>
@@ -52,22 +51,34 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${userInvest}" var="userInvest">
+                                <c:forEach items="${userInvestCrypto}" var="userInvestCrypto">
                                     <tr>
-                                        <td>${userInvest.id}</td>
-                                        <td>${userInvest.cryptocurrencies.name}</td>
-                                        <td>${userInvest.cryptocurrencies.priceMin}</td>
-                                        <td>${userInvest.cryptocurrencies.priceMax}</td>
-                                        <td>${userInvest.howMuch}</td>
-                                        <td>${userInvest.numOfCoins}</td>
-                                        <td>${userInvest.whenBought}</td>
-                                        <td>${userInvest.notes}</td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${userInvest.id}"/>">Details</a></td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${userInvest.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${userInvest.id}"/>">Delete</a></td>
+                                        <td>${userInvestCrypto.id}</td>
+                                        <td>${userInvestCrypto.cryptocurrencies.name}</td>
+                                        <td>${userInvestCrypto.cryptocurrencies.priceMin}</td>
+                                        <td>${userInvestCrypto.howMuch}</td>
+                                        <td>${userInvestCrypto.numOfCoins}</td>
+                                        <td>${userInvestCrypto.whenBought}</td>
+                                        <td>${userInvestCrypto.notes}</td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${userInvestCrypto.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${userInvestCrypto.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${userInvestCrypto.id}"/>">Delete</a></td>
                                     </tr>
                                 </c:forEach>
-
+                                <c:forEach items="${userInvestStocks}" var="userInvestStocks">
+                                    <tr>
+                                        <td>${userInvestStocks.id}</td>
+                                        <td>${userInvestStocks.stocks.name}</td>
+                                        <td>${userInvestStocks.stocks.price}</td>
+                                        <td>${userInvestStocks.howMuch}</td>
+                                        <td>${userInvestStocks.numOfCoins}</td>
+                                        <td>${userInvestStocks.whenBought}</td>
+                                        <td>${userInvestStocks.notes}</td>
+                                        <td><a href="<c:url value="/usersOwnedStocksDetails/${userInvestStocks.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/usersOwnedStocksEdit/${userInvestStocks.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${userInvestStocks.id}"/>">Delete</a></td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>

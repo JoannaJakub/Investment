@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -24,11 +25,13 @@ public class AdminUserController {
     private final UserRepository userRepo;
     private final UserService userService;
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
+    private final OwnedstocksRepository ownedstocksRepo;
 
-    public AdminUserController(UserRepository userRepo, UserService userService, OwnedcryptocurrenciesRepository ownedcryptoRepo) {
+    public AdminUserController(UserRepository userRepo, UserService userService, OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo) {
         this.userRepo = userRepo;
         this.userService = userService;
         this.ownedcryptoRepo = ownedcryptoRepo;
+        this.ownedstocksRepo = ownedstocksRepo;
     }
 
     @GetMapping("users")
@@ -139,7 +142,9 @@ public class AdminUserController {
     public String userInvest( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
-        model.addAttribute("userInvest", ownedcryptocurrencies);
+        List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
+        model.addAttribute("userInvestCrypto", ownedcryptocurrencies);
+        model.addAttribute("userInvestStocks", ownedstocks);
         return "admin/user/userInvest";
     }
 }
