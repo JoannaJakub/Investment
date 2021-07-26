@@ -21,16 +21,12 @@ import java.util.Optional;
 @Controller
 public class AdminStorageController {
     private final StorageRepository storageRepository;
-    private final UserRepository userRepository;
-    private final UserService userService;
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
     private final OwnedstocksRepository ownedstocksRepo;
 
-    public AdminStorageController(StorageRepository storageRepository, UserRepository userRepository, UserService userService,
-                                  OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo) {
+    public AdminStorageController(StorageRepository storageRepository,  OwnedcryptocurrenciesRepository ownedcryptoRepo,
+                                  OwnedstocksRepository ownedstocksRepo) {
         this.storageRepository = storageRepository;
-        this.userRepository = userRepository;
-        this.userService = userService;
         this.ownedcryptoRepo = ownedcryptoRepo;
         this.ownedstocksRepo = ownedstocksRepo;
     }
