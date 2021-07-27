@@ -17,10 +17,10 @@
                 <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userInvest"/>">All invest</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userInvest/${id}"/>">All invest</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userStocks"/>">Only stocks</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userStocks/${id}"/>">Only stocks</a></h2>
             </div>
         </div>
         <section class="no-padding-top">
