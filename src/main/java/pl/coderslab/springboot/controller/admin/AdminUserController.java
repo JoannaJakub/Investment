@@ -143,5 +143,12 @@ public class AdminUserController {
         model.addAttribute("userInvestStocks", ownedstocks);
         return "admin/user/userInvest";
     }
+    @RequestMapping("/userCrypto/{id}")
+    public String userCrypto( @PathVariable long id, Model model) {
+        Optional<User> user = userRepo.findById(id);
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
+        model.addAttribute("userCrypto", ownedcryptocurrencies);
+        return "admin/user/userCrypto";
+    }
 }
 
