@@ -11,24 +11,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Storage;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
-import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class AdminStorageController {
     private final StorageRepository storageRepository;
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
     private final OwnedstocksRepository ownedstocksRepo;
+    private final UserRepository userRepository;
 
-    public AdminStorageController(StorageRepository storageRepository,  OwnedcryptocurrenciesRepository ownedcryptoRepo,
-                                  OwnedstocksRepository ownedstocksRepo) {
+    public AdminStorageController(StorageRepository storageRepository, OwnedcryptocurrenciesRepository ownedcryptoRepo,
+                                  OwnedstocksRepository ownedstocksRepo, UserRepository userRepository) {
         this.storageRepository = storageRepository;
         this.ownedcryptoRepo = ownedcryptoRepo;
         this.ownedstocksRepo = ownedstocksRepo;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("adminStorage")
@@ -70,8 +73,9 @@ public class AdminStorageController {
         Optional<Storage> storageDetails = storageRepository.findById(id);
         if (storageDetails.isPresent()) {
             model.addAttribute("adminStorageDetails", storageDetails.get());
+        } else {
+            return "admin/adminError";
         }
-        else{ return "admin/adminError";}
         return "admin/storage/storageDetails";
     }
 
@@ -100,11 +104,18 @@ public class AdminStorageController {
 
     @GetMapping("usersStorage")
     public String usersStorage(Model model) {
-        List<Ownedcryptocurrencies> usersStorage = ownedcryptoRepo.findAll();
-        model.addAttribute("usersStorage", usersStorage);
+        List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findAll();
+        model.addAttribute("usersStorageCrypto", usersStorageCrypto);
         List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
         model.addAttribute("usersStorageStocks", usersStorageStocks);
         return "admin/storage/usersStorage";
+    }
+
+    @GetMapping("storageOfUsers/{id}")
+    public String storageOfUsers(Model model, @PathVariable long id) {
+        List<User> user = userRepository.findAllByStorageId(id);
+        model.addAttribute("storageOfUsers", user);
+        return "admin/storage/storageOfUsers";
     }
 
 }
