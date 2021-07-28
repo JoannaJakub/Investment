@@ -13,7 +13,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
+                <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add storage</a></h2>
@@ -38,6 +38,7 @@
                                     <th>ID</th>
                                     <th>Name</th>
                                     <th>Link</th>
+                                    <th>User's storage</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
@@ -50,6 +51,7 @@
                                         <td><c:out value="${adminStorage.id}"/></td>
                                         <td><c:out value="${adminStorage.name}"/></td>
                                         <td><c:out value="${adminStorage.link}"/></td>
+                                        <td><a href="<c:url value="/storageOfUsers/${adminStorage.id}"/>">User's storage</a></td>
                                         <td><a href="<c:url value="/storageConfirmDelete/?id=${adminStorage.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/storageEdit/${adminStorage.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/adminStorageDetails/${adminStorage.id}"/>">Details</a></td>

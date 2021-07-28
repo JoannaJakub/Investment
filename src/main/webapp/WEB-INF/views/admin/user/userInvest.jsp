@@ -14,7 +14,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
+                <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userCrypto/${id}"/>">Only crypto</a></h2>
@@ -35,7 +35,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Crypto</strong></div>
+                        <div class="title"><strong>All investments</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>

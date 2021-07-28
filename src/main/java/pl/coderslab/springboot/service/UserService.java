@@ -18,7 +18,6 @@ public interface UserService {
     UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException;
 
-    List<User> findByRoleId(long Roles);
 
     List<User> findAll();
 }

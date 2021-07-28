@@ -15,7 +15,7 @@
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <div class="navbar-header">
                 <!-- Navbar Header-->
-                <a class="navbar-brand" href="<c:url value="/adminDashboard"/>">
+                <a class="navbar-brand" href="<c:url value="/adminAdmin Dashboard"/>">
                 <div class="brand-text brand-big visible text-uppercase"><strong
                         class="text-primary">Inwestycje</strong><strong>w kupie</strong></div>
                 <div class="brand-text brand-sm"><strong class="text-primary">I</strong><strong>K</strong></div></a>

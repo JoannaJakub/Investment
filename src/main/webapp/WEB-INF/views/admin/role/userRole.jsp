@@ -13,10 +13,10 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
+                <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminRegister"/>">Add user</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addRole"/>">Add role</a></h2>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>User Role</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -51,12 +51,11 @@
                                 <c:forEach items="${userRole}" var="userRole">
                                     <tr>
                                         <td><c:out value="${userRole.id}"/></td>
-                                        <td><c:out value="${userRole.name}"/></td>
-                                        <td><c:out value="${userRole.firstname}"/></td>
+                                        <td><c:out value="${userRole.firstName}"/></td>
                                         <td><c:out value="${userRole.lastName}"/></td>
                                         <td><c:out value="${userRole.username}"/></td>
                                         <td><c:out value="${userRole.enabled}"/></td>
-                                        <td><c:out value="${userRole.roles}"/></td>
+                                        <td><c:out value="${userRole.role}"/></td>
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>

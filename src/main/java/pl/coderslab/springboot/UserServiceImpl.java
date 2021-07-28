@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(false);
         Role userRole = roleRepository.findByName("ROLE_USER");
-        user.setRoles(new HashSet<>(Arrays.asList(userRole)));
+        user.setRole(new HashSet<>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
 
@@ -62,10 +62,7 @@ public class UserServiceImpl implements UserService {
         return new CustomUserDetails(user);
     }
 
-    @Override
-    public List<User> findByRoleId(long Roles) {
-        return null;
-    }
+
 
     @Override
     public List<User> findAll() {

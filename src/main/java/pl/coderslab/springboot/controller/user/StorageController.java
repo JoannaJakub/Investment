@@ -17,7 +17,6 @@ import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 import pl.coderslab.springboot.repository.OwnedstocksRepository;
 import pl.coderslab.springboot.repository.StorageRepository;
 import pl.coderslab.springboot.repository.UserRepository;
-import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -112,4 +111,12 @@ public class StorageController {
         else {return "user/userError";}
         return "user/storage/allCryptoFromStorage";
     }
+/*    @GetMapping("usersStorage/{id}")
+    public String usersStorage(Model model, @PathVariable long id,) {
+        List<Ownedcryptocurrencies> usersStorage = ownedcryptoRepo.findAll();
+        model.addAttribute("usersStorage", usersStorage);
+        List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
+        model.addAttribute("usersStorageStocks", usersStorageStocks);
+        return "admin/storage/usersStorage";
+    }*/
 }

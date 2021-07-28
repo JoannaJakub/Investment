@@ -41,7 +41,7 @@ public class User implements Serializable {
    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles  = new HashSet<>();
+    private Set<Role> role  = new HashSet<>();
     public User(String username, String password, Collection<? extends GrantedAuthority> authorities) {
     }
 
