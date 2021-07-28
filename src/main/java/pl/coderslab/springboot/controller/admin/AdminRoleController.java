@@ -10,20 +10,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Secured("ROLE_ADMIN")
 @Controller
 public class AdminRoleController {
     private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
 
-    public AdminRoleController(RoleRepository roleRepository) {
+    public AdminRoleController(RoleRepository roleRepository, UserRepository userRepository) {
         this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("role")
@@ -95,8 +98,8 @@ public class AdminRoleController {
 
     @GetMapping(value = {"/userRole/{id}"})
     public String oneUserContacts(@PathVariable long id, Model model) {
-        List<Role> role = roleRepository.findAllById(Collections.singleton(id));
-        model.addAttribute("userRole", role);
+        Set<User> user=userRepository.findAllByRoleId(id);
+        model.addAttribute("userRole", user);
         return "admin/role/userRole";
     }
 

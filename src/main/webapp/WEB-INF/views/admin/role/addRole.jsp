@@ -13,14 +13,9 @@
         <div class="page-content">
             <div class="page-header">
                 <div class="list-inline-item">
-                    <h2 class="h5 no-margin-bottom" ><a href="addCrypto">Add cryptocurrencies</a></h2>
+                    <h2 class="h5 no-margin-bottom" ><a href=""></a></h2>
                 </div>
-                <div class="list-inline-item">
-                    <h2 class="h5 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
-                </div>
-                <div class="list-inline-item">
-                    <h2 class="h5 no-margin-bottom"><a href="addStorage"></a></h2>
-                </div>
+
             </div>
             <!-- Breadcrumb-->
             <div class="container-fluid">

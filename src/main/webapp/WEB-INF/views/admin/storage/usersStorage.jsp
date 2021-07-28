@@ -13,7 +13,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
+                <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add storage</a></h2>
@@ -36,6 +36,8 @@
                                 <thead>
                                 <tr>
                                     <th>User Id</th>
+                                    <th>Name</th>
+                                    <th>Surname</th>
                                     <th>Username</th>
                                     <th>Storage Id</th>
                                     <th>Name</th>
@@ -47,28 +49,39 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${usersStorage}" var="usersStorage">
+                                <c:forEach items="${usersStorageCrypto}" var="usersStorageCrypto">
                                     <tr>
-                                        <td><c:out value="${usersStorage.user.id}"/></td>
-                                        <td><c:out value="${usersStorage.user.username}"/></td>
-                                        <td><c:out value="${usersStorage.storage.id}"/></td>
-                                        <td><c:out value="${usersStorage.storage.name}"/></td>
-                                        <td><c:out value="${usersStorage.storage.link}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorage.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${usersStorage.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${usersStorage.id}"/>">Details</a></td>
+                                        <td><c:out value="${usersStorageCrypto.user.id}"/></td>
+                                        <td><c:out value="${usersStorageCrypto.user.firstName}"/></td>
+                                        <td><c:out value="${usersStorageCrypto.user.lastName}"/></td>
+                                        <td><c:out value="${usersStorageCrypto.user.username}"/></td>
+                                        <td><c:out value="${usersStorageCrypto.storage.id}"/></td>
+                                        <td><c:out value="${usersStorageCrypto.storage.name}"/></td>
+                                        <td><c:out value="${usersStorageCrypto.storage.link}"/></td>
+                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorageCrypto.id}"/>">Delete</a>
+                                        </td>
+                                        <td><a href="<c:url value="/storageEdit/${usersStorageCrypto.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/storageDetails/${usersStorageCrypto.id}"/>">Details</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
                                 <c:forEach items="${usersStorageStocks}" var="usersStorageStocks">
                                     <tr>
                                         <td><c:out value="${usersStorageStocks.user.id}"/></td>
+                                        <td><c:out value="${usersStorageStocks.user.firstName}"/></td>
+                                        <td><c:out value="${usersStorageStocks.user.lastName}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.username}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.id}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.name}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.link}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorageStocks.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${usersStorageStocks.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${usersStorageStocks.id}"/>">Details</a></td>
+                                        <td>
+                                            <a href="<c:url value="/storageConfirmDelete/?id=${usersStorageStocks.id}"/>">Delete</a>
+                                        </td>
+                                        <td><a href="<c:url value="/storageEdit/${usersStorageStocks.id}"/>">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a href="<c:url value="/storageDetails/${usersStorageStocks.id}"/>">Details</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
 
