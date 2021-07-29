@@ -113,8 +113,9 @@ public class AdminStorageController {
 
     @GetMapping("storageOfUsers/{id}")
     public String storageOfUsers(Model model, @PathVariable long id) {
-        List<User> user = userRepository.findAllByStorageId(id);
-        model.addAttribute("storageOfUsers", user);
+       // List<User> user = userRepository.findAllByStorageId(id);
+       // List<User> storageOfUsersCrypto = ownedcryptoRepo.findUserByStorageId(id);
+       // model.addAttribute("storageOfUsers", storageOfUsersCrypto);
         return "admin/storage/storageOfUsers";
     }
 

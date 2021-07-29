@@ -46,10 +46,5 @@ public class User implements Serializable {
     }
 
     private boolean enabled;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_storage", joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "storage_id"))
-    private Set<Storage> storage  = new HashSet<>();
-
 }
 

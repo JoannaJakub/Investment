@@ -35,17 +35,18 @@
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
-                                    <th>User Id</th>
-                                    <th>Username</th>
+                                    <th>Crypto Id</th>
+                                    <th>Name</th>
+                                    <th>Cmc_rank</th>
+                                    <th>Limit</th>
+                                    <th>Max price</th>
                                     <th>Id</th>
                                     <th>Price</th>
                                     <th>How many</th>
                                     <th>Date</th>
                                     <th>Notes</th>
-                                    <th>Name</th>
-                                    <th>Cmc_rank</th>
-                                    <th>Limit</th>
-                                    <th>Max price</th>
+                                    <th>User Id</th>
+                                    <th>Username</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
@@ -55,20 +56,26 @@
 
                                 <c:forEach items="${usersCrypto}" var="usersCrypto">
                                     <tr>
-                                        <td><c:out value="${usersCrypto.user.id}"/></td>
-                                        <td><c:out value="${usersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/oneCryptoUser/${usersCrypto.cryptocurrencies.id}"/>"><c:out
+                                                value="${usersCrypto.cryptocurrencies.id}"/></a></td>
+                                        <td><c:out value="${usersCrypto.cryptocurrencies.name}"/></td>
+                                        <td><c:out value="${usersCrypto.cryptocurrencies.cmc_rank}"/></td>
+                                        <td><c:out value="${usersCrypto.cryptocurrencies.limit}"/></td>
+                                        <td><c:out value="${usersCrypto.cryptocurrencies.priceMax}"/></td>
                                         <td><c:out value="${usersCrypto.id}"/></td>
                                         <td><c:out value="${usersCrypto.howMuch}"/></td>
                                         <td><c:out value="${usersCrypto.numOfCoins}"/></td>
                                         <td><c:out value="${usersCrypto.whenBought}"/></td>
                                         <td><c:out value="${usersCrypto.notes}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.limit}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.priceMax}"/></td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${usersCrypto.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${usersCrypto.id}"/>">Details</a></td>
+                                        <td><c:out value="${usersCrypto.user.id}"/></td>
+                                        <td><c:out value="${usersCrypto.user.username}"/></td>
+                                        <td>
+                                            <a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a>
+                                        </td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${usersCrypto.id}"/>">Edit</a>
+                                        </td>
+                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${usersCrypto.id}"/>">Details</a>
+                                        </td>
                                     </tr>
                                 </c:forEach>
 

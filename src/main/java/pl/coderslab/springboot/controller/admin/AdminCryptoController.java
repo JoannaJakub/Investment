@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
 import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 
@@ -89,8 +90,8 @@ public class AdminCryptoController {
         Optional<Cryptocurrencies> cryptoDetails = cryptocurrencyRepository.findById(id);
         if (cryptoDetails.isPresent()) {
             model.addAttribute("adminCryptoDetails", cryptoDetails.get());
-        }
-        else{ return "admin/adminError";
+        } else {
+            return "admin/adminError";
         }
         return "admin/crypto/adminCryptoDetails";
     }
@@ -112,6 +113,7 @@ public class AdminCryptoController {
         ownedcryptoRepo.deleteById(id);
         return "redirect:/usersOwnedCrypto";
     }
+
     @GetMapping(value = {"/usersOwnedCryptoEdit/{id}"})
     public String usersOwnedCryptoEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminUsersCryptoEdit", ownedcryptoRepo.findById(id));
@@ -140,9 +142,17 @@ public class AdminCryptoController {
         Optional<Ownedcryptocurrencies> cryptoDetails = ownedcryptoRepo.findById(id);
         if (cryptoDetails.isPresent()) {
             model.addAttribute("adminUsersCryptoDetails", cryptoDetails.get());
-        }
-        else{ return "admin/adminError";
+        } else {
+            return "admin/adminError";
         }
         return "admin/crypto/usersOwnedCryptoDetails";
+    }
+
+    @GetMapping(value = {"/oneCryptoUser/{id}"})
+    public String oneCryptoUser(@PathVariable long id, Model model) {
+        List<Ownedcryptocurrencies> oneCryptoUser = ownedcryptoRepo.findUserByCryptocurrenciesId(id);
+        System.out.println(oneCryptoUser);
+        model.addAttribute("oneCryptoUser", oneCryptoUser);
+        return "admin/crypto/oneCryptoUser";
     }
 }
