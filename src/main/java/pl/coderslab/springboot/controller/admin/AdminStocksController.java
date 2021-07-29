@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.OwnedstocksRepository;
@@ -141,5 +142,11 @@ public class AdminStocksController {
         else{ return "admin/adminError";
         }
         return "admin/stocks/usersOwnedStocksDetails";
+    }
+    @GetMapping(value = {"/oneStocksUser/{id}"})
+    public String oneStocksUser(@PathVariable long id, Model model) {
+        List<Ownedstocks> oneStocksUser = ownedstocksRepository.findUserByStocksId(id);
+        model.addAttribute("oneStocksUser", oneStocksUser);
+        return "admin/stocks/oneStocksUser";
     }
 }

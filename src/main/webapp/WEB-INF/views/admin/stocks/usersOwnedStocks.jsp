@@ -35,18 +35,19 @@
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
-                                    <th>User Id</th>
-                                    <th>Username</th>
-                                    <th>Id</th>
-                                    <th>Price</th>
-                                    <th>How many</th>
-                                    <th>Date</th>
-                                    <th>Notes</th>
+                                    <th>Stocks Id</th>
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Change</th>
                                     <th>Currency</th>
                                     <th>Bid</th>
+                                    <th>Id</th>
+                                    <th>Price</th>
+                                    <th>How many</th>
+                                    <th>Date</th>
+                                    <th>Notes</th>
+                                    <th>User Id</th>
+                                    <th>Username</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
@@ -56,18 +57,20 @@
 
                                 <c:forEach items="${usersStocks}" var="usersStocks">
                                     <tr>
-                                        <td><c:out value="${usersStocks.user.id}"/></td>
-                                        <td><c:out value="${usersStocks.user.username}"/></td>
-                                        <td><c:out value="${usersStocks.id}"/></td>
-                                        <td><c:out value="${usersStocks.howMuch}"/></td>
-                                        <td><c:out value="${usersStocks.numOfCoins}"/></td>
-                                        <td><c:out value="${usersStocks.whenBought}"/></td>
-                                        <td><c:out value="${usersStocks.notes}"/></td>
+                                        <td><a href="<c:url value="/oneStocksUser/${usersStocks.stocks.id}"/>"><c:out
+                                                value="${usersStocks.stocks.id}"/></a></td>
                                         <td><c:out value="${usersStocks.stocks.name}"/></td>
                                         <td><c:out value="${usersStocks.stocks.price}"/></td>
                                         <td><c:out value="${usersStocks.stocks.change}"/></td>
                                         <td><c:out value="${usersStocks.stocks.currency}"/></td>
                                         <td><c:out value="${usersStocks.stocks.bid}"/></td>
+                                        <td><c:out value="${usersStocks.id}"/></td>
+                                        <td><c:out value="${usersStocks.howMuch}"/></td>
+                                        <td><c:out value="${usersStocks.numOfCoins}"/></td>
+                                        <td><c:out value="${usersStocks.whenBought}"/></td>
+                                        <td><c:out value="${usersStocks.notes}"/></td>
+                                        <td><c:out value="${usersStocks.user.id}"/></td>
+                                        <td><c:out value="${usersStocks.user.username}"/></td>
                                         <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${usersStocks.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksEdit/${usersStocks.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksDetails/${usersStocks.id}"/>">Details</a></td>

@@ -2,6 +2,7 @@ package pl.coderslab.springboot.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
 
@@ -26,6 +27,7 @@ public interface OwnedstocksRepository extends JpaRepository<Ownedstocks, Long> 
     @Query(nativeQuery = true, value = "SELECT id FROM user where username=?;")
     Ownedstocks findUserById(String entityUser);
     List<Ownedstocks> findInvestByUser(Optional<User> user);
+    List<Ownedstocks> findUserByStocksId(Long id);
 
 
 
