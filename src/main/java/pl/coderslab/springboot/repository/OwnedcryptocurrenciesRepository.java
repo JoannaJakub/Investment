@@ -22,5 +22,7 @@ public interface OwnedcryptocurrenciesRepository extends JpaRepository<Ownedcryp
     //@Query(nativeQuery = true, value = "SELECT user_id FROM ownedcryptocurrencies WHERE storage_id=?;")
   //  List<User> findUserByStorageId(Long id);
     List<Ownedcryptocurrencies> findUserByCryptocurrenciesId(Long id);
+    List<Ownedcryptocurrencies> findUserByStorageId(Long id);
+
 
 }

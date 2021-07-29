@@ -48,17 +48,30 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${storageOfUsers}" var="storageOfUsers">
+                                <c:forEach items="${storageOfUsersCrypto}" var="storageOfUsersCrypto">
                                     <tr>
-                                        <td><c:out value="${storageOfUsers.storage}"/></td>
-                                        <td><c:out value="${storageOfUsers.storage}"/></td>
-                                        <td><c:out value="${storageOfUsers.id}"/></td>
-                                        <td><c:out value="${storageOfUsers.firstName}"/></td>
-                                        <td><c:out value="${storageOfUsers.lastName}"/></td>
-                                        <td><c:out value="${storageOfUsers.username}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsers.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${storageOfUsers.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${storageOfUsers.id}"/>">Details</a></td>
+                                        <td><c:out value="${storageOfUsersCrypto.storage.id}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.storage.name}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.id}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.firstName}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.lastName}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsersCrypto.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/storageEdit/${storageOfUsersCrypto.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/storageDetails/${storageOfUsersCrypto.id}"/>">Details</a></td>
+                                    </tr>
+                                </c:forEach>
+                                <c:forEach items="${storageOfUsersStocks}" var="storageOfUsersCrypto">
+                                    <tr>
+                                        <td><c:out value="${storageOfUsersCrypto.storage.id}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.storage.name}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.id}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.firstName}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.lastName}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsersCrypto.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/storageEdit/${storageOfUsersCrypto.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/storageDetails/${storageOfUsersCrypto.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>

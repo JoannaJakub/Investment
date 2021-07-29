@@ -28,6 +28,7 @@ public interface OwnedstocksRepository extends JpaRepository<Ownedstocks, Long> 
     Ownedstocks findUserById(String entityUser);
     List<Ownedstocks> findInvestByUser(Optional<User> user);
     List<Ownedstocks> findUserByStocksId(Long id);
+    List<Ownedstocks> findUserByStorageId(Long id);
 
 
 
