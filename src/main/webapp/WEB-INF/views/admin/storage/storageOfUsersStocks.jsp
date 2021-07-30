@@ -16,7 +16,10 @@
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/storageOfUsers/${id}"/>">All storage</a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/storageOfUsersCrypto/${id}"/>">Only crypto storage</a></h2>
             </div>
         </div>
 
@@ -30,15 +33,17 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>User's storage</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Storage Id</th>
                                     <th>Name</th>
-                                    <th>Link</th>
-                                    <th>Who use this storage</th>
+                                    <th>User Id</th>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th>Username</th>
                                     <th>Delete</th>
                                     <th>Edit</th>
                                     <th>Details</th>
@@ -46,18 +51,19 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${adminStorage}" var="adminStorage">
+                                <c:forEach items="${storageOfUsersStocks}" var="storageOfUsersCrypto">
                                     <tr>
-                                        <td><c:out value="${adminStorage.id}"/></td>
-                                        <td><c:out value="${adminStorage.name}"/></td>
-                                        <td><c:out value="${adminStorage.link}"/></td>
-                                        <td><a href="<c:url value="/storageOfUsers/${adminStorage.id}"/>">Users</a></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${adminStorage.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${adminStorage.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/adminStorageDetails/${adminStorage.id}"/>">Details</a></td>
+                                        <td><c:out value="${storageOfUsersCrypto.storage.id}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.storage.name}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.id}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.firstName}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.lastName}"/></td>
+                                        <td><c:out value="${storageOfUsersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsersCrypto.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/storageEdit/${storageOfUsersCrypto.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/storageDetails/${storageOfUsersCrypto.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>
