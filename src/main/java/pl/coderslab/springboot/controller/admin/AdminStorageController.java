@@ -110,6 +110,8 @@ public class AdminStorageController {
         model.addAttribute("usersStorageStocks", usersStorageStocks);
         return "admin/storage/usersStorage";
     }
+    //adding separate view for stocks storage and crypto
+
 
     @GetMapping("storageOfUsers/{id}")
     public String storageOfUsers(Model model, @PathVariable long id) {
@@ -120,4 +122,11 @@ public class AdminStorageController {
         return "admin/storage/storageOfUsers";
     }
 
+    //adding separate view for stocks storage and crypto
+    @GetMapping("storageOfUsersCrypto/{id}")
+    public String storageOfUsersCrypto(Model model, @PathVariable long id) {
+        List<Ownedcryptocurrencies> storageOfUsersCrypto = ownedcryptoRepo.findUserByStorageId(id);
+        model.addAttribute("storageOfUsersCrypto", storageOfUsersCrypto);
+        return "admin/storage/storageOfUsersCrypto";
+    }
 }

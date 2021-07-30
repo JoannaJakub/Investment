@@ -16,7 +16,7 @@
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/storageOfUsersCrypto/${id}"/>">Only crypto storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/storageOfUsers/${id}"/>">All storage</a></h2>
             </div>
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/storageOfUsersStocks/${id}"/>">Only stocks storage</a></h2>
@@ -52,19 +52,6 @@
                                 <tbody>
 
                                 <c:forEach items="${storageOfUsersCrypto}" var="storageOfUsersCrypto">
-                                    <tr>
-                                        <td><c:out value="${storageOfUsersCrypto.storage.id}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.storage.name}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.user.id}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.user.firstName}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.user.lastName}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.user.username}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsersCrypto.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/storageEdit/${storageOfUsersCrypto.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${storageOfUsersCrypto.id}"/>">Details</a></td>
-                                    </tr>
-                                </c:forEach>
-                                <c:forEach items="${storageOfUsersStocks}" var="storageOfUsersCrypto">
                                     <tr>
                                         <td><c:out value="${storageOfUsersCrypto.storage.id}"/></td>
                                         <td><c:out value="${storageOfUsersCrypto.storage.name}"/></td>
