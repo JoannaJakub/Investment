@@ -11,27 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Storage;
-import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Controller
 public class AdminStorageController {
     private final StorageRepository storageRepository;
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
     private final OwnedstocksRepository ownedstocksRepo;
-    private final UserRepository userRepository;
 
     public AdminStorageController(StorageRepository storageRepository, OwnedcryptocurrenciesRepository ownedcryptoRepo,
-                                  OwnedstocksRepository ownedstocksRepo, UserRepository userRepository) {
+                                  OwnedstocksRepository ownedstocksRepo) {
         this.storageRepository = storageRepository;
         this.ownedcryptoRepo = ownedcryptoRepo;
         this.ownedstocksRepo = ownedstocksRepo;
-        this.userRepository = userRepository;
     }
 
     @GetMapping("adminStorage")
@@ -111,7 +107,12 @@ public class AdminStorageController {
         return "admin/storage/usersStorage";
     }
     //adding separate view for stocks storage and crypto
-
+    @GetMapping("usersStorageCrypto")
+    public String usersStorageCrypto(Model model) {
+        List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findAll();
+        model.addAttribute("usersStorageCrypto", usersStorageCrypto);
+        return "admin/storage/usersStorageCrypto";
+    }
 
     @GetMapping("storageOfUsers/{id}")
     public String storageOfUsers(Model model, @PathVariable long id) {
@@ -122,13 +123,13 @@ public class AdminStorageController {
         return "admin/storage/storageOfUsers";
     }
 
-    //adding separate view for stocks storage and crypto
     @GetMapping("storageOfUsersCrypto/{id}")
     public String storageOfUsersCrypto(Model model, @PathVariable long id) {
         List<Ownedcryptocurrencies> storageOfUsersCrypto = ownedcryptoRepo.findUserByStorageId(id);
         model.addAttribute("storageOfUsersCrypto", storageOfUsersCrypto);
         return "admin/storage/storageOfUsersCrypto";
     }
+
     @GetMapping("storageOfUsersStocks/{id}")
     public String storageOfUsersStocks(Model model, @PathVariable long id) {
         List<Ownedstocks> storageOfUsersStocks = ownedstocksRepo.findUserByStorageId(id);
