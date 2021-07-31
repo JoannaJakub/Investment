@@ -134,6 +134,13 @@ public class AdminUserController {
         return "admin/user/changeRoleConfirmEdit";
     }
 
+    @GetMapping("adminRole")
+    public String adminRole(Model model) {
+        List<User> user = userService.findAll();
+        model.addAttribute("adminRole", adminRole);
+        return "admin/storage/adminRole";
+    }
+
     @RequestMapping("/userInvest/{id}")
     public String userInvest( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
@@ -157,5 +164,6 @@ public class AdminUserController {
         model.addAttribute("userStocks", ownedstocks);
         return "admin/user/userStocks";
     }
+
 }
 
