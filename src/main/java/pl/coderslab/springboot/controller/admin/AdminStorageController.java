@@ -106,12 +106,19 @@ public class AdminStorageController {
         model.addAttribute("usersStorageStocks", usersStorageStocks);
         return "admin/storage/usersStorage";
     }
-    //adding separate view for stocks storage and crypto
+
     @GetMapping("usersStorageCrypto")
     public String usersStorageCrypto(Model model) {
         List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findAll();
         model.addAttribute("usersStorageCrypto", usersStorageCrypto);
         return "admin/storage/usersStorageCrypto";
+    }
+
+    @GetMapping("usersStorageStocks")
+    public String usersStorageStocks(Model model) {
+        List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
+        model.addAttribute("usersStorageStocks", usersStorageStocks);
+        return "admin/storage/usersStorageStocks";
     }
 
     @GetMapping("storageOfUsers/{id}")
