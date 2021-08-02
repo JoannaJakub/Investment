@@ -47,6 +47,7 @@ public class CryptocurrencyController {
         User user = userRepository.findByUsername(entityUser);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findByUser(user);
         model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+        System.out.println(ownedcryptocurrencies);
         return "user/yourCrypto/yourCrypto";
     }
 
