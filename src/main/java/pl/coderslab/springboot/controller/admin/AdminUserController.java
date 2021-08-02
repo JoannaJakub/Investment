@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
+import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -19,6 +20,7 @@ import pl.coderslab.springboot.service.UserService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class AdminUserController {
@@ -134,13 +136,6 @@ public class AdminUserController {
         return "admin/user/changeRoleConfirmEdit";
     }
 
-    @GetMapping("adminRole")
-    public String adminRole(Model model) {
-        List<User> user = userService.findAll();
-        model.addAttribute("adminRole", adminRole);
-        return "admin/storage/adminRole";
-    }
-
     @RequestMapping("/userInvest/{id}")
     public String userInvest( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
@@ -164,6 +159,12 @@ public class AdminUserController {
         model.addAttribute("userStocks", ownedstocks);
         return "admin/user/userStocks";
     }
-
+//popraw
+    @GetMapping("usersAdminRole/{id}")
+    public String usersAdminRole(Model model,@PathVariable long id) {
+        Set<User> user=userRepo.findAllByRoleId(id);
+        model.addAttribute("adminRole", user);
+        return "admin/user/usersAdminRole";
+    }
 }
 
