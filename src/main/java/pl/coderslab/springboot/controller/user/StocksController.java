@@ -50,8 +50,7 @@ public class StocksController {
     }
 
     @PostMapping(value = "/stocksSuccess")
-    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result
-            , @AuthenticationPrincipal UserDetails customUser) {
+    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result) {
         if (result.hasErrors()) {
             return "user/yourStock/addStocks";
         }
