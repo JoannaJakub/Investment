@@ -1,8 +1,9 @@
-package pl.coderslab.springboot;
+package pl.coderslab.springboot.implementation;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.coderslab.springboot.CustomUserDetails;
 import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.RoleRepository;
@@ -10,6 +11,7 @@ import pl.coderslab.springboot.repository.UserRepository;
 import pl.coderslab.springboot.service.UserService;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -69,7 +71,22 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
+    @Override
+    public void updatePassword(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
+    }
 
+    @Override
+    public User save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Role role = roleRepository.findById(1L).orElse(null);
+        if(role != null){
+            user.setRole(new HashSet<>(Collections.singletonList(role)));
+            return userRepository.save(user);
+        }
+        return null;
+    }
 
 
 }
