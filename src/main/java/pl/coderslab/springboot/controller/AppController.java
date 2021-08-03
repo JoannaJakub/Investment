@@ -1,6 +1,10 @@
 package pl.coderslab.springboot.controller;
 
 
+import com.sun.istack.localization.LocalizableMessageFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,8 +22,7 @@ import pl.coderslab.springboot.service.UserService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class AppController {
@@ -115,4 +118,5 @@ public class AppController {
         }
         return "redirect:/dashboard";
     }
+
 }

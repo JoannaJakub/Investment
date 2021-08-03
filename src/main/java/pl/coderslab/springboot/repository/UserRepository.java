@@ -2,16 +2,15 @@ package pl.coderslab.springboot.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
     Set<User> findAllByRoleId(long id);
-
+    Optional<User> findUserByUsername(String username);
 
 }

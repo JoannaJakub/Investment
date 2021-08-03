@@ -18,7 +18,8 @@ public interface UserService {
     UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException;
 
-
-
     List<User> findAll();
+    void updatePassword(User user);
+
+    User save(User user);
 }

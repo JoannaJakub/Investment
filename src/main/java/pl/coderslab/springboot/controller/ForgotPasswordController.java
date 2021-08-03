@@ -35,7 +35,12 @@ public class ForgotPasswordController {
     private final PasswordResetTokenService passwordResetTokenService;
     private final EmailService emailService;
 
-    public ForgotPasswordController(StocksRepository stocksRepository, CryptocurrencyRepository cryptocurrencyRepo, UserService userService, MessageSource messageSource, PasswordResetTokenService passwordResetTokenService, EmailService emailService) {
+    public ForgotPasswordController(StocksRepository stocksRepository,
+                                    CryptocurrencyRepository cryptocurrencyRepo,
+                                    UserService userService,
+                                    MessageSource messageSource,
+                                    PasswordResetTokenService passwordResetTokenService,
+                                    EmailService emailService) {
         this.stocksRepository = stocksRepository;
         this.cryptocurrencyRepo = cryptocurrencyRepo;
         this.userService = userService;
