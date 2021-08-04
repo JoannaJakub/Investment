@@ -55,27 +55,12 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
-        if (username.equals("admin")) {
-            throw new UsernameNotFoundException("Could not find user");
-        }
-        return new CustomUserDetails(user);
-    }
-
-
 
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
     }
 
-    @Override
-    public void updatePassword(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-    }
 
     @Override
     public User save(User user) {

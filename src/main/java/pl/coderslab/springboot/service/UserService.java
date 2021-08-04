@@ -1,7 +1,5 @@
 package pl.coderslab.springboot.service;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import pl.coderslab.springboot.model.User;
 
 import java.util.List;
@@ -15,11 +13,8 @@ public interface UserService {
 
     void delete(Long id);
 
-    UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException;
 
     List<User> findAll();
-    void updatePassword(User user);
 
     User save(User user);
 }
