@@ -1,7 +1,6 @@
 package pl.coderslab.springboot.controller;
 
 import pl.coderslab.springboot.EmailUtility;
-import pl.coderslab.springboot.model.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -9,11 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
 import java.io.IOException;
 
 @WebServlet("/reset_password")
 public class ResetPasswordServlet extends HttpServlet {
+
+    private final EmailUtility emailUtility;
 
     private static final long serialVersionUID = 1L;
 
@@ -22,6 +22,11 @@ public class ResetPasswordServlet extends HttpServlet {
     private String email;
     private String name;
     private String pass;
+
+    public ResetPasswordServlet(EmailUtility emailUtility) {
+        this.emailUtility = emailUtility;
+    }
+
 
     public void init() {
         // reads SMTP server setting from web.xml file
@@ -44,10 +49,9 @@ public class ResetPasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String recipient = request.getParameter("email");
+        String newPassword = emailUtility.resetCustomerPassword(recipient);
         String subject = "Your Password has been reset";
 
-        EmailUtility emailUtility = new EmailUtility(request, response);
-        String newPassword = emailUtility.resetCustomerPassword(recipient);
 
         String content = "Hi, this is your new password: " + newPassword;
         content += "\nNote: for security reason, "
@@ -67,5 +71,8 @@ public class ResetPasswordServlet extends HttpServlet {
             request.getRequestDispatcher("message.jsp").forward(request, response);
         }
     }
+
+
+
 
 }

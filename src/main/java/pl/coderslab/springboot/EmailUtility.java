@@ -8,18 +8,17 @@ import javax.mail.*;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.Properties;
 
 public class EmailUtility {
+
     private final UserService userService;
 
     public EmailUtility(UserService userService) {
         this.userService = userService;
     }
-
 
     public static void sendEmail(String host, String port,
                                  final String senderEmail, String senderName, final String password,
@@ -67,5 +66,6 @@ public class EmailUtility {
 
         return randomPassword;
     }
+
 
 }
