@@ -159,13 +159,21 @@ public class AdminUserController {
         model.addAttribute("userStocks", ownedstocks);
         return "admin/user/userStocks";
     }
-//popraw
+
     @GetMapping("usersAdminRole/{id}")
     public String usersAdminRole(Model model, @PathVariable long id) {
         Set<User> user=userRepo.findAllByRoleId(2);
         System.out.println(user);
         model.addAttribute("adminRole", user);
         return "admin/user/usersAdminRole";
+    }
+
+    @GetMapping("usersUserRole/{id}")
+    public String usersUserRole(Model model, @PathVariable long id) {
+        Set<User> user=userRepo.findAllByRoleId(1);
+        System.out.println(user);
+        model.addAttribute("userRole", user);
+        return "admin/user/usersUserRole";
     }
 }
 

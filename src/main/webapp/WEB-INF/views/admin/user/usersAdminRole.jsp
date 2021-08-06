@@ -19,7 +19,7 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminRegister"/>">Add user</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersAdminRole/${id}"/>">Admin role</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/users"/>">All users</a></h2>
             </div>
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminRole/${id}"/>">User role</a></h2>
