@@ -11,6 +11,9 @@ import java.util.Set;
 public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
     Set<User> findAllByRoleId(long id);
+   // Optional<User> findUsersByRoleId(long id);
+
     Optional<User> findUserByUsername(String username);
 
+    Optional<User> findUserslByRoleId(long id);
 }

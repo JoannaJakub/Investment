@@ -55,7 +55,7 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${adminRole}" var="user">
+                                <c:forEach items="${adminRole}" var="adminRole">
                                     <tr>
                                         <td><c:out value="${adminRole.id}"/></td>
                                         <td><c:out value="${adminRole.firstName}"/></td>
@@ -63,10 +63,10 @@
                                         <td><c:out value="${adminRole.username}"/></td>
                                         <td><c:out value="${adminRole.enabled}"/></td>
                                         <td><c:out value="${adminRole.role}"/></td>
-                                        <td><a href="<c:url value="/userConfirmDelete/?id=${adminRole.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/userEdit/${adminRole.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/userDetails/${adminRole.id}"/>">Details</a></td>
-                                        <td><a href="<c:url value="/changeRole/${adminRole.id}"/>">Change role</a></td>
+                                        <td><a href="<c:url value="/userConfirmDelete/?id=${adminRole}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/userEdit/${adminRole}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/userDetails/${adminRole}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/changeRole/${adminRole}"/>">Change role</a></td>
                                     </tr>
                                 </c:forEach>
 

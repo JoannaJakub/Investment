@@ -161,8 +161,9 @@ public class AdminUserController {
     }
 //popraw
     @GetMapping("usersAdminRole/{id}")
-    public String usersAdminRole(Model model,@PathVariable long id) {
-        Set<User> user=userRepo.findAllByRoleId(id);
+    public String usersAdminRole(Model model, @PathVariable long id) {
+        Set<User> user=userRepo.findAllByRoleId(2);
+        System.out.println(user);
         model.addAttribute("adminRole", user);
         return "admin/user/usersAdminRole";
     }

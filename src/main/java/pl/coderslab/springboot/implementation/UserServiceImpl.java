@@ -10,10 +10,7 @@ import pl.coderslab.springboot.repository.RoleRepository;
 import pl.coderslab.springboot.repository.UserRepository;
 import pl.coderslab.springboot.service.UserService;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.security.core.userdetails.*;
 
@@ -72,6 +69,5 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-
 
 }
