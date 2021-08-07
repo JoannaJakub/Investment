@@ -20,7 +20,7 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userCrypto/${id}"/>">Only crypto</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userInvest"/>">All invest</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userInvest/${id}"/>">All invest</a></h2>
             </div>
         </div>
         <section class="no-padding-top">

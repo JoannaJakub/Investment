@@ -55,7 +55,7 @@
                                         <td><c:out value="${userRole.lastName}"/></td>
                                         <td><c:out value="${userRole.username}"/></td>
                                         <td><c:out value="${userRole.enabled}"/></td>
-                                        <td><c:out value="${userRole.role}"/></td>
+                                        <td><c:out value="${userRole.role.role}"/></td>
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>

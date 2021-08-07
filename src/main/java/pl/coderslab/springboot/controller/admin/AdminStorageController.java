@@ -16,6 +16,7 @@ import pl.coderslab.springboot.repository.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class AdminStorageController {
