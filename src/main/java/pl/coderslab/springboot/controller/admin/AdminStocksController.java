@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Stocks;
-import pl.coderslab.springboot.repository.OwnedstocksRepository;
 import pl.coderslab.springboot.repository.StocksRepository;
 
 import javax.validation.Valid;

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
-import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -163,7 +162,6 @@ public class AdminUserController {
     @GetMapping("usersAdminRole/{id}")
     public String usersAdminRole(Model model, @PathVariable long id) {
         Set<User> user=userRepo.findAllByRoleId(2);
-        System.out.println(user);
         model.addAttribute("adminRole", user);
         return "admin/user/usersAdminRole";
     }
@@ -171,7 +169,6 @@ public class AdminUserController {
     @GetMapping("usersUserRole/{id}")
     public String usersUserRole(Model model, @PathVariable long id) {
         Set<User> user=userRepo.findAllByRoleId(1);
-        System.out.println(user);
         model.addAttribute("userRole", user);
         return "admin/user/usersUserRole";
     }

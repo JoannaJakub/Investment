@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Cryptocurrencies;
 import pl.coderslab.springboot.repository.CryptocurrencyRepository;
-import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 
 import javax.validation.Valid;
 import java.util.List;
