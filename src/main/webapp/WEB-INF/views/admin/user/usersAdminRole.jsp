@@ -22,7 +22,7 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/users"/>">All users</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminRole/${id}"/>">User role</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersUserRole/${id}"/>">User role</a></h2>
             </div>
         </div>
 
@@ -63,10 +63,10 @@
                                         <td><c:out value="${adminRole.username}"/></td>
                                         <td><c:out value="${adminRole.enabled}"/></td>
                                         <td><c:out value="${adminRole.role}"/></td>
-                                        <td><a href="<c:url value="/userConfirmDelete/?id=${adminRole}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/userEdit/${adminRole}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/userDetails/${adminRole}"/>">Details</a></td>
-                                        <td><a href="<c:url value="/changeRole/${adminRole}"/>">Change role</a></td>
+                                        <td><a href="<c:url value="/userConfirmDelete/?id=${adminRole.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/userEdit/${adminRole.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/userDetails/${adminRole.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/changeRole/${adminRole.id}"/>">Change role</a></td>
                                     </tr>
                                 </c:forEach>
 
