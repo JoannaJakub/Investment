@@ -49,8 +49,7 @@
                                         <div class="line"></div>
                                         <div class="form-group row">
                                             <div class="col-sm-9 ml-auto">
-                                                <a href="<c:url value="/role"/>"
-                                                   class="btn btn-secondary">Cancel</a>
+                                                <a href="<c:url value="/role"/>" class="btn btn-secondary">Cancel</a>
                                                 <button type="submit" class="btn btn-primary">Add role</button>
                                             </div>
                                         </div>

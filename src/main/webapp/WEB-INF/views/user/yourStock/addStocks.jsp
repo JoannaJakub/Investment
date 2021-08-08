@@ -83,7 +83,7 @@
                                     <div class="line"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-9 ml-auto">
-                                            <button type="submit" class="btn btn-secondary">Cancel</button>
+                                            <a href="<c:url value="/yourStocks"/>" class="btn btn-secondary">Cancel</a>
                                             <button type="submit" class="btn btn-primary">Save changes</button>
                                         </div>
                                     </div>
