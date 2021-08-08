@@ -51,12 +51,14 @@
                                         <td><c:out value="${oneStocksUser.user.id}"/></td>
                                         <td><c:out value="${oneStocksUser.user.firstName}"/></td>
                                         <td><c:out value="${oneStocksUser.user.lastName}"/></td>
-                                        <td><c:out value="${oneStocksUser.user.username}"/></td>
+                                        <td><a href="<c:out value="/userDetails/${oneStocksUser.user.id}"/>">
+                                            <c:out value="${oneStocksUser.user.username}"/></a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${oneStocksUser.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/usersOwnedStocksoEdit/${oneStocksUser.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/usersOwnedStocksEdit/${oneStocksUser.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksDetails/${oneStocksUser.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
+                                ${oneStocksUser.user.username}
 
                                 </tbody>
                             </table>

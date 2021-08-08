@@ -62,7 +62,7 @@
                                         <td><c:out value="${adminRole.lastName}"/></td>
                                         <td><c:out value="${adminRole.username}"/></td>
                                         <td><c:out value="${adminRole.enabled}"/></td>
-                                        <td><c:out value="${adminRole.role}"/></td>
+                                        <td><c:out value="${adminRole.role.iterator().next().name}"/></td>
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${adminRole.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${adminRole.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/userDetails/${adminRole.id}"/>">Details</a></td>

@@ -17,6 +17,12 @@
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="addStorage">Add user</a></h2>
             </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userInvest/${id}"/>">User's invest</a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/changeRole/${id}"/>">Change role</a></h2>
+            </div>
         </div>
 
         <section class="no-padding-top">
@@ -61,6 +67,16 @@
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Password</label>
                                         <c:out value="${userDetails.password}"/>
+                                        <label f class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Enabled</label>
+                                        <c:out value="${userDetails.enabled}"/>
+                                        <label f class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Role</label>
+                                        <c:out value="${userDetails.role.iterator().next().name}"/>
                                         <label f class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">

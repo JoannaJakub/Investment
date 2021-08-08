@@ -18,6 +18,9 @@
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addRole"/>">Add role</a></h2>
             </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/role"/>">All users</a></h2>
+            </div>
         </div>
 
         <section class="no-padding-top">
@@ -55,7 +58,7 @@
                                         <td><c:out value="${userRole.lastName}"/></td>
                                         <td><c:out value="${userRole.username}"/></td>
                                         <td><c:out value="${userRole.enabled}"/></td>
-                                        <td><c:out value="${userRole.role.role}"/></td>
+                                        <td><c:out value="${userRole.role.iterator().next().name}"/></td>
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>
