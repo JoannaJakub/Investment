@@ -64,7 +64,7 @@
                                         <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorageCrypto.id}"/>">Delete</a>
                                         </td>
                                         <td><a href="<c:url value="/storageEdit/${usersStorageCrypto.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/storageDetails/${usersStorageCrypto.id}"/>">Details</a>
+                                        <td><a href="<c:url value="/adminStorageDetails/${usersStorageCrypto.storage.id}"/>">Details</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -83,7 +83,7 @@
                                         <td><a href="<c:url value="/storageEdit/${usersStorageStocks.id}"/>">Edit</a>
                                         </td>
                                         <td>
-                                            <a href="<c:url value="/storageDetails/${usersStorageStocks.id}"/>">Details</a>
+                                            <a href="<c:url value="/adminStorageDetails/${usersStorageStocks.storage.id}"/>">Details</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

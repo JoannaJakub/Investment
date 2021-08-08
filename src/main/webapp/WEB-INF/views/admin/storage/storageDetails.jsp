@@ -34,25 +34,25 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${storageDetails}" var="storageDetails">
+                                <form:form items="${adminadminStorageDetails}" var="adminStorageDetails">
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Storage id</label>
-                                        <c:out value="${storageDetails.id}"/>
+                                        <c:out value="${adminStorageDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Storage name</label>
-                                        <c:out value="${storageDetails.name}"/>
+                                        <c:out value="${adminStorageDetails.name}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Storage link</label>
-                                        <c:out value="${storageDetails.link}"/>
+                                        <c:out value="${adminStorageDetails.link}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/storageEdit/${storageDetails.id}"/>"  class="btn btn-primary">Edit storage</a>
+                                            <a href="<c:url value="/storageEdit/${adminStorageDetails.id}"/>"  class="btn btn-primary">Edit storage</a>
                                         </div>
                                     </div>
                                 </form:form><small>List of storage? </small><a
