@@ -16,6 +16,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     private UserService userService;
 
+
+
     @Autowired
     public void setUserRepository(UserService userService) {
         this.userService = userService;
@@ -33,5 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(), user.getPassword(), grantedAuthorities);
     }
+
+
 }
 

@@ -10,13 +10,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.UserExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
+import pl.coderslab.springboot.service.CustomUserDetailsService;
 import pl.coderslab.springboot.service.UserService;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -28,7 +35,8 @@ public class AdminUserController {
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
     private final OwnedstocksRepository ownedstocksRepo;
 
-    public AdminUserController(UserRepository userRepo, UserService userService, OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo) {
+    public AdminUserController(UserRepository userRepo, UserService userService,
+                               OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo) {
         this.userRepo = userRepo;
         this.userService = userService;
         this.ownedcryptoRepo = ownedcryptoRepo;
@@ -171,6 +179,23 @@ public class AdminUserController {
         Set<User> user=userRepo.findAllByRoleId(1);
         model.addAttribute("userRole", user);
         return "admin/user/usersUserRole";
+    }
+
+    @GetMapping("/users/export/excel")
+    public void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<User> listUsers = userRepo.findAll();
+
+        UserExcelExporter excelExporter = new UserExcelExporter(listUsers);
+
+        excelExporter.export(response);
     }
 }
 
