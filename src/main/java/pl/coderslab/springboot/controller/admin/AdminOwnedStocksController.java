@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.repository.OwnedstocksRepository;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,5 +84,22 @@ public class AdminOwnedStocksController {
         List<Ownedstocks> oneStocksUser = ownedstocksRepository.findUserByStocksId(id);
         model.addAttribute("oneStocksUser", oneStocksUser);
         return "admin/stocks/oneStocksUser";
+    }
+
+    @GetMapping("/adminUsersOwnedStocks/export/excel")
+    public void adminUsersOwnedStocksExportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=ownedstocks_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Ownedstocks> ownedstocks = ownedstocksRepository.findAll();
+
+        AdminUserOwnedStocksExcelExporter excelExporter = new AdminUserOwnedStocksExcelExporter(ownedstocks);
+
+        excelExporter.export(response);
     }
 }
