@@ -102,7 +102,5 @@ public class AdminRoleController {
         model.addAttribute("userRole", user);
         return "admin/role/userRole";
     }
-
-
 }
 

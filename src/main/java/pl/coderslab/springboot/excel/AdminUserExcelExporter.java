@@ -1,4 +1,4 @@
-package pl.coderslab.springboot;
+package pl.coderslab.springboot.excel;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -15,12 +15,12 @@ import java.util.List;
 
 import static org.apache.poi.ss.util.CellUtil.createCell;
 
-public class UserExcelExporter {
+public class AdminUserExcelExporter {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private List<User> findAll;
 
-    public UserExcelExporter(List<User> listUsers) {
+    public AdminUserExcelExporter(List<User> listUsers) {
         this.findAll = listUsers;
         workbook = new XSSFWorkbook();
     }
