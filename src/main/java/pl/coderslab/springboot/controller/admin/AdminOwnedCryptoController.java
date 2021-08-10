@@ -7,10 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.excel.AdminUserOwnedCryptoExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,5 +86,22 @@ public class AdminOwnedCryptoController {
         System.out.println(oneCryptoUser);
         model.addAttribute("oneCryptoUser", oneCryptoUser);
         return "admin/crypto/oneCryptoUser";
+    }
+
+    @GetMapping("/adminUsersOwnedCrypto/export/excel")
+    public void adminUsersOwnedCryptoExportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=ownedcrypto_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Ownedcryptocurrencies> ownedcrypto = ownedcryptoRepo.findAll();
+
+        AdminUserOwnedCryptoExcelExporter excelExporter = new AdminUserOwnedCryptoExcelExporter(ownedcrypto);
+
+        excelExporter.export(response);
     }
 }

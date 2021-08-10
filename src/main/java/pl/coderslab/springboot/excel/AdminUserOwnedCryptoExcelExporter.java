@@ -7,7 +7,6 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
-import pl.coderslab.springboot.model.Ownedstocks;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -21,14 +20,14 @@ public class AdminUserOwnedCryptoExcelExporter {
     private XSSFSheet sheet;
     private List<Ownedcryptocurrencies> findAll;
 
-    public AdminUserOwnedCryptoExcelExporter(List<Ownedcryptocurrencies> ownedcryptocurrencies) {
-        this.findAll = ownedcryptocurrencies;
+    public AdminUserOwnedCryptoExcelExporter(List<Ownedcryptocurrencies> ownedcrypto) {
+        this.findAll = ownedcrypto;
         workbook = new XSSFWorkbook();
     }
 
 
     private void writeHeaderLine() {
-        sheet = workbook.createSheet("Ownedcryptocurrencies");
+        sheet = workbook.createSheet("OwnedCryptocurrencies");
 
         Row row = sheet.createRow(0);
 
@@ -38,13 +37,13 @@ public class AdminUserOwnedCryptoExcelExporter {
         font.setFontHeight(16);
         style.setFont(font);
 
-        createCell(row, 0, "Crypto ID", style);
+        createCell(row, 0, "CRYPTO ID", style);
         createCell(row, 1, "Name", style);
         createCell(row, 2, "Cmc_rank", style);
         createCell(row, 3, "Limit", style);
         createCell(row, 4, "Current max price", style);
-        createCell(row, 5, "Price", style);
         createCell(row, 6, "How many", style);
+        createCell(row, 5, "Price", style);
         createCell(row, 7, "Date", style);
         createCell(row, 8, "Notes", style);
         createCell(row, 9, "USER ID", style);
@@ -52,21 +51,19 @@ public class AdminUserOwnedCryptoExcelExporter {
 
     }
 
-    private void createCell(Row row, int columnCount, Object value, CellStyle style) {
+    public void createCell(Row row, int columnCount, Object value, CellStyle style) {
         sheet.autoSizeColumn(columnCount);
         Cell cell = row.createCell(columnCount);
         if (value instanceof Long) {
             cell.setCellValue((Long) value);
         } else if (value instanceof Boolean) {
             cell.setCellValue((Boolean) value);
-        } else if (value instanceof String) {
-            cell.setCellValue((String) value);
+        } else if (value instanceof Integer) {
+            cell.setCellValue((Integer) value);
         } else if (value instanceof LocalDate) {
             cell.setCellValue(String.valueOf((LocalDate) value));
         } else if (value instanceof Double) {
             cell.setCellValue((Double) value);
-        } else if (value instanceof BigDecimal) {
-            cell.setCellValue(String.valueOf((BigDecimal) value));
         } else {
             cell.setCellValue((String) value);
         }
@@ -99,6 +96,7 @@ public class AdminUserOwnedCryptoExcelExporter {
 
         }
     }
+
 
     public void export(HttpServletResponse response) throws IOException {
         writeHeaderLine();
