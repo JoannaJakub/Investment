@@ -22,7 +22,7 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/role"/>">All users</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUserRole/export/excel/{id}"/>">Export to Excel</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersRole/export/excel"/>">Export to Excel</a></h2>
             </div>
         </div>
 
