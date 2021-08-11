@@ -7,11 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -115,6 +121,27 @@ public class StocksController {
         }
         else{ return "user/userError";}
         return "user/yourStock/allStocksDetails";
+    }
+
+    @GetMapping("/usersStocks/export/excel")
+    public void usersStocksExportToExcel(HttpServletResponse response, @AuthenticationPrincipal UserDetails customUser) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=stocks_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+
+        String entityUser = customUser.getUsername();
+        User user = userRepository.findByUsername(entityUser);
+        List<Ownedstocks> ownedstocks = ownedstocksRepository.findByUser(user);
+
+
+        AdminUserOwnedStocksExcelExporter excelExporter = new AdminUserOwnedStocksExcelExporter(ownedstocks);
+
+        excelExporter.export(response);
     }
 }
 

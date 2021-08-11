@@ -15,19 +15,19 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-public class AdminUserOwnedStocksExcelExporter {
+public class UserStocksExcelExporter {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
-    private List<Ownedstocks> findAll;
+    private List<Ownedstocks> findByUser;
 
-    public AdminUserOwnedStocksExcelExporter(List<Ownedstocks> ownedstocks) {
-        this.findAll = ownedstocks;
+    public UserStocksExcelExporter(List<Ownedstocks> findByUser) {
+        this.findByUser = findByUser;
         workbook = new XSSFWorkbook();
     }
 
 
     private void writeHeaderLine() {
-        sheet = workbook.createSheet("OwnedStocks");
+        sheet = workbook.createSheet("Stocks");
 
         Row row = sheet.createRow(0);
 
@@ -47,9 +47,6 @@ public class AdminUserOwnedStocksExcelExporter {
         createCell(row, 7, "How many", style);
         createCell(row, 8, "Date", style);
         createCell(row, 9, "Notes", style);
-        createCell(row, 10, "USER ID", style);
-        createCell(row, 11, "E-mail", style);
-
     }
 
     private void createCell(Row row, int columnCount, Object value, CellStyle style) {
@@ -81,7 +78,7 @@ public class AdminUserOwnedStocksExcelExporter {
         font.setFontHeight(14);
         style.setFont(font);
 
-        for (Ownedstocks ownedstocks : findAll) {
+        for (Ownedstocks ownedstocks : findByUser) {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
@@ -95,9 +92,6 @@ public class AdminUserOwnedStocksExcelExporter {
             createCell(row, columnCount++, ownedstocks.getNumOfCoins(), style);
             createCell(row, columnCount++, ownedstocks.getWhenBought(), style);
             createCell(row, columnCount++, ownedstocks.getNotes(), style);
-            createCell(row, columnCount++, ownedstocks.getUser().getId(), style);
-            createCell(row, columnCount++, ownedstocks.getUser().getUsername(), style);
-
         }
     }
 

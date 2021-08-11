@@ -17,6 +17,9 @@
             <div class="list-inline-item">
                 <h2 class="h4 no-margin-bottom"><a href="<c:url value="/addStocks"/>">Add stock</a></h2>
             </div>
+            <div class="list-inline-item">
+                <h2 class="h4 no-margin-bottom"><a href="<c:url value="/usersStocks/export/excel"/>">Export to excel</a></h2>
+            </div>
         </div>
 
         <section class="no-padding-top">
