@@ -82,7 +82,7 @@ public class UserStocksExcelExporter {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
-            createCell(row, columnCount++, ownedstocks.getStocks().getId(), style);
+            createCell(row, columnCount++, ownedstocks.getId(), style);
             createCell(row, columnCount++, ownedstocks.getStocks().getName(), style);
             createCell(row, columnCount++, ownedstocks.getStocks().getPrice(), style);
             createCell(row, columnCount++, ownedstocks.getStocks().getChange(), style);

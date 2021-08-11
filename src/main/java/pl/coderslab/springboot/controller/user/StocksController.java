@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
+import pl.coderslab.springboot.excel.UserStocksExcelExporter;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -139,7 +140,7 @@ public class StocksController {
         List<Ownedstocks> ownedstocks = ownedstocksRepository.findByUser(user);
 
 
-        AdminUserOwnedStocksExcelExporter excelExporter = new AdminUserOwnedStocksExcelExporter(ownedstocks);
+        UserStocksExcelExporter excelExporter = new UserStocksExcelExporter(ownedstocks);
 
         excelExporter.export(response);
     }
