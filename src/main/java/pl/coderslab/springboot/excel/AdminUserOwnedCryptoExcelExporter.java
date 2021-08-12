@@ -11,7 +11,6 @@ import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 

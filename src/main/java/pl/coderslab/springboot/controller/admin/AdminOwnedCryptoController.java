@@ -83,7 +83,6 @@ public class AdminOwnedCryptoController {
     @GetMapping(value = {"/oneCryptoUser/{id}"})
     public String oneCryptoUser(@PathVariable long id, Model model) {
         List<Ownedcryptocurrencies> oneCryptoUser = ownedcryptoRepo.findUserByCryptocurrenciesId(id);
-        System.out.println(oneCryptoUser);
         model.addAttribute("oneCryptoUser", oneCryptoUser);
         return "admin/crypto/oneCryptoUser";
     }

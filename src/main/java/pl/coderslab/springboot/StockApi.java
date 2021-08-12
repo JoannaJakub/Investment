@@ -18,7 +18,6 @@ public class StockApi {
      BigDecimal change = stock.getQuote().getChangeInPercent();
      BigDecimal peg = stock.getStats().getPeg();
      BigDecimal dividend = stock.getDividend().getAnnualYieldPercent();
-     System.out.println(stock);
  }
 }
 

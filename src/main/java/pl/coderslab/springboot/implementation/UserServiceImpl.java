@@ -1,9 +1,7 @@
 package pl.coderslab.springboot.implementation;
 
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.coderslab.springboot.CustomUserDetails;
 import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.RoleRepository;
@@ -12,7 +10,6 @@ import pl.coderslab.springboot.service.UserService;
 
 import java.util.*;
 
-import org.springframework.security.core.userdetails.*;
 
 @Service
 public class UserServiceImpl implements UserService {

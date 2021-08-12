@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
 import pl.coderslab.springboot.excel.UserStocksExcelExporter;
 import pl.coderslab.springboot.model.*;
 import pl.coderslab.springboot.repository.*;
