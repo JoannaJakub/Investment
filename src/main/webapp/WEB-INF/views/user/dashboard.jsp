@@ -16,13 +16,13 @@
                 <h1 class="h4 d-none d-sm-inline">Dashboard</h1>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addCrypto">Add cryptocurrencies</a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="addCrypto">Add cryptocurrencies</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
             </div>
         </div>
         <div class="container-fluid">
