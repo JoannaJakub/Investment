@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminStorageExcelExporter;
 import pl.coderslab.springboot.excel.AdminStorageOfUsersExcelExporter;
-import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Storage;

@@ -6,9 +6,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoProperties;
 import pl.coderslab.springboot.model.Storage;
-import pl.coderslab.springboot.model.User;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
