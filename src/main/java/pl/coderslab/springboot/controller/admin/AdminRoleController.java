@@ -109,8 +109,8 @@ public class AdminRoleController {
         return "admin/role/userRole";
     }
 
-    @GetMapping("/adminUsersRole/export/excel")
-    public void adminUsersRoleExportToExcel(HttpServletResponse response) throws IOException {
+    @GetMapping("/adminUsersRole/export/excel/{id}")
+    public void adminUsersRoleExportToExcel(HttpServletResponse response,@PathVariable long id) throws IOException {
         response.setContentType("application/octet-stream");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -119,7 +119,7 @@ public class AdminRoleController {
         String headerValue = "attachment; filename=role_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
-        List<User> listUsers = userRepository.findAll();
+        Set<User> listUsers = userRepository.findAllByRoleId(id);
 
         AdminRoleExcelExporter excelExporter = new AdminRoleExcelExporter(listUsers);
 

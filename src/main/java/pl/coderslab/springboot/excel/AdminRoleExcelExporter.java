@@ -12,15 +12,16 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class AdminRoleExcelExporter {
-    private List<User> findAll;
+    private Set<User> findAllByRoleId;
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
 
-    public AdminRoleExcelExporter(List<User> listUsers) {
-        this.findAll = listUsers;
+    public AdminRoleExcelExporter(Set<User> listUsers) {
+        this.findAllByRoleId = listUsers;
         workbook = new XSSFWorkbook();
     }
 
@@ -66,7 +67,7 @@ public class AdminRoleExcelExporter {
         font.setFontHeight(14);
         style.setFont(font);
 
-        for (User user : findAll) {
+        for (User user : findAllByRoleId) {
             Row row = sheet.createRow(rowCount++);
             int columnCount = 0;
 
