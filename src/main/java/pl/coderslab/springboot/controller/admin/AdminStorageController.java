@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminStorageExcelExporter;
+import pl.coderslab.springboot.excel.AdminStorageOfUsersExcelExporter;
 import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
@@ -151,7 +152,7 @@ public class AdminStorageController {
         return "admin/storage/storageOfUsersStocks";
     }
     @GetMapping("/adminStorage/export/excel")
-    public void adminUsersOwnedStocksExportToExcel(HttpServletResponse response) throws IOException {
+    public void adminStorageExportToExcel(HttpServletResponse response) throws IOException {
         response.setContentType("application/octet-stream");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -163,6 +164,24 @@ public class AdminStorageController {
         List<Storage> storage = storageRepository.findAll();
 
         AdminStorageExcelExporter excelExporter = new AdminStorageExcelExporter(storage);
+
+        excelExporter.export(response);
+    }
+
+    @GetMapping("/adminStorageOfUsers/export/excel/{id}")
+    public void adminStorageOfUsersExportToExcel(HttpServletResponse response, @PathVariable long id) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_storage_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findUserByStorageId(id);
+        List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findUserByStorageId(id);
+
+        AdminStorageOfUsersExcelExporter excelExporter = new AdminStorageOfUsersExcelExporter(usersStorageCrypto, usersStorageStocks);
 
         excelExporter.export(response);
     }
