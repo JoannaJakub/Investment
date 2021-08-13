@@ -8,12 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.excel.AdminStorageExcelExporter;
+import pl.coderslab.springboot.excel.AdminUserOwnedStocksExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.Storage;
 import pl.coderslab.springboot.repository.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -142,5 +149,21 @@ public class AdminStorageController {
         List<Ownedstocks> storageOfUsersStocks = ownedstocksRepo.findUserByStorageId(id);
         model.addAttribute("storageOfUsersStocks", storageOfUsersStocks);
         return "admin/storage/storageOfUsersStocks";
+    }
+    @GetMapping("/adminStorage/export/excel")
+    public void adminUsersOwnedStocksExportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=storage_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Storage> storage = storageRepository.findAll();
+
+        AdminStorageExcelExporter excelExporter = new AdminStorageExcelExporter(storage);
+
+        excelExporter.export(response);
     }
 }
