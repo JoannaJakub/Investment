@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminStorageExcelExporter;
 import pl.coderslab.springboot.excel.AdminStorageOfUsersExcelExporter;
+import pl.coderslab.springboot.excel.AdminUsersStorageCryptoExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersStorageExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
@@ -205,5 +206,20 @@ public class AdminStorageController {
         excelExporter.export(response);
     }
 
+    @GetMapping("/adminUsersStorageCrypto/export/excel")
+    public void adminUsersStorageCryptoExportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
 
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_storage_crypto_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findAll();
+
+        AdminUsersStorageCryptoExcelExporter excelExporter = new AdminUsersStorageCryptoExcelExporter(usersStorageCrypto);
+
+        excelExporter.export(response);
+    }
 }
