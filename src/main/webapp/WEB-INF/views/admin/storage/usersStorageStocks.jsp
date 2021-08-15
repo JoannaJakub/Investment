@@ -21,6 +21,9 @@
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersStorageCrypto"/>">Only crypto storage</a></h2>
             </div>
+            <div class="list-inline-item">
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersStorageStocks/export/excel"/>">Export to excel</a></h2>
+            </div>
         </div>
 
         <section class="no-padding-top">
