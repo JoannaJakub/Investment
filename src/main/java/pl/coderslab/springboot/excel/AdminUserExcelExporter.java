@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static org.apache.poi.ss.util.CellUtil.createCell;
 
 public class AdminUserExcelExporter {
     private XSSFWorkbook workbook;
