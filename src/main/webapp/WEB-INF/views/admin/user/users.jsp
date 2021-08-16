@@ -58,7 +58,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${user}" var="user">
                                     <tr>
                                         <td><c:out value="${user.id}"/></td>
@@ -66,7 +65,8 @@
                                         <td><c:out value="${user.lastName}"/></td>
                                         <td><c:out value="${user.username}"/></td>
                                         <td><c:out value="${user.enabled}"/></td>
-                                        <td><c:out value="${user.role.iterator().next().name}"/></td>
+                                        <td><a href="<c:url value="/userRole/${user.role.iterator().next().id}"/>"><c:out
+                                                value="${user.role.iterator().next().name}"/></a></td>
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>

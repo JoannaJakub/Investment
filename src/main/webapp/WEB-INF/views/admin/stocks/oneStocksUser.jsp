@@ -58,8 +58,6 @@
                                         <td><a href="<c:url value="/usersOwnedStocksDetails/${oneStocksUser.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
-                                ${oneStocksUser.user.username}
-
                                 </tbody>
                             </table>
                         </div>

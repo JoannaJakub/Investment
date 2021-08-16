@@ -34,7 +34,8 @@
                             <form:form items="${adminUsersStocksDetails}" var="adminUsersStocksDetails">
                                 <div class="form-group-material">
                                     <label class="col-sm-3 form-control-label">Name of user</label>
-                                    <c:out value="${adminUsersStocksDetails.user.username}"/>
+                                    <a href="<c:url value="/userDetails/${adminUsersStocksDetails.user.id}"/>"><c:out
+                                            value="${adminUsersStocksDetails.user.username}"/></a>
                                     <label class="label-material"></label>
                                 </div>
                                 <div class="form-group-material">

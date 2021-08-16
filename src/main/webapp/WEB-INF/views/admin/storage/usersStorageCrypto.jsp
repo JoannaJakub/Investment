@@ -61,7 +61,8 @@
                                         <td><c:out value="${usersStorageCrypto.user.id}"/></td>
                                         <td><c:out value="${usersStorageCrypto.user.firstName}"/></td>
                                         <td><c:out value="${usersStorageCrypto.user.lastName}"/></td>
-                                        <td><c:out value="${usersStorageCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${usersStorageCrypto.user.id}"/>"><c:out
+                                                value="${usersStorageCrypto.user.username}"/></a></td>
                                         <td><c:out value="${usersStorageCrypto.storage.id}"/></td>
                                         <td><c:out value="${usersStorageCrypto.storage.name}"/></td>
                                         <td><c:out value="${usersStorageCrypto.storage.link}"/></td>

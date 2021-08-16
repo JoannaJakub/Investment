@@ -51,7 +51,8 @@
                                         <td><c:out value="${oneCryptoUser.user.id}"/></td>
                                         <td><c:out value="${oneCryptoUser.user.firstName}"/></td>
                                         <td><c:out value="${oneCryptoUser.user.lastName}"/></td>
-                                        <td><c:out value="${oneCryptoUser.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${oneCryptoUser.user.id}"/>"><c:out
+                                                value="${oneCryptoUser.user.username}"/></a></td>
                                         <td><a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${oneCryptoUser.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/usersOwnedCryptoEdit/${oneCryptoUser.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/usersOwnedCryptoDetails/${oneCryptoUser.id}"/>">Details</a></td>

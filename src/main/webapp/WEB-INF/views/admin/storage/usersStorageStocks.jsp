@@ -59,7 +59,8 @@
                                         <td><c:out value="${usersStorageStocks.user.id}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.firstName}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.lastName}"/></td>
-                                        <td><c:out value="${usersStorageStocks.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${usersStorageStocks.user.id}"/>"><c:out
+                                                value="${usersStorageStocks.user.username}"/></a></td>
                                         <td><c:out value="${usersStorageStocks.storage.id}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.name}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.link}"/></td>
