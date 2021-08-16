@@ -71,7 +71,8 @@
                                         <td><c:out value="${usersCrypto.whenBought}"/></td>
                                         <td><c:out value="${usersCrypto.notes}"/></td>
                                         <td><c:out value="${usersCrypto.user.id}"/></td>
-                                        <td><c:out value="${usersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${usersCrypto.user.id}"/>"><c:out
+                                                value="${usersCrypto.user.username}"/></a></td>
                                         <td>
                                             <a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a>
                                         </td>

@@ -32,7 +32,7 @@
 
                 <div class="col-lg-12">
                     <div class="block">
-                        <div class="title"><strong>Edit storage</strong></div>
+                        <div class="title"><strong>Edit user</strong></div>
                         <div class="block-body">
                             <form:form method="post" modelAttribute="userEdit">
                                 <div class="form-group row">

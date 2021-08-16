@@ -29,7 +29,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Contact has been changed!</strong></div>
+                        <div class="title"><strong>Messages has been changed!</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -41,7 +41,7 @@
                                             <td><c:out value="${id}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Nazwa</td>
+                                            <td>Message</td>
                                             <td><c:out value="${adminContactConfirmEdit.message}"/></td>
                                         </tr>
                                         <tr>
@@ -49,8 +49,21 @@
                                             <td><c:out value="${adminContactConfirmEdit.updateDate}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>User</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user}"/></td>
+                                            <td>User ID</td>
+                                            <td><c:out value="${adminContactConfirmEdit.user.id}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Username</td>
+                                            <td><a href="<c:url value="/userDetails/${adminContactConfirmEdit.user.id}"/>"><c:out
+                                                value="${adminContactConfirmEdit.user.username}"/></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td><c:out value="${adminContactConfirmEdit.user.firstName}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Surname</td>
+                                            <td><c:out value="${adminContactConfirmEdit.user.lastName}"/></td>
                                         </tr>
                                     </div>
 

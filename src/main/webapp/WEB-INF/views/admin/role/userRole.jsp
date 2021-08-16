@@ -59,12 +59,13 @@
                                         <td><c:out value="${userRole.id}"/></td>
                                         <td><c:out value="${userRole.firstName}"/></td>
                                         <td><c:out value="${userRole.lastName}"/></td>
-                                        <td><c:out value="${userRole.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${userRole.id}"/>"><c:out
+                                                value="${userRole.username}"/></a></td>
                                         <td><c:out value="${userRole.enabled}"/></td>
                                         <td><c:out value="${userRole.role.iterator().next().name}"/></td>
-                                        <td><a href="<c:url value="/userConfirmDelete/?id=${user.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/userEdit/${user.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/userDetails/${user.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/userConfirmDelete/?id=${userRole.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/userEdit/${userRole.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/userDetails/${userRoleser.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

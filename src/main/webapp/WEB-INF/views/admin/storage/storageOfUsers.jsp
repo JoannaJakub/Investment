@@ -61,7 +61,8 @@
                                         <td><c:out value="${storageOfUsersCrypto.user.id}"/></td>
                                         <td><c:out value="${storageOfUsersCrypto.user.firstName}"/></td>
                                         <td><c:out value="${storageOfUsersCrypto.user.lastName}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${storageOfUsersCrypto.user.id}"/>"><c:out
+                                                value="${storageOfUsersCrypto.user.username}"/></a></td>
                                         <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsersCrypto.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/storageEdit/${storageOfUsersCrypto.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/storageDetails/${storageOfUsersCrypto.id}"/>">Details</a></td>
@@ -74,7 +75,8 @@
                                         <td><c:out value="${storageOfUsersCrypto.user.id}"/></td>
                                         <td><c:out value="${storageOfUsersCrypto.user.firstName}"/></td>
                                         <td><c:out value="${storageOfUsersCrypto.user.lastName}"/></td>
-                                        <td><c:out value="${storageOfUsersCrypto.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${storageOfUsersCrypto.user.id}"/>"><c:out
+                                                value="${storageOfUsersCrypto.user.username}"/></a></td>
                                         <td><a href="<c:url value="/storageConfirmDelete/?id=${storageOfUsersCrypto.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/storageEdit/${storageOfUsersCrypto.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/storageDetails/${storageOfUsersCrypto.id}"/>">Details</a></td>

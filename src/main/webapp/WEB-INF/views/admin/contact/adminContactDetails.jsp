@@ -57,7 +57,8 @@
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Username</label>
-                                        <c:out value="${adminContactDetails.user.username}"/>
+                                        <a href="<c:url value="/userDetails/${adminContactDetails.user.id}"/>"><c:out
+                                                value="${adminContactDetails.user.username}"/></a>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">

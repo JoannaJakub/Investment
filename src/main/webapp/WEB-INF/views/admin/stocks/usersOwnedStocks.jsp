@@ -73,7 +73,8 @@
                                         <td><c:out value="${usersStocks.whenBought}"/></td>
                                         <td><c:out value="${usersStocks.notes}"/></td>
                                         <td><c:out value="${usersStocks.user.id}"/></td>
-                                        <td><c:out value="${usersStocks.user.username}"/></td>
+                                        <td><a href="<c:url value="/userDetails/${usersStocks.user.id}"/>"><c:out
+                                                value="${usersStocks.user.username}"/></a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${usersStocks.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksEdit/${usersStocks.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/usersOwnedStocksDetails/${usersStocks.id}"/>">Details</a></td>
