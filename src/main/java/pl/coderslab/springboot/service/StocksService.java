@@ -1,7 +1,6 @@
 package pl.coderslab.springboot.service;
 
 import lombok.AllArgsConstructor;
-import org.junit.Test;
 import org.springframework.stereotype.Service;
 import pl.coderslab.springboot.model.StockWrapper;
 import yahoofinance.YahooFinance;
@@ -16,13 +15,19 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Service
 public class StocksService {
-    private final RefreshService refreshService;
+    private RefreshService refreshService;
+
+    public StocksService() {
+        
+    }
+
+
     public StockWrapper findStock(final String ticker) {
         try {
             return new StockWrapper(YahooFinance.get(ticker));
         }
         catch (IOException e) {
-            System.out.println("error");
+            System.out.println(e.getMessage());
         }
         return null;
     }

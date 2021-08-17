@@ -19,4 +19,12 @@ public class StockWrapper {
         this.stock = stock;
         lastAccess=LocalDateTime.now();
     }
+
+    public LocalDateTime getLastAccess() {
+        return lastAccess;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
 }

@@ -1,6 +1,7 @@
 package pl.coderslab.springboot.controller.admin;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,15 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.StockWrapper;
 import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.StocksRepository;
+import pl.coderslab.springboot.service.StocksService;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class AdminStocksController {
+
     private final StocksRepository stocksRepository;
 
     public AdminStocksController(StocksRepository stocksRepository) {
@@ -89,5 +96,14 @@ public class AdminStocksController {
         else{ return "admin/adminError";
         }
         return "admin/stocks/adminStocksDetails";
+    }
+    @RequestMapping(value = {"/stockAPI"})
+    public String home(Model model) {
+        StocksService stockService = new StocksService();
+
+        String stock = String.valueOf(stockService.findStock("GOOG").getStock().getQuote().getPrice());
+        model.addAttribute("stockAPI", stock);
+
+          return "admin/stocks/stockAPI";
     }
 }

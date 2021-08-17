@@ -34,11 +34,11 @@ class StocksServiceTest {
 
     @Test
     void multiple() throws IOException, InterruptedException {
-        final List<StockWrapper> stocks = stockService.findStocks(Arrays.asList("GOOG", "AMZN"));
+        final List<StockWrapper>  stocks = stockService.findStocks(Arrays.asList("GOOG", "AMZN"));
         findPrices(stocks);
 
         Thread.sleep(16000);
-        final StockWrapper aa = stockService.findStock("AA.W");
+        final StockWrapper aa = stockService.findStock("AA.L");
         stocks.add(aa);
         System.out.println(stockService.findPrice(aa));
         findPrices(stocks);
