@@ -8,9 +8,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 public class StockApi {
-
-
-
  public static void main(String[] args) throws IOException {
      Stock stock = YahooFinance.get("INTC");
 
