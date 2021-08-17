@@ -49,5 +49,6 @@ public class StocksService {
         return stock.getStock().getQuote(refreshService.shouldRefresh(stock)).getChangeFromAvg200InPercent();
     }
 
+
 }
 
