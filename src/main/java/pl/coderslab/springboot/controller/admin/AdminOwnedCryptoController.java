@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminUserOwnedCryptoExcelExporter;
+import pl.coderslab.springboot.excel.AdminUsersInvestCryptoExcelExporter;
+import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
+import pl.coderslab.springboot.model.Ownedstocks;
+import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.OwnedcryptocurrenciesRepository;
+import pl.coderslab.springboot.repository.UserRepository;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -23,9 +28,12 @@ import java.util.Optional;
 @Controller
 public class AdminOwnedCryptoController {
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
+    private final UserRepository userRepo;
 
-    public AdminOwnedCryptoController(OwnedcryptocurrenciesRepository ownedcryptoRepo) {
+
+    public AdminOwnedCryptoController(OwnedcryptocurrenciesRepository ownedcryptoRepo, UserRepository userRepo) {
         this.ownedcryptoRepo = ownedcryptoRepo;
+        this.userRepo = userRepo;
     }
 
     @GetMapping("usersOwnedCrypto")
@@ -101,6 +109,22 @@ public class AdminOwnedCryptoController {
 
         AdminUserOwnedCryptoExcelExporter excelExporter = new AdminUserOwnedCryptoExcelExporter(ownedcrypto);
 
+        excelExporter.export(response);
+    }
+
+    @GetMapping("/adminUsersInvestCrypto/export/excel/{id}")
+    public void adminUsersInvestCrypto(HttpServletResponse response, @PathVariable long id) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=user_invest_crypto_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        Optional<User> user = userRepo.findById(id);
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
+        AdminUsersInvestCryptoExcelExporter excelExporter = new AdminUsersInvestCryptoExcelExporter(ownedcryptocurrencies);
         excelExporter.export(response);
     }
 }
