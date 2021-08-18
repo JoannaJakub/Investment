@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminUserExcelExporter;
+import pl.coderslab.springboot.excel.AdminUserOwnedCryptoExcelExporter;
+import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
@@ -194,6 +196,22 @@ public class AdminUserController {
 
         AdminUserExcelExporter excelExporter = new AdminUserExcelExporter(listUsers);
 
+        excelExporter.export(response);
+    }
+    @GetMapping("/adminUsersInvest/export/excel/{id}")
+    public void adminUsersInvestExportToExcel(HttpServletResponse response, @PathVariable long id) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=user_invest_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        Optional<User> user = userRepo.findById(id);
+        List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
+        List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
+        AdminUsersInvestExcelExporter excelExporter = new AdminUsersInvestExcelExporter(ownedcryptocurrencies,ownedstocks);
         excelExporter.export(response);
     }
 }

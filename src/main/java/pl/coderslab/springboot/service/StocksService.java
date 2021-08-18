@@ -48,7 +48,5 @@ public class StocksService {
     public BigDecimal findChangeFrom200MeanPercent(final StockWrapper stock) throws IOException{
         return stock.getStock().getQuote(refreshService.shouldRefresh(stock)).getChangeFromAvg200InPercent();
     }
-
-
 }
 

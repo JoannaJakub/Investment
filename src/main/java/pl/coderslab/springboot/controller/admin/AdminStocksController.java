@@ -8,13 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.springboot.model.StockWrapper;
 import pl.coderslab.springboot.model.Stocks;
 import pl.coderslab.springboot.repository.StocksRepository;
 import pl.coderslab.springboot.service.StocksService;
 
 import javax.validation.Valid;
+import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class AdminStocksController {
@@ -96,10 +100,11 @@ public class AdminStocksController {
     public String stockApi(Model model) {
         StocksService stockService = new StocksService();
 
-        String stock = String.valueOf(stockService.findStock("GOOG").getStock().getStats());
+        List <StockWrapper> stocks = stockService.findStocks(List.of("GOOG", "msft", "aapl"));
+
         String stock1 = String.valueOf(stockService.findStock("GOOG").getStock().getQuote().getBid());
-        model.addAttribute("stockAPI", stock);
-        System.out.println(stock + stock1);
+        model.addAttribute("stockAPI", stocks);
+        System.out.println(stocks + stock1);
           return "admin/stocks/stockApi";
     }
 }

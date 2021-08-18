@@ -76,7 +76,8 @@
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Role</label>
-                                        <c:out value="${userDetails.role.iterator().next().name}"/>
+                                        <a href="<c:url value="/userRole/${userDetails.role.iterator().next().id}"/>"><c:out
+                                                value="${userDetails.role.iterator().next().name}"/></a>
                                         <label f class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
