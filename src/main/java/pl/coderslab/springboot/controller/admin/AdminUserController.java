@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminUserExcelExporter;
-import pl.coderslab.springboot.excel.AdminUserOwnedCryptoExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
