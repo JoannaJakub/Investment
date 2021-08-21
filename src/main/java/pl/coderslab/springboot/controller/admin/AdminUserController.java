@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminUserExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
+import pl.coderslab.springboot.implementation.UserServiceImpl;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
@@ -212,6 +213,20 @@ public class AdminUserController {
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
         AdminUsersInvestExcelExporter excelExporter = new AdminUsersInvestExcelExporter(ownedcryptocurrencies,ownedstocks);
         excelExporter.export(response);
+    }
+
+    @GetMapping(value = {"/userInvestEdit/{id}"})
+    public String userInvestEditForm(@PathVariable long id,@Valid Ownedstocks ownedstocks) {
+        ownedstocksRepo.save(ownedstocks);
+        return "admin/user/userEdit";
+    }
+
+    @PostMapping(value = {"userInvestEdit/{id}"})
+    public String userInvestEditSave(@Valid User user,@PathVariable long id, Model model) {
+        Optional<Ownedstocks> stocks = ownedstocksRepo.findById(id);
+        model.addAttribute("adminUsersStocksEdit", stocks.get());
+
+        return "redirect:/userConfirmEditing/{id}";
     }
 }
 
