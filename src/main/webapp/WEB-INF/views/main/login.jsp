@@ -5,8 +5,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html>
-<%@ include file="../head.jsp" %>
+<html lang="en"><%@ include file="../head.jsp" %>
 <body>
 <div class="login-page">
 

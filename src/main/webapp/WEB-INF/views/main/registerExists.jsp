@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"><html xmlns:th="http://www.thymeleaf.org">
 <%@ include file="../head.jsp" %>
 
 <body>
