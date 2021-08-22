@@ -39,7 +39,7 @@ public class StorageController {
     }
 
     @GetMapping("/storage")
-    public String storage(Model model, @AuthenticationPrincipal UserDetails customUser) {
+    public String storage(Model model) {
         List<Storage> storage = storageRepository.findAll();
         if (!storage.isEmpty()) {
             model.addAttribute("storage", storage);
@@ -87,7 +87,7 @@ public class StorageController {
     }
 
     @GetMapping(value = {"/allStocksFromStorage/{id}"})
-    public String allStocksFromStorage(@PathVariable long id, Model model, Storage storage,@AuthenticationPrincipal UserDetails customUser) {
+    public String allStocksFromStorage(Model model, @AuthenticationPrincipal UserDetails customUser) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedstocks> ownedStocks = ownedstocksRepo.findByUser(user);
@@ -100,7 +100,7 @@ public class StorageController {
     }
 
     @GetMapping(value = {"/allCryptoFromStorage/{id}"})
-    public String allCryptoFromStorage(@PathVariable long id, Model model, Storage storage,@AuthenticationPrincipal UserDetails customUser) {
+    public String allCryptoFromStorage(@AuthenticationPrincipal UserDetails customUser, Model model) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedcryptocurrencies> ownedCrypto = ownedcryptocRepo.findByUser(user);
@@ -111,12 +111,4 @@ public class StorageController {
         else {return "user/userError";}
         return "user/storage/allCryptoFromStorage";
     }
-/*    @GetMapping("usersStorage/{id}")
-    public String usersStorage(Model model, @PathVariable long id,) {
-        List<Ownedcryptocurrencies> usersStorage = ownedcryptoRepo.findAll();
-        model.addAttribute("usersStorage", usersStorage);
-        List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
-        model.addAttribute("usersStorageStocks", usersStorageStocks);
-        return "admin/storage/usersStorage";
-    }*/
 }

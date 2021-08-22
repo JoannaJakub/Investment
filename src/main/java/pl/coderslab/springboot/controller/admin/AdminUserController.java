@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.excel.AdminUserExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
-import pl.coderslab.springboot.implementation.UserServiceImpl;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
 import pl.coderslab.springboot.model.User;
@@ -169,14 +168,14 @@ public class AdminUserController {
     }
 
     @GetMapping("usersAdminRole/{id}")
-    public String usersAdminRole(Model model, @PathVariable long id) {
+    public String usersAdminRole(Model model) {
         Set<User> user=userRepo.findAllByRoleId(2);
         model.addAttribute("adminRole", user);
         return "admin/user/usersAdminRole";
     }
 
     @GetMapping("usersUserRole/{id}")
-    public String usersUserRole(Model model, @PathVariable long id) {
+    public String usersUserRole(Model model) {
         Set<User> user=userRepo.findAllByRoleId(1);
         model.addAttribute("userRole", user);
         return "admin/user/usersUserRole";
@@ -216,13 +215,13 @@ public class AdminUserController {
     }
 
     @GetMapping(value = {"/userInvestEdit/{id}"})
-    public String userInvestEditForm(@PathVariable long id,@Valid Ownedstocks ownedstocks) {
+    public String userInvestEditForm(@Valid Ownedstocks ownedstocks) {
         ownedstocksRepo.save(ownedstocks);
         return "admin/user/userEdit";
     }
 
     @PostMapping(value = {"userInvestEdit/{id}"})
-    public String userInvestEditSave(@Valid User user,@PathVariable long id, Model model) {
+    public String userInvestEditSave(@PathVariable long id, Model model) {
         Optional<Ownedstocks> stocks = ownedstocksRepo.findById(id);
         model.addAttribute("adminUsersStocksEdit", stocks.get());
 

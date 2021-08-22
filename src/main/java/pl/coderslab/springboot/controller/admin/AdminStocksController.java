@@ -14,11 +14,8 @@ import pl.coderslab.springboot.repository.StocksRepository;
 import pl.coderslab.springboot.service.StocksService;
 
 import javax.validation.Valid;
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Controller
 public class AdminStocksController {
@@ -104,7 +101,6 @@ public class AdminStocksController {
 
         String stock1 = String.valueOf(stockService.findStock("GOOG").getStock().getQuote().getBid());
         model.addAttribute("stockAPI", stocks);
-        System.out.println(stocks + stock1);
           return "admin/stocks/stockApi";
     }
 }
