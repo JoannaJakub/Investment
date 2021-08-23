@@ -15,13 +15,30 @@
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <div class="navbar-header">
                 <!-- Navbar Header-->
-                <a class="navbar-brand" href="<c:url value="/adminAdmin Dashboard"/>">
-                <div class="brand-text brand-big visible text-uppercase"><strong
-                        class="text-primary">Inwestycje</strong><strong>w kupie</strong></div>
-                <div class="brand-text brand-sm"><strong class="text-primary">I</strong><strong>K</strong></div></a>
+                <a class="navbar-brand" href="<c:url value="/adminDashboard"/>">
+                    <div class="brand-text brand-big visible text-uppercase"><strong
+                            class="text-primary">Inwestycje</strong><strong>w kupie</strong></div>
+                    <div class="brand-text brand-sm"><strong class="text-primary">I</strong><strong>K</strong></div>
+                </a>
 
                 <!-- Sidebar Toggle Btn-->
                 <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
+            </div>
+
+            <!-- Calendar    -->
+
+            <script type="text/javascript" src="resources/distribution/js/date-time.js"></script>
+            <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#"
+                                                      data-toggle="dropdown" aria-haspopup="true"
+                                                      aria-expanded="false"
+                                                      class="nav-link language dropdown-toggle">
+                <span  id="date-time"></span>
+
+            </a>
+                <div aria-labelledby="languages" class="dropdown-menu">
+                    <a rel="nofollow" href="#" class="dropdown-item">
+                        <span>German</span></a>
+                </div>
             </div>
             <div class="right-menu list-inline no-margin-bottom">
                 <div class="list-inline-item"><a href="#" class="search-open nav-link">
@@ -134,20 +151,19 @@
                 <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#"
                                                           data-toggle="dropdown" aria-haspopup="true"
                                                           aria-expanded="false"
-                                                          class="nav-link language dropdown-toggle"><img
-                        src="img/flags/16/GB.png" alt="English"><span
-                        class="d-none d-sm-inline-block">English</span></a>
-                    <div aria-labelledby="languages" class="dropdown-menu"><a rel="nofollow" href="#"
-                                                                              class="dropdown-item"> <img
-                            src="img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a><a
-                            rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English"
-                                                                                class="mr-2"><span>French  </span></a>
+                                                          class="nav-link language dropdown-toggle">
+                    <span class="d-none d-sm-inline-block">English</span></a>
+                    <div aria-labelledby="languages" class="dropdown-menu">
+                        <a rel="nofollow" href="#" class="dropdown-item">
+                            <img src="img/flags/16/DE.png" alt="English" class="mr-2"><span>German</span></a>
+                        <a rel="nofollow" href="#" class="dropdown-item">
+                            <img src="img/flags/16/FR.png" alt="English" class="mr-2"><span>French  </span></a>
                     </div>
                 </div>
                 <!-- Log out               -->
                 <div class="list-inline-item logout">
                     <a id="logout" href="<c:url value="/logout" />" class="nav-link" delete-cookies="JSESSIONID"
-                     >Logout <i class="icon-logout"></i></a></div>
+                    >Logout <i class="icon-logout"></i></a></div>
             </div>
         </div>
     </nav>
