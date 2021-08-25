@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.coderslab.springboot.model.StockWrapper;
-import pl.coderslab.springboot.service.StocksService;
 
 import java.io.IOException;
 import java.math.BigDecimal;

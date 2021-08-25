@@ -23,6 +23,8 @@ public class AdminCalendar {
 
         List<Event> event = eventRepository.findAll();
         model.addAttribute("event", event);
+
+
         return "admin/calendar/adminCalendar";
     }
 
