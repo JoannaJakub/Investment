@@ -3,6 +3,7 @@ package pl.coderslab.springboot.controller.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Event;
 import pl.coderslab.springboot.repository.EventRepository;
 
@@ -28,5 +29,14 @@ public class AdminCalendar {
         return "admin/calendar/adminCalendar";
     }
 
+    @RequestMapping("calendar")
+    public String adminCalendarDashboard(Model model) {
+
+        List<Event> event = eventRepository.findAll();
+        model.addAttribute("event", event);
+
+
+        return "admin/calendar/calendar";
+    }
 }
 
