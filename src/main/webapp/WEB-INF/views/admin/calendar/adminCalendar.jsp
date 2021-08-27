@@ -53,7 +53,7 @@
                                     <th>Title</th>
                                     <th>Start</th>
                                     <th>End</th>
-                                    <th>Decription</th>
+                                    <th>Description</th>
                                 </tr>
                                 </thead>
                                 <tbody>
