@@ -3,6 +3,7 @@ package pl.coderslab.springboot.controller.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Event;
 import pl.coderslab.springboot.repository.EventRepository;
@@ -37,6 +38,17 @@ public class AdminCalendar {
 
 
         return "admin/calendar/calendar";
+    }
+
+    @RequestMapping("/adminEventConfirmDelete")
+    public String adminEventConfirmDelete() {
+        return "admin/calendar/adminEventConfirmDelete";
+    }
+
+    @GetMapping(value = {"/adminEventDelete/{id}"})
+    public String adminEventDelete(@PathVariable long id) {
+        eventRepository.deleteById(id);
+        return "redirect:/adminCalendar";
     }
 }
 
