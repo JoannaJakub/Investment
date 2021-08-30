@@ -65,8 +65,8 @@
                                         <td><c:out value="${event.end}"/></td>
                                         <td><c:out value="${event.description}"/></td>
 
-                                        <td><a href="<c:url value="/eventConfirmDelete/?id=${event.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/eventEdit/${event.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/adminEventConfirmDelete/?id=${event.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/adminEventEdit/${event.id}"/>">Edit</a></td>
                                         <td><a href="<c:url value="/adminEventDetails/${event.id}"/>">Details</a></td>
 
                                     </tr>

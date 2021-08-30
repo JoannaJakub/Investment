@@ -43,7 +43,7 @@
                 <div class="col-sm-9 ml-auto">
                     <a href="<c:url value="/adminCalendar"/>"
                        class="btn btn-secondary">NO</a>
-                    <a href="<c:url value="/eventDelete/${param.id}"/>"
+                    <a href="<c:url value="/adminEventDelete/${param.id}"/>"
                        class="btn btn-primary">YES, delete role</a>
                 </div>
             </div>
@@ -54,7 +54,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of roles? </small><a href="<c:url value="/role"/>">Here</a>
+                <small>List of event? </small><a href="<c:url value="/adminCalendar"/>">Here</a>
             </div>
 
         </section>
