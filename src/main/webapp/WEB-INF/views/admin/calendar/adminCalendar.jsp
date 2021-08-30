@@ -62,12 +62,12 @@
                                         <td><c:out value="${event.id}"/></td>
                                         <td><c:out value="${event.title}"/></td>
                                         <td><c:out value="${event.start}"/></td>
-                                        <td><c:out value="${event.finish}"/></td>
+                                        <td><c:out value="${event.end}"/></td>
                                         <td><c:out value="${event.description}"/></td>
 
-                                        <td><a href="<c:url value="/eventConfirmDelete/?id=${user.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/eventEdit/${user.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/eventDetails/${user.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/eventConfirmDelete/?id=${event.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/eventEdit/${event.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/adminEventDetails/${event.id}"/>">Details</a></td>
 
                                     </tr>
                                 </c:forEach>

@@ -12,6 +12,7 @@ import pl.coderslab.springboot.repository.EventRepository;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -65,6 +66,15 @@ public class AdminCalendar {
         eventRepository.save(event);
         return "redirect:/adminEventConfirmEditing/{id}";
     }
-
+    @GetMapping(value = {"/adminEventDetails/{id}"})
+    public String adminEventDetails(@PathVariable long id, Model model) {
+        Optional<Event> eventDetails = eventRepository.findById(id);
+        if (eventDetails.isPresent()) {
+            model.addAttribute("adminEventDetails", eventDetails.get());
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/calendar/adminEventDetails";
+    }
 }
 

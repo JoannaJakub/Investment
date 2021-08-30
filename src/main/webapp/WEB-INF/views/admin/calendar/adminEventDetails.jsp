@@ -35,48 +35,58 @@
 
                                 <form:form items="${adminEventDetails}" var="adminEventDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Contact id</label>
-                                        <c:out value="${adminContactDetails.id}"/>
+                                        <label class="col-sm-3 form-control-label">Event id</label>
+                                        <c:out value="${adminEventDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message</label>
-                                        <c:out value="${adminContactDetails.message}"/>
+                                        <label class="col-sm-3 form-control-label">Title</label>
+                                        <c:out value="${adminEventDetails.title}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Contact date</label>
-                                        <c:out value="${adminContactDetails.updateDate}"/>
+                                        <label class="col-sm-3 form-control-label">Description</label>
+                                        <c:out value="${adminEventDetails.description}"/>
+                                        <label class="label-material"></label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">Start</label>
+                                        <c:out value="${adminEventDetails.start}"/>
+                                        <label class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <label class="col-sm-3 form-control-label">End</label>
+                                        <c:out value="${adminEventDetails.end}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">User Id</label>
-                                        <c:out value="${adminContactDetails.user.id}"/>
+                                        <c:out value="${adminEventDetails.user.id}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Username</label>
-                                        <a href="<c:url value="/userDetails/${adminContactDetails.user.id}"/>"><c:out
-                                                value="${adminContactDetails.user.username}"/></a>
+                                        <a href="<c:url value="/userDetails/${adminEventDetails.user.id}"/>"><c:out
+                                                value="${adminEventDetails.user.username}"/></a>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">User name</label>
-                                        <c:out value="${adminContactDetails.user.firstName}"/>
+                                        <c:out value="${adminEventDetails.user.firstName}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">User surname</label>
-                                        <c:out value="${adminContactDetails.user.lastName}"/>
+                                        <c:out value="${adminEventDetails.user.lastName}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/adminContactEdit/${adminContactDetails.id}"/>"  class="btn btn-primary">Edit message</a>
+                                            <a href="<c:url value="/adminEventEdit/${adminEventDetails.id}"/>"  class="btn btn-primary">Edit event</a>
                                         </div>
                                     </div>
-                                </form:form><small>List of messages? </small><a
-                                        href="<c:url value="/adminContact"/>">Here</a>
+                                </form:form><small>List of events? </small><a
+                                        href="<c:url value="/adminCalendar"/>">Here</a>
 
 
                                 </tbody>
