@@ -57,8 +57,8 @@ public class AdminCalendar {
 
     @GetMapping(value = {"/adminEventEdit/{id}"})
     public String adminEventEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("adminContactEdit", eventRepository.findById(id));
-        return "admin/contact/adminContactEdit";
+        model.addAttribute("adminEventEdit", eventRepository.findById(id));
+        return "admin/calendar/adminEventEdit";
     }
 
     @PostMapping(value = {"adminEventEdit/{id}"})
@@ -66,6 +66,18 @@ public class AdminCalendar {
         eventRepository.save(event);
         return "redirect:/adminEventConfirmEditing/{id}";
     }
+
+    @RequestMapping("/adminEventConfirmEditing/{id}")
+    public String adminEventConfirmEditing(@PathVariable long id, Model model) {
+        Optional<Event> event = eventRepository.findById(id);
+        if (event.isPresent()) {
+            model.addAttribute("adminContactConfirmEdit", event.get());
+        } else {
+            return "admin/adminError";
+        }
+        return "admin/calendar/adminEventConfirmEdit";
+    }
+
     @GetMapping(value = {"/adminEventDetails/{id}"})
     public String adminEventDetails(@PathVariable long id, Model model) {
         Optional<Event> eventDetails = eventRepository.findById(id);

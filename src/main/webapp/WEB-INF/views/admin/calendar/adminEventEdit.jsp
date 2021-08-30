@@ -33,33 +33,53 @@
                     <div class="block">
                         <div class="title"><strong>Edit event</strong></div>
                         <div class="block-body">
-                            <form:form method="post" modelAttribute="adminContactEdit">
+                            <form:form method="post" modelAttribute="adminEventEdit">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Contact id</label>
+                                    <label class="col-sm-3 form-control-label">Event id</label>
                                     <div class="col-sm-9">
                                         <c:out value="${id}"/></div>
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Contact message</label>
+                                    <label class="col-sm-3 form-control-label">Title</label>
                                     <div class="col-sm-9">
-                                        <form:input id="message" type="text" name="message" path="message"
-                                                    placeholder="message" data-msg="Please enter your message"
+                                        <form:input id="title" type="text" name="title" path="title"
+                                                    placeholder="title" data-msg="Please enter your title"
                                                     class="form-control"/>
-                                        <form:errors path="message"/></div>
-                                    <label for="message" class="label-material"></label>
+                                        <form:errors path="title"/></div>
+                                    <label for="title" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Contact date</label>
+                                    <label class="col-sm-3 form-control-label">Description</label>
                                     <div class="col-sm-9">
-                                        <form:input id="updateDate" type="text" name="updateDate" path="updateDate"
-                                                    placeholder="Date" data-msg="Please enter date"
+                                        <form:input id="description" type="text" name="description" path="description"
+                                                    placeholder="Description" data-msg="Please enter description"
                                                     class="form-control"/>
-                                        <form:errors path="updateDate"/>
+                                        <form:errors path="description"/>
                                     </div>
-                                    <label for="updateDate" class="label-material"></label>
+                                    <label for="description" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Start</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="start" type="text" name="start" path="start"
+                                                    placeholder="Start" data-msg="Please enter start hour"
+                                                    class="form-control"/>
+                                        <form:errors path="start"/>
+                                    </div>
+                                    <label for="start" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Start</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="end" type="text" name="start" path="end"
+                                                    placeholder="End" data-msg="Please enter end hour"
+                                                    class="form-control"/>
+                                        <form:errors path="end"/>
+                                    </div>
+                                    <label for="end" class="label-material"></label>
+                                </div>
+                                <%--<div class="form-group row">
                                     <label class="col-sm-3 form-control-label">User id</label>
                                     <div class="col-sm-9">
                                         <form:input id="user" type="text" name="user" path="user"
@@ -67,14 +87,14 @@
                                                     class="form-control"/>
                                         <form:errors path="user"/>
                                     </div>
-                                    <label for="updateDate" class="label-material"></label>
-                                </div>
+                                    <label for="user" class="label-material"></label>
+                                </div>--%>
                                 <div class="form-group text-center">
-                                    <a href="<c:url value="/adminContact"/>"
+                                    <a href="<c:url value="/adminCalendar"/>"
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
-                            </form:form><small>List of all storage? </small><a href="<c:url value="/adminContact"/>">Here</a>
+                            </form:form><small>List of all events? </small><a href="<c:url value="/adminCalendar"/>">Here</a>
 
                         </div>
                     </div>

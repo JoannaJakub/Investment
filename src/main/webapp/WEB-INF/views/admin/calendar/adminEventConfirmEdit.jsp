@@ -41,12 +41,20 @@
                                             <td><c:out value="${id}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Message</td>
-                                            <td><c:out value="${adminContactConfirmEdit.message}"/></td>
+                                            <td>Title</td>
+                                            <td><c:out value="${adminContactConfirmEdit.title}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Link</td>
-                                            <td><c:out value="${adminContactConfirmEdit.updateDate}"/></td>
+                                            <td>Description</td>
+                                            <td><c:out value="${adminContactConfirmEdit.description}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Start</td>
+                                            <td><c:out value="${adminContactConfirmEdit.start}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>End</td>
+                                            <td><c:out value="${adminContactConfirmEdit.end}"/></td>
                                         </tr>
                                         <tr>
                                             <td>User ID</td>
