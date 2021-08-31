@@ -79,7 +79,7 @@
                                     </div>
                                     <label for="end" class="label-material"></label>
                                 </div>
-                                <%--<div class="form-group row">
+                                <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">User id</label>
                                     <div class="col-sm-9">
                                         <form:input id="user" type="text" name="user" path="user"
@@ -88,7 +88,25 @@
                                         <form:errors path="user"/>
                                     </div>
                                     <label for="user" class="label-material"></label>
-                                </div>--%>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Username</label>
+                                    <div class="col-sm-9">
+                                        <c:out value="${adminEventEdit.get().user.username}"/></div>
+                                    <label for="user" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <c:out value="${adminEventEdit.get().user.firstName}"/></div>
+                                    <label for="user" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Surname</label>
+                                    <div class="col-sm-9">
+                                        <c:out value="${adminEventEdit.get().user.lastName}"/></div>
+                                    <label for="user" class="label-material"></label>
+                                </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/adminCalendar"/>"
                                        class="btn btn-secondary">Cancel</a>

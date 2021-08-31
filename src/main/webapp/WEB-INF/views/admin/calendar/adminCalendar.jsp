@@ -2,7 +2,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en"><%@ include file="../../head.jsp" %>
+<html lang="en">
+<%@ include file="../../head.jsp" %>
 
 <body>
 <%@ include file="../adminHeader.jsp" %>
@@ -27,8 +28,20 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/calendar"/>">Export to Excel</a></h2>
             </div>
         </div>
+        <script type="text/javascript" src="resources/distribution/js/jquery-1.3.2.min.js"></script>
+        <script type="text/javascript" src="resources/distribution/js/common.js"></script>
+        <script type="text/javascript" src="resources/distribution/js/calendar.js"></script>
         <div id="dp"></div>
+        <script type="text/javascript">
 
+            $(document).ready(function() {
+                var dpc = $("#dpc").daypilotCalendar({
+                    backendUrl : '${pageContext.request.contextPath}/dpc',
+                    viewType : "Week"
+                });
+            });
+
+        </script>
         <!-- DayPilot Pro library-->
         <script src="resources/distribution/js/daypilot-all.min.js"></script>
 

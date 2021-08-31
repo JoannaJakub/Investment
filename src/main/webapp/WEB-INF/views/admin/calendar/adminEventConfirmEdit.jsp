@@ -34,7 +34,7 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${adminContactConfirmEdit}" var="adminContactConfirmEdit">
+                                <form:form items="${adminEventConfirmEdit}" var="adminEventConfirmEdit">
                                     <div>
                                         <tr>
                                             <td>ID</td>
@@ -42,36 +42,36 @@
                                         </tr>
                                         <tr>
                                             <td>Title</td>
-                                            <td><c:out value="${adminContactConfirmEdit.title}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.title}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Description</td>
-                                            <td><c:out value="${adminContactConfirmEdit.description}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.description}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Start</td>
-                                            <td><c:out value="${adminContactConfirmEdit.start}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.start}"/></td>
                                         </tr>
                                         <tr>
                                             <td>End</td>
-                                            <td><c:out value="${adminContactConfirmEdit.end}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.end}"/></td>
                                         </tr>
                                         <tr>
                                             <td>User ID</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user.id}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.user.id}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Username</td>
-                                            <td><a href="<c:url value="/userDetails/${adminContactConfirmEdit.user.id}"/>"><c:out
-                                                value="${adminContactConfirmEdit.user.username}"/></a></td>
+                                            <td><a href="<c:url value="/userDetails/${adminEventConfirmEdit.user.id}"/>"><c:out
+                                                value="${adminEventConfirmEdit.user.username}"/></a></td>
                                         </tr>
                                         <tr>
                                             <td>Name</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user.firstName}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.user.firstName}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Surname</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user.lastName}"/></td>
+                                            <td><c:out value="${adminEventConfirmEdit.user.lastName}"/></td>
                                         </tr>
                                     </div>
 

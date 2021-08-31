@@ -26,4 +26,7 @@ public class Event {
     private LocalDateTime end;
     public boolean allDay;
 
+    @ManyToOne
+    private User user;
+
 }
