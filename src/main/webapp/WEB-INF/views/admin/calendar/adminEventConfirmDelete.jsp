@@ -16,7 +16,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage"></a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddEvent"/>">Add event</a></h2>
             </div>
         </div>
         <!-- Breadcrumb-->
@@ -44,7 +44,7 @@
                     <a href="<c:url value="/adminCalendar"/>"
                        class="btn btn-secondary">NO</a>
                     <a href="<c:url value="/adminEventDelete/${param.id}"/>"
-                       class="btn btn-primary">YES, delete role</a>
+                       class="btn btn-primary">YES, delete event</a>
                 </div>
             </div>
             <br>

@@ -80,14 +80,13 @@
                                     <label for="end" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">User id</label>
+                                    <label class="col-sm-3 form-control-label">User ID</label>
                                     <div class="col-sm-9">
                                         <form:input id="user" type="text" name="user" path="user"
                                                     placeholder="User id" data-msg="Please enter user id"
                                                     class="form-control"/>
                                         <form:errors path="user"/>
                                     </div>
-                                    <label for="user" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Username</label>
