@@ -16,7 +16,7 @@
                     <h2 class="h4 no-margin-bottom" ><a href="addCrypto"></a></h2>
                 </div>
                 <div class="list-inline-item">
-                    <h2 class="h4 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
+                    <h2 class="h4 no-margin-bottom"><a href="<c:url value="/userUserConfirmDelete"/>">Delete account</a></h2>
                 </div>
                 <div class="list-inline-item">
                     <h2 class="h4 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
@@ -70,7 +70,7 @@
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Password</label>
-                                        <c:out value="${userDetails.password}"/>
+                                        <c:out value="${myDetails.password}"/>
                                         <label f class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">

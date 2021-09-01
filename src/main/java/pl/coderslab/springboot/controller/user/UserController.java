@@ -39,7 +39,7 @@ public class UserController {
     }
 
     @GetMapping(value = {"/myDetailsEdit"})
-    public String userEditForm(@AuthenticationPrincipal UserDetails customUser, Model model) {
+    public String myDetailsEditForm(@AuthenticationPrincipal UserDetails customUser, Model model) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         model.addAttribute("myDetailsEdit", user);
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @PostMapping(value = {"userEdit"})
-    public String userEditSave(@Valid User user) {
+    public String myDetailsEditSave(@Valid User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
@@ -56,11 +56,21 @@ public class UserController {
     }
 
     @RequestMapping("/myDetailsConfirmEditing")
-    public String userConfirmEditing(@AuthenticationPrincipal UserDetails customUser, Model model) {
+    public String myDetailsConfirmEditing(@AuthenticationPrincipal UserDetails customUser, Model model) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         model.addAttribute("myDetailsConfirmEdit", user);
         return "user/user/userConfirmEdit";
     }
 
+    @RequestMapping("/userUserConfirmDelete")
+    public String userUserConfirmDelete() {
+        return "user/user/userConfirmDelete";
+    }
+
+    @GetMapping(value = {"/userUserDelete/{id}"})
+    public String userUserDelete(@PathVariable long id) {
+        userService.delete(id);
+        return "redirect:/dashboard";
+    }
 }
