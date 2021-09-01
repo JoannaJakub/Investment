@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en"><%@ include file="../../head.jsp" %>
+<%@ include file="../../head.jsp" %>
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -86,7 +86,7 @@
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/userEditDetails/${myDetails.id}"/>"
+                                            <a href="<c:url value="/myDetailsEdit"/>"
                                                class="btn btn-primary">Edit details</a>
                                         </div>
                                     </div>
