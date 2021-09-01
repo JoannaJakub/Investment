@@ -21,6 +21,7 @@
         <li><a href="<c:url value="/allStocks"/>"><i class="icon-padnote"></i>All stocks </a></li>
         <li><a href="<c:url value="/allCrypto"/>"><i class="icon-padnote"></i>All crypto </a></li>
         <li><a href="<c:url value="/yourContact"/>"><i class="icon-padnote"></i>Your messages</a></li>
+        <li><a href="<c:url value="/myDetails"/>"><i class="icon-padnote"></i>My details</a></li>
     </ul>
 </nav>
 </nav>
