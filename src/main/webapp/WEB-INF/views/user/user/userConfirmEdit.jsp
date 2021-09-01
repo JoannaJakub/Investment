@@ -4,22 +4,29 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="../adminHead.jsp" %>
-
+<%@ include file="../../head.jsp" %>
 <body>
-<%@ include file="../adminHeader.jsp" %>
+<%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
-    <%@ include file="../adminSideMenu.jsp" %>
+    <%@ include file="../sideMenu.jsp" %>
     <div class="page-content">
+        <!-- Page Header-->
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
+                <h2 class="h4 no-margin-bottom" ><a href="addCrypto"></a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
+            </div>
+            <div class="list-inline-item">
+                <h2 class="h4 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
             </div>
         </div>
-
+        <!-- Breadcrumb-->
+        <div class="container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href=>Fill in form</a></li>
+            </ul>
         <section class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">
@@ -35,7 +42,7 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${userConfirmEdit}" var="userConfirmEdit">
+                                <form:form items="${myDetailsConfirmEdit}" var="myDetailsConfirmEdit">
 
                                     <tr>
                                         <td>ID</td>
@@ -43,16 +50,16 @@
                                     </tr>
                                     <tr>
                                         <td>Name</td>
-                                        <td><c:out value="${userConfirmEdit.firstName}"/></td>
+                                        <td><c:out value="${myDetailsConfirmEdit.firstName}"/></td>
                                     </tr>
                                     <tr>
                                         <td>Surname</td>
-                                        <td><c:out value="${userConfirmEdit.lastName}"/></td>
+                                        <td><c:out value="${myDetailsConfirmEdit.lastName}"/></td>
                                     </tr>
 
                                     <tr>
                                         <td>Password</td>
-                                        <td><c:out value="${userConfirmEdit.password}"/></td>
+                                        <td><c:out value="${myDetailsConfirmEdit.password}"/></td>
                                     </tr>
                                     <div class="form-group text-center">
                                         <input id="register" type="submit" value="Add" class="btn btn-primary">
@@ -71,7 +78,6 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all storages? </small><a href="<c:url value="/users"/>">Here</a>
             </div>
         </section>
     </div>
