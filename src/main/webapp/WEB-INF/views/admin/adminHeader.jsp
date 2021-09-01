@@ -43,74 +43,90 @@
                 <div aria-labelledby="languages" class="dropdown-menu">
                     <a rel="nofollow" href="adminCalendar" class="dropdown-item">
 
-                    <script>
+                        <script>
 
-                        var dt = new Date();
-                        var month = dt.getMonth(); // read the current month
-                        var monthL = dt.toLocaleString('default', {month: 'long'}); // read the current month
-                        document.write( monthL + "<br>");
+                            var dt = new Date();
+                            var month = dt.getMonth(); // read the current month
+                            var monthL = dt.toLocaleString('default', {month: 'long'}); // read the current month
+                            document.write(monthL + "<br>");
 
-                        var year = dt.getFullYear(); // read the current year
-                        dt = new Date(year, month, 01);//Year , month,date format
-                        var first_day = dt.getDay(); //, first day of present month
-                        dt.setMonth(month + 1, 0); // Set to next month and one day backward.
-                        var last_date = dt.getDate(); // Last date of present month
+                            var year = dt.getFullYear(); // read the current year
+                            dt = new Date(year, month, 01);//Year , month,date format
+                            var first_day = dt.getDay(); //, first day of present month
+                            dt.setMonth(month + 1, 0); // Set to next month and one day backward.
+                            var last_date = dt.getDate(); // Last date of present month
 
-                        var dy = 1; // day variable for adjustment of starting date.
-                        document.write("<table><tr><td>Su</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td>");
+                            var dy = 1; // day variable for adjustment of starting date.
+                            document.write("<table><tr><td>Su</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td>");
 
-                        for (i = 0; i <= 41; i++) {
-                            if ((i % 7) == 0) {
-                                document.write("</tr><tr>");
-                            } // if week is over then start a new line
-                            if ((i >= first_day) && (dy <= last_date)) {
-                                document.write("<td>" + dy + "</td>");
-                                dy = dy + 1;
-                            } else {
-                                document.write("<td>*</td>");
-                            } // Blank dates.
-                        } // end of for loop
+                            for (i = 0; i <= 41; i++) {
+                                if ((i % 7) == 0) {
+                                    document.write("</tr><tr>");
+                                } // if week is over then start a new line
+                                if ((i >= first_day) && (dy <= last_date)) {
+                                    document.write("<td>" + dy + "</td>");
+                                    dy = dy + 1;
+                                } else {
+                                    document.write("<td>*</td>");
+                                } // Blank dates.
+                            } // end of for loop
 
-                        document.write("</tr></table>")
+                            document.write("</tr></table>")
 
-                    </script>
+                        </script>
                     </a>
                 </div>
             </div>
             <div class="right-menu list-inline no-margin-bottom">
                 <div class="list-inline-item"><a href="#" class="search-open nav-link">
                     <i class="icon-magnifying-glass-browser"></i></a></div>
-                <div class="list-inline-item dropdown"><a id="navbarDropdownMenuLink1" href="#" data-toggle="dropdown"
-                                                          aria-haspopup="true" aria-expanded="false"
-                                                          class="nav-link messages-toggle"><i
-                        class="icon-email"></i><span class="badge dashbg-1">5</span></a>
-                    <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages"><a href="#"
-                                                                                                     class="dropdown-item message d-flex align-items-center">
-                        <div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
-                            <div class="status online"></div>
-                        </div>
-                        <div class="content"><strong class="d-block">Nadia Halsey</strong><span class="d-block">lorem ipsum dolor sit amit</span><small
-                                class="date d-block">9:30am</small></div>
-                    </a><a href="#" class="dropdown-item message d-flex align-items-center">
-                        <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
-                            <div class="status away"></div>
-                        </div>
-                        <div class="content"><strong class="d-block">Peter Ramsy</strong><span class="d-block">lorem ipsum dolor sit amit</span><small
-                                class="date d-block">7:40am</small></div>
-                    </a><a href="#" class="dropdown-item message d-flex align-items-center">
-                        <div class="profile"><img src="img/avatar-1.jpg" alt="..." class="img-fluid">
-                            <div class="status busy"></div>
-                        </div>
-                        <div class="content"><strong class="d-block">Sam Kaheil</strong><span class="d-block">lorem ipsum dolor sit amit</span><small
-                                class="date d-block">6:55am</small></div>
-                    </a><a href="#" class="dropdown-item message d-flex align-items-center">
-                        <div class="profile"><img src="img/avatar-5.jpg" alt="..." class="img-fluid">
-                            <div class="status offline"></div>
-                        </div>
-                        <div class="content"><strong class="d-block">Sara Wood</strong><span class="d-block">lorem ipsum dolor sit amit</span><small
-                                class="date d-block">10:30pm</small></div>
-                    </a><a href="#" class="dropdown-item text-center message"> <strong>See All Messages <i
-                            class="fa fa-angle-right"></i></strong></a></div>
+
+                <div class="list-inline-item dropdown">
+                    <a id="navbarDropdownMenuLink1" href="#" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false" class="nav-link messages-toggle">
+                        <i class="icon-email"></i>
+                        <span class="badge dashbg-1">5</span></a>
+
+                    <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages">
+                        <a href="#" class="dropdown-item message d-flex align-items-center">
+
+                            <div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
+                                <div class="status online"></div>
+                            </div>
+                                <div class="content"><strong class="d-block">Nadia Halsey</strong>
+                                    <span class="d-block">lorem ipsum dolor sit amit</span>
+                                    <small class="date d-block">9:30am</small>
+                                </div>
+
+                        </a>
+                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                            <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
+                                <div class="status away"></div>
+                            </div>
+                            <div class="content"><strong class="d-block">Peter Ramsy</strong>
+                                <span class="d-block">lorem ipsum dolor sit amit</span>
+                                <small class="date d-block">7:40am</small>
+                            </div>
+                        </a>
+                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                            <div class="profile"><img src="img/avatar-1.jpg" alt="..." class="img-fluid">
+                                <div class="status busy"></div>
+                            </div>
+                            <div class="content"><strong class="d-block">Sam Kaheil</strong>
+                                <span class="d-block">lorem ipsum dolor sit amit</span>
+                                <small class="date d-block">6:55am</small></div>
+                        </a>
+                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                            <div class="profile"><img src="img/avatar-5.jpg" alt="..." class="img-fluid">
+                                <div class="status offline"></div>
+                            </div>
+                            <div class="content"><strong class="d-block">Sara Wood</strong>
+                                <span class="d-block">lorem ipsum dolor sit amit</span>
+                                <small class="date d-block">10:30pm</small></div>
+                        </a>
+
+                        <a href="<c:url value="/adminContact"/>" class="dropdown-item text-center message">
+                            <strong>See All Messages <i class="fa fa-angle-right"></i></strong></a></div>
                 </div>
 
                 <!-- Megamenu-->
