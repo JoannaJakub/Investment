@@ -25,6 +25,6 @@ public class Contact {
     private String message;
     @UpdateTimestamp
     private LocalDateTime updateDate;
-    @ManyToOne
+    @ManyToOne (fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE})
     private User user;
 }

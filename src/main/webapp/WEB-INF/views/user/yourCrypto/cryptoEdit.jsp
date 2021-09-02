@@ -34,6 +34,7 @@
                         <div class="title"><strong>Edit stock</strong></div>
                         <div class="block-body">
                             <form:form method="post" modelAttribute="cryptoEdit">
+                                <form:hidden path="user" value="${user.id}"/>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Id</label>
                                     <div class="col-sm-9">
@@ -43,7 +44,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
-                                        <form:select id="cryptocurrencies" type="text" name="cryptocurrencies" path="cryptocurrencies"
+                                        <form:input id="cryptocurrencies" type="text" name="cryptocurrencies" path="cryptocurrencies"
                                                     placeholder="cryptocurrencies" data-msg="Please enter cryptocurrencies"
                                                     class="form-control"/>
                                         <form:errors path="cryptocurrencies"/></div>
@@ -52,7 +53,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Storage</label>
                                     <div class="col-sm-9">
-                                        <form:select id="storage" type="text" name="name" path="storage"
+                                        <form:input id="storage" type="text" name="name" path="storage"
                                                     placeholder="storage" data-msg="Please enter storage"
                                                     class="form-control"/>
                                         <form:errors path="storage"/>

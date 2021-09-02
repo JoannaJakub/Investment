@@ -35,6 +35,7 @@
                                 <tbody>
 
                                 <form:form items="${cryptoConfirmEdit}" var="cryptoConfirmEdit">
+
                                     <div>
                                         <tr>
                                             <td>ID</td>
@@ -42,11 +43,11 @@
                                         </tr>
                                         <tr>
                                             <td>Name</td>
-                                            <td><c:out value="${cryptoConfirmEdit}"/></td>
+                                            <td><c:out value="${cryptoConfirmEdit.cryptocurrencies.name}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Storage</td>
-                                            <td><c:out value="${cryptoConfirmEdit.storage}"/></td>
+                                            <td><c:out value="${cryptoConfirmEdit.storage.name}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Price</td>

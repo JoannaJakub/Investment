@@ -32,7 +32,7 @@ public class Ownedcryptocurrencies implements Serializable {
 
     @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Storage storage;
-    @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne (fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE})
     private User user;
     @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Cryptocurrencies cryptocurrencies;

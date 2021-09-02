@@ -32,7 +32,7 @@
                         <div class="title"><strong>Edit message</strong></div>
 
                         <form:form method="post" modelAttribute="contactEdit">
-                            <form:input type="hidden" path="id"/>
+                            <form:hidden path="user" value="${user.id}"/>
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">Message</label>
                                 <div class="col-sm-9">

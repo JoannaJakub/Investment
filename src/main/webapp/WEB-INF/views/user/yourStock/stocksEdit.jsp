@@ -34,6 +34,7 @@
                         <div class="title"><strong>Edit stock</strong></div>
                         <div class="block-body">
                             <form:form method="post" modelAttribute="stocksEdit">
+                                <form:hidden path="user" value="${user.id}"/>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Id</label>
                                     <div class="col-sm-9">
