@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en"><%@ include file="../../head.jsp" %>
 <body>
@@ -54,7 +55,8 @@
                                                class="btn btn-primary">Edit message</a>
                                         </div>
                                     </div>
-                                </form:form><small>List of your contacts? </small><a
+                                </form:form>
+                                <small>List of your messages? </small><a
                                         href="<c:url value="/yourContact"/>">Here</a>
                                 </tbody>
                             </table>

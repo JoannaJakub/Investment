@@ -36,12 +36,14 @@
                                 <form:form items="${contactConfirmEdit}" var="contactConfirmEdit">
                                     <div>
                                         <tr>
-                                            <td>ID</td>
                                             <td><c:out value="${id}"/></td>
-                                </tr>
-                                        <tr>
-                                            <td>Nazwa</td>
+
+                                            <td>Message</td>
                                             <td><c:out value="${contactConfirmEdit.message}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td><c:out value="${contactConfirmEdit.updateDate}"/></td>
                                         </tr>
                                     </div>
                                 </form:form>

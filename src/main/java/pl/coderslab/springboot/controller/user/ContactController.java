@@ -31,11 +31,7 @@ public class ContactController {
     public String yourContact(Model model, Authentication authentication) {
         User user = userService.findByUserName(authentication.getName());
         List<Contact> contact = contactRepository.findContactByUserId(user.getId());
-        if (!contact.isEmpty()) {
-            model.addAttribute("contact", contact);
-        } else {
-            return "user/userError";
-        }
+        model.addAttribute("contact", contact);
         return "user/contact/contact";
     }
 
@@ -79,9 +75,8 @@ public class ContactController {
     }
 
     @GetMapping(value = {"/contactEdit/{id}"})
-    public String contactEditForm(@PathVariable long id, Model model, Authentication authentication) {
+    public String contactEditForm(@PathVariable long id, Model model) {
         model.addAttribute("contactEdit", contactRepository.findById(id));
-        model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/contact/contactEdit";
     }
 
