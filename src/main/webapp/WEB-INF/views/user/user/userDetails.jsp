@@ -18,16 +18,8 @@
                 <div class="list-inline-item">
                     <h2 class="h4 no-margin-bottom"><a href="<c:url value="/userUserConfirmDelete"/>">Delete account</a></h2>
                 </div>
-                <div class="list-inline-item">
-                    <h2 class="h4 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
-                </div>
             </div>
-            <!-- Breadcrumb-->
-            <div class="container-fluid">
-                <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href=>Fill in form</a></li>
-                </ul>
-            </div>
+
 
         <section class="no-padding-top">
             <div class="container-fluid">
@@ -45,11 +37,6 @@
                                 <tbody>
 
                                 <form:form items="${myDetails}" var="myDetails">
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">User id</label>
-                                        <c:out value="${myDetails.id}"/>
-                                        <label class="label-material"></label>
-                                    </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Username</label>
 
@@ -71,17 +58,6 @@
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Password</label>
                                         <c:out value="${myDetails.password}"/>
-                                        <label f class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Enabled</label>
-                                        <c:out value="${myDetails.enabled}"/>
-                                        <label f class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Role</label>
-                                        <a href="<c:url value="/userRole/${myDetails.role.iterator().next().id}"/>"><c:out
-                                                value="${myDetails.role.iterator().next().name}"/></a>
                                         <label f class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">

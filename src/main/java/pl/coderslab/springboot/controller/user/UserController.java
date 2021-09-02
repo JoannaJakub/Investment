@@ -46,13 +46,13 @@ public class UserController {
         return "user/user/userEdit";
     }
 
-    @PostMapping(value = {"userEdit"})
+    @PostMapping(value = {"myDetailsEdit"})
     public String myDetailsEditSave(@Valid User user) {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
         userService.saveUser(user);
-        return "redirect:/myDetailsConfirmEditing}";
+        return "redirect:/myDetailsConfirmEditing";
     }
 
     @RequestMapping("/myDetailsConfirmEditing")
@@ -68,9 +68,11 @@ public class UserController {
         return "user/user/userConfirmDelete";
     }
 
-    @GetMapping(value = {"/userUserDelete/{id}"})
-    public String userUserDelete(@PathVariable long id) {
-        userService.delete(id);
+    @GetMapping(value = {"/userUserDelete"})
+    public String userUserDelete(@AuthenticationPrincipal UserDetails customUser) {
+        String entityUser = customUser.getUsername();
+        User user = userRepository.findByUsername(entityUser);
+        userService.delete(user.getId());
         return "redirect:/dashboard";
     }
 }

@@ -17,18 +17,9 @@
             <div class="list-inline-item">
                 <h2 class="h4 no-margin-bottom" ><a href="addCrypto"></a></h2>
             </div>
-            <div class="list-inline-item">
-                <h2 class="h4 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h4 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
-            </div>
+
         </div>
-        <!-- Breadcrumb-->
-        <div class="container-fluid">
-            <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href=>Fill in form</a></li>
-            </ul>
+
 
         <section class="no-padding-top">
             <div class="container-fluid">
@@ -44,14 +35,9 @@
                         <div class="block-body">
                             <form:form method="post" modelAttribute="myDetailsEdit">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Role id</label>
-                                    <div class="col-sm-9">
-                                        <c:out value="${id}"/></div>
-                                    <label for="name" class="label-material"></label>
-                                </div>
-                                <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
+                                        <form:input type="hidden" path="id"/>
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
                                                     class="input-material"/>
