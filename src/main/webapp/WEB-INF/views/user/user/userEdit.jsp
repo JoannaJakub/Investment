@@ -38,7 +38,11 @@
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
                                         <form:input type="hidden" path="id"/>
+                                        <form:input path="role" value="${role.id}"/>
+
+<%--
                                         <form:hidden path="role" value="${role.iterator().next().id}"/>
+--%>
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
                                                     class="input-material"/>

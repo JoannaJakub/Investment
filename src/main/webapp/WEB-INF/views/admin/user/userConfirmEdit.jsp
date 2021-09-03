@@ -15,9 +15,6 @@
             <div class="list-inline-item">
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
-            </div>
         </div>
 
         <section class="no-padding-top">
@@ -30,7 +27,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>User</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -49,10 +46,21 @@
                                         <td>Surname</td>
                                         <td><c:out value="${userConfirmEdit.lastName}"/></td>
                                     </tr>
-
+                                    <tr>
+                                        <td>Username</td>
+                                        <td><c:out value="${userConfirmEdit.username}"/></td>
+                                    </tr>
                                     <tr>
                                         <td>Password</td>
                                         <td><c:out value="${userConfirmEdit.password}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Enabled</td>
+                                        <td><c:out value="${userConfirmEdit.enabled}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role</td>
+                                        <td><c:out value="${userConfirmEdit.role.iterator().next().name}"/></td>
                                     </tr>
                                     <div class="form-group text-center">
                                         <input id="register" type="submit" value="Add" class="btn btn-primary">
@@ -71,7 +79,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all storages? </small><a href="<c:url value="/users"/>">Here</a>
+                <small>List of all users? </small><a href="<c:url value="/users"/>">Here</a>
             </div>
         </section>
     </div>

@@ -72,7 +72,7 @@
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Enabled</label>
                                         <c:out value="${userDetails.enabled}"/>
-                                        <label f class="label-material"> </label>
+                                        <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Role</label>
