@@ -15,9 +15,6 @@
             <div class="list-inline-item">
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
-            </div>
         </div>
 
         <section class="no-padding-top">
@@ -30,7 +27,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>Role</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -39,16 +36,14 @@
 
                                     <tr>
                                         <td>ID</td>
-                                        <td><c:out value="${id}"/></td>
+                                        <td><c:out value="${changeRoleConfirm.role.iterator().next().id}"/></td>
 
                                     </tr>
                                     <tr>
                                         <td>Role</td>
-                                        <td><c:out value="${changeRoleConfirm.roles}"/></td>
+                                        <td><c:out value="${changeRoleConfirm.role.iterator().next().name}"/></td>
                                     </tr>
-                                    <div class="form-group text-center">
-                                        <input id="register" type="submit" value="Add" class="btn btn-primary">
-                                    </div>
+
                                 </form:form>
 
 
@@ -63,7 +58,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all storages? </small><a href="<c:url value="/users"/>">Here</a>
+                <small>List of all users? </small><a href="<c:url value="/users"/>">Here</a>
             </div>
         </section>
     </div>

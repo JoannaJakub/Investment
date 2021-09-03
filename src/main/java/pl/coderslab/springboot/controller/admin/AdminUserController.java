@@ -34,13 +34,15 @@ public class AdminUserController {
     private final UserService userService;
     private final OwnedcryptocurrenciesRepository ownedcryptoRepo;
     private final OwnedstocksRepository ownedstocksRepo;
+    private final RoleRepository roleRepository;
 
     public AdminUserController(UserRepository userRepo, UserService userService,
-                               OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo) {
+                               OwnedcryptocurrenciesRepository ownedcryptoRepo, OwnedstocksRepository ownedstocksRepo, RoleRepository roleRepository) {
         this.userRepo = userRepo;
         this.userService = userService;
         this.ownedcryptoRepo = ownedcryptoRepo;
         this.ownedstocksRepo = ownedstocksRepo;
+        this.roleRepository = roleRepository;
     }
 
     @GetMapping("users")
@@ -123,11 +125,13 @@ public class AdminUserController {
     @GetMapping(value = {"/changeRole/{id}"})
     public String changeRoleForm(@PathVariable long id, Model model) {
         model.addAttribute("changeRole", userRepo.findById(id));
+        model.addAttribute("role", roleRepository.findAll());
+
         return "admin/user/changeRole";
     }
 
     @PostMapping(value = {"changeRole/{id}"})
-    public String changeRoleSave(@Valid User user) {
+    public String changeRoleSave(@Valid User user, @PathVariable long id) {
         userService.saveUser(user);
         return "redirect:/changeRoleConfirm/{id}";
     }
@@ -136,7 +140,7 @@ public class AdminUserController {
     public String changeRoleConfirm(@PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         if (user.isPresent()) {
-            model.addAttribute("userConfirmEdit", user.get());
+            model.addAttribute("changeRoleConfirm", user.get());
         } else {
             return "admin/adminError";
         }

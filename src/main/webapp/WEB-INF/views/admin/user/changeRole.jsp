@@ -47,20 +47,29 @@
                                     <label for="id" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Role name</label>
+                                    <label class="col-sm-3 form-control-label">Current role</label>
                                     <div class="col-sm-9">
-                                        <c:out value="${role.name}"/></div>
-                                    <label for="roles" class="label-material"></label>
+                                        <c:out value="${changeRole.stream().iterator().next().role}"/>
+                                       <%-- <c:forEach items="${changeRole.get().role.iterator().next.id}" var="role">
+                                            <form:radiobutton path="role" value="${role.id}"
+                                                              name="role" />
+                                            <span class="checkbox radio"></span>
+                                            <span class="name"><c:out value="${role.name}" /></span>
+                                        </c:forEach>--%>
+                                        <label for="role" class="label-material"></label>
+                                    </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage</label>
+                                    <label class="col-sm-3 form-control-label">Choose role</label>
                                     <div class="col-sm-9">
-                                        <select id="roles" type="text" name="name" path="roles"
-                                                placeholder="roles" data-msg="Please enter storage"
-                                                class="form-control"/>
-                                        <form:errors path="roles"/>
+                                        <c:forEach items="${role}" var="role">
+                                            <form:radiobutton path="role" value="${role.id}"
+                                                              name="role" />
+                                            <span class="checkbox radio"></span>
+                                            <span class="name"><c:out value="${role.name}" /></span>
+                                        </c:forEach>
+                                        <label for="role" class="label-material"></label>
                                     </div>
-                                    <label for="storage" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/users"/>"
