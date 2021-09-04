@@ -131,7 +131,7 @@ public class AdminUserController {
     }
 
     @PostMapping(value = {"changeRole/{id}"})
-    public String changeRoleSave(@Valid User user, @PathVariable long id) {
+    public String changeRoleSave(@Valid User user) {
         userService.saveUser(user);
         return "redirect:/changeRoleConfirm/{id}";
     }

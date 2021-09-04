@@ -61,8 +61,8 @@
             <div class="no-margin-bottom">
             </div>
         </section>
-    </div>
-</div>
+
+
 <%@ include file="../../main/footer.jsp" %>
 
 </body>

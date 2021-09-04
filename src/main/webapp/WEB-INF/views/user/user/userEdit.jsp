@@ -15,7 +15,7 @@
         <!-- Page Header-->
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 no-margin-bottom" ><a href="addCrypto"></a></h2>
+                <h2 class="h4 no-margin-bottom"><a href="addCrypto"></a></h2>
             </div>
 
         </div>
@@ -38,11 +38,13 @@
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
                                         <form:input type="hidden" path="id"/>
-                                        <form:input path="role" value="${role.id}"/>
 
-<%--
-                                        <form:hidden path="role" value="${role.iterator().next().id}"/>
---%>
+                                        <form:input type="hidden" path="role"/>
+
+
+                                            <%--
+                                                                                    <form:hidden path="role" value="${role.iterator().next().id}"/>
+                                            --%>
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
                                                     class="input-material"/>
@@ -90,11 +92,9 @@
             </div>
 
         </section>
-        </section>
 
-    </div>
-</div>
-<%@ include file="../../main/footer.jsp" %>
+
+        <%@ include file="../../main/footer.jsp" %>
 
 </body>
 </html>
