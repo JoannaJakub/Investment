@@ -38,13 +38,8 @@
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
                                         <form:input type="hidden" path="id"/>
-
                                         <form:input type="hidden" path="role"/>
-
-
-                                            <%--
-                                                                                    <form:hidden path="role" value="${role.iterator().next().id}"/>
-                                            --%>
+                                        <form:input type="hidden" path="password"/>
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
                                                     class="input-material"/>
@@ -73,10 +68,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Password</label>
                                     <div class="col-sm-9">
-                                        <form:input id="register-password" type="password" name="registerPassword"
-                                                    path="password" placeholder="Password"
-                                                    data-msg="Please enter your password" class="input-material"/>
-                                        <form:errors path="password"/></div>
+                                        <a href="<c:url value="/userChangePassword"/>"
+                                           class="btn btn-primary">Change Password</a>
                                     <label for="firstName" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
