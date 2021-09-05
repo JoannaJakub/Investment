@@ -18,6 +18,59 @@
                         class="text-primary">Inwestycje</strong><strong>w kupie</strong></div>
                 <div class="brand-text brand-sm"><strong class="text-primary">I</strong><strong>K</strong></div></a>
 
+                <!-- Calendar    -->
+                <div class="list-inline-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#"
+                                                          data-toggle="dropdown" aria-haspopup="true"
+                                                          aria-expanded="false"
+                                                          class="nav-link language dropdown-toggle">
+                    <span id='date-time'></span>
+                    <script>
+                        var today = new Date();
+                        var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                        var time = today.getHours() + ":" + today.getMinutes();
+                        var dateTime = date + ' ' + time;
+                        document.getElementById('date-time').innerHTML = dateTime;
+                    </script>
+                </a>
+
+                    <div aria-labelledby="languages" class="dropdown-menu">
+                        <a rel="nofollow" href="adminCalendar" class="dropdown-item">
+
+                            <script>
+
+                                var dt = new Date();
+                                var month = dt.getMonth(); // read the current month
+                                var monthL = dt.toLocaleString('default', {month: 'long'}); // read the current month
+                                document.write(monthL + "<br>");
+
+                                var year = dt.getFullYear(); // read the current year
+                                dt = new Date(year, month, 01);//Year , month,date format
+                                var first_day = dt.getDay(); //, first day of present month
+                                dt.setMonth(month + 1, 0); // Set to next month and one day backward.
+                                var last_date = dt.getDate(); // Last date of present month
+
+                                var dy = 1; // day variable for adjustment of starting date.
+                                document.write("<table><tr><td>Su</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td>");
+
+                                for (i = 0; i <= 41; i++) {
+                                    if ((i % 7) == 0) {
+                                        document.write("</tr><tr>");
+                                    } // if week is over then start a new line
+                                    if ((i >= first_day) && (dy <= last_date)) {
+                                        document.write("<td>" + dy + "</td>");
+                                        dy = dy + 1;
+                                    } else {
+                                        document.write("<td>*</td>");
+                                    } // Blank dates.
+                                } // end of for loop
+
+                                document.write("</tr></table>")
+
+                            </script>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Sidebar Toggle Btn-->
                 <button class="sidebar-toggle"><i class="fa fa-long-arrow-left"></i></button>
             </div>
