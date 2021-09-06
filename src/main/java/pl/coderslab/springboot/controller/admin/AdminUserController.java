@@ -14,6 +14,7 @@ import pl.coderslab.springboot.excel.AdminUserExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
+import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -23,10 +24,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class AdminUserController {
@@ -55,6 +53,7 @@ public class AdminUserController {
     @GetMapping("/adminRegister")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("role", roleRepository.findAll());
         return "admin/user/adminRegister";
     }
 
@@ -88,15 +87,22 @@ public class AdminUserController {
     @GetMapping(value = {"/userEdit/{id}"})
     public String userEditForm(@PathVariable long id, Model model) {
         model.addAttribute("userEdit", userRepo.findById(id));
+        model.addAttribute("role", roleRepository.findAll());
+
         return "admin/user/userEdit";
     }
 
     @PostMapping(value = {"userEdit/{id}"})
     public String userEditSave(@Valid User user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+       /* BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-        userService.saveUser(user);
+        user.setPassword(encodedPassword);*/
+        /*Role role = roleRepository.findById(1L).orElse(null);
+        if(role != null){
+            user.setRole(new HashSet<>(Collections.singletonList(role)));
+            userRepo.save(user);
+        }*/
+        userRepo.save(user);
         return "redirect:/userConfirmEditing/{id}";
     }
 
@@ -132,7 +138,7 @@ public class AdminUserController {
 
     @PostMapping(value = {"changeRole/{id}"})
     public String changeRoleSave(@Valid User user) {
-        userService.saveUser(user);
+        userRepo.save(user);
         return "redirect:/changeRoleConfirm/{id}";
     }
 

@@ -62,9 +62,6 @@
                                         <td>Role</td>
                                         <td><c:out value="${userConfirmEdit.role.iterator().next().name}"/></td>
                                     </tr>
-                                    <div class="form-group text-center">
-                                        <input id="register" type="submit" value="Add" class="btn btn-primary">
-                                    </div>
                                 </form:form>
 
 

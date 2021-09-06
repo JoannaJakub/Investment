@@ -63,6 +63,15 @@
                                         <form:errors path="password"/>
                                         <label for="register-password" class="label-material"> </label>
                                     </div>
+                                    <div class="form-group-material">
+                                        <c:forEach items="${role}" var="role">
+                                            <form:radiobutton path="role" value="${role.id}"
+                                                              name="role" />
+                                            <span class="checkbox radio"></span>
+                                            <span class="name"><c:out value="${role.name}" /></span>
+                                        </c:forEach>
+                                        <label for="register-password" class="label-material"> </label>
+                                    </div>
                                     <%--     <div class="form-group terms-conditions text-center">
                                              <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
                                              <label for="register-agree">I agree with the terms and policy</label>

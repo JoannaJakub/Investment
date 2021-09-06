@@ -36,7 +36,7 @@
                         <div class="block-body">
                             <form:form method="post" modelAttribute="userEdit">
                             <div class="form-group row">
-                                <label class="col-sm-3 form-control-label">Role id</label>
+                                <label class="col-sm-3 form-control-label">User ID</label>
                                 <div class="col-sm-9">
                                     <c:out value="${id}"/></div>
                                 <label for="name" class="label-material"></label>
@@ -90,12 +90,20 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">Role</label>
                                 <div class="col-sm-9">
+                                    <div class="col-sm-9">
                                     <c:forEach items="${role}" var="role">
-                                                <form:radiobutton path="role" value="${role.id}"
+                                            <form:radiobutton path="role" value="${role.id}"  checked="checked"
+                                                              name="role" />
+                                            <span class="checkbox radio"></span>
+                                            <span class="name"><c:out value="${role.name}" /></span>
+                                        </c:forEach>
+                                    </div>
+                                 <%--   <c:forEach items="${role}" var="role">
+                                                <form:select path="role" value="${role.id}"
                                                                   name="role"/>
                                                 <span class="checkbox radio"></span>
                                                 <span class="name"><c:out value="${role.name}"/></span>
-                                    </c:forEach>
+                                    </c:forEach>--%>
                                     <label for="role" class="label-material"></label>
                                 </div>
                             </div>

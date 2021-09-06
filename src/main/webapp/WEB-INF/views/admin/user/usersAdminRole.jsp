@@ -21,7 +21,7 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/users"/>">All users</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersUserRole/${id}"/>">User role</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersUserRole/1"/>">User role</a></h2>
             </div>
         </div>
 
