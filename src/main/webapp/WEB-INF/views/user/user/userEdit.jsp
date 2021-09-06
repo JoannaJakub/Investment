@@ -72,6 +72,7 @@
                                            class="btn btn-primary">Change Password</a>
                                     <label for="firstName" class="label-material"></label>
                                 </div>
+                                </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/myDetails"/>"
                                        class="btn btn-secondary">Cancel</a>

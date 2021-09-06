@@ -89,4 +89,11 @@ public class UserController {
         return "redirect:/dashboard";
     }
 
+    @GetMapping(value = {"/userChangePassword"})
+    public String userChangePasswordEditForm(@AuthenticationPrincipal UserDetails customUser, Model model) {
+        String entityUser = customUser.getUsername();
+        User user = userRepository.findByUsername(entityUser);
+        model.addAttribute("userChangePassword", user);
+        return "user/user/userChangePassword";
+    }
 }

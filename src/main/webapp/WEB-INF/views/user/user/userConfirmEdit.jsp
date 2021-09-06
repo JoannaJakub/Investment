@@ -41,10 +41,6 @@
                                         <td>Username</td>
                                         <td><c:out value="${myDetailsConfirmEdit.username}"/></td>
                                     </tr>
-                                    <tr>
-                                        <td>Password</td>
-                                        <td><c:out value="${myDetailsConfirmEdit.password}"/></td>
-                                    </tr>
                                 </form:form>
 
 
@@ -59,6 +55,9 @@
             <br>
             <br>
             <div class="no-margin-bottom">
+            </div>
+            <div class="no-margin-bottom">
+                <small>Your details? </small><a href="<c:url value="/myDetails"/>">Here</a>
             </div>
         </section>
 
