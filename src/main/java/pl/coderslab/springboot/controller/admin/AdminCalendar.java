@@ -71,7 +71,6 @@ public class AdminCalendar {
         Optional<Event> event = eventRepository.findById(id);
         if (event.isPresent()) {
             model.addAttribute("adminEventConfirmEdit", event.get());
-            System.out.println(event);
         } else {
             return "admin/adminError";
         }

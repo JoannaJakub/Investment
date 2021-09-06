@@ -94,14 +94,6 @@ public class AdminUserController {
 
     @PostMapping(value = {"userEdit/{id}"})
     public String userEditSave(@Valid User user) {
-       /* BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);*/
-        /*Role role = roleRepository.findById(1L).orElse(null);
-        if(role != null){
-            user.setRole(new HashSet<>(Collections.singletonList(role)));
-            userRepo.save(user);
-        }*/
         userRepo.save(user);
         return "redirect:/userConfirmEditing/{id}";
     }
@@ -233,8 +225,12 @@ public class AdminUserController {
     @PostMapping(value = {"userInvestEdit/{id}"})
     public String userInvestEditSave(@PathVariable long id, Model model) {
         Optional<Ownedstocks> stocks = ownedstocksRepo.findById(id);
-        model.addAttribute("adminUsersStocksEdit", stocks.get());
 
+        if (stocks.isPresent()) {
+            model.addAttribute("adminUsersStocksEdit", stocks.get());
+        } else {
+            return "admin/adminError";
+        }
         return "redirect:/userConfirmEditing/{id}";
     }
 }

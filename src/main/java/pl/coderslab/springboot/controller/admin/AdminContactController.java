@@ -77,7 +77,6 @@ public class AdminContactController {
     public String adminContactHeader(Model model) {
         List<Contact> contact = contactRepository.findAll();
         model.addAttribute("adminContactHeader", contact);
-        System.out.println(contact);
         return "admin/adminDashboard";
     }
 }
