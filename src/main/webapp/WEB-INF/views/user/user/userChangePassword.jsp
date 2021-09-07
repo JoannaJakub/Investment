@@ -33,36 +33,25 @@
                     <div class="block">
                         <div class="title"><strong>Change password</strong></div>
                         <div class="block-body">
-                            <div id="errormsg" style="display:none"></div>
-                            <div>
-                                <input id="oldpass" name="oldpassword" type="password" />
-                                <input id="pass" name="password" type="password" />
-                                <input id="passConfirm" type="password" />
-                                <span id="error" style="display:none">Password mismatch</span>
+                            <form:form method="post" modelAttribute="userChangePassword">
 
-                                <button type="submit" onclick="savePass()">Change Password</button>
-                            </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="register-password" type="password" name="registerPassword"
+                                                    path="password" placeholder="Password"
+                                                    data-msg="Please enter your password" class="input-material"/>
+                                        <form:errors path="password"/></div>
+                                    <label for="password" class="label-material"></label>
+                                </div>
+                                <div class="form-group text-center">
+                                    <a href="<c:url value="/myDetailsEdit"/>"
+                                       class="btn btn-secondary">Cancel</a>
+                                    <input id="register" type="submit" value="Update" class="btn btn-primary">
+                                </div>
 
-                            <script src="jquery.min.js"></script>
-                            <script type="text/javascript">
+                            </form:form>
 
-                                var serverContext = [[@{/}]];
-                                    function savePass(){
-                                        var pass = $("#pass").val();
-                                        var valid = pass == $("#passConfirm").val();
-                                        if(!valid) {
-                                            $("#error").show();
-                                            return;
-                                        }
-                                        $.post(serverContext + "user/updatePassword",
-                                            {password: pass, oldpassword: $("#oldpass").val()} ,function(data){
-                                                window.location.href = serverContext +"/home.html?message="+data.message;
-                                            })
-                                            .fail(function(data) {
-                                                $("#errormsg").show().html(data.responseJSON.message);
-                                            });
-                                    }
-                            </script>
                         </div>
                     </div>
                 </div>

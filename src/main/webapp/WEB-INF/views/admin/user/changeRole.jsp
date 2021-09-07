@@ -47,15 +47,16 @@
                                     <label for="id" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Username</label>
+                                    <div class="col-sm-9">
+                                        <c:out value="${changeRole.stream().iterator().next().username}"/>
+                                        <label for="role" class="label-material"></label>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Current role</label>
                                     <div class="col-sm-9">
                                         <c:out value="${changeRole.stream().iterator().next().role}"/>
-                                       <%-- <c:forEach items="${changeRole.get().role.iterator().next.id}" var="role">
-                                            <form:radiobutton path="role" value="${role.id}"
-                                                              name="role" />
-                                            <span class="checkbox radio"></span>
-                                            <span class="name"><c:out value="${role.name}" /></span>
-                                        </c:forEach>--%>
                                         <label for="role" class="label-material"></label>
                                     </div>
                                 </div>
@@ -64,9 +65,9 @@
                                     <div class="col-sm-9">
                                         <c:forEach items="${role}" var="role">
                                             <form:radiobutton path="role" value="${role.id}"
-                                                              name="role" />
+                                                              name="role"/>
                                             <span class="checkbox radio"></span>
-                                            <span class="name"><c:out value="${role.name}" /></span>
+                                            <span class="name"><c:out value="${role.name}"/></span>
                                         </c:forEach>
                                         <label for="role" class="label-material"></label>
                                     </div>

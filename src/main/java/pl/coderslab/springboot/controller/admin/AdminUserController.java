@@ -94,6 +94,9 @@ public class AdminUserController {
 
     @PostMapping(value = {"userEdit/{id}"})
     public String userEditSave(@Valid User user) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
         userRepo.save(user);
         return "redirect:/userConfirmEditing/{id}";
     }

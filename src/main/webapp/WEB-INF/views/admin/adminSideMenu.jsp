@@ -7,7 +7,6 @@
         <div class="avatar"><img src="../resources/distribution/img/admin-icon2.png" alt="..."
                                  class="img-fluid rounded-circle"></div>
         <div class="title">
-
             <h1 class="h5"><c:out value="${pageContext.request.remoteUser}"/></h1>
             <p></p>
         </div>
