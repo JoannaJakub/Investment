@@ -4,6 +4,7 @@ package pl.coderslab.springboot.controller.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -130,9 +131,14 @@ public class AdminStorageController {
     @GetMapping("storageOfUsers/{id}")
     public String storageOfUsers(Model model, @PathVariable long id) {
         List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findUserByStorageId(id);
-        model.addAttribute("storageOfUsersCrypto", usersStorageCrypto);
         List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findUserByStorageId(id);
-        model.addAttribute("storageOfUsersStocks", usersStorageStocks);
+
+        if (usersStorageCrypto.isEmpty() && usersStorageStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        }else{
+            model.addAttribute("storageOfUsersCrypto", usersStorageCrypto);
+            model.addAttribute("storageOfUsersStocks", usersStorageStocks);
+        }
         return "admin/storage/storageOfUsers";
     }
 

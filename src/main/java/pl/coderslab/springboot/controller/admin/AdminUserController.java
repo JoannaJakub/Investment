@@ -63,6 +63,8 @@ public class AdminUserController {
             return "admin/user/adminRegister";
         } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
+        } else if(!(user.getPassword().equals(user.getPasswordConfirm()))){
+            result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());

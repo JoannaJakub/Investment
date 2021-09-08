@@ -13,9 +13,6 @@
             <div class="list-inline-item">
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage">Add storage</a></h2>
-            </div>
         </div>
 
         <section class="no-padding-top">
@@ -28,7 +25,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>New user</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
@@ -57,13 +54,6 @@
                                         <label for="register-username" class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
-                                        <form:input id="register-password" type="password" name="registerPassword"
-                                                    path="password" placeholder="Password"
-                                                    data-msg="Please enter your password" class="input-material"/>
-                                        <form:errors path="password"/>
-                                        <label for="register-password" class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
                                         <c:forEach items="${role}" var="role">
                                             <form:radiobutton path="role" value="${role.id}"
                                                               name="role" />
@@ -72,6 +62,21 @@
                                         </c:forEach>
                                         <label for="register-password" class="label-material"> </label>
                                     </div>
+                                    <div class="form-group-material">
+                                        <form:input id="register-password" type="password" name="registerPassword"
+                                                    path="password" placeholder="Password"
+                                                    data-msg="Please enter your password" class="input-material"/>
+                                        <form:errors path="password"/>
+                                        <label for="register-password" class="label-material"> </label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <form:input id="register-passwordConfirm" type="password" name="passwordConfirm"
+                                                    path="passwordConfirm" placeholder="Confirm password"
+                                                    data-msg="Please enter your password" class="input-material"/>
+                                        <form:errors path="passwordConfirm"/>
+                                        <label for="register-password" class="label-material"> </label>
+                                    </div>
+
                                     <%--     <div class="form-group terms-conditions text-center">
                                              <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
                                              <label for="register-agree">I agree with the terms and policy</label>
