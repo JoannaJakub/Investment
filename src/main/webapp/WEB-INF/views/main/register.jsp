@@ -52,6 +52,11 @@
                                     <form:errors path="password"/>
                                     <label for="register-password" class="label-material">        </label>
                                 </div>
+                                <div class="form-group-material">
+                                    <form:input id="passwordConfirm" type="password" name="passwordConfirm" path="passwordConfirm"  placeholder="Confirm password"  data-msg="Please enter your password" class="input-material"/>
+                                    <form:errors path="passwordConfirm"/>
+                                    <label for="register-password" class="label-material">        </label>
+                                </div>
                            <%--     <div class="form-group terms-conditions text-center">
                                     <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg="Your agreement is required" class="checkbox-template">
                                     <label for="register-agree">I agree with the terms and policy</label>
