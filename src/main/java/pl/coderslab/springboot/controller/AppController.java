@@ -51,10 +51,10 @@ public class AppController {
         } else if (userService.findByUserName(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
         } else {
-            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        /*    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
-            user.setPassword(encodedPassword);
-            userService.saveUser(user);
+            user.setPassword(encodedPassword);*/
+            userService.save(user);
             return "main/register_success";
         }
         return "main/register";
