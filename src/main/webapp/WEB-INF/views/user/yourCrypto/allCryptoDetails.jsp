@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html lang="en"><%@ include file="../../head.jsp" %>
+<html lang="en">
+<%@ include file="../../head.jsp" %>
 <body>
 <%@ include file="../header.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -29,42 +30,44 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Crypto details</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
+                        <form:form items="${allCryptoDetails}" var="allCryptoDetails">
+
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${allCryptoDetails}" var="allCryptoDetails">
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Id</label>
-                                        <c:out value="${allCryptoDetails.id}"/>
-                                        <label class="label-material"></label>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Id</label>
+                                    <c:out value="${allCryptoDetails.id}"/>
+                                    <label class="label-material"></label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Name</label>
+                                    <c:out value="${allCryptoDetails.name}"/>
+                                    <label class="label-material"> </label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Max price</label>
+                                    <c:out value="${allCryptoDetails.priceMax}"/>
+                                    <label class="label-material"> </label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Min price</label>
+                                    <c:out value="${allCryptoDetails.priceMin}"/>
+                                    <label class="label-material"> </label>
+                                </div>
+                                <div class="form-group-material">
+                                    <label class="col-sm-3 form-control-label">Aux</label>
+                                    <c:out value="${allCryptoDetails.aux}"/>
+                                    <label class="label-material"> </label>
+                                </div>
+                                <div class="form-group-material">
+                                    <div class="col-sm ml-auto">
+                                        <a href="<c:url value="/cryptoEdit/${allCryptoDetails.id}"/>"
+                                           class="btn btn-primary">Edit crypto</a>
                                     </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Name</label>
-                                        <c:out value="${allCryptoDetails.name}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Max price</label>
-                                        <c:out value="${allCryptoDetails.priceMax}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Min price</label>
-                                        <c:out value="${allCryptoDetails.priceMin}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Aux</label>
-                                        <c:out value="${allCryptoDetails.aux}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
-                                        <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/cryptoEdit/${allCryptoDetails.id}"/>"
-                                               class="btn btn-primary">Edit crypto</a>
-                                        </div>
-                                    </div>
+                                </div>
                                 </form:form><small>List of all crypto? </small><a
                                         href="<c:url value="/allCrypto"/>">Here</a>
                                 </tbody>
@@ -75,7 +78,7 @@
             </div>
         </section>
 
-<%@ include file="../footer.jsp" %>
+        <%@ include file="../footer.jsp" %>
     </div>
 </div>
 </body>

@@ -85,11 +85,6 @@
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Storage</label>
-                                        <c:out value="${stocksDetails.storage.name}"/>
-                                        <label class="label-material"> </label>
-                                    </div>
-                                    <div class="form-group-material">
                                         <div class="col-sm ml-auto">
                                             <a href="<c:url value="/stocksEdit/${stocksDetails.id}"/>"
                                                class="btn btn-primary">Edit stock</a>

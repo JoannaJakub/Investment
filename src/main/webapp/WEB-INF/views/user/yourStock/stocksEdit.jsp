@@ -32,6 +32,7 @@
                 <div class="col-lg-12">
                     <div class="block">
                         <div class="title"><strong>Edit stock</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
                         <div class="block-body">
                             <form:form method="post" modelAttribute="stocksEdit">
                                 <form:hidden path="user" value="${user.id}"/>
