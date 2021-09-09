@@ -35,6 +35,8 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Stocks</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
+                        <c:forEach items="${userStocks}" var="userStocks">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -52,7 +54,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${userStocks}" var="userStocks">
                                     <tr>
                                         <td>${userStocks.id}</td>
                                         <td>${userStocks.stocks.name}</td>
@@ -71,8 +72,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
     </section>
 
 

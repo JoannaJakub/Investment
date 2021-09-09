@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en"><%@ include file="../../head.jsp" %>
-
 <body>
 <%@ include file="../adminHeader.jsp" %>
 <div class="d-flex align-items-stretch">
@@ -13,14 +12,13 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add cryptocurrencies</a>
-                </h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddCrypto"/>">Add cryptocurrencies</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add stocks</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStocks"/>">Add stocks</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add stocks</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add storage</a></h2>
             </div>
         </div>
         <!-- Breadcrumb-->
@@ -74,10 +72,6 @@
                 </div>
             </div>
         </section>
-
-    </div>
-</div>
-
 <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

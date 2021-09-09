@@ -155,22 +155,36 @@ public class AdminUserController {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
-        model.addAttribute("userInvestCrypto", ownedcryptocurrencies);
-        model.addAttribute("userStocks", ownedstocks);
+        if (ownedcryptocurrencies.isEmpty() && ownedstocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("userInvestCrypto", ownedcryptocurrencies);
+            model.addAttribute("userStocks", ownedstocks);
+        }
         return "admin/user/userInvest";
     }
+
     @RequestMapping("/userCrypto/{id}")
     public String userCrypto( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
-        model.addAttribute("userCrypto", ownedcryptocurrencies);
+        if (ownedcryptocurrencies.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("userCrypto", ownedcryptocurrencies);
+        }
         return "admin/user/userCrypto";
     }
+
     @RequestMapping("/userStocks/{id}")
     public String userStocks( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
-        model.addAttribute("userStocks", ownedstocks);
+        if (ownedstocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("userStocks", ownedstocks);
+        }
         return "admin/user/userStocks";
     }
 

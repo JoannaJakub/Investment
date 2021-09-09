@@ -2,7 +2,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en"><%@ include file="../../head.jsp" %>
+<html lang="en">
+<%@ include file="../../head.jsp" %>
 
 <body>
 <%@ include file="../adminHeader.jsp" %>
@@ -15,13 +16,16 @@
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersStorageCrypto"/>">Only crypto storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersStorageCrypto"/>">Only crypto storage</a>
+                </h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersStorageStocks"/>">Only stocks storage</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/usersStorageStocks"/>">Only stocks storage</a>
+                </h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersStorage/export/excel"/>">Export to excel</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersStorage/export/excel"/>">Export to
+                    excel</a></h2>
             </div>
         </div>
 
@@ -55,21 +59,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><c:out value="${usersStorageCrypto.user.id}"/></td>
-                                        <td><c:out value="${usersStorageCrypto.user.firstName}"/></td>
-                                        <td><c:out value="${usersStorageCrypto.user.lastName}"/></td>
-                                        <td><a href="<c:url value="/userDetails/${usersStorageCrypto.user.id}"/>"><c:out
-                                                value="${usersStorageCrypto.user.username}"/></a></td>
-                                        <td><c:out value="${usersStorageCrypto.storage.id}"/></td>
-                                        <td><c:out value="${usersStorageCrypto.storage.name}"/></td>
-                                        <td><c:out value="${usersStorageCrypto.storage.link}"/></td>
-                                        <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorageCrypto.id}"/>">Delete</a>
-                                        </td>
-                                        <td><a href="<c:url value="/storageEdit/${usersStorageCrypto.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/adminStorageDetails/${usersStorageCrypto.storage.id}"/>">Details</a>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td><c:out value="${usersStorageCrypto.user.id}"/></td>
+                                    <td><c:out value="${usersStorageCrypto.user.firstName}"/></td>
+                                    <td><c:out value="${usersStorageCrypto.user.lastName}"/></td>
+                                    <td><a href="<c:url value="/userDetails/${usersStorageCrypto.user.id}"/>"><c:out
+                                            value="${usersStorageCrypto.user.username}"/></a></td>
+                                    <td><c:out value="${usersStorageCrypto.storage.id}"/></td>
+                                    <td><c:out value="${usersStorageCrypto.storage.name}"/></td>
+                                    <td><c:out value="${usersStorageCrypto.storage.link}"/></td>
+                                    <td><a href="<c:url value="/storageConfirmDelete/?id=${usersStorageCrypto.id}"/>">Delete</a>
+                                    </td>
+                                    <td><a href="<c:url value="/storageEdit/${usersStorageCrypto.id}"/>">Edit</a></td>
+                                    <td>
+                                        <a href="<c:url value="/adminStorageDetails/${usersStorageCrypto.storage.id}"/>">Details</a>
+                                    </td>
+                                </tr>
                                 </c:forEach>
                                 <c:forEach items="${usersStorageStocks}" var="usersStorageStocks">
                                     <tr>
@@ -77,7 +82,8 @@
                                         <td><c:out value="${usersStorageStocks.user.firstName}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.lastName}"/></td>
                                         <td><a href="<c:url value="/userDetails/${usersStorageStocks.user.id}"/>"><c:out
-                                                value="${usersStorageStocks.user.username}"/></a></td>                                        <td><c:out value="${usersStorageStocks.storage.id}"/></td>
+                                                value="${usersStorageStocks.user.username}"/></a></td>
+                                        <td><c:out value="${usersStorageStocks.storage.id}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.name}"/></td>
                                         <td><c:out value="${usersStorageStocks.storage.link}"/></td>
                                         <td>
@@ -90,19 +96,12 @@
                                         </td>
                                     </tr>
                                 </c:forEach>
-
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-            </div>
         </section>
-
-
         <%@ include file="../../main/footer.jsp" %>
-
 </body>
 </html>
