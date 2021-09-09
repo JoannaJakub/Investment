@@ -52,7 +52,11 @@ public class CryptocurrencyController {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findByUser(user);
-        model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+        if (ownedcryptocurrencies.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+        }
         return "user/yourCrypto/yourCrypto";
     }
 

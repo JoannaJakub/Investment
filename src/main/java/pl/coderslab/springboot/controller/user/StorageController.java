@@ -55,8 +55,12 @@ public class StorageController {
         User user = userRepository.findByUsername(entityUser);
         Set<Ownedstocks> ownedStocks = ownedstocksRepo.findStorageByUser(user);
         List<Ownedcryptocurrencies> ownedCrypto = ownedcryptocRepo.findByUser(user);
-        model.addAttribute("yourStocksStorage", ownedStocks);
-        model.addAttribute("yourCryptoStorage", ownedCrypto);
+        if (ownedStocks.isEmpty() && ownedCrypto.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("yourStocksStorage", ownedStocks);
+            model.addAttribute("yourCryptoStorage", ownedCrypto);
+        }
         return "user/storage/yourStorage";
     }
 

@@ -42,7 +42,11 @@ public class StocksController {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedstocks> ownedStocks = ownedstocksRepository.findByUser(user);
-        model.addAttribute("ownedStocks", ownedStocks);
+        if (ownedStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("ownedStocks", ownedStocks);
+        }
         return "user/yourStock/yourStocks";
     }
 

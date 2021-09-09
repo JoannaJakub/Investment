@@ -32,6 +32,8 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Stocks</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
+                        <c:forEach items="${ownedStocks}" var="ownedStocks">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -50,8 +52,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
-                                <c:forEach items="${ownedStocks}" var="ownedStocks">
                                     <tr>
                                         <td>${ownedStocks.id}</td>
                                         <td>${ownedStocks.stocks.name}</td>
