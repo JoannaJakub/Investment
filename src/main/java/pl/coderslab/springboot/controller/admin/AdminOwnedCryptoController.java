@@ -37,7 +37,11 @@ public class AdminOwnedCryptoController {
     @GetMapping("usersOwnedCrypto")
     public String usersCrypto(Model model) {
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findAll();
-        model.addAttribute("usersCrypto", ownedcryptocurrencies);
+        if (ownedcryptocurrencies.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("usersCrypto", ownedcryptocurrencies);
+        }
         return "admin/crypto/usersOwnedCrypto";
     }
 

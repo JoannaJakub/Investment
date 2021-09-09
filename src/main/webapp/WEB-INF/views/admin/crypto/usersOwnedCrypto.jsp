@@ -2,7 +2,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en"><%@ include file="../../head.jsp" %>
+<html lang="en">
+<%@ include file="../../head.jsp" %>
 
 <body>
 <%@ include file="../adminHeader.jsp" %>
@@ -18,7 +19,8 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddCrypto"/>">Add crypto</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersOwnedCrypto/export/excel"/>">Export to Excel</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersOwnedCrypto/export/excel"/>">Export to
+                    Excel</a></h2>
             </div>
         </div>
 
@@ -33,6 +35,8 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Crypto</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
+                        <c:forEach items="${usersCrypto}" var="usersCrypto">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -56,30 +60,31 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${usersCrypto}" var="usersCrypto">
-                                    <tr>
-                                        <td><a href="<c:url value="/oneCryptoUser/${usersCrypto.cryptocurrencies.id}"/>"><c:out
+                                <tr>
+                                    <td>
+                                        <a href="<c:url value="/oneCryptoUser/${usersCrypto.cryptocurrencies.id}"/>"><c:out
                                                 value="${usersCrypto.cryptocurrencies.id}"/></a></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.name}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.cmc_rank}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.limit}"/></td>
-                                        <td><c:out value="${usersCrypto.cryptocurrencies.priceMax}"/></td>
-                                        <td><c:out value="${usersCrypto.id}"/></td>
-                                        <td><c:out value="${usersCrypto.howMuch}"/></td>
-                                        <td><c:out value="${usersCrypto.numOfCoins}"/></td>
-                                        <td><c:out value="${usersCrypto.whenBought}"/></td>
-                                        <td><c:out value="${usersCrypto.notes}"/></td>
-                                        <td><c:out value="${usersCrypto.user.id}"/></td>
-                                        <td><a href="<c:url value="/userDetails/${usersCrypto.user.id}"/>"><c:out
-                                                value="${usersCrypto.user.username}"/></a></td>
-                                        <td>
-                                            <a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a>
-                                        </td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoEdit/${usersCrypto.id}"/>">Edit</a>
-                                        </td>
-                                        <td><a href="<c:url value="/usersOwnedCryptoDetails/${usersCrypto.id}"/>">Details</a>
-                                        </td>
-                                    </tr>
+                                    <td><c:out value="${usersCrypto.cryptocurrencies.name}"/></td>
+                                    <td><c:out value="${usersCrypto.cryptocurrencies.cmc_rank}"/></td>
+                                    <td><c:out value="${usersCrypto.cryptocurrencies.limit}"/></td>
+                                    <td><c:out value="${usersCrypto.cryptocurrencies.priceMax}"/></td>
+                                    <td><c:out value="${usersCrypto.id}"/></td>
+                                    <td><c:out value="${usersCrypto.howMuch}"/></td>
+                                    <td><c:out value="${usersCrypto.numOfCoins}"/></td>
+                                    <td><c:out value="${usersCrypto.whenBought}"/></td>
+                                    <td><c:out value="${usersCrypto.notes}"/></td>
+                                    <td><c:out value="${usersCrypto.user.id}"/></td>
+                                    <td><a href="<c:url value="/userDetails/${usersCrypto.user.id}"/>"><c:out
+                                            value="${usersCrypto.user.username}"/></a></td>
+                                    <td>
+                                        <a href="<c:url value="/usersOwnedCryptoConfirmDelete/?id=${usersCrypto.id}"/>">Delete</a>
+                                    </td>
+                                    <td><a href="<c:url value="/usersOwnedCryptoEdit/${usersCrypto.id}"/>">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="<c:url value="/usersOwnedCryptoDetails/${usersCrypto.id}"/>">Details</a>
+                                    </td>
+                                </tr>
                                 </c:forEach>
 
                                 </tbody>

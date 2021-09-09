@@ -2,7 +2,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en"><%@ include file="../../head.jsp" %>
+<html lang="en">
+<%@ include file="../../head.jsp" %>
 
 <body>
 <%@ include file="../adminHeader.jsp" %>
@@ -18,7 +19,8 @@
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStocks"/>">Add stocks</a></h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersOwnedStocks/export/excel"/>">Export to Excel</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminUsersOwnedStocks/export/excel"/>">Export to
+                    Excel</a></h2>
             </div>
         </div>
 
@@ -33,6 +35,8 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Stocks</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
+                        <c:forEach items="${usersStocks}" var="usersStocks">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -57,27 +61,29 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${usersStocks}" var="usersStocks">
-                                    <tr>
-                                        <td><a href="<c:url value="/oneStocksUser/${usersStocks.stocks.id}"/>"><c:out
-                                                value="${usersStocks.stocks.id}"/></a></td>
-                                        <td><c:out value="${usersStocks.stocks.name}"/></td>
-                                        <td><c:out value="${usersStocks.stocks.price}"/></td>
-                                        <td><c:out value="${usersStocks.stocks.change}"/></td>
-                                        <td><c:out value="${usersStocks.stocks.currency}"/></td>
-                                        <td><c:out value="${usersStocks.stocks.bid}"/></td>
-                                        <td><c:out value="${usersStocks.id}"/></td>
-                                        <td><c:out value="${usersStocks.howMuch}"/></td>
-                                        <td><c:out value="${usersStocks.numOfCoins}"/></td>
-                                        <td><c:out value="${usersStocks.whenBought}"/></td>
-                                        <td><c:out value="${usersStocks.notes}"/></td>
-                                        <td><c:out value="${usersStocks.user.id}"/></td>
-                                        <td><a href="<c:url value="/userDetails/${usersStocks.user.id}"/>"><c:out
-                                                value="${usersStocks.user.username}"/></a></td>
-                                        <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${usersStocks.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/usersOwnedStocksEdit/${usersStocks.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/usersOwnedStocksDetails/${usersStocks.id}"/>">Details</a></td>
-                                    </tr>
+                                <tr>
+                                    <td><a href="<c:url value="/oneStocksUser/${usersStocks.stocks.id}"/>"><c:out
+                                            value="${usersStocks.stocks.id}"/></a></td>
+                                    <td><c:out value="${usersStocks.stocks.name}"/></td>
+                                    <td><c:out value="${usersStocks.stocks.price}"/></td>
+                                    <td><c:out value="${usersStocks.stocks.change}"/></td>
+                                    <td><c:out value="${usersStocks.stocks.currency}"/></td>
+                                    <td><c:out value="${usersStocks.stocks.bid}"/></td>
+                                    <td><c:out value="${usersStocks.id}"/></td>
+                                    <td><c:out value="${usersStocks.howMuch}"/></td>
+                                    <td><c:out value="${usersStocks.numOfCoins}"/></td>
+                                    <td><c:out value="${usersStocks.whenBought}"/></td>
+                                    <td><c:out value="${usersStocks.notes}"/></td>
+                                    <td><c:out value="${usersStocks.user.id}"/></td>
+                                    <td><a href="<c:url value="/userDetails/${usersStocks.user.id}"/>"><c:out
+                                            value="${usersStocks.user.username}"/></a></td>
+                                    <td><a href="<c:url value="/usersOwnedStocksConfirmDelete/?id=${usersStocks.id}"/>">Delete</a>
+                                    </td>
+                                    <td><a href="<c:url value="/usersOwnedStocksEdit/${usersStocks.id}"/>">Edit</a></td>
+                                    <td>
+                                        <a href="<c:url value="/usersOwnedStocksDetails/${usersStocks.id}"/>">Details</a>
+                                    </td>
+                                </tr>
                                 </c:forEach>
 
                                 </tbody>

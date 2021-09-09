@@ -13,11 +13,8 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add cryptocurrencies</a>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddCrypto"/>">Add cryptocurrencies</a>
                 </h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStocks"/>">Add stocks</a></h2>
             </div>
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStorage"/>">Add storage</a></h2>
