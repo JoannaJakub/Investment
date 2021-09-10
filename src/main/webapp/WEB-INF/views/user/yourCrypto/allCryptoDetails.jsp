@@ -62,12 +62,6 @@
                                     <c:out value="${allCryptoDetails.aux}"/>
                                     <label class="label-material"> </label>
                                 </div>
-                                <div class="form-group-material">
-                                    <div class="col-sm ml-auto">
-                                        <a href="<c:url value="/cryptoEdit/${allCryptoDetails.id}"/>"
-                                           class="btn btn-primary">Edit crypto</a>
-                                    </div>
-                                </div>
                                 </form:form><small>List of all crypto? </small><a
                                         href="<c:url value="/allCrypto"/>">Here</a>
                                 </tbody>

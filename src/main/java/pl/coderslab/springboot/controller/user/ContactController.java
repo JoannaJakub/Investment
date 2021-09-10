@@ -31,7 +31,12 @@ public class ContactController {
     public String yourContact(Model model, Authentication authentication) {
         User user = userService.findByUserName(authentication.getName());
         List<Contact> contact = contactRepository.findContactByUserId(user.getId());
-        model.addAttribute("contact", contact);
+        if (contact.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("contact", contact);
+
+        }
         return "user/contact/contact";
     }
 

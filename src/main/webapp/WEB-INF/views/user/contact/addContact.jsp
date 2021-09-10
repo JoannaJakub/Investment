@@ -10,15 +10,7 @@
     <%@ include file="../sideMenu.jsp" %>
     <div class="page-content">
         <div class="page-header">
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addCrypto">Add cryptocurrencies</a></h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStocks">Add stocks</a></h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="addStorage"></a></h2>
-            </div>
+
         </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
@@ -50,7 +42,7 @@
                                     <div class="line"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-9 ml-auto">
-                                            <button type="submit" class="btn btn-secondary">Cancel</button>
+                                            <a href="<c:url value="/yourContact"/>" class="btn btn-secondary">Cancel</a>
                                             <button type="submit" class="btn btn-primary">Send message</button>
                                         </div>
                                     </div>
