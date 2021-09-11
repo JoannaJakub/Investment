@@ -38,7 +38,6 @@
                     <div class="block">
                         <div class="title"><strong>All investments</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${userInvestCrypto}" var="userInvestCrypto">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -56,7 +55,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                <c:forEach items="${userInvestCrypto}" var="userInvestCrypto">
                                 <tr>
                                     <td>${userInvestCrypto.id}</td>
                                     <td>${userInvestCrypto.cryptocurrencies.name}</td>

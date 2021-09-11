@@ -29,7 +29,6 @@
                     <div class="block">
                         <div class="title"><strong>Messages</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${adminContact}" var="adminContact">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -44,7 +43,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                <c:forEach items="${adminContact}" var="adminContact">
+                                <tr>
                                         <td><c:out value="${adminContact.id}"/></td>
                                         <td><c:out value="${adminContact.message}"/></td>
                                         <td><c:out value="${adminContact.updateDate}"/></td>

@@ -27,7 +27,6 @@
                     <div class="block">
                         <div class="title"><strong>Your messages</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${contact}" var="contact">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -41,7 +40,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                <c:forEach items="${contact}" var="contact">
+                                <tr>
                                         <td><c:out value="${contact.id}"/></td>
                                         <td><c:out value="${contact.message}"/></td>
                                         <td><c:out value="${contact.updateDate.toString()}"/></td>

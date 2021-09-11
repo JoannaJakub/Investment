@@ -28,7 +28,7 @@
                                 <div class="text-left">
                                     <h1>You have add your stocks successfully!</h1>
                                     </br>
-                                    <h4><a href="yourStocks">Click here to see all your stocks!</a></h4>
+                                    <h4><a href="<c:url value="/yourStocks"/>">Click here to see all your stocks!</a></h4>
                                 </br>
                                 </div>
                             </div>

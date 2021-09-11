@@ -65,7 +65,7 @@
                                         <td><c:out value="${userRole.role.iterator().next().name}"/></td>
                                         <td><a href="<c:url value="/userConfirmDelete/?id=${userRole.id}"/>">Delete</a></td>
                                         <td><a href="<c:url value="/userEdit/${userRole.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/userDetails/${userRoleser.id}"/>">Details</a></td>
+                                        <td><a href="<c:url value="/userDetails/${userRole.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
 

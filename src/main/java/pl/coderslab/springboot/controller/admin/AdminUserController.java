@@ -14,7 +14,6 @@ import pl.coderslab.springboot.excel.AdminUserExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
-import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;

@@ -22,7 +22,6 @@
                     <div class="block">
                         <div class="title"><strong>Your stocks storage</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${yourStocksStorage}" var="yourStocksStorage">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -33,6 +32,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach items="${yourStocksStorage}" var="yourStocksStorage">
                                 <tr>
                                     <td><c:out value="${yourStocksStorage.storage.name}"/></td>
                                     <td><c:out value="${yourStocksStorage.storage.link}"/></td>

@@ -36,7 +36,6 @@
                     <div class="block">
                         <div class="title"><strong>Crypto</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${usersCrypto}" var="usersCrypto">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -59,7 +58,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                <c:forEach items="${usersCrypto}" var="usersCrypto">
                                 <tr>
                                     <td>
                                         <a href="<c:url value="/oneCryptoUser/${usersCrypto.cryptocurrencies.id}"/>"><c:out

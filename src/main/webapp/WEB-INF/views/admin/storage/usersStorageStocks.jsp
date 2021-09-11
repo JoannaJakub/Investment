@@ -37,7 +37,6 @@
                     <div class="block">
                         <div class="title"><strong>User's storage</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${usersStorageStocks}" var="usersStorageStocks">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -55,7 +54,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                <c:forEach items="${usersStorageStocks}" var="usersStorageStocks">
+                                <tr>
                                         <td><c:out value="${usersStorageStocks.user.id}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.firstName}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.lastName}"/></td>
