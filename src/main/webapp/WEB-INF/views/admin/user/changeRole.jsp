@@ -22,74 +22,69 @@
             </div>
         </div>
 
-        <section class="no-padding-top">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6">
+        <div class="no-padding-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
 
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="block">
-                        <div class="title"><strong>Change role</strong></div>
-                        <div class="block-body">
-                            <form:form method="post" modelAttribute="changeRole">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">User id</label>
-                                    <div class="col-sm-9">
-                                        <c:out value="${id}"/></div>
-                                    <form:hidden path="firstName"/>
-                                    <form:hidden path="lastName"/>
-                                    <form:hidden path="password"/>
-                                    <form:hidden path="username"/>
-
-                                    <label for="id" class="label-material"></label>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Username</label>
-                                    <div class="col-sm-9">
-                                        <c:out value="${changeRole.stream().iterator().next().username}"/>
-                                        <label for="role" class="label-material"></label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Current role</label>
-                                    <div class="col-sm-9">
-                                        <c:out value="${changeRole.stream().iterator().next().role}"/>
-                                        <label for="role" class="label-material"></label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Choose role</label>
-                                    <div class="col-sm-9">
-                                        <c:forEach items="${role}" var="role">
-                                            <form:radiobutton path="role" value="${role.id}"
-                                                              name="role"/>
-                                            <span class="checkbox radio"></span>
-                                            <span class="name"><c:out value="${role.name}"/></span>
-                                        </c:forEach>
-                                        <label for="role" class="label-material"></label>
-                                    </div>
-                                </div>
-                                <div class="form-group text-center">
-                                    <a href="<c:url value="/users"/>"
-                                       class="btn btn-secondary">Cancel</a>
-                                    <input id="register" type="submit" value="Update" class="btn btn-primary">
-                                </div>
-                            </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
-
-                        </div>
-                    </div>
                 </div>
             </div>
 
-        </section>
-        </section>
+            <div class="col-lg-12">
+                <div class="block">
+                    <div class="title"><strong>Change role</strong></div>
+                    <div class="block-body">
+                        <form:form method="post" modelAttribute="changeRole">
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">User id</label>
+                                <div class="col-sm-9">
+                                    <c:out value="${id}"/></div>
+                                <form:hidden path="firstName"/>
+                                <form:hidden path="lastName"/>
+                                <form:hidden path="password"/>
+                                <form:hidden path="username"/>
 
-    </div>
-</div>
-<%@ include file="../../main/footer.jsp" %>
+                                <label for="id" class="label-material"></label>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">Username</label>
+                                <div class="col-sm-9">
+                                    <c:out value="${changeRole.stream().iterator().next().username}"/>
+                                    <label for="role" class="label-material"></label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">Current role</label>
+                                <div class="col-sm-9">
+                                    <c:out value="${changeRole.stream().iterator().next().role}"/>
+                                    <label for="role" class="label-material"></label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">Choose role</label>
+                                <div class="col-sm-9">
+                                    <c:forEach items="${role}" var="role">
+                                        <form:radiobutton path="role" value="${role.id}"
+                                                          name="role"/>
+                                        <span class="checkbox radio"></span>
+                                        <span class="name"><c:out value="${role.name}"/></span>
+                                    </c:forEach>
+                                    <label for="role" class="label-material"></label>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="<c:url value="/users"/>"
+                                   class="btn btn-secondary">Cancel</a>
+                                <input id="register" type="submit" value="Update" class="btn btn-primary">
+                            </div>
+                        </form:form><small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <%@ include file="../../main/footer.jsp" %>
 
 </body>
 </html>

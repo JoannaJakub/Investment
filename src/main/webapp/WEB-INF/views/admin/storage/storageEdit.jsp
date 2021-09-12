@@ -65,16 +65,11 @@
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
                             </form:form><small>List of all storage? </small><a href="<c:url value="/adminStorage"/>">Here</a>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
-
-    </div>
-</div>
 <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

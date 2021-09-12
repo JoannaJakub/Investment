@@ -67,9 +67,6 @@
                 <small>List of all storages? </small><a href="<c:url value="/adminStorage"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
-
-<%@ include file="../../main/footer.jsp" %>
+        <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

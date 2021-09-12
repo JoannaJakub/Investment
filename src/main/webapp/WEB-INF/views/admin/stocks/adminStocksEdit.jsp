@@ -41,36 +41,7 @@
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Bid</label>
-                                    <div class="col-sm-9">
-                                        <form:input id="bid" type="text" name="bid" path="bid"
-                                                    placeholder="bid" data-msg="Please enter name"
-                                                    class="form-control"/>
-                                        <form:errors path="bid"/></div>
-                                    <label for="bid" class="label-material"></label>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
-                                    <div class="col-sm-9">
-                                        <form:input id="change" type="text" name="name" path="change"
-                                                    placeholder="Change" data-msg="Please enter change"
-                                                    class="form-control"/>
-                                        <form:errors path="change"/>
-                                    </div>
-                                    <label for="change" class="label-material"></label>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
-                                    <div class="col-sm-9">
-                                        <form:input id="currency" type="text" name="currency" path="currency"
-                                                    placeholder="Currency" data-msg="Please enter currency"
-                                                    class="form-control"/>
-                                        <form:errors path="currency"/>
-                                    </div>
-                                    <label for="change" class="label-material"></label>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
+                                    <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
                                         <form:input id="name" type="text" name="name" path="name"
                                                     placeholder="Name" data-msg="Please enter name"
@@ -80,7 +51,37 @@
                                     <label for="change" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Storage link</label>
+                                    <label class="col-sm-3 form-control-label">Bid</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="bid" type="text" name="bid" path="bid"
+                                                    placeholder="bid" data-msg="Please enter name"
+                                                    class="form-control"/>
+                                        <form:errors path="bid"/></div>
+                                    <label for="bid" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Change</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="change" type="text" name="name" path="change"
+                                                    placeholder="Change" data-msg="Please enter change"
+                                                    class="form-control"/>
+                                        <form:errors path="change"/>
+                                    </div>
+                                    <label for="change" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Currency</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="currency" type="text" name="currency" path="currency"
+                                                    placeholder="Currency" data-msg="Please enter currency"
+                                                    class="form-control"/>
+                                        <form:errors path="currency"/>
+                                    </div>
+                                    <label for="change" class="label-material"></label>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Price</label>
                                     <div class="col-sm-9">
                                         <form:input id="price" type="text" name="price" path="price"
                                                     placeholder="Price" data-msg="Please enter price"
@@ -95,16 +96,12 @@
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
                             </form:form><small>List of all stocks? </small><a href="<c:url value="/adminStocks"/>">Here</a>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
-    </div>
-</div>
 <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>
