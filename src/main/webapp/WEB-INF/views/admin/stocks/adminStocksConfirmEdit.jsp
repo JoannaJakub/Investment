@@ -80,9 +80,6 @@
                 <small>List of all stocks? </small><a href="<c:url value="/adminStocks"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
-
 <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

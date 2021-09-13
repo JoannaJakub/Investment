@@ -24,7 +24,11 @@ public class AdminContactController {
     @GetMapping("adminContact")
     public String adminContact(Model model) {
         List<Contact> contact = contactRepository.findAll();
-        model.addAttribute("adminContact", contact);
+        if (contact.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("adminContact", contact);
+        }
         return "admin/contact/adminContact";
     }
 

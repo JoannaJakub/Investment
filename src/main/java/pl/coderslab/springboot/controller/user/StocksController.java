@@ -42,7 +42,11 @@ public class StocksController {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedstocks> ownedStocks = ownedstocksRepository.findByUser(user);
-        model.addAttribute("ownedStocks", ownedStocks);
+        if (ownedStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("ownedStocks", ownedStocks);
+        }
         return "user/yourStock/yourStocks";
     }
 
@@ -82,7 +86,12 @@ public class StocksController {
 
     @GetMapping(value = {"/stocksEdit/{id}"})
     public String stocksEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("stocksEdit", ownedstocksRepository.findById(id));
+        Optional<Ownedstocks> stocksEdit = ownedstocksRepository.findById(id);
+        if (stocksEdit.isPresent()) {
+            model.addAttribute("cryptoEdit", stocksEdit.get());
+        } else {
+            model.addAttribute("error", "You don't own this stock");
+        }
         return "user/yourStock/stocksEdit";
     }
 

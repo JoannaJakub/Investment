@@ -4,6 +4,7 @@ package pl.coderslab.springboot.controller.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -107,46 +108,70 @@ public class AdminStorageController {
     @GetMapping("usersStorage")
     public String usersStorage(Model model) {
         List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findAll();
-        model.addAttribute("usersStorageCrypto", usersStorageCrypto);
         List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
-        model.addAttribute("usersStorageStocks", usersStorageStocks);
+        if (usersStorageCrypto.isEmpty() && usersStorageStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("usersStorageCrypto", usersStorageCrypto);
+            model.addAttribute("usersStorageStocks", usersStorageStocks);
+        }
         return "admin/storage/usersStorage";
     }
 
     @GetMapping("usersStorageCrypto")
     public String usersStorageCrypto(Model model) {
         List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findAll();
-        model.addAttribute("usersStorageCrypto", usersStorageCrypto);
+        if (usersStorageCrypto.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("usersStorageCrypto", usersStorageCrypto);
+        }
         return "admin/storage/usersStorageCrypto";
     }
 
     @GetMapping("usersStorageStocks")
     public String usersStorageStocks(Model model) {
         List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findAll();
-        model.addAttribute("usersStorageStocks", usersStorageStocks);
+        if (usersStorageStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("usersStorageStocks", usersStorageStocks);
+        }
         return "admin/storage/usersStorageStocks";
     }
 
     @GetMapping("storageOfUsers/{id}")
     public String storageOfUsers(Model model, @PathVariable long id) {
         List<Ownedcryptocurrencies> usersStorageCrypto = ownedcryptoRepo.findUserByStorageId(id);
-        model.addAttribute("storageOfUsersCrypto", usersStorageCrypto);
         List<Ownedstocks> usersStorageStocks = ownedstocksRepo.findUserByStorageId(id);
-        model.addAttribute("storageOfUsersStocks", usersStorageStocks);
+        if (usersStorageCrypto.isEmpty() && usersStorageStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("storageOfUsersCrypto", usersStorageCrypto);
+            model.addAttribute("storageOfUsersStocks", usersStorageStocks);
+        }
         return "admin/storage/storageOfUsers";
     }
 
     @GetMapping("storageOfUsersCrypto/{id}")
     public String storageOfUsersCrypto(Model model, @PathVariable long id) {
         List<Ownedcryptocurrencies> storageOfUsersCrypto = ownedcryptoRepo.findUserByStorageId(id);
-        model.addAttribute("storageOfUsersCrypto", storageOfUsersCrypto);
+        if (storageOfUsersCrypto.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("storageOfUsersCrypto", storageOfUsersCrypto);
+        }
         return "admin/storage/storageOfUsersCrypto";
     }
 
     @GetMapping("storageOfUsersStocks/{id}")
     public String storageOfUsersStocks(Model model, @PathVariable long id) {
         List<Ownedstocks> storageOfUsersStocks = ownedstocksRepo.findUserByStorageId(id);
-        model.addAttribute("storageOfUsersStocks", storageOfUsersStocks);
+        if (storageOfUsersStocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("storageOfUsersStocks", storageOfUsersStocks);
+        }
         return "admin/storage/storageOfUsersStocks";
     }
 

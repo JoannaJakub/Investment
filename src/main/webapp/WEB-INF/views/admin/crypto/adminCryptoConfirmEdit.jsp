@@ -80,9 +80,6 @@
                 <small>List of all crypto? </small><a href="<c:url value="/adminCrypto"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
-
-<%@ include file="../../main/footer.jsp" %>
+    <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

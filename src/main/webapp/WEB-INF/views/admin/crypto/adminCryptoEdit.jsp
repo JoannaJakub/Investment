@@ -41,6 +41,16 @@
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Name</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="name" type="text" name="name" path="name"
+                                                    placeholder="Name" data-msg="Please enter name"
+                                                    class="form-control"/>
+                                        <form:errors path="name"/>
+                                    </div>
+                                    <label for="name" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Aux</label>
                                     <div class="col-sm-9">
                                         <form:input id="aux" type="text" name="aux" path="aux"
@@ -69,16 +79,7 @@
                                     </div>
                                     <label for="limit" class="label-material"></label>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Name</label>
-                                    <div class="col-sm-9">
-                                        <form:input id="name" type="text" name="name" path="name"
-                                                    placeholder="Name" data-msg="Please enter name"
-                                                    class="form-control"/>
-                                        <form:errors path="name"/>
-                                    </div>
-                                    <label for="name" class="label-material"></label>
-                                </div>
+
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Max price</label>
                                     <div class="col-sm-9">
@@ -95,16 +96,13 @@
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
                             </form:form><small>List of all crypto? </small><a href="<c:url value="/adminCrypto"/>">Here</a>
-
                         </div>
                     </div>
                 </div>
-            </div>
-
         </section>
 
-    </div>
-</div>
+
 <%@ include file="../../main/footer.jsp" %>
+
 </body>
 </html>

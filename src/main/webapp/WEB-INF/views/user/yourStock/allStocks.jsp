@@ -10,8 +10,8 @@
 
     <div class="page-content">
         <div class="page-header">
-            <div class="container-fluid">
-                <h2 class="h4 no-margin-bottom">Dashboard</h2>
+            <div class="list-inline-item">
+                <h2 class="h4 no-margin-bottom"><a href="<c:url value="/addStocks"/>">Add stock</a></h2>
             </div>
         </div>
 

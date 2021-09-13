@@ -52,7 +52,11 @@ public class CryptocurrencyController {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptocurrenciesRepo.findByUser(user);
-        model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+        if (ownedcryptocurrencies.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("ownedcryptocurrencies", ownedcryptocurrencies);
+        }
         return "user/yourCrypto/yourCrypto";
     }
 
@@ -98,7 +102,12 @@ public class CryptocurrencyController {
 
     @GetMapping(value = {"/cryptoEdit/{id}"})
     public String cryptoEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("cryptoEdit", ownedcryptocurrenciesRepo.findById(id));
+        Optional<Ownedcryptocurrencies> crypto = ownedcryptocurrenciesRepo.findById(id);
+        if (crypto.isPresent()) {
+            model.addAttribute("cryptoEdit", crypto.get());
+        } else {
+             model.addAttribute("error", "You don't own this crypto");
+        }
         return "user/yourCrypto/cryptoEdit";
     }
 

@@ -42,7 +42,7 @@
                             </br></br>
                             </a>
                             <div class="form-group-material">
-                                Password or email incorect!
+                                Password or email incorrect!
                             </div>
                             <form:form method="post" class="form-validate mb-4" authentication-failure-url="/login?error=true">
                                 <div class="form-group">

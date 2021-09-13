@@ -11,9 +11,7 @@
     <%@ include file="../sideMenu.jsp" %>
     <div class="page-content">
         <div class="page-header">
-            <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
-            </div>
+
             <div class="list-inline-item">
                 <h2 class="h4 no-margin-bottom"><a href="<c:url value="/addStocks"/>">Add stock</a></h2>
             </div>

@@ -31,6 +31,9 @@ public class User implements Serializable {
     @NotBlank(message = "Please enter your password.")
     @Column(nullable = false, length = 64)
     private String password;
+    @Transient
+    @NotBlank(message = "Please enter your password.")
+    private String passwordConfirm;
     @NotEmpty(message = "Please enter your name.")
     @Column(name = "firstname", nullable = false, length = 20)
     private String firstName;

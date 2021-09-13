@@ -11,9 +11,6 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
-            </div>
-            <div class="list-inline-item">
                 <h2 class="h4 no-margin-bottom"><a href="<c:url value="/addContact"/>">Send message</a></h2>
             </div>
         </div>
@@ -29,6 +26,7 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Your messages</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -42,9 +40,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${contact}" var="contact">
-                                    <tr>
+                                <tr>
                                         <td><c:out value="${contact.id}"/></td>
                                         <td><c:out value="${contact.message}"/></td>
                                         <td><c:out value="${contact.updateDate.toString()}"/></td>

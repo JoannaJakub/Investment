@@ -14,7 +14,6 @@ import pl.coderslab.springboot.excel.AdminUserExcelExporter;
 import pl.coderslab.springboot.excel.AdminUsersInvestExcelExporter;
 import pl.coderslab.springboot.model.Ownedcryptocurrencies;
 import pl.coderslab.springboot.model.Ownedstocks;
-import pl.coderslab.springboot.model.Role;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.*;
 import pl.coderslab.springboot.service.UserService;
@@ -63,6 +62,8 @@ public class AdminUserController {
             return "admin/user/adminRegister";
         } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
+        } else if(!(user.getPassword().equals(user.getPasswordConfirm()))){
+            result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -153,22 +154,36 @@ public class AdminUserController {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
-        model.addAttribute("userInvestCrypto", ownedcryptocurrencies);
-        model.addAttribute("userStocks", ownedstocks);
+        if (ownedcryptocurrencies.isEmpty() && ownedstocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("userInvestCrypto", ownedcryptocurrencies);
+            model.addAttribute("userStocks", ownedstocks);
+        }
         return "admin/user/userInvest";
     }
+
     @RequestMapping("/userCrypto/{id}")
     public String userCrypto( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
-        model.addAttribute("userCrypto", ownedcryptocurrencies);
+        if (ownedcryptocurrencies.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("userCrypto", ownedcryptocurrencies);
+        }
         return "admin/user/userCrypto";
     }
+
     @RequestMapping("/userStocks/{id}")
     public String userStocks( @PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
-        model.addAttribute("userStocks", ownedstocks);
+        if (ownedstocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("userStocks", ownedstocks);
+        }
         return "admin/user/userStocks";
     }
 

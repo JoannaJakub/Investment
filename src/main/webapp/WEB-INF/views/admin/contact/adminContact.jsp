@@ -3,12 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en"><%@ include file="../../head.jsp" %>
-
 <body>
 <%@ include file="../adminHeader.jsp" %>
 <div class="d-flex align-items-stretch">
     <%@ include file="../adminSideMenu.jsp" %>
-
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
@@ -29,7 +27,8 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Storage</strong></div>
+                        <div class="title"><strong>Messages</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -44,9 +43,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${adminContact}" var="adminContact">
-                                    <tr>
+                                <tr>
                                         <td><c:out value="${adminContact.id}"/></td>
                                         <td><c:out value="${adminContact.message}"/></td>
                                         <td><c:out value="${adminContact.updateDate}"/></td>
@@ -56,16 +54,12 @@
                                         <td><a href="<c:url value="/adminContactDetails/${adminContact.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-            </div>
         </section>
-
 
         <%@ include file="../../main/footer.jsp" %>
 

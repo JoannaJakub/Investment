@@ -31,7 +31,11 @@ public class AdminOwnedStocksController {
     @GetMapping("usersOwnedStocks")
     public String usersOwnedStocks(Model model) {
         List<Ownedstocks> ownedstocks = ownedstocksRepository.findAll();
-        model.addAttribute("usersStocks", ownedstocks);
+        if (ownedstocks.isEmpty()) {
+            model.addAttribute("error", "Nothing to display");
+        } else {
+            model.addAttribute("usersStocks", ownedstocks);
+        }
         return "admin/stocks/usersOwnedStocks";
     }
     @RequestMapping("/usersOwnedStocksConfirmDelete")

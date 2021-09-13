@@ -10,9 +10,7 @@
 
     <div class="page-content">
         <div class="page-header">
-            <div class="list-inline-item">
-                <h2 class="h4 d-none d-sm-inline">Dashboard</h2>
-            </div>
+
             <div class="list-inline-item">
                 <h2 class="h4 no-margin-bottom"><a href="<c:url value="/addStocks"/>">Add stock</a></h2>
             </div>
@@ -32,6 +30,7 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Stocks</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -50,9 +49,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${ownedStocks}" var="ownedStocks">
-                                    <tr>
+                                <tr>
                                         <td>${ownedStocks.id}</td>
                                         <td>${ownedStocks.stocks.name}</td>
                                         <td>${ownedStocks.stocks.change}</td>

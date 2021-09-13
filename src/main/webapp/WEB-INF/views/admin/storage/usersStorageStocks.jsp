@@ -36,6 +36,7 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>User's storage</strong></div>
+                        <div class="title"><strong><c:out value="${error}"/></strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -54,7 +55,7 @@
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${usersStorageStocks}" var="usersStorageStocks">
-                                    <tr>
+                                <tr>
                                         <td><c:out value="${usersStorageStocks.user.id}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.firstName}"/></td>
                                         <td><c:out value="${usersStorageStocks.user.lastName}"/></td>
@@ -80,11 +81,7 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
         </section>
-
-
         <%@ include file="../../main/footer.jsp" %>
 
 </body>
