@@ -17,9 +17,6 @@
             <div class="list-inline-item">
                 <h2 class="h5 no-margin-bottom"><a href="<c:url value="/userAddEvent"/>">Add event</a></h2>
             </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/"/>">Export to Excel</a></h2>
-            </div>
         </div>
         <script type="text/javascript" src="resources/distribution/js/jquery-1.3.2.min.js"></script>
         <script type="text/javascript" src="resources/distribution/js/common.js"></script>
