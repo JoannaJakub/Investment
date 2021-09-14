@@ -3,25 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html lang="en"><%@ include file="../../head.jsp" %>
+<%@ include file="../adminHead.jsp" %>
 <body>
 <%@ include file="../adminHeader.jsp" %>
 <div class="d-flex align-items-stretch">
     <%@ include file="../adminSideMenu.jsp" %>
-
     <div class="page-content">
         <div class="page-header">
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddCrypto"/>">Add cryptocurrencies</a></h2>
-            </div>
-            <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddStocks"/>">Add stocks</a></h2>
-            </div>
+
         </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href=>Fill in form</a></li>
             </ul>
         </div>
 
@@ -32,30 +25,23 @@
                     <!-- Form Elements -->
                     <div class="col-lg-12">
                         <div class="block">
-                            <div class="title"><strong>Add storage</strong></div>
+                            <div class="title"><strong>Send a message</strong></div>
                             <div class="block-body">
-                                <form:form action="adminStorageSuccess" class="form-horizontal" method="post"
-                                           modelAttribute="adminAddStorage">
+                                <form:form action="adminSendMessageSuccess" class="form-horizontal" method="post"
+                                           modelAttribute="adminSendMessage">
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label">Storage name</label>
                                         <div class="col-sm-9">
                                             <form:hidden path="id"/>
-                                            <form:input path="name" type="text" class="form-control"/>
-                                            <form:errors path="name"/>
+                                            <form:input path="message" type="text" class="form-control"/>
+                                            <form:errors path="message"/>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Storage link</label>
-                                        <div class="col-sm-9">
-                                            <form:input path="link" type="text" class="form-control"/>
-                                            <form:errors path="link"/>
-                                        </div>
-                                    </div>
+                                    <div class="line"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-9 ml-auto">
-                                            <a href="<c:url value="/adminStorage"/>"
-                                               class="btn btn-secondary">Cancel</a>
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                            <a href="<c:url value="/adminMessage"/>" class="btn btn-secondary">Cancel</a>
+                                            <button type="submit" class="btn btn-primary">Send message</button>
                                         </div>
                                     </div>
                                 </form:form>
@@ -66,6 +52,6 @@
                 </div>
             </div>
         </section>
-<%@ include file="../../main/footer.jsp" %>
+        <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

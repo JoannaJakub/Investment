@@ -21,6 +21,6 @@
         <li><a href="<c:url value="/usersOwnedCrypto"/>"> <i class="fa fa-bar-chart"></i>User's crypto</a></li>
         <li><a href="<c:url value="/adminStocks"/>"> <i class="icon-padnote"></i>All stocks </a></li>
         <li><a href="<c:url value="/adminCrypto"/>"> <i class="icon-padnote"></i>All crypto </a></li>
-        <li><a href="<c:url value="/adminContact"/>"> <i class="icon-padnote"></i>Messages </a></li>
+        <li><a href="<c:url value="/adminMessage"/>"> <i class="icon-padnote"></i>Messages </a></li>
     </ul>
 </nav>
