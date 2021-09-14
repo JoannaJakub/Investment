@@ -33,50 +33,50 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${adminContactDetails}" var="adminContactDetails">
+                                <form:form items="${adminMessageDetails}" var="adminMessageDetails">
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Contact id</label>
-                                        <c:out value="${adminContactDetails.id}"/>
+                                        <c:out value="${adminMessageDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Message</label>
-                                        <c:out value="${adminContactDetails.message}"/>
+                                        <c:out value="${adminMessageDetails.message}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Contact date</label>
-                                        <c:out value="${adminContactDetails.updateDate}"/>
+                                        <c:out value="${adminMessageDetails.updateDate}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">User Id</label>
-                                        <c:out value="${adminContactDetails.user.id}"/>
+                                        <c:out value="${adminMessageDetails.user.id}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Username</label>
-                                        <a href="<c:url value="/userDetails/${adminContactDetails.user.id}"/>"><c:out
-                                                value="${adminContactDetails.user.username}"/></a>
+                                        <a href="<c:url value="/userDetails/${adminMessageDetails.user.id}"/>"><c:out
+                                                value="${adminMessageDetails.user.username}"/></a>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">User name</label>
-                                        <c:out value="${adminContactDetails.user.firstName}"/>
+                                        <c:out value="${adminMessageDetails.user.firstName}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">User surname</label>
-                                        <c:out value="${adminContactDetails.user.lastName}"/>
+                                        <c:out value="${adminMessageDetails.user.lastName}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/adminContactEdit/${adminContactDetails.id}"/>"  class="btn btn-primary">Edit message</a>
+                                            <a href="<c:url value="/adminMessageEdit/${adminMessageDetails.id}"/>"  class="btn btn-primary">Edit message</a>
                                         </div>
                                     </div>
                                 </form:form><small>List of messages? </small><a
-                                        href="<c:url value="/adminContact"/>">Here</a>
+                                        href="<c:url value="/adminMessage"/>">Here</a>
 
 
                                 </tbody>

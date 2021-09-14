@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.springboot.model.Contact;
+import pl.coderslab.springboot.model.Message;
 import pl.coderslab.springboot.model.User;
-import pl.coderslab.springboot.repository.ContactRepository;
+import pl.coderslab.springboot.repository.MessageRepository;
 import pl.coderslab.springboot.service.UserService;
 
 import javax.validation.Valid;
@@ -20,17 +20,17 @@ import java.util.Optional;
 @Controller
 public class ContactController {
     private final UserService userService;
-    private final ContactRepository contactRepository;
+    private final MessageRepository messageRepository;
 
-    public ContactController(UserService userService, ContactRepository contactRepository) {
+    public ContactController(UserService userService, MessageRepository messageRepository) {
         this.userService = userService;
-        this.contactRepository = contactRepository;
+        this.messageRepository = messageRepository;
     }
 
     @GetMapping("/yourContact")
     public String yourContact(Model model, Authentication authentication) {
         User user = userService.findByUserName(authentication.getName());
-        List<Contact> contact = contactRepository.findContactByUserId(user.getId());
+        List<Message> contact = messageRepository.findContactByUserId(user.getId());
         if (contact.isEmpty()) {
             model.addAttribute("error", "Nothing to display");
         } else {
@@ -42,17 +42,17 @@ public class ContactController {
 
     @GetMapping("/addContact")
     public String addContact(Model model,Authentication authentication) {
-        model.addAttribute("contact", new Contact());
+        model.addAttribute("contact", new Message());
         model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/contact/addContact";
     }
 
     @PostMapping(value = "/contactSuccess")
-    public String processAddingContact(@Valid Contact contact, BindingResult result) {
+    public String processAddingContact(@Valid Message contact, BindingResult result) {
         if (result.hasErrors()) {
             return "user/contact/addContact";
         } else {
-            contactRepository.save(contact);
+            messageRepository.save(contact);
             return "user/contact/contactSuccess";
         }
     }
@@ -64,13 +64,13 @@ public class ContactController {
 
     @GetMapping(value = {"/contactDelete/{id}"})
     public String contactDelete(@PathVariable long id) {
-        contactRepository.deleteById(id);
+        messageRepository.deleteById(id);
         return "redirect:/yourContact";
     }
 
     @GetMapping(value = {"/contactDetails/{id}"})
     public String contactDetails(@PathVariable long id, Model model) {
-        Optional<Contact> contactDetails = contactRepository.findById(id);
+        Optional<Message> contactDetails = messageRepository.findById(id);
         if (contactDetails.isPresent()) {
             model.addAttribute("contactDetails", contactDetails.get());
         }
@@ -81,19 +81,19 @@ public class ContactController {
 
     @GetMapping(value = {"/contactEdit/{id}"})
     public String contactEditForm(@PathVariable long id, Model model) {
-        model.addAttribute("contactEdit", contactRepository.findById(id));
+        model.addAttribute("contactEdit", messageRepository.findById(id));
         return "user/contact/contactEdit";
     }
 
     @PostMapping(value = {"contactEdit/{id}"})
-    public String contactEditSave(@Valid Contact contact) {
-        contactRepository.save(contact);
+    public String contactEditSave(@Valid Message contact) {
+        messageRepository.save(contact);
         return "redirect:/contactConfirmEditing/{id}";
     }
 
     @RequestMapping("/contactConfirmEditing/{id}")
     public String contactConfirmEditing(@PathVariable long id, Model model) {
-        Optional<Contact> contact = contactRepository.findById(id);
+        Optional<Message> contact = messageRepository.findById(id);
         if (contact.isPresent()) {
             model.addAttribute("contactConfirmEdit", contact.get());
         } else {
