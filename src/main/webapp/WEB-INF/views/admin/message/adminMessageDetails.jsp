@@ -14,7 +14,7 @@
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminSendMessage"/>">Send message</a></h2>
             </div>
         </div>
 
@@ -28,14 +28,14 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Contact details</strong></div>
+                        <div class="title"><strong>Message details</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
 
                                 <form:form items="${adminMessageDetails}" var="adminMessageDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Contact id</label>
+                                        <label class="col-sm-3 form-control-label">Message id</label>
                                         <c:out value="${adminMessageDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
@@ -45,7 +45,7 @@
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Contact date</label>
+                                        <label class="col-sm-3 form-control-label">Message date</label>
                                         <c:out value="${adminMessageDetails.updateDate}"/>
                                         <label class="label-material"> </label>
                                     </div>

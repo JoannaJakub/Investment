@@ -43,7 +43,7 @@
                     <a href="<c:url value="/adminMessage"/>"
                        class="btn btn-secondary">NO</a>
                     <a href="<c:url value="/adminMessageDelete/${param.id}"/>"
-                       class="btn btn-primary">YES, delete contact</a>
+                       class="btn btn-primary">YES, delete message</a>
                 </div>
             </div>
             <br>
