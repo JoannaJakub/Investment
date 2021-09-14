@@ -44,15 +44,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${adminContact}" var="adminContact">
+                                <c:forEach items="${adminMessage}" var="adminMessage">
                                 <tr>
-                                        <td><c:out value="${adminContact.id}"/></td>
-                                        <td><c:out value="${adminContact.message}"/></td>
-                                        <td><c:out value="${adminContact.updateDate}"/></td>
-                                        <td><c:out value="${adminContact.user.id}"/></td>
-                                        <td><a href="<c:url value="/adminContactConfirmDelete/?id=${adminContact.id}"/>">Delete</a></td>
-                                        <td><a href="<c:url value="/adminContactEdit/${adminContact.id}"/>">Edit</a></td>
-                                        <td><a href="<c:url value="/adminContactDetails/${adminContact.id}"/>">Details</a></td>
+                                        <td><c:out value="${adminMessage.id}"/></td>
+                                        <td><c:out value="${adminMessage.message}"/></td>
+                                        <td><c:out value="${adminMessage.updateDate}"/></td>
+                                        <td><c:out value="${adminMessage.user.id}"/></td>
+                                        <td><a href="<c:url value="/adminMessageConfirmDelete/?id=${adminMessage.id}"/>">Delete</a></td>
+                                        <td><a href="<c:url value="/adminMessageEdit/${adminMessage.id}"/>">Edit</a></td>
+                                        <td><a href="<c:url value="/adminMessageDetails/${adminMessage.id}"/>">Details</a></td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -61,8 +61,6 @@
                     </div>
                 </div>
         </section>
-
         <%@ include file="../../main/footer.jsp" %>
-
 </body>
 </html>

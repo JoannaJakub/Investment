@@ -15,7 +15,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminSendMessage"/>">Send message</a></h2>
             </div>
         </div>
         <!-- Breadcrumb-->
@@ -40,9 +40,9 @@
             <div class="line"></div>
             <div class="form-group row">
                 <div class="col-sm-9 ml-auto">
-                    <a href="<c:url value="/adminContact"/>"
+                    <a href="<c:url value="/adminMessage"/>"
                        class="btn btn-secondary">NO</a>
-                    <a href="<c:url value="/adminContactDelete/${param.id}"/>"
+                    <a href="<c:url value="/adminMessageDelete/${param.id}"/>"
                        class="btn btn-primary">YES, delete contact</a>
                 </div>
             </div>
@@ -53,7 +53,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of storage? </small><a href="<c:url value="/adminContact"/>">Here</a>
+                <small>List of storage? </small><a href="<c:url value="/adminMessage"/>">Here</a>
             </div>
 
         </section>

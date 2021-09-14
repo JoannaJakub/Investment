@@ -34,7 +34,7 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${adminContactConfirmEdit}" var="adminContactConfirmEdit">
+                                <form:form items="${adminMessageConfirmEdit}" var="adminMessageConfirmEdit">
                                     <div>
                                         <tr>
                                             <td>ID</td>
@@ -42,28 +42,28 @@
                                         </tr>
                                         <tr>
                                             <td>Message</td>
-                                            <td><c:out value="${adminContactConfirmEdit.message}"/></td>
+                                            <td><c:out value="${adminMessageConfirmEdit.message}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Link</td>
-                                            <td><c:out value="${adminContactConfirmEdit.updateDate}"/></td>
+                                            <td><c:out value="${adminMessageConfirmEdit.updateDate}"/></td>
                                         </tr>
                                         <tr>
                                             <td>User ID</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user.id}"/></td>
+                                            <td><c:out value="${adminMessageConfirmEdit.user.id}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Username</td>
-                                            <td><a href="<c:url value="/userDetails/${adminContactConfirmEdit.user.id}"/>"><c:out
-                                                value="${adminContactConfirmEdit.user.username}"/></a></td>
+                                            <td><a href="<c:url value="/userDetails/${adminMessageConfirmEdit.user.id}"/>"><c:out
+                                                value="${adminMessageConfirmEdit.user.username}"/></a></td>
                                         </tr>
                                         <tr>
                                             <td>Name</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user.firstName}"/></td>
+                                            <td><c:out value="${adminMessageConfirmEdit.user.firstName}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Surname</td>
-                                            <td><c:out value="${adminContactConfirmEdit.user.lastName}"/></td>
+                                            <td><c:out value="${adminMessageConfirmEdit.user.lastName}"/></td>
                                         </tr>
                                     </div>
 
@@ -81,7 +81,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all messages? </small><a href="<c:url value="/adminContact"/>">Here</a>
+                <small>List of all messages? </small><a href="<c:url value="/adminMessage"/>">Here</a>
             </div>
         </section>
    <%@ include file="../../main/footer.jsp" %>
