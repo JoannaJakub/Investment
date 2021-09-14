@@ -56,13 +56,7 @@
             <div class="no-margin-bottom">
                 <small>List of roles? </small><a href="<c:url value="/role"/>">Here</a>
             </div>
-
         </section>
-    </div>
-</div>
-
-
-<%@ include file="../../user/footer.jsp" %>
-
+   <%@ include file="../../user/footer.jsp" %>
 </body>
 </html>

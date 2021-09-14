@@ -63,9 +63,6 @@
                 <small>List of roles? </small><a href="<c:url value="/role"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
-
 <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

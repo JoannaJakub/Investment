@@ -55,11 +55,7 @@
             <div class="no-margin-bottom">
                 <small>List of storage? </small><a href="<c:url value="/adminStorage"/>">Here</a>
             </div>
-
         </section>
-    </div>
-</div>
 <%@ include file="../../main/footer.jsp" %>
-
 </body>
 </html>
