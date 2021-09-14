@@ -28,11 +28,17 @@
                             <div class="title"><strong>Send a message</strong></div>
                             <div class="block-body">
                                 <form:form action="adminSendMessageSuccess" class="form-horizontal" method="post"
-                                           modelAttribute="adminSendMessage">
+                                           modelAttribute="message">
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Storage name</label>
+                                        <label class="col-sm-3 form-control-label">User</label>
                                         <div class="col-sm-9">
-                                            <form:hidden path="id"/>
+                                            <form:input path="user" type="text" class="form-control"/>
+                                            <form:errors path="user"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 form-control-label">Message</label>
+                                        <div class="col-sm-9">
                                             <form:input path="message" type="text" class="form-control"/>
                                             <form:errors path="message"/>
                                         </div>

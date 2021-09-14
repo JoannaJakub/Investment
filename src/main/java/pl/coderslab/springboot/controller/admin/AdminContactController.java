@@ -85,6 +85,7 @@ public class AdminContactController {
     @GetMapping("/adminSendMessage")
     public String adminSendMessage(Model model ){
         model.addAttribute("message", new Contact());
+        model.addAttribute("user", userService.findAll());
         return "admin/contact/adminSendMessage";
     }
 

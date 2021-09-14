@@ -15,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Admin Dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminAddContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/adminSendMessage"/>">Send message</a></h2>
             </div>
         </div>
 
@@ -84,9 +84,6 @@
                 <small>List of all messages? </small><a href="<c:url value="/adminContact"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
-
-<%@ include file="../../main/footer.jsp" %>
+   <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>
