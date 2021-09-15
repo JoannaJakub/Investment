@@ -28,7 +28,7 @@
                             <div class="text-left">
                                 <h1>You have sent your message successfully!</h1>
                                 </br>
-                                <h4><a href="<c:url value="/yourContact"/>">Click here to see all your messages!</a></h4>
+                                <h4><a href="<c:url value="/yourMessage"/>">Click here to see all your messages!</a></h4>
                                 </br>
                             </div>
                         </div>

@@ -34,26 +34,26 @@ public class MessageController {
         if (message.isEmpty()) {
             model.addAttribute("error", "Nothing to display");
         } else {
-            model.addAttribute("Message", message);
+            model.addAttribute("message", message);
 
         }
-        return "user/Message/Message";
+        return "user/message/message";
     }
 
     @GetMapping("/addMessage")
     public String addMessage(Model model,Authentication authentication) {
-        model.addAttribute("Message", new Message());
+        model.addAttribute("message", new Message());
         model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/message/addMessage";
     }
 
-    @PostMapping(value = "/MessageSuccess")
+    @PostMapping(value = "/messageSuccess")
     public String processAddingMessage(@Valid Message message, BindingResult result) {
         if (result.hasErrors()) {
             return "user/message/addMessage";
         } else {
             messageRepository.save(message);
-            return "user/message/MessageSuccess";
+            return "user/message/messageSuccess";
         }
     }
 
@@ -76,19 +76,19 @@ public class MessageController {
         }
         else{ return "user/userError";}
 
-        return "user/message/MessageDetails";
+        return "user/message/messageDetails";
     }
 
     @GetMapping(value = {"/messageEdit/{id}"})
     public String messageEditForm(@PathVariable long id, Model model) {
         model.addAttribute("messageEdit", messageRepository.findById(id));
-        return "user/message/MessageEdit";
+        return "user/message/messageEdit";
     }
 
     @PostMapping(value = {"MessageEdit/{id}"})
     public String MessageEditSave(@Valid Message Message) {
         messageRepository.save(Message);
-        return "redirect:/MessageConfirmEditing/{id}";
+        return "redirect:/messageConfirmEditing/{id}";
     }
 
     @RequestMapping("/messageConfirmEditing/{id}")

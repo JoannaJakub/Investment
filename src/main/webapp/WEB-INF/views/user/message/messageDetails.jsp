@@ -12,7 +12,7 @@
         <div class="page-header">
 
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addMessage"/>">Send message</a></h2>
             </div>
         </div>
 
@@ -31,31 +31,31 @@
                             <table class="table table-striped table-sm">
                                 <tbody>
 
-                                <form:form items="${contactDetails}" var="contactDetails">
+                                <form:form items="${messageDetails}" var="messageDetails">
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Message id</label>
-                                        <c:out value="${contactDetails.id}"/>
+                                        <c:out value="${messageDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Message</label>
-                                        <c:out value="${contactDetails.message}"/>
+                                        <c:out value="${messageDetails.message}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Date</label>
-                                        <c:out value="${contactDetails.updateDate}"/>
+                                        <c:out value="${messageDetails.updateDate}"/>
                                         <label class="label-material"> </label>
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/contactEdit/${contactDetails.id}"/>"
+                                            <a href="<c:url value="/MessageEdit/${messageDetails.id}"/>"
                                                class="btn btn-primary">Edit message</a>
                                         </div>
                                     </div>
                                 </form:form>
                                 <small>List of your messages? </small><a
-                                        href="<c:url value="/yourContact"/>">Here</a>
+                                        href="<c:url value="/yourMessage"/>">Here</a>
                                 </tbody>
                             </table>
                         </div>

@@ -13,7 +13,7 @@
         <div class="page-header">
 
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addMessage"/>">Send message</a></h2>
             </div>
         </div>
 
@@ -31,17 +31,17 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
-                                <form:form items="${contactConfirmEdit}" var="contactConfirmEdit">
+                                <form:form items="${messageConfirmEdit}" var="messageConfirmEdit">
                                     <div>
                                         <tr>
                                             <td><c:out value="${id}"/></td>
 
                                             <td>Message</td>
-                                            <td><c:out value="${contactConfirmEdit.message}"/></td>
+                                            <td><c:out value="${messageConfirmEdit.message}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Date</td>
-                                            <td><c:out value="${contactConfirmEdit.updateDate}"/></td>
+                                            <td><c:out value="${messageConfirmEdit.updateDate}"/></td>
                                         </tr>
                                     </div>
                                 </form:form>
@@ -55,7 +55,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all messages? </small><a href="<c:url value="/yourContact"/>">Here</a>
+                <small>List of all messages? </small><a href="<c:url value="/yourMessage"/>">Here</a>
             </div>
         </section>
         <%@ include file="../footer.jsp" %>

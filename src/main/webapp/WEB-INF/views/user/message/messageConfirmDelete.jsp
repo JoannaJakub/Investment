@@ -11,7 +11,7 @@
     <div class="page-content">
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addMessage"/>">Send message</a></h2>
             </div>
         </div>
         <!-- Breadcrumb-->
@@ -36,9 +36,9 @@
             <div class="line"></div>
             <div class="form-group row">
                 <div class="col-sm-9 ml-auto">
-                    <a href="<c:url value="/yourContact"/>"
+                    <a href="<c:url value="/yourMessage"/>"
                        class="btn btn-secondary">NO</a>
-                    <a href="<c:url value="/contactDelete/${param.id}"/>"
+                    <a href="<c:url value="/messageDelete/${param.id}"/>"
                        class="btn btn-primary">YES, delete message</a>
                 </div>
             </div>
@@ -49,7 +49,7 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of your contacts? </small><a href="<c:url value="/yourContact"/>">Here</a>
+                <small>List of your Messages? </small><a href="<c:url value="/yourMessage"/>">Here</a>
             </div>
 
         </section>
