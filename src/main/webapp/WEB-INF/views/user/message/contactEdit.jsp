@@ -15,7 +15,7 @@
                 <h2 class="h4 d-none d-sm-inline">Admin dashboard</h2>
             </div>
             <div class="list-inline-item">
-                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addContact"/>">Send message</a></h2>
+                <h2 class="h5 no-margin-bottom"><a href="<c:url value="/addMessage"/>">Send message</a></h2>
             </div>
         </div>
 
@@ -31,7 +31,7 @@
                     <div class="block">
                         <div class="title"><strong>Edit message</strong></div>
 
-                        <form:form method="post" modelAttribute="contactEdit">
+                        <form:form method="post" modelAttribute="messageEdit">
                             <form:hidden path="user" value="${user.id}"/>
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">Message</label>
@@ -44,12 +44,12 @@
                                 <label for="message" class="label-material"></label>
                             </div>
                             <div class="form-group text-center">
-                                <a href="<c:url value="/yourContact"/>"
+                                <a href="<c:url value="/yourMessage"/>"
                                    class="btn btn-secondary">Cancel</a>
                                 <input id="register" type="submit" value="Update" class="btn btn-primary">
                             </div>
                         </form:form>
-                        <small>List of all messages? </small><a href="<c:url value="/yourContact"/>">Here</a>
+                        <small>List of all messages? </small><a href="<c:url value="/yourMessage"/>">Here</a>
 
                     </div>
                 </div>

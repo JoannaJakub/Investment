@@ -27,8 +27,8 @@
                         <div class="block">
                             <div class="title"><strong>Send a message</strong></div>
                             <div class="block-body">
-                                <form:form action="contactSuccess" class="form-horizontal" method="post"
-                                           modelAttribute="contact">
+                                <form:form action="messageSuccess" class="form-horizontal" method="post"
+                                           modelAttribute="message">
                                     <div class="form-group row">
                                         <input type="hidden" name="user" value="${user.id}">                                    </div>
                                     <div class="form-group row">
@@ -42,7 +42,7 @@
                                     <div class="line"></div>
                                     <div class="form-group row">
                                         <div class="col-sm-9 ml-auto">
-                                            <a href="<c:url value="/yourContact"/>" class="btn btn-secondary">Cancel</a>
+                                            <a href="<c:url value="/yourMessage"/>" class="btn btn-secondary">Cancel</a>
                                             <button type="submit" class="btn btn-primary">Send message</button>
                                         </div>
                                     </div>
