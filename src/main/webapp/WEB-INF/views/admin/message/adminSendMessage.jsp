@@ -32,13 +32,13 @@
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label">User</label>
                                         <div class="col-sm-9">
-                                            <form:input path="user" type="text" class="form-control"/>
-                                            <form:errors path="user"/>
+                                            <form:select path="user" items="${user}" type="long" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label">Message</label>
                                         <div class="col-sm-9">
+                                            <form:input path="id"/>
                                             <form:input path="message" type="text" class="form-control"/>
                                             <form:errors path="message"/>
                                         </div>

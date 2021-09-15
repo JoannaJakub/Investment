@@ -50,10 +50,11 @@ public class AdminMessageController {
     @GetMapping(value = {"/adminMessageEdit/{id}"})
     public String adminMessageEditForm(@PathVariable long id, Model model) {
         model.addAttribute("adminMessageEdit", messageRepository.findById(id));
+        model.addAttribute("user", userService.findAll());
         return "admin/message/adminMessageEdit";
     }
 
-    @PostMapping(value = {"adminmessageEdit/{id}"})
+    @PostMapping(value = {"adminMessageEdit/{id}"})
     public String adminMessageEditSave(@Valid Message message) {
         messageRepository.save(message);
         return "redirect:/adminMessageConfirmEditing/{id}";

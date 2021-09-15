@@ -62,7 +62,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">User id</label>
                                     <div class="col-sm-9">
-                                        <form:input id="user" type="text" name="user" path="user"
+                                        <form:select id="user"  items="${user}" type="text" name="user" path="user"
                                                     placeholder="User id" data-msg="Please enter user id"
                                                     class="form-control"/>
                                         <form:errors path="user"/>
