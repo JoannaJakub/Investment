@@ -55,12 +55,18 @@ public class StorageController {
         User user = userRepository.findByUsername(entityUser);
         Set<Ownedstocks> ownedStocks = ownedstocksRepo.findStorageByUser(user);
         List<Ownedcryptocurrencies> ownedCrypto = ownedcryptocRepo.findByUser(user);
-        if (ownedStocks.isEmpty() && ownedCrypto.isEmpty()) {
-            model.addAttribute("error", "Nothing to display");
-        } else {
+        if (!ownedStocks.isEmpty()) {
             model.addAttribute("yourStocksStorage", ownedStocks);
-            model.addAttribute("yourCryptoStorage", ownedCrypto);
+        } else {
+            model.addAttribute("errorStocks", "Nothing to display");
         }
+        if (!ownedCrypto.isEmpty()) {
+            model.addAttribute("yourCryptoStorage", ownedCrypto);
+        } else {
+            model.addAttribute("error", "Nothing to display");
+        }
+        model.addAttribute("yourCryptoStorage", ownedCrypto);
+
         return "user/storage/yourStorage";
     }
 
@@ -85,8 +91,9 @@ public class StorageController {
         Optional<Storage> storageDetails = storageRepository.findById(id);
         if (storageDetails.isPresent()) {
             model.addAttribute("storageDetails", storageDetails.get());
+        } else {
+            return "user/userError";
         }
-        else {return "user/userError";}
         return "user/storage/storageDetails";
     }
 
@@ -98,8 +105,9 @@ public class StorageController {
 
         if (!ownedStocks.isEmpty()) {
             model.addAttribute("allStocksFromStorage", ownedStocks);
+        } else {
+            return "user/userError";
         }
-        else {return "user/userError";}
         return "user/storage/allStocksFromStorage";
     }
 
@@ -111,8 +119,9 @@ public class StorageController {
 
         if (!ownedCrypto.isEmpty()) {
             model.addAttribute("allCryptoFromStorage", ownedCrypto);
+        } else {
+            return "user/userError";
         }
-        else {return "user/userError";}
         return "user/storage/allCryptoFromStorage";
     }
 }

@@ -21,7 +21,7 @@
                 <div class="col-lg-20">
                     <div class="block">
                         <div class="title"><strong>Your stocks storage</strong></div>
-                        <div class="title"><strong><c:out value="${error}"/></strong></div>
+                        <div class="title"><strong><c:out value="${errorStocks}"/></strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -50,7 +50,6 @@
                     <div class="block">
                         <div class="title"><strong>Your crypto storage</strong></div>
                         <div class="title"><strong><c:out value="${error}"/></strong></div>
-                        <c:forEach items="${yourCryptoStorage}" var="yourCryptoStorage">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <thead>
@@ -61,6 +60,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach items="${yourCryptoStorage}" var="yourCryptoStorage">
                                 <tr>
                                     <td><c:out value="${yourCryptoStorage.storage.name}"/></td>
                                     <td><c:out value="${yourCryptoStorage.storage.link}"/></td>
