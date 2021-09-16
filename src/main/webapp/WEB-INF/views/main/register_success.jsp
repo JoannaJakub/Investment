@@ -27,7 +27,7 @@
                         <div class="content">
                                 <div class="logo text-center">
                                     <h1>You have signed up successfully!</h1>
-                                    <h4><a href="login">Click here to Login</a></h4>
+                                    <h4><a href="<c:url value="/login"/>">Click here to Login</a></h4>
                                 </div>
                         </div>
                     </div>

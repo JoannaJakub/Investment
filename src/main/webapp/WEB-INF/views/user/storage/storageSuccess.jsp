@@ -26,9 +26,9 @@
                     <div class="col-lg-20">
                             <div class="content">
                                 <div class="text-left">
-                                    <h1>You have add your storage successfully!</h1>
+                                    <h1>You have added your storage successfully!</h1>
                                     </br>
-                                    <h4><a href="">Click here to see all your storage!</a></h4>
+                                    <h4><a href="<c:url value="/storage"/>">Click here to see all storage!</a></h4>
                                 </br>
                                 </div>
                             </div>
