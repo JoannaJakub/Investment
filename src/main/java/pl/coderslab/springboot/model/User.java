@@ -49,5 +49,9 @@ public class User implements Serializable {
     }
 
     private boolean enabled;
+
+/*
+    cascade={CascadeType.PERSIST, CascadeType.REMOVE}
+*/
 }
 

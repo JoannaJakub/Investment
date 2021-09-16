@@ -28,9 +28,9 @@
                                 <div class="text-left">
                                     <h1>You have add your crypto successfully!</h1>
                                     </br>
-                                    <h4><a href="">Click here to see all your coins!</a></h4>
+                                    <h4> <a href="<c:url value="/yourCrypto"/>">Click here to see all your coins!</a></h4>
                                 </br>
-                                    <h5><a href="addCrypto">Click here to add more coins!</a></h5>
+                                    <h5> <a href="<c:url value="/addCrypto"/>">Click here to add more coins!</a></h5>
                                 </div>
                             </div>
                          </div>

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Data
 @Component
 @RequiredArgsConstructor
-public class Ownedcryptocurrencies implements Serializable {
+public class Ownedcryptocurrencies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,7 +32,7 @@ public class Ownedcryptocurrencies implements Serializable {
 
     @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Storage storage;
-    @ManyToOne (fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
     private User user;
     @ManyToOne (fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Cryptocurrencies cryptocurrencies;
