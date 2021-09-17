@@ -62,7 +62,7 @@ public class AdminUserController {
             return "admin/user/adminRegister";
         } else if (userRepo.findByUsername(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
-        } else if(!(user.getPassword().equals(user.getPasswordConfirm()))){
+        } else if (!(user.getPassword().equals(user.getPasswordConfirm()))) {
             result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
         } else {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -94,11 +94,16 @@ public class AdminUserController {
     }
 
     @PostMapping(value = {"userEdit/{id}"})
-    public String userEditSave(@Valid User user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-        userRepo.save(user);
+    public String userEditSave(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "admin/user/userConfirmEdit";
+        } else if (userService.findByUserName(user.getUsername().toLowerCase()) != null) {
+            result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
+        } else if (!(user.getPassword().equals(user.getPasswordConfirm()))) {
+            result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
+        } else {
+            userService.save(user);
+        }
         return "redirect:/userConfirmEditing/{id}";
     }
 
@@ -150,7 +155,7 @@ public class AdminUserController {
     }
 
     @RequestMapping("/userInvest/{id}")
-    public String userInvest( @PathVariable long id, Model model) {
+    public String userInvest(@PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
@@ -164,7 +169,7 @@ public class AdminUserController {
     }
 
     @RequestMapping("/userCrypto/{id}")
-    public String userCrypto( @PathVariable long id, Model model) {
+    public String userCrypto(@PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
         if (ownedcryptocurrencies.isEmpty()) {
@@ -176,7 +181,7 @@ public class AdminUserController {
     }
 
     @RequestMapping("/userStocks/{id}")
-    public String userStocks( @PathVariable long id, Model model) {
+    public String userStocks(@PathVariable long id, Model model) {
         Optional<User> user = userRepo.findById(id);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
         if (ownedstocks.isEmpty()) {
@@ -189,14 +194,14 @@ public class AdminUserController {
 
     @GetMapping("usersAdminRole/{id}")
     public String usersAdminRole(Model model) {
-        Set<User> user=userRepo.findAllByRoleId(2);
+        Set<User> user = userRepo.findAllByRoleId(2);
         model.addAttribute("adminRole", user);
         return "admin/user/usersAdminRole";
     }
 
     @GetMapping("usersUserRole/{id}")
     public String usersUserRole(Model model) {
-        Set<User> user=userRepo.findAllByRoleId(1);
+        Set<User> user = userRepo.findAllByRoleId(1);
         model.addAttribute("userRole", user);
         return "admin/user/usersUserRole";
     }
@@ -217,6 +222,7 @@ public class AdminUserController {
 
         excelExporter.export(response);
     }
+
     @GetMapping("/adminUsersInvest/export/excel/{id}")
     public void adminUsersInvestExportToExcel(HttpServletResponse response, @PathVariable long id) throws IOException {
         response.setContentType("application/octet-stream");
@@ -230,7 +236,7 @@ public class AdminUserController {
         Optional<User> user = userRepo.findById(id);
         List<Ownedcryptocurrencies> ownedcryptocurrencies = ownedcryptoRepo.findInvestByUser(user);
         List<Ownedstocks> ownedstocks = ownedstocksRepo.findInvestByUser(user);
-        AdminUsersInvestExcelExporter excelExporter = new AdminUsersInvestExcelExporter(ownedcryptocurrencies,ownedstocks);
+        AdminUsersInvestExcelExporter excelExporter = new AdminUsersInvestExcelExporter(ownedcryptocurrencies, ownedstocks);
         excelExporter.export(response);
     }
 

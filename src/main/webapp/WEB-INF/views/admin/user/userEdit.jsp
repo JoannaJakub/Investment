@@ -79,6 +79,15 @@
                                     <label for="firstName" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
+                                    <label class="col-sm-3 form-control-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <form:input id="register-password" type="passwordConfirm" name="passwordConfirm"
+                                                    path="passwordConfirm" placeholder="Password"
+                                                    data-msg="Please enter your password" class="input-material"/>
+                                        <form:errors path="passwordConfirm"/></div>
+                                    <label for="firstName" class="label-material"></label>
+                                </div>
+                                <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Enabled</label>
                                     <div class="col-sm-9">
                                         <form:input id="enabled" type="enabled" name="enabled"
