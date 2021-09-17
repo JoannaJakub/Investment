@@ -5,6 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,13 +55,25 @@ public class UserController {
     }
 
     @PostMapping(value = {"myDetailsEdit"})
-    public String myDetailsEditSave(@Valid User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+    public String myDetailsEditSave(@Valid User user,  BindingResult result) {
+     /*   user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPasswordConfirm(passwordEncoder.encode(user.getPassword()));
         String password = passwordEncoder.encode(user.getPassword());
         Role role = roleRepository.findById(1L).orElse(null);
+        System.out.println( user.getPassword());
         if(role != null){
             user.setRole(new HashSet<>(Collections.singletonList(role)));
+
             userRepository.save(user);
+        }*/
+        if (result.hasErrors()) {
+            return "user/user/userConfirmEdit";
+        } else if (userService.findByUserName(user.getUsername().toLowerCase()) != null) {
+            result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
+        } else if (!(user.getPassword().equals(user.getPasswordConfirm()))) {
+            result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
+        } else {
+            userService.save(user);
         }
         return "redirect:/myDetailsConfirmEditing";
     }
@@ -68,6 +82,7 @@ public class UserController {
     public String myDetailsConfirmEditing(@AuthenticationPrincipal UserDetails customUser, Model model) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
+        System.out.println("pppppp" + user);
         model.addAttribute("myDetailsConfirmEdit", user);
         return "user/user/userConfirmEdit";
     }
@@ -92,4 +107,18 @@ public class UserController {
         model.addAttribute("userChangePassword", user);
         return "user/user/userChangePassword";
     }
+    @PostMapping(value = "/userPasswordChangeSuccess")
+    public String userPasswordChangeSuccess(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user/user/userChangePassword";
+        }else if(!(user.getPassword().equals(user.getPasswordConfirm()))){
+            result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
+        } else {
+            userService.save(user);
+            return "user/user/userPasswordChangeSuccess";
+        }
+        return "user/user/userPasswordChangeSuccess";
+    }
+
+
 }

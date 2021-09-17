@@ -14,13 +14,7 @@
     <div class="page-content">
         <!-- Page Header-->
         <div class="page-header">
-            <div class="list-inline-item">
-                <h2 class="h4 no-margin-bottom"><a href="addCrypto"></a></h2>
-            </div>
-
         </div>
-
-
         <section class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">
@@ -40,6 +34,7 @@
                                         <form:input type="hidden" path="id"/>
                                         <form:input type="hidden" path="role"/>
                                         <form:input type="hidden" path="password"/>
+                                        <form:input type="hidden" path="passwordConfirm"/>
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
                                                     class="input-material"/>
@@ -70,8 +65,8 @@
                                     <div class="col-sm-9">
                                         <a href="<c:url value="/userChangePassword"/>"
                                            class="btn btn-primary">Change Password</a>
-                                    <label for="firstName" class="label-material"></label>
-                                </div>
+                                        <label for="firstName" class="label-material"></label>
+                                    </div>
                                 </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/myDetails"/>"

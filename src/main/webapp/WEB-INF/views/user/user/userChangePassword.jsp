@@ -35,27 +35,36 @@
                         <div class="block-body">
                             <form:form method="post" modelAttribute="userChangePassword">
 
-                                <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Password</label>
-                                    <div class="col-sm-9">
-                                        <form:input id="register-password" type="password" name="registerPassword"
-                                                    path="password" placeholder="Password"
-                                                    data-msg="Please enter your password" class="input-material"/>
-                                        <form:errors path="password"/></div>
-                                    <label for="password" class="label-material"></label>
+                            <div class="form-group row">
+                                <label class="col-sm-3 form-control-label">Password</label>
+                                <div class="col-sm-9">
+                                    <form:input id="register-password" type="password" name="registerPassword"
+                                                path="password" placeholder="Password"
+                                                data-msg="Please enter your password" class="input-material"/>
+                                    <form:errors path="password"/></div>
+                                <label for="password" class="label-material"></label>
+
+                                <label class="col-sm-3 form-control-label">Confirm password</label>
+                                <div class="col-sm-9">
+                                    <form:input id="passwordConfirm" type="password" name="passwordConfirm"
+                                                path="passwordConfirm"
+                                                data-msg="Please enter your password" class="input-material"/>
+                                    <form:errors path="passwordConfirm"/>
+                                    <label for="register-password" class="label-material"> </label>
                                 </div>
+                            </div>
                                 <div class="form-group text-center">
                                     <a href="<c:url value="/myDetailsEdit"/>"
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
 
-                            </form:form>
+                                </form:form>
 
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
         </section>
 
