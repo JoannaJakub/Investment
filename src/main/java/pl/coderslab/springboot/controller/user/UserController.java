@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.springboot.model.Role;
@@ -19,6 +20,7 @@ import pl.coderslab.springboot.service.UserService;
 import javax.validation.Valid;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -82,7 +84,6 @@ public class UserController {
     public String myDetailsConfirmEditing(@AuthenticationPrincipal UserDetails customUser, Model model) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
-        System.out.println("pppppp" + user);
         model.addAttribute("myDetailsConfirmEdit", user);
         return "user/user/userConfirmEdit";
     }
@@ -101,23 +102,24 @@ public class UserController {
     }
 
     @GetMapping(value = {"/userChangePassword"})
-    public String userChangePasswordEditForm(@AuthenticationPrincipal UserDetails customUser, Model model) {
+    public String userChangePasswordForm(@AuthenticationPrincipal UserDetails customUser, Model model) {
         String entityUser = customUser.getUsername();
         User user = userRepository.findByUsername(entityUser);
         model.addAttribute("userChangePassword", user);
         return "user/user/userChangePassword";
     }
-    @PostMapping(value = "/userPasswordChangeSuccess")
-    public String userPasswordChangeSuccess(@Valid User user, BindingResult result) {
+
+    @PostMapping(value = "/userChangePassword")
+    public String userPasswordChange(@Valid User user, BindingResult result) {
+
         if (result.hasErrors()) {
             return "user/user/userChangePassword";
         }else if(!(user.getPassword().equals(user.getPasswordConfirm()))){
             result.addError(new FieldError(user.toString(), "passwordConfirm", "Passwords dont match"));
         } else {
             userService.save(user);
-            return "user/user/userPasswordChangeSuccess";
         }
-        return "user/user/userPasswordChangeSuccess";
+        return "redirect:/userPasswordChangeSuccess";
     }
 
 

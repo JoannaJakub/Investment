@@ -15,11 +15,8 @@
         <!-- Page Header-->
         <div class="page-header">
             <div class="list-inline-item">
-                <h2 class="h4 no-margin-bottom"><a href="addCrypto"></a></h2>
             </div>
-
         </div>
-
 
         <section class="no-padding-top">
             <div class="container-fluid">

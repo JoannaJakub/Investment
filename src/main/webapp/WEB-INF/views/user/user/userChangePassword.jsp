@@ -38,7 +38,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 form-control-label">Password</label>
                                 <div class="col-sm-9">
-                                    <form:input id="register-password" type="password" name="registerPassword"
+                                    <form:input id="password" type="password" name="Password"
                                                 path="password" placeholder="Password"
                                                 data-msg="Please enter your password" class="input-material"/>
                                     <form:errors path="password"/></div>
@@ -50,7 +50,7 @@
                                                 path="passwordConfirm"
                                                 data-msg="Please enter your password" class="input-material"/>
                                     <form:errors path="passwordConfirm"/>
-                                    <label for="register-password" class="label-material"> </label>
+                                    <label for="passwordConfirm" class="label-material"> </label>
                                 </div>
                             </div>
                                 <div class="form-group text-center">
