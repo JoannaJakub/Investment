@@ -41,8 +41,8 @@
                                             <td><c:out value="${id}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Message</td>
-                                            <td><c:out value="${adminMessageConfirmEdit.message}"/></td>
+                                            <td>Messanger</td>
+                                            <td><c:out value="${adminMessageConfirmEdit.messanger}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Link</td>

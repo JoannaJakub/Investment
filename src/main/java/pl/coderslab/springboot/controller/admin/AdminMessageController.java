@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.springboot.model.Message;
+import pl.coderslab.springboot.model.Messanger;
 import pl.coderslab.springboot.repository.MessageRepository;
 import pl.coderslab.springboot.service.UserService;
 
@@ -27,11 +27,11 @@ public class AdminMessageController {
 
     @GetMapping("adminMessage")
     public String adminMessage(Model model) {
-        List<Message> message = messageRepository.findAll();
-        if (message.isEmpty()) {
+        List<Messanger> messanger = messageRepository.findAll();
+        if (messanger.isEmpty()) {
             model.addAttribute("error", "Nothing to display");
         } else {
-            model.addAttribute("adminMessage", message);
+            model.addAttribute("adminMessage", messanger);
         }
         return "admin/message/adminMessage";
     }
@@ -55,14 +55,14 @@ public class AdminMessageController {
     }
 
     @PostMapping(value = {"adminMessageEdit/{id}"})
-    public String adminMessageEditSave(@Valid Message message) {
-        messageRepository.save(message);
+    public String adminMessageEditSave(@Valid Messanger messanger) {
+        messageRepository.save(messanger);
         return "redirect:/adminMessageConfirmEditing/{id}";
     }
 
     @RequestMapping("/adminMessageConfirmEditing/{id}")
     public String adminMessageConfirmEditing(@PathVariable long id, Model model) {
-        Optional<Message> message = messageRepository.findById(id);
+        Optional<Messanger> message = messageRepository.findById(id);
         if (message.isPresent()) {
             model.addAttribute("adminMessageConfirmEdit", message.get());
         } else {
@@ -73,7 +73,7 @@ public class AdminMessageController {
 
     @GetMapping(value = {"/adminMessageDetails/{id}"})
     public String adminMessageDetails(@PathVariable long id, Model model) {
-        Optional<Message> messageDetails = messageRepository.findById(id);
+        Optional<Messanger> messageDetails = messageRepository.findById(id);
         if (messageDetails.isPresent()) {
             model.addAttribute("adminMessageDetails", messageDetails.get());
         } else {
@@ -84,17 +84,17 @@ public class AdminMessageController {
 
     @GetMapping("/adminSendMessage")
     public String adminSendMessage(Model model ){
-        model.addAttribute("message", new Message());
+        model.addAttribute("message", new Messanger());
         model.addAttribute("user", userService.findAll());
         return "admin/message/adminSendMessage";
     }
 
     @PostMapping(value = "/adminSendMessageSuccess")
-    public String adminSendMessageSuccess(@Valid Message message, BindingResult result) {
+    public String adminSendMessageSuccess(@Valid Messanger messanger, BindingResult result) {
         if (result.hasErrors()) {
             return "admin/message/adminSendMessage";
         } else {
-            messageRepository.save(message);
+            messageRepository.save(messanger);
             return "admin/message/adminSendMessageSuccess";
         }
     }

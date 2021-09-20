@@ -88,7 +88,7 @@
                         <span class="badge dashbg-1">5</span></a>
 
                     <div aria-labelledby="navbarDropdownMenuLink1" class="dropdown-menu messages">
-                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                        <a href="#" class="dropdown-item messanger d-flex align-items-center">
 
                             <div class="profile"><img src="img/avatar-3.jpg" alt="..." class="img-fluid">
                                 <div class="status online"></div>
@@ -99,7 +99,7 @@
                                 </div>
 
                         </a>
-                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                        <a href="#" class="dropdown-item messanger d-flex align-items-center">
                             <div class="profile"><img src="img/avatar-2.jpg" alt="..." class="img-fluid">
                                 <div class="status away"></div>
                             </div>
@@ -108,7 +108,7 @@
                                 <small class="date d-block">7:40am</small>
                             </div>
                         </a>
-                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                        <a href="#" class="dropdown-item messanger d-flex align-items-center">
                             <div class="profile"><img src="img/avatar-1.jpg" alt="..." class="img-fluid">
                                 <div class="status busy"></div>
                             </div>
@@ -116,7 +116,7 @@
                                 <span class="d-block">lorem ipsum dolor sit amit</span>
                                 <small class="date d-block">6:55am</small></div>
                         </a>
-                        <a href="#" class="dropdown-item message d-flex align-items-center">
+                        <a href="#" class="dropdown-item messanger d-flex align-items-center">
                             <div class="profile"><img src="img/avatar-5.jpg" alt="..." class="img-fluid">
                                 <div class="status offline"></div>
                             </div>
@@ -125,7 +125,7 @@
                                 <small class="date d-block">10:30pm</small></div>
                         </a>
 
-                        <a href="<c:url value="/adminContact"/>" class="dropdown-item text-center message">
+                        <a href="<c:url value="/adminContact"/>" class="dropdown-item text-center messanger">
                             <strong>See All Messages <i class="fa fa-angle-right"></i></strong></a></div>
                 </div>
 

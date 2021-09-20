@@ -28,24 +28,24 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Message details</strong></div>
+                        <div class="title"><strong>Messanger details</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
 
                                 <form:form items="${adminMessageDetails}" var="adminMessageDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message id</label>
+                                        <label class="col-sm-3 form-control-label">Messanger id</label>
                                         <c:out value="${adminMessageDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message</label>
-                                        <c:out value="${adminMessageDetails.message}"/>
+                                        <label class="col-sm-3 form-control-label">Messanger</label>
+                                        <c:out value="${adminMessageDetails.messanger}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message date</label>
+                                        <label class="col-sm-3 form-control-label">Messanger date</label>
                                         <c:out value="${adminMessageDetails.updateDate}"/>
                                         <label class="label-material"> </label>
                                     </div>
