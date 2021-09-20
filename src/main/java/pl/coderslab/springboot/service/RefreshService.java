@@ -37,7 +37,7 @@ public class RefreshService {
         scheduler.scheduleAtFixedRate(() ->
                 stocksToRefersh.forEach((stock, value) -> {
                             if (stock.getLastAccess().isBefore(LocalDateTime.now().minus(refreshPeriod))) {
-                                System.out.println("Setting should refresh " + stock.getStock().getSymbol());
+//                                System.out.println("Setting should refresh " + stock.getStock().getSymbol());
                                 stocksToRefersh.remove(stock);
                                 stocksToRefersh.put(stock.withLastAccess(LocalDateTime.now()), true);
 
