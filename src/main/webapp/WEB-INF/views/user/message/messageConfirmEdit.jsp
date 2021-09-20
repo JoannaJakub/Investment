@@ -27,15 +27,13 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Message has been updated!</strong></div>
+                        <div class="title"><strong>Messanger has been updated!</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
                                 <form:form items="${messageConfirmEdit}" var="messageConfirmEdit">
                                     <div>
                                         <tr>
-                                            <td><c:out value="${id}"/></td>
-
                                             <td>Message</td>
                                             <td><c:out value="${messageConfirmEdit.message}"/></td>
                                         </tr>

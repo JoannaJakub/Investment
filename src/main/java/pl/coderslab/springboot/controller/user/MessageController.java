@@ -4,11 +4,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.springboot.model.Message;
+import org.springframework.web.bind.annotation.*;
+import pl.coderslab.springboot.model.Messanger;
 import pl.coderslab.springboot.model.User;
 import pl.coderslab.springboot.repository.MessageRepository;
 import pl.coderslab.springboot.service.UserService;
@@ -30,29 +27,28 @@ public class MessageController {
     @GetMapping("/yourMessage")
     public String yourContact(Model model, Authentication authentication) {
         User user = userService.findByUserName(authentication.getName());
-        List<Message> message = messageRepository.findMessageByUserId(user.getId());
+        List<Messanger> message = messageRepository.findMessageByUserId(user.getId());
         if (message.isEmpty()) {
             model.addAttribute("error", "Nothing to display");
         } else {
             model.addAttribute("message", message);
-
         }
         return "user/message/message";
     }
 
     @GetMapping("/addMessage")
     public String addMessage(Model model,Authentication authentication) {
-        model.addAttribute("message", new Message());
+        model.addAttribute("message", new Messanger());
         model.addAttribute("user", userService.findByUserName(authentication.getName()));
         return "user/message/addMessage";
     }
 
     @PostMapping(value = "/messageSuccess")
-    public String processAddingMessage(@Valid Message message, BindingResult result) {
+    public String processAddingMessage(@Valid Messanger messanger, BindingResult result) {
         if (result.hasErrors()) {
             return "user/message/addMessage";
         } else {
-            messageRepository.save(message);
+            messageRepository.save(messanger);
             return "user/message/messageSuccess";
         }
     }
@@ -68,9 +64,9 @@ public class MessageController {
         return "redirect:/yourMessage";
     }
 
-    @GetMapping(value = {"/MessageDetails/{id}"})
+    @GetMapping(value = {"/messageDetails/{id}"})
     public String messageDetails(@PathVariable long id, Model model) {
-        Optional<Message> messageDetails = messageRepository.findById(id);
+        Optional<Messanger> messageDetails = messageRepository.findById(id);
         if (messageDetails.isPresent()) {
             model.addAttribute("messageDetails", messageDetails.get());
         }
@@ -85,15 +81,15 @@ public class MessageController {
         return "user/message/messageEdit";
     }
 
-    @PostMapping(value = {"MessageEdit/{id}"})
-    public String MessageEditSave(@Valid Message Message) {
-        messageRepository.save(Message);
+    @PostMapping(value = {"messageEdit/{id}"})
+    public String messageEditSave(@Valid Messanger messanger) {
+        messageRepository.save(messanger);
         return "redirect:/messageConfirmEditing/{id}";
     }
 
     @RequestMapping("/messageConfirmEditing/{id}")
     public String messageConfirmEditing(@PathVariable long id, Model model) {
-        Optional<Message> message = messageRepository.findById(id);
+        Optional<Messanger> message = messageRepository.findById(id);
         if (message.isPresent()) {
             model.addAttribute("messageConfirmEdit", message.get());
         } else {

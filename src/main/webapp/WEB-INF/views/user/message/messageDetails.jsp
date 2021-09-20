@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Message</label>
-                                        <c:out value="${messageDetails.message}"/>
+                                        <c:out value="${messageDetails.messanger}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="form-group-material">
                                         <div class="col-sm ml-auto">
-                                            <a href="<c:url value="/MessageEdit/${messageDetails.id}"/>"
+                                            <a href="<c:url value="/messageEdit/${messageDetails.id}"/>"
                                                class="btn btn-primary">Edit message</a>
                                         </div>
                                     </div>
