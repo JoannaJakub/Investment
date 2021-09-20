@@ -30,16 +30,10 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>
-
                                 <form:form items="${messageDetails}" var="messageDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Message id</label>
-                                        <c:out value="${messageDetails.id}"/>
-                                        <label class="label-material"></label>
-                                    </div>
-                                    <div class="form-group-material">
                                         <label class="col-sm-3 form-control-label">Message</label>
-                                        <c:out value="${messageDetails.messanger}"/>
+                                        <c:out value="${messageDetails.message}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">

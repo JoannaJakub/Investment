@@ -27,7 +27,7 @@
 
                 <div class="col-lg-20">
                     <div class="block">
-                        <div class="title"><strong>Messanger has been updated!</strong></div>
+                        <div class="title"><strong>Message has been updated!</strong></div>
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
                                 <tbody>

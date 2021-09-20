@@ -25,6 +25,6 @@ public class Messanger {
     private String message;
     @UpdateTimestamp
     private LocalDateTime updateDate;
-    @ManyToOne (fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
     private User user;
 }
