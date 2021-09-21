@@ -47,7 +47,7 @@
                                 <c:forEach items="${adminMessage}" var="adminMessage">
                                 <tr>
                                         <td><c:out value="${adminMessage.id}"/></td>
-                                        <td><c:out value="${adminMessage.messanger}"/></td>
+                                        <td><c:out value="${adminMessage.message}"/></td>
                                         <td><c:out value="${adminMessage.updateDate}"/></td>
                                         <td><c:out value="${adminMessage.user.id}"/></td>
                                         <td><a href="<c:url value="/adminMessageConfirmDelete/?id=${adminMessage.id}"/>">Delete</a></td>

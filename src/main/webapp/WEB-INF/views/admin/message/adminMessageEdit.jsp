@@ -35,22 +35,22 @@
                         <div class="block-body">
                             <form:form method="post" modelAttribute="adminMessageEdit">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Messanger id</label>
+                                    <label class="col-sm-3 form-control-label">Message id</label>
                                     <div class="col-sm-9">
                                         <c:out value="${id}"/></div>
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Messanger</label>
+                                    <label class="col-sm-3 form-control-label">Message</label>
                                     <div class="col-sm-9">
-                                        <form:input id="messanger" type="text" name="messanger" path="messanger"
+                                        <form:input id="message" type="text" name="message" path="message"
                                                     placeholder="message" data-msg="Please enter your message"
                                                     class="form-control"/>
-                                        <form:errors path="messanger"/></div>
-                                    <label for="messanger" class="label-material"></label>
+                                        <form:errors path="message"/></div>
+                                    <label for="message" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-3 form-control-label">Messanger date</label>
+                                    <label class="col-sm-3 form-control-label">Message date</label>
                                     <div class="col-sm-9">
                                         <form:input id="updateDate" type="text" name="updateDate" path="updateDate"
                                                     placeholder="Date" data-msg="Please enter date"

@@ -28,7 +28,7 @@
                             <div class="title"><strong>Send a message</strong></div>
                             <div class="block-body">
                                 <form:form action="adminSendMessageSuccess" class="form-horizontal" method="post"
-                                           modelAttribute="messanger">
+                                           modelAttribute="message">
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label">User</label>
                                         <div class="col-sm-9">
@@ -36,14 +36,13 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 form-control-label">Messanger</label>
+                                        <label class="col-sm-3 form-control-label">Message</label>
                                         <div class="col-sm-9">
-                                            <form:input path="id"/>
-                                            <form:input path="messanger" type="text" class="form-control"/>
-                                            <form:errors path="messanger"/>
+                                            <form:input path="message" type="text" class="form-control"/>
+                                            <form:errors path="message"/>
                                         </div>
                                     </div>
-                                    <div class="line"></div>
+
                                     <div class="form-group row">
                                         <div class="col-sm-9 ml-auto">
                                             <a href="<c:url value="/adminMessage"/>" class="btn btn-secondary">Cancel</a>

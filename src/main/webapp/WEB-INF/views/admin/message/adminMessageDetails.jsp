@@ -35,17 +35,17 @@
 
                                 <form:form items="${adminMessageDetails}" var="adminMessageDetails">
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Messanger id</label>
+                                        <label class="col-sm-3 form-control-label">Message id</label>
                                         <c:out value="${adminMessageDetails.id}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Messanger</label>
-                                        <c:out value="${adminMessageDetails.messanger}"/>
+                                        <label class="col-sm-3 form-control-label">Message</label>
+                                        <c:out value="${adminMessageDetails.message}"/>
                                         <label class="label-material"></label>
                                     </div>
                                     <div class="form-group-material">
-                                        <label class="col-sm-3 form-control-label">Messanger date</label>
+                                        <label class="col-sm-3 form-control-label">Message date</label>
                                         <c:out value="${adminMessageDetails.updateDate}"/>
                                         <label class="label-material"> </label>
                                     </div>
