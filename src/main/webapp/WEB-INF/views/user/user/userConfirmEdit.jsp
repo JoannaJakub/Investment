@@ -31,7 +31,7 @@
 
                                     <tr>
                                         <td>Name</td>
-                                        <td><c:out value="${myDetailsConfirmEdit.firstName}"/></td>
+                                        <td><c:out value="${myDetailsConfirmEdit}"/></td>
                                     </tr>
                                     <tr>
                                         <td>Surname</td>
