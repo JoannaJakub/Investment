@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <section class="no-padding-top">
+        <div class="no-padding-top">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6">
@@ -43,18 +43,16 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
-                                        <form:select id="stocks" type="text" name="bid" path="stocks"
-                                                    placeholder="stocks" data-msg="Please enter stocks"
-                                                    class="form-control"/>
+                                        <form:select path="stocks" items="${stocks}" class="form-control"
+                                                     itemLabel="name" itemValue="id"/>
                                         <form:errors path="stocks"/></div>
-                                    <label for="bid" class="label-material"></label>
+                                    <label for="stocks" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Storage</label>
                                     <div class="col-sm-9">
-                                        <form:select id="storage" type="text" name="name" path="storage"
-                                                    placeholder="storage" data-msg="Please enter storage"
-                                                    class="form-control"/>
+                                        <form:select path="storage" items="${storage}" class="form-control"
+                                                     itemLabel="name" itemValue="id"/>
                                         <form:errors path="storage"/>
                                     </div>
                                     <label for="storage" class="label-material"></label>
@@ -104,17 +102,16 @@
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
-                            </form:form><small>List of all stocks? </small><a href="<c:url value="/yourStocks"/>">Here</a>
+                            </form:form>
+                            <small>List of all stocks? </small><a href="<c:url value="/yourStocks"/>">Here</a>
 
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
         </section>
 
-    </div>
-</div>
-<%@ include file="../../main/footer.jsp" %>
+        <%@ include file="../../main/footer.jsp" %>
 </body>
 </html>

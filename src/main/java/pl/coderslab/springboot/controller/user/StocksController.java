@@ -85,10 +85,16 @@ public class StocksController {
     }
 
     @GetMapping(value = {"/stocksEdit/{id}"})
-    public String stocksEditForm(@PathVariable long id, Model model) {
+    public String stocksEditForm(@PathVariable long id, Model model, Authentication authentication) {
+/*
+        model.addAttribute("user", userService.findByUserName(authentication.getName()));
+*/
+        model.addAttribute("stocks", stocksRepository.findAll());
+        model.addAttribute("storage", storageRepository.findAll());
+
         Optional<Ownedstocks> stocksEdit = ownedstocksRepository.findById(id);
         if (stocksEdit.isPresent()) {
-            model.addAttribute("cryptoEdit", stocksEdit.get());
+            model.addAttribute("stocksEdit", stocksEdit.get());
         } else {
             model.addAttribute("error", "You don't own this stock");
         }

@@ -40,11 +40,11 @@
                                         </tr>
                                         <tr>
                                             <td>Stocks</td>
-                                            <td><c:out value="${stocksConfirmEdit.stocks}"/></td>
+                                            <td><c:out value="${stocksConfirmEdit.stocks.name}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Storage</td>
-                                            <td><c:out value="${stocksConfirmEdit.storage}"/></td>
+                                            <td><c:out value="${stocksConfirmEdit.storage.name}"/></td>
                                         </tr>
                                         <tr>
                                             <td>Change</td>
@@ -82,8 +82,6 @@
                 <small>List of all stocks? </small><a href="<c:url value="/yourStocks"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
 
 <%@ include file="../../main/footer.jsp" %>
 </body>
