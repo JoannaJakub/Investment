@@ -43,18 +43,14 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Name</label>
                                     <div class="col-sm-9">
-                                        <form:input id="cryptocurrencies" type="text" name="cryptocurrencies" path="cryptocurrencies"
-                                                    placeholder="cryptocurrencies" data-msg="Please enter cryptocurrencies"
-                                                    class="form-control"/>
+                                        <form:select path="cryptocurrencies" items="${cryptocurrencies}" class="form-control" itemLabel="name" itemValue="id" />
                                         <form:errors path="cryptocurrencies"/></div>
                                     <label for="cryptocurrencies" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Storage</label>
                                     <div class="col-sm-9">
-                                        <form:input id="storage" type="text" name="name" path="storage"
-                                                    placeholder="storage" data-msg="Please enter storage"
-                                                    class="form-control"/>
+                                        <form:select path="storage" items="${storage}" class="form-control" itemLabel="name" itemValue="id" />
                                         <form:errors path="storage"/>
                                     </div>
                                     <label for="storage" class="label-material"></label>
@@ -100,11 +96,11 @@
                                     <label for="notes" class="label-material"></label>
                                 </div>
                                 <div class="form-group text-center">
-                                    <a href="<c:url value="/adminStocks"/>"
+                                    <a href="<c:url value="/yourCrypto"/>"
                                        class="btn btn-secondary">Cancel</a>
                                     <input id="register" type="submit" value="Update" class="btn btn-primary">
                                 </div>
-                            </form:form><small>List of all stocks? </small><a href="<c:url value="/yourStocks"/>">Here</a>
+                            </form:form><small>List of all your crypto? </small><a href="<c:url value="/yourCrypto"/>">Here</a>
 
                         </div>
                     </div>

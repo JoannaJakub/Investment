@@ -53,12 +53,9 @@
             <br>
             <br>
             <div class="no-margin-bottom">
-                <small>List of all crypto? </small><a href="<c:url value="/yourCrypto"/>">Here</a>
+                <small>List of all your crypto? </small><a href="<c:url value="/yourCrypto"/>">Here</a>
             </div>
-
         </section>
-    </div>
-</div>
 <%@ include file="../footer.jsp" %>
 
 </body>

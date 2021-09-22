@@ -82,8 +82,6 @@
                 <small>List of all crypto?</small><a href="<c:url value="/yourCrypto"/>">Here</a>
             </div>
         </section>
-    </div>
-</div>
 
 <%@ include file="../../main/footer.jsp" %>
 </body>

@@ -105,6 +105,8 @@ public class CryptocurrencyController {
         Optional<Ownedcryptocurrencies> crypto = ownedcryptocurrenciesRepo.findById(id);
         if (crypto.isPresent()) {
             model.addAttribute("cryptoEdit", crypto.get());
+            model.addAttribute("cryptocurrencies", cryptocurrencyRepository.findAll());
+            model.addAttribute("storage", storageRepository.findAll());
         } else {
              model.addAttribute("error", "You don't own this crypto");
         }
