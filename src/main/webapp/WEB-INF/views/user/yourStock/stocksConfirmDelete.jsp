@@ -55,10 +55,7 @@
             <div class="no-margin-bottom">
                 <small>List of stocks? </small><a href="<c:url value="/yourStocks"/>">Here</a>
             </div>
-
         </section>
-    </div>
-</div>
 <%@ include file="../footer.jsp" %>
 
 </body>

@@ -32,7 +32,7 @@
                         <div class="block">
                             <div class="title"><strong>All form elements</strong></div>
                             <div class="block-body">
-                                <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedStocks">
+                                <form:form action="stocksSuccess" class="form-horizontal" method="post" modelAttribute="ownedstocks">
                                     <div class="form-group row">
                                         <label class="col-sm-3 form-control-label">Choose stock</label>
                                         <div class="col-sm-9 ml-auto">

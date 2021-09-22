@@ -52,7 +52,7 @@ public class StocksController {
 
     @GetMapping("/addStocks")
     public String addStocks(Model model, Authentication authentication) {
-        model.addAttribute("ownedStocks", new Ownedstocks());
+        model.addAttribute("ownedstocks", new Ownedstocks());
         model.addAttribute("stocks", stocksRepository.findAll());
         model.addAttribute("storage", storageRepository.findAll());
        model.addAttribute("user", userService.findByUserName(authentication.getName()));
@@ -60,12 +60,15 @@ public class StocksController {
     }
 
     @PostMapping(value = "/stocksSuccess")
-    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result) {
+    public String processAddingStocks(@Valid Ownedstocks ownedstocks, BindingResult result,Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("stocks", stocksRepository.findAll());
+            model.addAttribute("storage", storageRepository.findAll());
             return "user/yourStock/addStocks";
+        }else {
+            ownedstocksRepository.save(ownedstocks);
+            return "user/yourStock/stocksSuccess";
         }
-        ownedstocksRepository.save(ownedstocks);
-        return "user/yourStock/stocksSuccess";
     }
 
     @GetMapping("/allStocks")
