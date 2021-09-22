@@ -69,7 +69,7 @@ public class UserController {
             userRepository.save(user);
         }*/
         if (result.hasErrors()) {
-            return "user/user/userConfirmEdit";
+            return "user/user/userEdit";
         } else if (userService.findByUserName(user.getUsername().toLowerCase()) != null) {
             result.addError(new FieldError(user.toString(), "username", "Email is already taken"));
         } else if (!(user.getPassword().equals(user.getPasswordConfirm()))) {

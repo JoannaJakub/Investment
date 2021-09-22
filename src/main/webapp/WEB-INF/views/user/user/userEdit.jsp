@@ -37,7 +37,7 @@
                                         <form:input type="hidden" path="passwordConfirm"/>
                                         <form:input id="firstName" type="text" name="firstName" path="firstName"
                                                     placeholder="Name" data-msg="Please enter your name"
-                                                    class="input-material"/>
+                                                    class="form-control"/>
                                         <form:errors path="firstName"/></div>
                                     <label for="firstName" class="label-material"></label>
                                 </div>
@@ -46,7 +46,7 @@
                                     <div class="col-sm-9">
                                         <form:input id="register-surname" type="text" name="registerSurname"
                                                     path="lastName" placeholder="Surname"
-                                                    data-msg="Please enter your surname" class="input-material"/>
+                                                    data-msg="Please enter your surname" class="form-control"/>
                                         <form:errors path="lastName"/></div>
                                     <label for="firstName" class="label-material"></label>
                                 </div>
@@ -56,7 +56,7 @@
                                         <form:input id="register-username" type="text" name="registerUsername"
                                                     path="username" placeholder="Email"
                                                     data-msg="Please enter a valid email address"
-                                                    class="input-material"/>
+                                                    class="form-control"/>
                                         <form:errors path="username"/></div>
                                     <label for="firstName" class="label-material"></label>
                                 </div>

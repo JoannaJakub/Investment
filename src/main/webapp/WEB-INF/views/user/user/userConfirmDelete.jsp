@@ -47,22 +47,7 @@
                        class="btn btn-primary">YES, delete my account</a>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="no-margin-bottom">
-                <small>List of users? </small><a href="<c:url value="/users"/>">Here</a>
-            </div>
-
         </section>
-    </div>
-</div>
-
-
-<%@ include file="../../user/footer.jsp" %>
-
+        <%@ include file="../../user/footer.jsp" %>
 </body>
 </html>

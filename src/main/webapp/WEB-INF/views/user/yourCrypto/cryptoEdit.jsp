@@ -37,7 +37,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 form-control-label">Id</label>
                                     <div class="col-sm-9">
-                                        <c:out value="${id}"/></div>
+                                        </div>
                                     <label for="name" class="label-material"></label>
                                 </div>
                                 <div class="form-group row">

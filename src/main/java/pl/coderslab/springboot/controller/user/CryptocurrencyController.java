@@ -70,8 +70,10 @@ public class CryptocurrencyController {
     }
 
     @PostMapping(value = "/cryptoSuccess")
-    public String processAddingCrypto(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result) {
+    public String processAddingCrypto(@Valid Ownedcryptocurrencies ownedcryptocurrencies, BindingResult result,Model model) {
         if (result.hasErrors()) {
+            model.addAttribute("cryptocurrencies", cryptocurrencyRepository.findAll());
+            model.addAttribute("storage", storageRepository.findAll());
             return "user/yourCrypto/addCrypto";
         } else {
             ownedcryptocurrenciesRepo.save(ownedcryptocurrencies);
